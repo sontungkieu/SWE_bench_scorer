@@ -2,6 +2,10 @@
 
 Phiên bản: **0.3.1**.
 
+Chuẩn bị snapshot VM chứa đủ 500 image, TTL **90 ngày**:
+[quy trình và giới hạn](probes/SNAPSHOT_CATALOG.md). Đây là bước nạp môi trường;
+không chấm full 500 và chưa đổi backend của web/CLI.
+
 ## Dùng Docker Hub token qua Modal Secret
 
 Cache CLI nhận `--registry-secret swebench-dockerhub`. Secret cần hai key
