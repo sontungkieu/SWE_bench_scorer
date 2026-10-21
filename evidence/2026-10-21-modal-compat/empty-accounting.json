@@ -1,0 +1,11 @@
+{
+  "error_instances": 0,
+  "completed_instances": 0,
+  "resolved_instances": 0,
+  "empty_patch_instances": 1,
+  "empty_patch_ids": [
+    "django__django-11099"
+  ],
+  "accounting_origin": "probe accounting for official CLI empty-patch early return",
+  "official_report_written": false
+}

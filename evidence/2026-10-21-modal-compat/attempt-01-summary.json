@@ -1,0 +1,240 @@
+{
+  "profile": "phamvanvuhoan",
+  "backend": "official --modal true with audited SDK compatibility overlay",
+  "started_at": "2026-10-21T12:48:10.405894+00:00",
+  "harness_modified": true,
+  "installed_harness_modified": false,
+  "controls": [
+    {
+      "control": "gold",
+      "expected_resolved": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "credential_path_compatibility": "temporary private HOME symlink to scoped config",
+      "wall_seconds": 49.46702958457172,
+      "app_ids": [
+        "ap-5aNry4svE20dhHCubBxdAn"
+      ],
+      "cleanup": [
+        {
+          "app_id": "ap-5aNry4svE20dhHCubBxdAn",
+          "stop_exit_code": 1,
+          "remaining_sandboxes_after_cleanup": []
+        }
+      ],
+      "report": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests)",
+              "test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests)",
+              "test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)"
+            ],
+            "failure": []
+          },
+          "PASS_TO_PASS": {
+            "success": [
+              "test_help_text (auth_tests.test_validators.MinimumLengthValidatorTest)",
+              "test_validate (auth_tests.test_validators.MinimumLengthValidatorTest)",
+              "test_help_text (auth_tests.test_validators.NumericPasswordValidatorTest)",
+              "test_validate (auth_tests.test_validators.NumericPasswordValidatorTest)",
+              "test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)",
+              "test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)",
+              "test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest)",
+              "test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest)",
+              "test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_changed (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest)",
+              "test_validate_password (auth_tests.test_validators.PasswordValidationTest)",
+              "test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest)",
+              "test_validate (auth_tests.test_validators.CommonPasswordValidatorTest)",
+              "test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest)",
+              "test_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest)"
+            ],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "aggregate": {
+        "total_instances": 1,
+        "submitted_instances": 1,
+        "completed_instances": 1,
+        "resolved_instances": 1,
+        "unresolved_instances": 0,
+        "empty_patch_instances": 0,
+        "error_instances": 0,
+        "completed_ids": [
+          "django__django-11099"
+        ],
+        "incomplete_ids": [],
+        "empty_patch_ids": [],
+        "submitted_ids": [
+          "django__django-11099"
+        ],
+        "resolved_ids": [
+          "django__django-11099"
+        ],
+        "unresolved_ids": [],
+        "error_ids": [],
+        "schema_version": 2,
+        "unstopped_instances": 0,
+        "unstopped_containers": [],
+        "unremoved_images": []
+      },
+      "passed": true
+    },
+    {
+      "control": "wrong",
+      "expected_resolved": false,
+      "exit_code": 0,
+      "timed_out": false,
+      "credential_path_compatibility": "temporary private HOME symlink to scoped config",
+      "wall_seconds": 25.60416778549552,
+      "app_ids": [
+        "ap-9cPSq1QO8v0Wb9NJ24xYBf"
+      ],
+      "cleanup": [
+        {
+          "app_id": "ap-9cPSq1QO8v0Wb9NJ24xYBf",
+          "stop_exit_code": 1,
+          "remaining_sandboxes_after_cleanup": []
+        }
+      ],
+      "report": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)"
+            ],
+            "failure": [
+              "test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests)",
+              "test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests)"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [
+              "test_help_text (auth_tests.test_validators.MinimumLengthValidatorTest)",
+              "test_validate (auth_tests.test_validators.MinimumLengthValidatorTest)",
+              "test_help_text (auth_tests.test_validators.NumericPasswordValidatorTest)",
+              "test_validate (auth_tests.test_validators.NumericPasswordValidatorTest)",
+              "test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)",
+              "test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)",
+              "test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest)",
+              "test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest)",
+              "test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_changed (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest)",
+              "test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest)",
+              "test_validate_password (auth_tests.test_validators.PasswordValidationTest)",
+              "test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest)",
+              "test_validate (auth_tests.test_validators.CommonPasswordValidatorTest)",
+              "test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest)",
+              "test_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest)"
+            ],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "aggregate": {
+        "total_instances": 1,
+        "submitted_instances": 1,
+        "completed_instances": 1,
+        "resolved_instances": 0,
+        "unresolved_instances": 1,
+        "empty_patch_instances": 0,
+        "error_instances": 0,
+        "completed_ids": [
+          "django__django-11099"
+        ],
+        "incomplete_ids": [],
+        "empty_patch_ids": [],
+        "submitted_ids": [
+          "django__django-11099"
+        ],
+        "resolved_ids": [],
+        "unresolved_ids": [
+          "django__django-11099"
+        ],
+        "error_ids": [],
+        "schema_version": 2,
+        "unstopped_instances": 0,
+        "unstopped_containers": [],
+        "unremoved_images": []
+      },
+      "passed": true
+    },
+    {
+      "control": "empty",
+      "expected_resolved": false,
+      "exit_code": 0,
+      "timed_out": false,
+      "credential_path_compatibility": "temporary private HOME symlink to scoped config",
+      "wall_seconds": 7.048965208232403,
+      "app_ids": [],
+      "cleanup": [],
+      "report": null,
+      "aggregate": {},
+      "passed": false
+    }
+  ],
+  "full_500_evaluated": false,
+  "dataset": {
+    "name": "SWE-bench/SWE-bench_Verified",
+    "revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "count": 500,
+    "sha256": "6a6fb72484bfc40f35cecbae1ae4615e9460905f729c57659df5f4ef9d7dec6e"
+  },
+  "compatibility": {
+    "upstream_backend_sha256": "5632a6f4f5e2c042de127fea9b988e7da358fbf1b5ed569ae7d1d84ac0a177f7",
+    "patched_backend_sha256": "a64f3d61487c62df5f8b8c24d6b3a885e307c6e1c0de7b98b1705dab73535d1d",
+    "changed_package_files": [
+      "harness/modal_eval/run_evaluation_modal.py"
+    ],
+    "unchanged_protected_sha256": {
+      "harness/grading.py": "88fc500ebaf692a53457149cec24dcf82dfa2d48f98021a894a087d275f61df4",
+      "harness/test_spec/test_spec.py": "f9ab368091b5770d2ab6e842e7d56161f87e70a20519576731c122e310820f4a",
+      "harness/test_spec/create_scripts.py": "de1825810e76a6ce0ec8f5c1b113dddaf62c24bbc8631e78fd57852e0e778d36",
+      "harness/log_parsers/python.py": "42f564edfee3c21751739bbf09d60cf3a3ecdc58ac5cf45717dc6b47a85d7459"
+    },
+    "changes": [
+      "pin worker dependencies",
+      "use filesystem.write_text",
+      "use Sandbox CPU request instead of cgroup write",
+      "invoke unchanged entrypoint by absolute path",
+      "terminate Sandbox in finally"
+    ]
+  },
+  "coordinator_python": "3.13.7 (main, Mar  3 2026, 12:19:54) [GCC 15.2.0]",
+  "finished_at": "2026-10-21T12:49:52.774535+00:00",
+  "passed": false,
+  "stopped_after_failure": "empty"
+}

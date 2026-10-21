@@ -1,7 +1,8 @@
-"""Run the unmodified SWE-bench Modal CLI from an isolated remote environment.
+"""Probe the SWE-bench Modal CLI from an isolated remote environment.
 
 Credentials stay in the coordinator's existing scoped Modal configuration.
-This probe neither modifies the installed harness nor starts local Docker.
+Optional compatibility changes apply only to a copied package. The installed
+harness is never modified and this probe never starts local Docker.
 """
 import argparse
 import hashlib
@@ -22,10 +23,38 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
 
 
+def control_passed(label, expected, instance_id, exit_code, timed_out, report, aggregate):
+    if exit_code != 0 or timed_out or aggregate.get("error_instances") != 0:
+        return False
+    if label == "empty":
+        return (instance_id in aggregate.get("empty_patch_ids", [])
+                and aggregate.get("resolved_instances") == 0
+                and aggregate.get("completed_instances") == 0)
+    return (aggregate.get("completed_instances") == 1 and report is not None
+            and report.get("resolved") is expected)
+
+
+def account_skipped_empty(rows, console):
+    """Account validated empty inputs when upstream returns before reporting.
+
+    This is probe accounting, never presented as an official harness report.
+    A zero exit code alone is insufficient to enter this path.
+    """
+    if (not rows or any(row["model_patch"].strip() for row in rows)
+            or "No instances to run." not in console.splitlines()
+            or "Traceback" in console or "Error:" in console):
+        return {}
+    return {"error_instances": 0, "completed_instances": 0, "resolved_instances": 0,
+            "empty_patch_instances": len(rows), "empty_patch_ids": [row["instance_id"] for row in rows],
+            "accounting_origin": "probe accounting for official CLI empty-patch early return",
+            "official_report_written": False}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--fixtures", type=Path, required=True)
+    parser.add_argument("--compat", action="store_true", help="Use audited SDK compatibility overlay")
     args = parser.parse_args()
     if os.environ.get("MODAL_PROFILE") != "phamvanvuhoan":
         raise RuntimeError("Probe requires explicitly selected phamvanvuhoan profile")
@@ -35,7 +64,8 @@ def main():
     out.mkdir(parents=True, exist_ok=False)
     summary = {"profile": "phamvanvuhoan", "backend": "official --modal true",
                "started_at": datetime.now(timezone.utc).isoformat(),
-               "harness_modified": False, "controls": [], "full_500_evaluated": False}
+               "harness_modified": args.compat, "installed_harness_modified": False,
+               "controls": [], "full_500_evaluated": False}
     write_json(out / "summary.json", summary)
     write_json(out / "packages.json", dict(sorted(
         (dist.metadata["Name"], dist.version) for dist in importlib.metadata.distributions())))
@@ -60,6 +90,13 @@ def main():
     for module in (backend, spec):
         source = Path(module.__file__)
         (out / source.name).write_bytes(source.read_bytes())
+    overlay = None
+    if args.compat:
+        from modal_sdk_compat import prepare_overlay
+        import swebench
+        overlay = prepare_overlay(Path(swebench.__file__).parent, out)
+        summary["backend"] = "official --modal true with audited SDK compatibility overlay"
+        summary["compatibility"] = json.loads((out / "compat-manifest.json").read_text())
     summary["coordinator_python"] = sys.version
     for control in manifest["controls"]:
         label = control["control"]
@@ -83,6 +120,8 @@ def main():
         with tempfile.TemporaryDirectory(prefix="coordinator-home-", dir=case) as home:
             (Path(home) / ".modal.toml").symlink_to(config)
             env = dict(os.environ, HOME=home)
+            if overlay is not None:
+                env["PYTHONPATH"] = str(overlay) + os.pathsep + env.get("PYTHONPATH", "")
             with (case / "console.log").open("w", encoding="utf-8") as stream:
                 process = subprocess.Popen(command, cwd=case, stdout=stream, env=env,
                                            stderr=subprocess.STDOUT, start_new_session=True)
@@ -109,6 +148,12 @@ def main():
                                      capture_output=True, text=True, timeout=60)
             (case / (app_id + "-stop.log")).write_text(stopped.stdout + stopped.stderr)
             cleanup.append({"app_id": app_id, "stop_exit_code": stopped.returncode})
+            import modal
+            remaining = list(modal.Sandbox.list(app_id=app_id))
+            for sandbox in remaining:
+                sandbox.terminate(wait=True)
+            cleanup[-1]["remaining_sandboxes_after_cleanup"] = [
+                sandbox.object_id for sandbox in modal.Sandbox.list(app_id=app_id)]
         result["cleanup"] = cleanup
         reports = {}
         for path in case.glob("logs/**/report.json"):
@@ -117,17 +162,24 @@ def main():
             except json.JSONDecodeError:
                 pass
         result["report"] = reports.get(manifest["instance_id"])
-        if label == "empty":
-            aggregates = list(case.glob("*.json"))
-            aggregate = next((json.loads(p.read_text()) for p in aggregates
-                              if p.name != "command.json" and "unresolved_ids" in json.loads(p.read_text())), {})
-            result["aggregate"] = aggregate
-            result["passed"] = (process.returncode == 0 and not timed_out and
-                                  manifest["instance_id"] in aggregate.get("unresolved_ids", []))
-        else:
-            result["passed"] = (process.returncode == 0 and not timed_out and
-                                  result["report"] is not None and
-                                  result["report"].get("resolved") is control["expected_resolved"])
+        aggregate = {}
+        for path in case.glob("*.json"):
+            value = json.loads(path.read_text())
+            if isinstance(value, dict) and "error_instances" in value:
+                aggregate = value
+                break
+        result["aggregate_origin"] = "official harness" if aggregate else None
+        if not aggregate and label == "empty" and process.returncode == 0 and not timed_out:
+            aggregate = account_skipped_empty([json.loads(line) for line in predictions.read_text().splitlines()], console)
+            if aggregate:
+                result["aggregate_origin"] = "probe empty-patch accounting"
+                write_json(case / "empty-accounting.json", aggregate)
+        result["aggregate"] = aggregate
+        result["passed"] = control_passed(label, control["expected_resolved"],
+                                          manifest["instance_id"], process.returncode,
+                                          timed_out, result["report"], aggregate)
+        result["passed"] = result["passed"] and all(
+            not item["remaining_sandboxes_after_cleanup"] for item in cleanup)
         summary["controls"].append(result)
         summary["finished_at"] = datetime.now(timezone.utc).isoformat()
         summary["passed"] = len(summary["controls"]) == 3 and all(c["passed"] for c in summary["controls"])

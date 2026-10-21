@@ -1,0 +1,54 @@
+{
+  "apps": [
+    {
+      "app_id": "ap-0o7F3ikNj2SZ6gnNRvixDQ",
+      "description": "swebench-evaluation",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-10-21 12:52:04+00:00",
+      "stopped_at": "2026-10-21 12:52:23+00:00"
+    },
+    {
+      "app_id": "ap-O21JPKGHDkflX11uNLmav5",
+      "description": "swebench-evaluation",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-10-21 12:51:36+00:00",
+      "stopped_at": "2026-10-21 12:51:51+00:00"
+    },
+    {
+      "app_id": "ap-9cPSq1QO8v0Wb9NJ24xYBf",
+      "description": "swebench-evaluation",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-10-21 12:49:22+00:00",
+      "stopped_at": "2026-10-21 12:49:40+00:00"
+    },
+    {
+      "app_id": "ap-5aNry4svE20dhHCubBxdAn",
+      "description": "swebench-evaluation",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-10-21 12:48:32+00:00",
+      "stopped_at": "2026-10-21 12:49:09+00:00"
+    }
+  ],
+  "remaining_sandboxes_per_control": [
+    [
+      {
+        "app_id": "ap-O21JPKGHDkflX11uNLmav5",
+        "stop_exit_code": 1,
+        "remaining_sandboxes_after_cleanup": []
+      }
+    ],
+    [
+      {
+        "app_id": "ap-0o7F3ikNj2SZ6gnNRvixDQ",
+        "stop_exit_code": 1,
+        "remaining_sandboxes_after_cleanup": []
+      }
+    ],
+    []
+  ],
+  "temporary_credential_links_remaining": false
+}

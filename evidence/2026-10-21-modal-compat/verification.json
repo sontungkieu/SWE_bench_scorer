@@ -1,0 +1,36 @@
+{
+  "profile": "phamvanvuhoan",
+  "mock_only": true,
+  "unique_instances": 1,
+  "all_controls_passed": true,
+  "gold_resolved": true,
+  "wrong_resolved": false,
+  "empty_counted_unresolved_by_probe": true,
+  "empty_has_official_report": false,
+  "offline_tests_passed": 5,
+  "harness_version": "4.1.0",
+  "modal_sdk_version": "1.6.2",
+  "installed_upstream_package_unchanged": true,
+  "docker_report_parity": {
+    "gold": {
+      "identical": true,
+      "docker_baseline_report_sha256": "5f66c4bd739d1e88ab9c7ae37e15fc5d8fc09c6fe42eac77c673abc6771c4f7b",
+      "native_report_sha256": "5f66c4bd739d1e88ab9c7ae37e15fc5d8fc09c6fe42eac77c673abc6771c4f7b",
+      "comparison": "complete parsed JSON, including every test status"
+    },
+    "wrong": {
+      "identical": true,
+      "docker_baseline_report_sha256": "1353f8a8d721a075b1a611068571bdcea9b8c7489ab6eead25c13da007dc6b81",
+      "native_report_sha256": "1353f8a8d721a075b1a611068571bdcea9b8c7489ab6eead25c13da007dc6b81",
+      "comparison": "complete parsed JSON, including every test status"
+    }
+  },
+  "all_four_task_apps_stopped": true,
+  "full_500_evaluated": false,
+  "production_backend_changed": false,
+  "archive_sha256": "9723429a412327834798a5115104fc9c7660e7f25f144b5940d5e76e550e949a",
+  "executed_source_sha256": {
+    "probe.py": "6dde42c66d3f0455f7542ddeea6cadedba3ad76899717f8e36a27a920dbd023f",
+    "modal_sdk_compat.py": "a65edc287550f30fa3d211f36893a873b2b16e3bb161fcb7213eb44c64df6f54"
+  }
+}

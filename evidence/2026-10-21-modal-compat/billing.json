@@ -1,0 +1,111 @@
+{
+  "reported_at": "2026-10-21T12:53:56.475484+00:00",
+  "profile": "phamvanvuhoan",
+  "app_ids": [
+    "ap-0o7F3ikNj2SZ6gnNRvixDQ",
+    "ap-5aNry4svE20dhHCubBxdAn",
+    "ap-9cPSq1QO8v0Wb9NJ24xYBf",
+    "ap-O21JPKGHDkflX11uNLmav5"
+  ],
+  "rows": [
+    {
+      "cost": "0.00001056",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-0o7F3ikNj2SZ6gnNRvixDQ",
+      "resource": "Memory"
+    },
+    {
+      "cost": "6.4E-7",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-0o7F3ikNj2SZ6gnNRvixDQ",
+      "resource": "Network Egress"
+    },
+    {
+      "cost": "0.00129627",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-0o7F3ikNj2SZ6gnNRvixDQ",
+      "resource": "CPU"
+    },
+    {
+      "cost": "0.00002514",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-5aNry4svE20dhHCubBxdAn",
+      "resource": "Memory"
+    },
+    {
+      "cost": "0.00001002",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-5aNry4svE20dhHCubBxdAn",
+      "resource": "Network Egress"
+    },
+    {
+      "cost": "0.00176734",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-5aNry4svE20dhHCubBxdAn",
+      "resource": "CPU"
+    },
+    {
+      "cost": "0.00001021",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-9cPSq1QO8v0Wb9NJ24xYBf",
+      "resource": "Memory"
+    },
+    {
+      "cost": "5.5E-7",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-9cPSq1QO8v0Wb9NJ24xYBf",
+      "resource": "Network Egress"
+    },
+    {
+      "cost": "0.00128360",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-9cPSq1QO8v0Wb9NJ24xYBf",
+      "resource": "CPU"
+    },
+    {
+      "cost": "0.00000722",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-O21JPKGHDkflX11uNLmav5",
+      "resource": "Memory"
+    },
+    {
+      "cost": "5.6E-7",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-O21JPKGHDkflX11uNLmav5",
+      "resource": "Network Egress"
+    },
+    {
+      "cost": "0.00096588",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "object_id": "ap-O21JPKGHDkflX11uNLmav5",
+      "resource": "CPU"
+    }
+  ],
+  "reported_cost_usd": "0.00537799",
+  "before_credits": true,
+  "not_final_invoice": true
+}
