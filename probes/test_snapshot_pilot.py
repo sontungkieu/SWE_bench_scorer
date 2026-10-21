@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 from probes.snapshot_pilot import validate_inputs
 from probes.snapshot_worker import check_plan, verify_local_images
+from probes.summarize_snapshot_pilot import compare, cost_summary
 
 
 class FrozenPilotTests(unittest.TestCase):
@@ -71,6 +72,30 @@ class RestoredImageTests(unittest.TestCase):
         plan[-1]["instance_id"] = plan[0]["instance_id"]
         with self.assertRaises(ValueError):
             check_plan(plan)
+
+
+class ComparisonTests(unittest.TestCase):
+    def test_equal_resolved_counts_do_not_hide_different_test_statuses(self):
+        before = {"a": {"resolved": True, "tests_status": {"success": ["one"]}}}
+        after = {"a": {"resolved": True, "tests_status": {"success": ["two"]}}}
+        result = compare(["a"], before, after)
+        self.assertEqual(result["snapshot_resolved"], 1)
+        self.assertEqual(result["complete_report_matches"], 0)
+        self.assertEqual(result["different_report_ids"], ["a"])
+
+    def test_missing_reports_are_not_counted_as_model_failures(self):
+        result = compare(["a"], {"a": {"resolved": True}}, {})
+        self.assertEqual(result["missing_ids"], ["a"])
+
+    def test_setup_cost_is_separate_from_recurring_savings(self):
+        result = cost_summary({"baseline_vm": "1", "snapshot_score": "0.4", "canary": "0.1", "snapshot_prepare": "0.6"})
+        self.assertEqual(result["first_use_total_usd"], "1.1")
+        self.assertEqual(result["recurring_saving_percent"], "60.0")
+        self.assertEqual(result["break_even_runs"], 2)
+
+    def test_no_break_even_when_snapshot_is_more_expensive(self):
+        result = cost_summary({"baseline_vm": "1", "snapshot_score": "2", "canary": ".1", "snapshot_prepare": ".1"})
+        self.assertIsNone(result["break_even_runs"])
 
 
 if __name__ == "__main__":
