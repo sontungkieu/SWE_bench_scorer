@@ -82,6 +82,24 @@ class QueueTests(unittest.TestCase):
         self.assertEqual(status["status"], "stopped")
         launch.assert_not_called()
 
+    def test_progress_does_not_drop_while_new_worker_visits_cached_prefix(self):
+        self.finish("existing")
+        snapshots = []
+        replace = prewarm_queue.os.replace
+        def capture(source, target):
+            replace(source, target)
+            snapshots.append(json.loads(Path(target).read_text()))
+        def spawn(command, **kwargs):
+            self.finish(command[command.index("--run-id") + 1], complete=True)
+            return Mock()
+        with patch.object(prewarm_queue, "progress", side_effect=[{"cached_count": 301}, {"cached_count": 1}]), \
+                patch.object(prewarm_queue.os, "replace", side_effect=capture):
+            code, launch, status = self.run_queue(["--adopt-run", "existing"], side_effect=spawn)
+        self.assertEqual(code, 0)
+        counts = [s["cached_count"] for s in snapshots if s["status"] == "warming"]
+        self.assertTrue(all(count >= 301 for count in counts))
+        self.assertEqual(counts, sorted(counts))
+
     def test_unconfirmed_vm_termination_blocks_retry(self):
         self.finish("existing", error="HTTP Error 429: Too Many Requests")
         (self.root / "runs/existing/receipt.json").write_text(json.dumps({"finished_at": "now"}))

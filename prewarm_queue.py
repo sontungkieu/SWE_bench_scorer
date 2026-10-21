@@ -97,7 +97,12 @@ def main(argv=None):
         run = root / "runs" / run_id
         deadline = time.monotonic() + args.lifetime + 300
         while time.monotonic() < deadline:
-            save(status="warming", run_id=run_id, **progress(run))
+            current = progress(run)
+            # The new worker counts from zero as it visits old manifests. Keep
+            # the persisted cache total while that prefix is being revisited.
+            if "cached_count" in current:
+                current["cached_count"] = max(current["cached_count"], state["cached_count"])
+            save(status="warming", run_id=run_id, **current)
             receipt_path = run / "receipt.json"
             if receipt_path.exists():
                 try:

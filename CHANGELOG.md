@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Keep the displayed cache count across worker resumptions while the new worker
+  revisits already committed manifests; 49 offline tests pass.
+
 ## 0.3.1 - 2026-10-21
 
 - Optional Docker Hub Basic auth via a named Modal Secret for cache-only VMs;
