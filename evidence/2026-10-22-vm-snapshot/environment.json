@@ -1,0 +1,10 @@
+{
+  "harness": "4.1.0",
+  "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+  "workers": 8,
+  "dataset_count": 24,
+  "mock_gold_only": true,
+  "image_cache_volume_attached": false,
+  "registry_secrets_injected": false,
+  "no_preexisting_test_containers": true
+}

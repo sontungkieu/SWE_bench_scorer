@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-10-21T19:18:15.577007+00:00",
+  "profile": "phamvanvuhoan",
+  "runtime_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "runtime": "vm",
+  "cpu": 2,
+  "memory_gib": 8,
+  "lifetime_per_vm_seconds": 300,
+  "max_vms": 2,
+  "allocation_bound_usd": 0.07931999999999999,
+  "snapshot_ttl_seconds": 3600,
+  "no_tests_run": true,
+  "full_500_evaluated": false,
+  "app_id": "ap-mTA5sKa82RPLlQD6DgLyD4",
+  "parent_sandbox": "sb-01M5FYCRJC9BZ4T10XYJY0YCK6",
+  "snapshot_image_id": "im-01M5FYCVG7EGN87ENQ2D2M37EP",
+  "snapshot_seconds": 1.2055261563509703,
+  "child_sandbox": "sb-01M5FYCVTNENW5S9MGBVBR7EGD",
+  "passed": true,
+  "all_sandboxes_terminated": true,
+  "wall_seconds": 6.258709259331226,
+  "finished_at": "2026-10-21T19:18:21.835758+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "qualified": true,
+  "selected_count": 24,
+  "repository_count": 12,
+  "gold_resolved": 24,
+  "complete_baseline_report_matches": 24,
+  "local_offline_tests_passed": 70,
+  "remote_snapshot_tests_passed": 12,
+  "executed_preparation_helpers_match_git_commit": "ed0ae56",
+  "executed_score_helper_matches_git_commit": "6cded25",
+  "evaluator_source_hashes_match_baseline": true,
+  "consecutive_final_billing_reads_equal": true,
+  "all_task_sandboxes_terminated": true,
+  "full_500_evaluated": false,
+  "production_backend_changed": false,
+  "snapshot_ttl_seconds": 2592000,
+  "planning_estimate_usd": 3,
+  "combined_cpu_memory_allocation_bound_usd": 2.22096,
+  "experiment_compute_egress_usd": "0.27996446",
+  "before_credits": true,
+  "not_final_invoice": true,
+  "raw_archive_sha256": "2791064d08cc611133560d75a098c643e037950a83cbd941f2e7756129515ff5"
+}

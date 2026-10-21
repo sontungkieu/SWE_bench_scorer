@@ -1,0 +1,100 @@
+{
+  "checked_at": "2026-10-21T19:37:53.765104+00:00",
+  "app_ids": {
+    "baseline_vm": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+    "canary": "ap-mTA5sKa82RPLlQD6DgLyD4",
+    "snapshot_prepare": "ap-ENZqLoN3f873u7EQGB8ZOd",
+    "snapshot_score": "ap-cJokQ7dw6iISWHl92c5O06"
+  },
+  "cost_by_role_usd": {
+    "baseline_vm": "0.98970092",
+    "canary": "0.00026427",
+    "snapshot_prepare": "0.10414732",
+    "snapshot_score": "0.15863652"
+  },
+  "rows": [
+    {
+      "object_id": "ap-ENZqLoN3f873u7EQGB8ZOd",
+      "description": "swebench-snapshot-prepare",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.06212066"
+    },
+    {
+      "object_id": "ap-ENZqLoN3f873u7EQGB8ZOd",
+      "description": "swebench-snapshot-prepare",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.04202666"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.59030424"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00003652"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.39936016"
+    },
+    {
+      "object_id": "ap-cJokQ7dw6iISWHl92c5O06",
+      "description": "swebench-snapshot-score",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.09460024"
+    },
+    {
+      "object_id": "ap-cJokQ7dw6iISWHl92c5O06",
+      "description": "swebench-snapshot-score",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00003612"
+    },
+    {
+      "object_id": "ap-cJokQ7dw6iISWHl92c5O06",
+      "description": "swebench-snapshot-score",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.06400016"
+    },
+    {
+      "object_id": "ap-mTA5sKa82RPLlQD6DgLyD4",
+      "description": "swebench-snapshot-canary",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.00015763"
+    },
+    {
+      "object_id": "ap-mTA5sKa82RPLlQD6DgLyD4",
+      "description": "swebench-snapshot-canary",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00010664"
+    }
+  ],
+  "before_credits": true,
+  "not_final_invoice": true,
+  "shared_storage_not_in_app_sum": true
+}

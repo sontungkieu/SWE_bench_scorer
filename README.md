@@ -273,6 +273,13 @@ Các số trước credits, không phải điểm model hoặc chi phí full 500
 Hai app đã dừng; chưa chuyển backend production sang native.
 [Protocol, sai khác từng bài và billing](evidence/2026-10-22-cost-pilot/README.md).
 
+Thử nghiệm tiếp theo giữ nguyên 24 gold patch và tài nguyên VM chấm nhưng
+khởi tạo từ filesystem snapshot đã nạp sẵn Docker image: 24/24 report khớp
+baseline, compute/egress mỗi lượt $0.17555287 (giảm 82,26%), setup một lần
+gồm canary $0.10441159. Snapshot chỉ chứa 24 image của pilot, chưa tích hợp
+vào web/CLI production và chưa chạy full 500.
+[Kết quả, snapshot ID và billing](evidence/2026-10-22-vm-snapshot/README.md).
+
 Sandbox luôn terminate trong `finally`, có lifetime hữu hạn nếu client mất
 kết nối. CPU/RAM trong lúc build, pull và load image đều tính compute; Volume
 có hạn mức storage riêng. Không deploy dịch vụ chấm chạy thường trực, không

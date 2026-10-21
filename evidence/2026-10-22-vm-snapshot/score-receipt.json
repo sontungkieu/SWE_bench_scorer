@@ -1,0 +1,29 @@
+{
+  "started_at": "2026-10-21T19:34:25.963868+00:00",
+  "snapshot_image_id": "im-01M5FZ9JC79WJQHCDCZVGTP7RS",
+  "workers": 8,
+  "cpu": 16,
+  "memory_gib": 64,
+  "lifetime_seconds": 1800,
+  "allocation_bound_usd": 1.9036799999999998,
+  "image_cache_volume_attached": false,
+  "registry_secrets_injected": false,
+  "source_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8"
+  },
+  "full_500_evaluated": false,
+  "frozen_pilot_sha256": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+  "frozen_predictions_sha256": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f",
+  "snapshot_worker_sha256": "edcdf793e1993464f0c4b554197d55541e2a83f2f092e01cfb43682b2e868558",
+  "app_id": "ap-cJokQ7dw6iISWHl92c5O06",
+  "sandbox_id": "sb-01M5FZAC7WH5SV1H22WZEWRN9D",
+  "restore_docker_ready_seconds": 12.668885851278901,
+  "passed": true,
+  "exit_code": 0,
+  "sandbox_terminated": true,
+  "wall_seconds": 171.66414378210902,
+  "finished_at": "2026-10-21T19:37:17.628013+00:00"
+}

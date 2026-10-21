@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Matched 24-case Docker VM snapshot pilot: all 24 gold reports match baseline;
+  recurring compute/egress $0.17555287 versus $0.98970092 (82.26% lower),
+  one-time preparation including canary $0.10441159. No production switch or
+  full-500 run; 70 local tests and 12 remote snapshot tests pass.
+
 - Keep the displayed cache count across worker resumptions while the new worker
   revisits already committed manifests; 49 offline tests pass.
 - An adopted run using a different named registry credential may resume once

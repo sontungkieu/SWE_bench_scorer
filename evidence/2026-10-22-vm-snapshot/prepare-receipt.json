@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-10-21T19:20:50.010411+00:00",
+  "runtime_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "cpu": 2,
+  "memory_gib": 8,
+  "lifetime_seconds": 1800,
+  "allocation_bound_usd": 0.23795999999999998,
+  "snapshot_ttl_seconds": 2592000,
+  "frozen_pilot_sha256": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+  "frozen_predictions_sha256": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f",
+  "full_500_evaluated": false,
+  "test_containers_created": false,
+  "app_id": "ap-ENZqLoN3f873u7EQGB8ZOd",
+  "sandbox_id": "sb-01M5FYHFCJBQAXYTC3GHXAPFXS",
+  "snapshot_image_id": "im-01M5FZ9JC79WJQHCDCZVGTP7RS",
+  "snapshot_seconds": 35.64839135482907,
+  "passed": true,
+  "sandbox_terminated": true,
+  "wall_seconds": 792.3195255920291,
+  "finished_at": "2026-10-21T19:34:02.329943+00:00"
+}
