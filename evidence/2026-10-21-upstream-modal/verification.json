@@ -1,0 +1,32 @@
+{
+  "probe_passed": false,
+  "test_execution_reached": false,
+  "gold_report_present": false,
+  "wrong_and_empty_run": false,
+  "official_cli_exit_code": 0,
+  "probe_exit_code": 1,
+  "gold_wall_seconds": 283.7538207639009,
+  "failure": "AttributeError: 'Sandbox' object has no attribute 'open'",
+  "app": {
+    "id": "ap-AFiVtnJqIEUMBtmjIbFsHQ",
+    "profile": "phamvanvuhoan",
+    "state": "stopped",
+    "tasks": "0",
+    "stopped_at": "2026-10-21T12:38:43+00:00"
+  },
+  "sandbox_list_for_app_after_stop": [],
+  "stop_cli_exit_code": 1,
+  "stop_cli_message": "App is already stopped.",
+  "harness": "4.1.0",
+  "modal_sdk": "1.6.2",
+  "remote_worker_pip_swebench": "5.0.2",
+  "remote_worker_python_package_overlay": "coordinator swebench source uploaded by include_source=True",
+  "harness_modified": false,
+  "probe_sha256": "8cba5ebc0224599b00884d995b8bd6fc70a7d3dd9064e161cb6afd4ece7c890a",
+  "installed_backend_source_sha256": "5632a6f4f5e2c042de127fea9b988e7da358fbf1b5ed569ae7d1d84ac0a177f7",
+  "installed_testspec_source_sha256": "f9ab368091b5770d2ab6e842e7d56161f87e70a20519576731c122e310820f4a",
+  "raw_log_sha256": "1e7086d9448a3ba456311a64bb4adb1d627c8a32cbd2481158bbb0f5aeb60f07",
+  "retrieved_archive_sha256": "8b563108819ff1092073e002e7fb39c32dd36e065d522c889da86fa2f8727e84",
+  "fixture_manifest": "fixtures/mock/manifest.json",
+  "full_500_evaluated": false
+}

@@ -1,0 +1,22 @@
+[
+  "/home/kieusontung8/apps/swebench-upstream-probe/venv/bin/python",
+  "-u",
+  "-m",
+  "swebench.harness.run_evaluation",
+  "--dataset_name",
+  "/home/kieusontung8/apps/swebench-upstream-probe/upstream-modal-20261021-02/verified.json",
+  "--split",
+  "test",
+  "--predictions_path",
+  "/home/kieusontung8/apps/swebench-upstream-probe/upstream-modal-20261021-02/gold/preds.jsonl",
+  "--instance_ids",
+  "django__django-11099",
+  "--max_workers",
+  "1",
+  "--run_id",
+  "upstream-modal-20261021-02-gold",
+  "--timeout",
+  "600",
+  "--modal",
+  "true"
+]

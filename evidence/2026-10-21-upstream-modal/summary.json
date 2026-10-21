@@ -1,0 +1,38 @@
+{
+  "profile": "phamvanvuhoan",
+  "backend": "official --modal true",
+  "started_at": "2026-10-21T12:33:52.984104+00:00",
+  "harness_modified": false,
+  "controls": [
+    {
+      "control": "gold",
+      "expected_resolved": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "credential_path_compatibility": "temporary private HOME symlink to scoped config",
+      "wall_seconds": 283.7538207639009,
+      "app_ids": [
+        "ap-AFiVtnJqIEUMBtmjIbFsHQ"
+      ],
+      "cleanup": [
+        {
+          "app_id": "ap-AFiVtnJqIEUMBtmjIbFsHQ",
+          "stop_exit_code": 1
+        }
+      ],
+      "report": null,
+      "passed": false
+    }
+  ],
+  "full_500_evaluated": false,
+  "dataset": {
+    "name": "SWE-bench/SWE-bench_Verified",
+    "revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "count": 500,
+    "sha256": "6a6fb72484bfc40f35cecbae1ae4615e9460905f729c57659df5f4ef9d7dec6e"
+  },
+  "coordinator_python": "3.13.7 (main, Mar  3 2026, 12:19:54) [GCC 15.2.0]",
+  "finished_at": "2026-10-21T12:38:50.728533+00:00",
+  "passed": false,
+  "stopped_after_failure": "gold"
+}
