@@ -11,10 +11,11 @@
   "source_spend_limit_changed": false,
   "rate_limit_observed": "200;w=3600",
   "cache_progress_snapshot": {
-    "cached": 163,
+    "cached_count": 214,
     "requested": 500,
-    "storage_bytes": 25084452754,
-    "run_id": "auth-prewarm-20261021-01"
+    "storage_bytes": 31012906461,
+    "run_id": "auth-prewarm-20261021-01",
+    "updated_at": "2026-10-21T12:33:57.693830+00:00"
   },
   "coordinator": {
     "finite": true,
@@ -26,5 +27,10 @@
     "egress_reserved_usd": 0.05,
     "cpu_ram_allocation_bound_per_run_usd": 0.165924,
     "combined_reservation_bound_usd": 0.823696
-  }
+  },
+  "gcp_tests_passed": 48,
+  "source_commit": "0d958112bb20cebb7b877fc9c887823dc62de706",
+  "gcp_release": "/home/kieusontung8/apps/swebench-web/releases/0d95811",
+  "web_cache_api": "verified_live",
+  "coordinator_process": "running_independent_of_ssh_and_web_service"
 }

@@ -1,4 +1,6 @@
 {
+  "authenticated-prewarm-receipt.json": "90dc4be8f60f010a4b57b71b15568cd7126e1bd953244fd63d14f55f9949b50c",
+  "coordinator-snapshot.json": "4046ec1d15085fe907d93e50ed18a0e4a8b26492edde1bbf7c2863d52fce4f7f",
   "source-secret-probe.json": "b0e8c912eed30840f07dadf6100a007c06db677ec2575d9386b3c97d6cc59d78",
-  "verification.json": "96408b26d1dfa8bea410bff2b68e74cbd77e98aaad1309d8146014ab15fec884"
+  "verification.json": "cc126792401e4e8ad23d26a9a69e37be6b00b695bb5501e7def3ad60a4254026"
 }

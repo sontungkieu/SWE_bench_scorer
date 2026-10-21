@@ -1,0 +1,18 @@
+{
+  "status": "warming",
+  "cached_count": 214,
+  "requested": 500,
+  "profile": "phamvanvuhoan",
+  "budget_usd": 2.0,
+  "prior_spend_usd": 0.11,
+  "allocation_reserved_usd": 0.16592400000000002,
+  "egress_reserve_usd": 0.05,
+  "attempts": 0,
+  "cooldown_seconds": 3660,
+  "runs": [
+    "auth-prewarm-20261021-01"
+  ],
+  "updated_at": "2026-10-21T12:33:57.693830+00:00",
+  "run_id": "auth-prewarm-20261021-01",
+  "storage_bytes": 31012906461
+}
