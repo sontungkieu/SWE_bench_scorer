@@ -1,0 +1,28 @@
+{
+  "mock_only": true,
+  "dataset": "SWE-bench/SWE-bench_Verified",
+  "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+  "instance_id": "django__django-11099",
+  "base_commit": "d26b2424437dabeeca94d7900b37d2df4410da0c",
+  "source": "Public HF Dataset Viewer row, dataset HEAD checked against pinned revision on 2026-10-21",
+  "controls": [
+    {
+      "control": "gold",
+      "predictions": "gold/preds.jsonl",
+      "expected_resolved": true,
+      "sha256": "01be86e2fdbba125f2e6356a6390f538505ff729c9bd5482e6c6bc58b3369352"
+    },
+    {
+      "control": "wrong",
+      "predictions": "wrong/preds.jsonl",
+      "expected_resolved": false,
+      "sha256": "0fd070579450967f5791c8c54e320b7939a669a57dd21018a2126a85bfd93986"
+    },
+    {
+      "control": "empty",
+      "predictions": "empty/preds.jsonl",
+      "expected_resolved": false,
+      "sha256": "ee9a1bba5484d60d88e65a898fe04ffe4a1c15b817bae296d3ddd2a3ce605973"
+    }
+  ]
+}
