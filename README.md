@@ -1,6 +1,38 @@
 # Chấm SWE-bench Verified trên Modal
 
-Phiên bản: **0.3.0**.
+Phiên bản: **0.3.1**.
+
+## Dùng Docker Hub token qua Modal Secret
+
+Cache CLI nhận `--registry-secret swebench-dockerhub`. Secret cần hai key
+`REGISTRY_USERNAME`, `REGISTRY_PASSWORD`; chỉ cache-only VM được nhận secret,
+không đưa PAT vào VM chấm patch. Registry auth thất bại thì báo lỗi, không
+fallback âm thầm về anonymous. Basic auth chỉ gửi tới `auth.docker.io`; bearer
+không được chuyển sang CDN khi redirect. Không truyền PAT bằng flags hoặc log.
+
+Từ WSL, dùng Modal runtime đã có để kiểm tra file và tạo secret (không tạo VM):
+
+```bash
+UV_OFFLINE=1 /home/tung/.local/bin/uv tool run --offline --from modal python \
+  /mnt/d/dev/codex/research_vdt/swebench-modal/bootstrap_registry_secret.py \
+  --profile phamvanvuhoan --credential-file /home/tung/dockerhub.txt \
+  --secret-name swebench-dockerhub
+```
+
+File có hai dòng: username rồi PAT, giữ ngoài Git. Bootstrap xác thực và kiểm
+tra pull scope trước khi tạo secret, từ chối ghi đè secret đã có. Sau đó:
+
+```powershell
+.\run.ps1 cache --all-instances --profile phamvanvuhoan --registry-secret swebench-dockerhub --lifetime 13500 --estimate-usd 1.60 --run-id cache-auth-01
+```
+
+Secret cũ `dpca-dockerhub-kieusontung8` tồn tại, nhưng probe/migration đã bị
+provider chặn do workspace nguồn vượt spend limit, trước khi tạo Sandbox.
+Chưa xác nhận key trong secret cũ còn hợp lệ; file credential gốc trả HTTP 401.
+Không tự đổi spend limit hoặc copy credential không hợp lệ sang workspace đích.
+`migrate_registry_secret.py` là phương án chuyển mã hóa khi nguồn được mở lại;
+chưa được qualification live vì provider chặn allocation. Nó yêu cầu ngoại lệ
+explicit nếu billing guard nguồn báo BLOCK, giới hạn probe 60 giây, dự trù $0.01.
 
 ## Cache image giữa các lần chấm
 
@@ -60,13 +92,13 @@ chi phí CPU/RAM/egress được báo cáo $0.04905196; tổng cả các lượt
 mock $0.10410261 trước credits, chưa phải hóa đơn cuối hoặc phí storage chung.
 [Receipt, billing và tiến độ](evidence/2026-10-21-v0.3.0/verification.json).
 
-Downloader hiện dùng quyền anonymous của Registry API. Theo
+Khi không có `--registry-secret`, downloader dùng anonymous của Registry API. Theo
 [Docker Hub](https://docs.docker.com/docker-hub/usage/pulls/), anonymous có
 100 pull/6 giờ/IP; Personal đăng nhập có 200/6 giờ; Pro/Team/Business không có
 giới hạn pull đó, vẫn chịu fair use. Token Personal không tự nâng thành Pro.
 `docker login` trên GCP không tự truyền vào downloader trong Modal; kết nối
 token cần kênh secret riêng. Không đưa PAT/token vào source, flags hoặc log.
-Chưa cấu hình registry credential hoặc lịch tự động nạp tiếp phần còn thiếu.
+Trạng thái credential và các lượt nạp mới hơn được ghi riêng trong evidence.
 
 ## Web riêng tư trên GCP
 

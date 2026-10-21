@@ -5,10 +5,14 @@ import json
 import tarfile
 import tempfile
 import unittest
+import subprocess
+import sys
+from pathlib import Path
 import urllib.request
+import urllib.error
 from unittest.mock import patch
 
-from registry_cache import RegistryCache, RegistryRedirect, copy_blob
+from registry_cache import RegistryCache, RegistryRedirect, copy_blob, registry_token
 
 
 class RegistryCacheTests(unittest.TestCase):
@@ -82,6 +86,43 @@ class RegistryCacheTests(unittest.TestCase):
             second = self.cache.download("swebench/test", self.descriptor, "unused", layer=True)
         network.assert_not_called()
         self.assertEqual(first, second)
+
+    def test_authenticated_request_uses_only_trusted_token_endpoint(self):
+        with patch.dict("os.environ", {"REGISTRY_USERNAME": "test-user", "REGISTRY_PASSWORD": "test-password"}), \
+                patch("registry_cache.urlopen") as request:
+            request.return_value.__enter__.return_value = io.BytesIO(b'{"token":"test-bearer"}')
+            self.assertEqual(registry_token("swebench/test"), "test-bearer")
+        sent = request.call_args.args[0]
+        self.assertTrue(sent.full_url.startswith("https://auth.docker.io/token?"))
+        self.assertNotIn("test-password", sent.full_url)
+        self.assertTrue(sent.get_header("Authorization").startswith("Basic "))
+
+    def test_invalid_credentials_never_fall_back_to_anonymous(self):
+        with patch.dict("os.environ", {"REGISTRY_USERNAME": "test-user", "REGISTRY_PASSWORD": "test-password"}), \
+                patch("registry_cache.urlopen", side_effect=urllib.error.HTTPError("https://auth.docker.io", 401, "Unauthorized", {}, None)) as request:
+            with self.assertRaisesRegex(RuntimeError, "HTTP 401.*no anonymous fallback"):
+                registry_token("swebench/test")
+        self.assertEqual(request.call_count, 1)
+
+    def test_partial_credentials_fail_before_network(self):
+        with patch.dict("os.environ", {"REGISTRY_USERNAME": "test-user", "REGISTRY_PASSWORD": ""}), \
+                patch("registry_cache.urlopen") as request:
+            with self.assertRaisesRegex(RuntimeError, "Both"):
+                registry_token("swebench/test")
+        request.assert_not_called()
+
+    def test_anonymous_request_remains_supported(self):
+        with patch.dict("os.environ", {"REGISTRY_USERNAME": "", "REGISTRY_PASSWORD": ""}), \
+                patch("registry_cache.urlopen") as request:
+            request.return_value.__enter__.return_value = io.BytesIO(b'{"token":"anonymous-test"}')
+            self.assertEqual(registry_token("swebench/test"), "anonymous-test")
+        self.assertIsNone(request.call_args.args[0].get_header("Authorization"))
+
+    def test_registry_secret_cannot_be_injected_into_evaluation(self):
+        result = subprocess.run([sys.executable, str(Path(__file__).with_name("launch.py")),
+            "mock", "--profile", "offline-test", "--registry-secret", "test-only"], capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("only be injected into cache-only VMs", result.stderr)
 
 
 if __name__ == "__main__":

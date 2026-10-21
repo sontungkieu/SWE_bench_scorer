@@ -1,0 +1,13 @@
+{
+  "version": "0.3.1",
+  "offline_tests_passed": 38,
+  "openssl_ephemeral_oaep_roundtrip": "passed_with_synthetic_fixture",
+  "live_authenticated_download": "not_run",
+  "source_secret_exists": true,
+  "source_allocation": "blocked_by_provider_spend_limit",
+  "source_credential_file_auth_status": 401,
+  "destination_secret_created": false,
+  "new_credential_file": "waiting_for_user_update",
+  "cache_manifest_count_unchanged": 101,
+  "source_spend_limit_changed": false
+}

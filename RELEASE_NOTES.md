@@ -1,4 +1,18 @@
-# SWE-bench Scorer v0.3.0
+# SWE-bench Scorer v0.3.1
+
+Optional `--registry-secret` supports existing Docker Hub credentials for cache
+prewarm only. Patch evaluation rejects this option. A WSL bootstrap validates
+the supplied username/PAT before storing it directly in Modal Secret; failed
+authentication does not fall back to anonymous. 38 offline tests pass.
+
+The existing source Secret was found on kieusontung8, but Modal rejected source
+allocation because its spend limit was exceeded. Its stored key has not been
+validated or migrated. The original credential file returned HTTP 401. The
+encrypted migration helper has offline crypto verification only, no live
+qualification. Account spend limits were not changed. Cache progress remains
+101/500 until a valid credential or permitted resume is available.
+
+## Persistent image cache from v0.3.0
 
 Web và CLI tái sử dụng image giữa các job qua Modal Volume v2. Lệnh `cache`
 nạp trước một phần hoặc toàn bộ Verified; lần chạy sau bỏ qua manifest đã có.

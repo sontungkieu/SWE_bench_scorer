@@ -1,10 +1,11 @@
 """Cache official OCI blobs directly; never unpack/recompress during prewarm.
 
-The anonymous registry bearer token is held in memory only. No Docker or
-registry credentials are needed. Compressed and uncompressed hashes are checked.
+Registry credentials and short-lived bearer tokens are held in memory only.
+Credentials are optional. Compressed and uncompressed hashes are checked.
 Legacy Docker-save manifests remain readable, avoiding a second download.
 """
 import gzip
+import base64
 import hashlib
 import io
 import json
@@ -14,6 +15,7 @@ import tarfile
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
 import uuid
 import zlib
 
@@ -35,6 +37,23 @@ class RegistryRedirect(urllib.request.HTTPRedirectHandler):
 
 def urlopen(request, timeout=60):
     return urllib.request.build_opener(RegistryRedirect()).open(request, timeout=timeout)
+
+
+def registry_token(repository):
+    username = os.environ.get("REGISTRY_USERNAME", "")
+    password = os.environ.get("REGISTRY_PASSWORD", "")
+    if bool(username) != bool(password):
+        raise RuntimeError("Both REGISTRY_USERNAME and REGISTRY_PASSWORD are required")
+    query = urllib.parse.urlencode({"service": "registry.docker.io", "scope": f"repository:{repository}:pull"})
+    headers = {}
+    if username:
+        headers["Authorization"] = "Basic " + base64.b64encode(f"{username}:{password}".encode()).decode()
+    request = urllib.request.Request("https://auth.docker.io/token?" + query, headers=headers)
+    try:
+        with urlopen(request, timeout=60) as response:
+            return json.load(response)["token"]
+    except urllib.error.HTTPError as exc:
+        raise RuntimeError(f"Registry authentication failed (HTTP {exc.code}); no anonymous fallback") from None
 
 
 def digest_key(digest):
@@ -125,9 +144,7 @@ class RegistryCache:
         if not match:
             raise ValueError("Cache only accepts official swebench Docker Hub references")
         repository, tag = match.groups()
-        query = urllib.parse.urlencode({"service": "registry.docker.io", "scope": f"repository:{repository}:pull"})
-        with urlopen("https://auth.docker.io/token?" + query, timeout=60) as response:
-            token = json.load(response)["token"]
+        token = registry_token(repository)
         manifest, digest = self.fetch_json(repository, tag, token)
         if "manifests" in manifest:
             platforms = [r for r in manifest["manifests"] if r.get("platform", {}).get("os") == "linux"

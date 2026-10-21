@@ -49,6 +49,7 @@ def main():
     parser.add_argument("--cache-limit-gib", type=int, default=256)
     parser.add_argument("--require-cached", action="store_true", help="Fail on cache miss instead of pulling")
     parser.add_argument("--all-instances", action="store_true", help="Prewarm all 500 images (cache action only)")
+    parser.add_argument("--registry-secret", help="Named Modal registry secret; cache action only")
     parser.add_argument("--guard-script", default="/mnt/c/Users/Tung/.codex/skills/modal-gpu-ops/scripts/modal_billing_guard.py")
     args = parser.parse_args()
     if args.action == "mock" and args.predictions:
@@ -72,6 +73,8 @@ def main():
         parser.error("cache-limit-gib: 1..512")
     if args.all_instances and args.action != "cache":
         parser.error("--all-instances requires cache action")
+    if args.registry_secret and args.action != "cache":
+        parser.error("Registry credentials may only be injected into cache-only VMs")
     if args.action == "cache" and (args.predictions or args.workers != 1 or args.cache_volume == "none"):
         parser.error("Cache action requires one worker, a Volume, and no predictions")
     # Conservative resource allocation bound at Modal's 2026-10-21 Sandbox rates.
@@ -115,7 +118,8 @@ def main():
                "started_at": datetime.now(timezone.utc).isoformat()}
     receipt.update(cache_volume=args.cache_volume, cache_limit_gib=args.cache_limit_gib,
                    require_cached=args.require_cached, cpu_memory_allocation_bound_usd=resource_bound,
-                   allocation_bound_price_date="2026-10-21")
+                   allocation_bound_price_date="2026-10-21", registry_secret=args.registry_secret,
+                   registry_auth="secret" if args.registry_secret else "anonymous")
     ledger = [sys.executable, str(guard), "record-run", "--profile", args.profile,
               "--run-id", args.run_id, "--label", "swebench-" + args.action,
               "--estimated-cost", str(args.estimate_usd), "--run-dir", str(output)]
@@ -140,6 +144,7 @@ def main():
                     *entrypoint, app=app, image=image,
                     runtime="vm", cpu=(2 * args.workers, 2 * args.workers),
                     memory=(memory_mib, memory_mib), volumes=volumes,
+                    secrets=[modal.Secret.from_name(args.registry_secret)] if args.registry_secret else [],
                     timeout=args.lifetime,
                     readiness_probe=modal.Probe.with_exec(*probe, interval_ms=1000))
                 receipt.update(app_id=app.app_id, sandbox_id=sandbox.object_id,

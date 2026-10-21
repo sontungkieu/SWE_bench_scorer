@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.1 - 2026-10-21
+
+- Optional Docker Hub Basic auth via a named Modal Secret for cache-only VMs;
+  evaluation modes reject registry secrets. Failed auth never falls back to anonymous.
+- Validate an existing WSL username/PAT file before creating a destination Secret;
+  no PAT in arguments, logs, source or extra plaintext files.
+- Bounded encrypted migration helper for an existing cross-workspace Secret.
+  Live source allocation was blocked by Modal spend limit; no validity claim.
+- 38 offline tests cover authenticated/anonymous requests, rejected credentials,
+  partial credentials, redirects and exclusion of secrets from evaluation VMs.
+
 ## 0.3.0 - 2026-10-21
 
 - Persistent image cache on a Modal v2 Volume: deduplicated OCI compressed blobs,
