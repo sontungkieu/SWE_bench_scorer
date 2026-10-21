@@ -122,9 +122,13 @@ def main(argv=None):
             time.sleep(5)
         raise RuntimeError("Final receipt deadline exceeded; refusing another VM")
 
-    def after_run(summary, can_retry=True):
+    def after_run(summary, can_retry=True, credential_changed=False):
         save(cached_count=summary["cached"], storage_bytes=summary["storage_bytes"])
         action = decision(summary)
+        if action == "cooldown" and credential_changed:
+            # A newly validated named credential can have its own quota. Skip
+            # the old credential's cooldown once; later failures wait normally.
+            action = "resume"
         if action == "complete":
             save(status="complete", next_retry_at=None)
             return True
@@ -138,7 +142,9 @@ def main(argv=None):
             save(status="budget_exhausted", next_retry_at=None)
             return True
         if action == "resume":
-            save(status="resuming", next_retry_at=None, reason="Finite work boundary; completed images committed")
+            reason = ("Changed named registry credential; check quota on next VM" if credential_changed
+                      else "Finite work boundary; completed images committed")
+            save(status="resuming", next_retry_at=None, reason=reason)
             return False
         retry_at = time.time() + args.cooldown_seconds
         save(status="cooldown", next_retry_at=datetime.fromtimestamp(retry_at, timezone.utc).isoformat(),
@@ -152,7 +158,10 @@ def main(argv=None):
         if args.adopt_run:
             state["allocation_reserved_usd"] += RATE * args.lifetime
             state["runs"].append(args.adopt_run)
-            if after_run(monitor(args.adopt_run)):
+            summary = monitor(args.adopt_run)
+            previous = json.loads((root / "runs" / args.adopt_run / "receipt.json").read_text())
+            changed = bool(previous.get("registry_secret") and previous["registry_secret"] != args.registry_secret)
+            if after_run(summary, credential_changed=changed):
                 return 0 if state["status"] == "complete" else 1
         for number in range(1, args.max_attempts + 1):
             bound = RATE * args.lifetime

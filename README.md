@@ -127,6 +127,12 @@ CPU/RAM tối đa theo lifetime trước mỗi allocation; không phải provide
 1800 giây có bound $0.165924/VM. Lượt hiện tại + tối đa ba lượt nối tiếp, cộng
 $0.11 cũ và $0.05 dự phòng, có bound $0.823696 theo các giả định tài nguyên này.
 
+Để chuyển account, xác thực credential và tạo Secret mới trước, rồi adopt lượt
+đang chạy với tên `--registry-secret` mới. Coordinator chờ VM cũ terminate,
+bỏ qua cooldown quota cũ đúng một lần khi tên Secret khác receipt đã adopt.
+Nếu credential mới cũng gặp HTTP 429 thì chờ cooldown như thường. Khi chuyển
+coordinator phải cộng mọi allocation cũ vào prior budget, tránh đặt lại ngân sách.
+
 Mặc định cooldown 6 giờ + 60 giây. Header xác thực quan sát ngày 2026-10-21 là
 `200;w=3600`; lượt này dùng `--cooldown-seconds 3660` theo header thực tế đó,
 không coi đây là chính sách chung thay cho docs Docker Hub. File state

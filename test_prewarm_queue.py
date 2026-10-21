@@ -19,7 +19,8 @@ class QueueTests(unittest.TestCase):
     def finish(self, name, complete=False, error=None):
         run = self.root / "runs" / name
         (run / "output").mkdir(parents=True)
-        (run / "receipt.json").write_text(json.dumps({"finished_at": "now", "sandbox_terminated": True}))
+        (run / "receipt.json").write_text(json.dumps({"finished_at": "now", "sandbox_terminated": True,
+                                                    "registry_secret": "test-only"}))
         (run / "output/cache-summary.json").write_text(json.dumps({"complete": complete, "requested": 500, "cached": 500 if complete else 301,
             "storage_bytes": 100, "failures": [{"error": error}] if error else []}))
 
@@ -74,6 +75,22 @@ class QueueTests(unittest.TestCase):
         self.assertEqual(status["status"], "complete")
         self.assertEqual(launch.call_count, 1)
         sleep.assert_not_called()
+
+    def test_changed_credential_skips_only_adopted_quota_cooldown(self):
+        self.finish("existing", error="HTTP Error 429: Too Many Requests")
+        self.args[self.args.index("--max-attempts") + 1] = "2"
+        events = []
+        def spawn(command, **kwargs):
+            events.append("launch")
+            name = command[command.index("--run-id") + 1]
+            self.finish(name, complete=len(events) > 1, error="HTTP Error 429: Too Many Requests")
+            return Mock()
+        with patch.object(prewarm_queue.time, "time", side_effect=[100, 100, 101, 161]), \
+                patch.object(prewarm_queue.time, "sleep", side_effect=lambda _: events.append("cooldown")):
+            code, launch, status = self.run_queue(["--adopt-run", "existing", "--registry-secret", "new-test-only"], side_effect=spawn)
+        self.assertEqual(code, 0)
+        self.assertEqual(events, ["launch", "cooldown", "launch"])
+        self.assertEqual(status["status"], "complete")
 
     def test_existing_run_id_blocks_duplicate_launch(self):
         self.finish("resume-test-1")

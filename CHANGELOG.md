@@ -4,6 +4,9 @@
 
 - Keep the displayed cache count across worker resumptions while the new worker
   revisits already committed manifests; 49 offline tests pass.
+- An adopted run using a different named registry credential may resume once
+  without the old credential's quota cooldown; later quota failures wait normally.
+  50 offline tests pass, including account-switch cooldown ordering.
 
 ## 0.3.1 - 2026-10-21
 
