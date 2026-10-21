@@ -1,0 +1,2962 @@
+{
+  "requested": 500,
+  "cached": 246,
+  "complete": false,
+  "records": [
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest",
+      "id": "sha256:9b1cabf7bcd83a28469f67e3852d8e2207e90d45aa71f436bb7e600bdee8bae2",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-12907@sha256:7485c1e3c8861efd0c6a4a78b952857592e541031039000d25e9481f045dc4a3"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-12907"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-13033:latest",
+      "id": "sha256:3dc0897645867bfadbeaac2b5ff2d91add0b249252c9da60bd05b37e86f75d05",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-13033@sha256:c4ef76b3dbb0b9fc589ffff03dd4ca62e3d0406430f3a72be3dabfd5a3fc9990"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-13033"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-13236:latest",
+      "id": "sha256:c1c25a905a0d26525907f74c2f3925c58fcef6e0965a922af3a8389548a67404",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-13236@sha256:f15ffc9dcdf96f627b9208d508ff747b80b6234488b08446232e3d724182f055"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-13236"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-13398:latest",
+      "id": "sha256:b0cc2d0d0b35da88c91934467a68aabdc725a7cda238fad2b52696bfc1598d2b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-13398@sha256:4d7e922ae3b796147f85b37861f6dec5463001a964bd941ed6933109245fe69f"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-13398"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-13453:latest",
+      "id": "sha256:96aab9414477cd80c16b76c97836756096d766597dedcd2e3c2171636f4c99e4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-13453@sha256:7f4879060f51b675aa1d01cc7a543bce8cbe48cff0e2a3f55b43057b0b6b9bc7"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-13453"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-13579:latest",
+      "id": "sha256:62d1a79236c822e6632a7de6d3c35b1670efd7fa5432057c33a0c4dbd73681b0",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-13579@sha256:3a4b8059992d3eed81046bd4b3bd3450993a237a909c2298ce69b59bb5b9c863"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-13579"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-13977:latest",
+      "id": "sha256:ba3d2b723b6698da914da64befdbf7a075799e65a970a56355b8f1ef1543c835",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-13977@sha256:bd003a6a247d33fc29c4df16c9288f6d2b75ff4ed94e1fdc6ff161f1db94496f"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-13977"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14096:latest",
+      "id": "sha256:fbe2d8eb42e8af759277932fc82c45f8dfa43f3db7b03a43dcef20cfcc012c15",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14096@sha256:825d10f41be7da8b1edd132ed9188f2df0c371d9993f867e9ec862147e95e711"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14096"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14182:latest",
+      "id": "sha256:c398eaa06bdad861a303eff949b7291b5fb19e94f6dddeebc1147f06f2e8edf5",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14182@sha256:4a1da544b0a2d7bb43266093db899f77c60700f76b84497e6c66138cb30d8663"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14182"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14309:latest",
+      "id": "sha256:8525d6d62fd3b9a39d073713d9e1a22ef34616e32365633a196c5af7fb7c8101",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14309@sha256:1a682f9156ceb9e939cde549c6a01828998e06a653d901c3dc72c5b6b2556eff"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14309"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest",
+      "id": "sha256:186d28b0d249e6d87d9d65aaada7688fc0e2cf4f8d70dfef591dfdfaaa283492",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14365@sha256:52047c9299800168ed38a1b98b518a62c32f407f8269362c9f381d93c4e69dfe"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14365"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14369:latest",
+      "id": "sha256:31139e07c76efdf99104b07427defcabc28abe47861761cfe05eec6a1ecef702",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14369@sha256:ac635a15ea1aa3a68c52fc08ee1f6532d2f0dda4a31516772b9e7a9e81215830"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14369"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14508:latest",
+      "id": "sha256:5bddfb5a01db7352b58157f7bfe41674a36ab915efc6fd6586303cc048b974a7",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14508@sha256:f65db6bec005fb5db80c71fc9dd756935b581bfa903530ac0bd62d381e8de6bb"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14508"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14539:latest",
+      "id": "sha256:fa171a94bc6c7b18e2da484ddf2218e9305a6c2a9c1c29bd14edbcdf626e26e3",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14539@sha256:84363223c36a289d101970473e56ad12199e9b5dcbd1deef5568f4fab743ff05"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14539"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14598:latest",
+      "id": "sha256:decdcf88a35a2c12c96043250d1d191473312fcc647c33c337a02b71a6617ad2",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14598@sha256:d312220e86c6b831d0e5df86ae86f68f93f13694cb64a68fc43ceb0c4c8cfcd8"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14598"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-14995:latest",
+      "id": "sha256:e915829a4346d3235210c1808763acd3c0a7b8d622192d564e540a9968574573",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-14995@sha256:6a204c3d4002b221144205ad13a0f414ea335170ae8327d3af2c5946b19b387d"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-14995"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7166:latest",
+      "id": "sha256:5e5324dbd0c0c7181966b6ef1a4ed83b8f0f9173e488238e4df170542872bfa6",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-7166@sha256:cef0666d736b54a87c99d615690d343a381ca0cddc5d10d62811b82427ee98b4"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-7166"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest",
+      "id": "sha256:7721dedd07ff58d11785bf17b431efe0f5dc7ce01f4eff30067eeafc4f3c34ff",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-7336@sha256:481ebd12ef496853db01765b1dd57d9aebdedd056c22656b9f483fc1c8379da9"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-7336"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7606:latest",
+      "id": "sha256:8e8fdd966e0ce7264fa909835125e934869c97660819936121230a49d0dac142",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-7606@sha256:3fa12cb7c6f5461a477e6757994202b08139f723c8c488e3e8b45b0cb1032546"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-7606"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7671:latest",
+      "id": "sha256:048d1bb0a7db2e43fc15388db84565f921adc0dcf976dc93fd9d3cce64d1fef3",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-7671@sha256:e4a644271876ead58b4e1cd05780e0ddb17ca421bf7b2f6f5dca9269d574e201"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-7671"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-8707:latest",
+      "id": "sha256:7e8744255777087d6a5c5806921bc30330de5c610de1c227e8a4dd0e3257d1fb",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-8707@sha256:c6531e6e77ca7f257057f793cf38fc84427cd36fd93d136c21aef2a6e0e8df6d"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-8707"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-8872:latest",
+      "id": "sha256:54c72d99f74bd197b28e22fa05c60e7eb316536d069b41123170d596643d70df",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.astropy_1776_astropy-8872@sha256:0576032159a5cc54ea7baa75e08467c006463df512587865213885ec4fc6e75d"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "astropy__astropy-8872"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-10097:latest",
+      "id": "sha256:ece45a718bc9b069cd4aa3c294ee768296aec0639a629938aaf3ef952ea3d329",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-10097@sha256:1070029012296376173a209d7b4017bac70e27d5ab631b7fccfe3045cfa31c90"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-10097"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-10554:latest",
+      "id": "sha256:45aca01030369d95825fa67ed38d1984b2b6e6a2561d2de371804622ec3bece4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-10554@sha256:3ff931f7fe4198a73adeff4bf55ec9193598e5ffe9410ab79feef463e928e01e"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-10554"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-10880:latest",
+      "id": "sha256:28ddc96a8d99cdfa2bdf1d86bb2d427ebae489b943f3c4142122f45253cb8d13",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-10880@sha256:d093c7b3ac897213dc6e607df217be05cbf0bbfca79a58ca37463ea75ba3e980"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-10880"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-10914:latest",
+      "id": "sha256:af3fb319a55923dac10fbaee8c0aa0a9d21fe5c42603734812cc020c998e40a3",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-10914@sha256:3afaadae84f779b57ff5397f77efd7a22a6bcac61d77a7f09b70b3139a5c12e1"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-10914"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-10973:latest",
+      "id": "sha256:ee9c2383c3890dd7ff00392325aff3ee2b422eb399baf04c20648662b602624a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-10973@sha256:b6c8c71dde4d6bba6e2dc50a70778bf275b07dca2df97c4b96b252d6e54a1fdd"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-10973"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-10999:latest",
+      "id": "sha256:44659731979e615212698d54f39b1124f06bc2e38402d4b9d7e3782cc709a747",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-10999@sha256:4dced474a58f982e59782975ab514f4a3de6ed372a80867256cd51f0a21d3be9"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-10999"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11066:latest",
+      "id": "sha256:2686cee5bc931b3180c9a4a91ca08772a0b480781af75c71bab1001f0bd7ecc3",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11066@sha256:4742b1aa9909b136ec0eb6641fbc02e18a7cb3acea53cef7ed4429d08c1ef86b"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11066"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11087:latest",
+      "id": "sha256:39f7963e6b454583854e8c7970cbd4c337d60f004a360a5c5940c17190f5624f",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11087@sha256:baf59fc7f93867390f521a03ddbf6a755aa476471aa5ae008c3347e115b2b000"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11087"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11095:latest",
+      "id": "sha256:65bbc6a96f5a5dfe5d975e38fb271d7cfe87d6f5cca27a05e04ada5ee006f675",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11095@sha256:029795e178a057bb82fc223943527fa4aa4e229d3524bdf9e8296c978faa28ea"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11095"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11099:latest",
+      "id": "sha256:b2ef446a617d9ae83dad07fcc470d745b2134d4b5a488438da5854cab2251b61",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11099@sha256:364ab4524539dda8fc9c18c7b4761c76113eba606b79b845563d5052dec163c4"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11099"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11119:latest",
+      "id": "sha256:e64cb0d210fc87b9b74d4b94063c4f83a415cd9136129884f09de04c8dafe236",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11119@sha256:61e2f7dbcaed41a5ad34bf681edb2acf84b4d72a10fc6f635b29601da58990b4"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11119"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11133:latest",
+      "id": "sha256:03b08ca8fc4367ff25ea4150bfd2bcfca94a1eaf0952bf522bdb97949a78f036",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11133@sha256:499a1f64294c5b3787c461633cec96581207248d52a4d52325a87fbff3805064"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11133"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11138:latest",
+      "id": "sha256:22e5f6ff11f95d99655d6a732d6f0ee2c1dd9f8921263a53b73b018c6dabe98a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11138@sha256:811f9bf0ca067b334b574cd3589cdc989b350b2a24b68e1ddcd288fbb97d61f4"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11138"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11141:latest",
+      "id": "sha256:fb8b1973ffe2226c341b9494c4d9c395a1d934d2b9f8e3d52d46eb663e9db42e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11141@sha256:4ddf6f0c40a736648940e229b960411b35ff78124cb95a0a4407690cbdbfe442"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11141"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11149:latest",
+      "id": "sha256:4ae9b0e3ab2ff58390766b9f068c43b37fb2b241f26ed6178810398ce1fc08f9",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11149@sha256:17b5ab946ab47c4711edb41debeee25837e4d3226dd7f720ae1dcf55576c84a6"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11149"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11163:latest",
+      "id": "sha256:4fd4e5f7c257f51d2f0f8019863b163726de67d2dd4542678b4953cfbaec98e7",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11163@sha256:ae0b96085340fc1c0cc2962ba5ac39f9cc935cbd50fbc98229b635fd80df31a3"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11163"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11179:latest",
+      "id": "sha256:584cf75b0e885e804ddc7f386b02d5b10e4a5eac4b1ac568964ebd13a56cf65d",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11179@sha256:f36d81831615d46d1eea34feb6c49a2815f637a28bca14105db346bf90a8bd0d"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11179"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11206:latest",
+      "id": "sha256:8a5701d56f4eac78e12912a786c2b70cd45e2b63b8532e7769ba2ba255c2d554",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11206@sha256:f4582d367068b12ff63f49536ed010537dc94470649a0046047353a15f8a4a9a"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11206"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11211:latest",
+      "id": "sha256:64cf2935f10ab1b0af58dddaa9c69499801c5f2f1e083a9b1d609b573735e5ab",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11211@sha256:cc5bba0d622e2e2f94038f6e968a832578d94266af460386341afefaf87fa497"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11211"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11239:latest",
+      "id": "sha256:331be8a605373f6e00619b9c55b332a940543ce340fc2b8253e602c585cc6193",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11239@sha256:d0e1e22a263cf2ae9b54884de5ad1b0089cfde31aa16fbd7546550dd947954dc"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11239"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11265:latest",
+      "id": "sha256:e5711ec8aa664aed5792dc7a8629a750f4112f97d518a5331c2b14e8b3abd8b3",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11265@sha256:8e8eb63519510156e4bd1bcb930a817f1f6b958d19db6987bfdcc60c90bf1dcf"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11265"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11276:latest",
+      "id": "sha256:0ca57ac477a422a977978ea7dcea8fcefb5ab8d8b8e2fe395bf3d86fa37a29da",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11276@sha256:8e02100e7495c6258bb1594dab4170aa147bf3e8e338a2dcd85125c7bec65b5a"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11276"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11292:latest",
+      "id": "sha256:092c6415c1f303d10a94b747347d07fcfa957f23e7089d32724c93c3619ae222",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11292@sha256:14527bea3de0b756c25d9c9e078396f87e1862ef785f9f725ce52c9782995cdf"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11292"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11299:latest",
+      "id": "sha256:c55c879edb9908a117b0fa10e3f2841b6b8fb7e0df5b5f0e32e79a41a2d7f8c9",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11299@sha256:47fdbfdafa1a0a41dd32c23211a8df13a051a623234220142c29b30fae760694"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11299"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11333:latest",
+      "id": "sha256:1770234cb0f5ecf1677e407d04af8dc27422f7e281c283a646fd02efcf41172e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11333@sha256:b5c8e08a9160ccbc06b6638e475ee8d071ab5f504470db32a14c6f00fa4cce55"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11333"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11400:latest",
+      "id": "sha256:c0964d6c07074e768902d18bec32c963ac9a19030ea8e055fd2a4bc6f2a0612a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11400@sha256:d8321ebabb7ba24e7db20275bba97dfd611fb36d078746ff08524b10225ba366"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11400"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11433:latest",
+      "id": "sha256:91f6c54eb0c177d05dd417820f16dbb08b7dcf21568248a8496dbd2e923a653b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11433@sha256:83a25f98c9db57caa9ea9da416b18078e6ecca9819788116f6e9263fdbf91930"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11433"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11451:latest",
+      "id": "sha256:aad8f68c59b6dce0f5d2ec80cf617d4f8c9e44a11ea54d2043cfa6acda21ebf6",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11451@sha256:e2c2c0e62a1c20b86f394eb12bda5efb503f1cc336069583d932dc7dfa81efb0"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11451"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11477:latest",
+      "id": "sha256:6c36858a3f956b3ae30f007168d2891621b3667c3c78c16ff72faf2197c46272",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11477@sha256:18fa05d1fc555eb673f798a17cfc1a32b86b6cd9f9a56c64b7840cd5e35e7c10"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11477"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11490:latest",
+      "id": "sha256:d5cd499c4e01ac98f896ef1a7ea850978a1b0b91963c572f11a13315b474c45f",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11490@sha256:d4fb2ca01ba943c7bac346b65e0e51b7a28a9170a29eaeb9091adcf6a2eab4b2"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11490"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11532:latest",
+      "id": "sha256:3cea7db707e587cd75dee687a1f01dbca107a3c6886d583251a1b05cd2d27252",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11532@sha256:77f577d4cf9c43446b9ba086556fa8a5d877d5841d1c21912947e0f00ac4ac2d"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11532"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11551:latest",
+      "id": "sha256:8a4a1b303c10396967f597f95b3b5da222fe06ad5dc0ddbb7ac49ba210c2eabb",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11551@sha256:9c43414924a1598c8c11b7d6ea24179624eb362c397be8fb5f1a73647f1bea5c"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11551"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11555:latest",
+      "id": "sha256:2dd3b5697b6d08ddd3f47b4059e8f507dc127271baf6fbbaeadff005100410f4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11555@sha256:36c28a4ff3d57102f43c3ea25d60357c48b24ceb013126e3588b707dddd1cd36"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11555"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11603:latest",
+      "id": "sha256:370ec7ed96f7281200bfe7c5e5c648471ffc4b87c2b0ee1df6e408b13bf88201",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11603@sha256:d2362d3fee49d087314bb6f12114fbddd08b30cc42e9848fddd0a591872963e9"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11603"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11728:latest",
+      "id": "sha256:3daae3c5fbcb517d2934208db5bb309cdc87039653fbff3ea463e67d990b8d58",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11728@sha256:898316d97bbe284386e7706855598784b0570bc436c8c5c3a4b6e7e72e3ed531"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11728"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11734:latest",
+      "id": "sha256:d88512b06833aecb7a6d8926a030c6597145e4bcf253b198d173b55140aeb038",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11734@sha256:5ddbc111ccc7ed091855034eacff1c58347df158d6acd0c015feab17587d36a2"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11734"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11740:latest",
+      "id": "sha256:405c963e909844f43db644653872def0bee6bb66a8915d5faa79f15b29c34680",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11740@sha256:cd95eb83c40d5738a534d6210a485345fffc9cf653c2c5995b4395d202ff0eb4"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11740"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11749:latest",
+      "id": "sha256:82579b9a86a85ed6fe533b49433354333a88a6cb67ea4f5215d6570ae2f11a04",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11749@sha256:ee36707667d3884ae64846162a37f2080e9669f0369928c53131428f3e9845c4"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11749"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11790:latest",
+      "id": "sha256:c91e8e2db24af4206f02c20273e4ed30fa1f88222fe388302b09b8e9672bba25",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11790@sha256:97132bd9fa42be42add93741520b3e58dbba8a693a209757a18381a31d386ec5"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11790"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11815:latest",
+      "id": "sha256:74a75b03966a3880a0c53b6816c8297b2f6796c6e7ddac24b0e1f6c2f8a25c05",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11815@sha256:940abc2df3158ff37de107233680f637536b96cae7bfce51b633f7e5212a5d5e"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11815"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11820:latest",
+      "id": "sha256:0985b3dac3609373287faaf74a7a72b807427f128af1444069e3193bd8e997cf",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11820@sha256:9f0fa3231d4ce350634bb02ee75e3a7870240470d1b4cb1dc0a2657889c4c952"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11820"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11848:latest",
+      "id": "sha256:6ceedf64aa6f96ef07920b555574ff82f303cee094d49516d94a3003b76a92cb",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11848@sha256:3fb3b90074424b3deaed41b2e2e66483e54e922d22fa034952f5a7f8553be607"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11848"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11880:latest",
+      "id": "sha256:f32226dd5f0099b4bf536032897757226f230a17d77c87b147c84201d5bc1436",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11880@sha256:4488d53c0526d3a4e679753beb3501d70253a1f687274ef9c2ed07e7225dde6c"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11880"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11885:latest",
+      "id": "sha256:ed825bbda017a0f716be5c41506e27a668424cedbfffc01a661dec5429095157",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11885@sha256:4a0f8c7fbcfa5101ffa2ba697c2a75aa58174acff3a286a81b0807a8395a46fc"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11885"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11951:latest",
+      "id": "sha256:d09e15a3e57587c02e44bfd6b8ffd44c2e8019fe5b2e8167db16b93d519b30d4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11951@sha256:8b4902b984cbdb3c6dc3301a1ed8f34cd2ea3ab30ba06a32d5c41cd7274baffd"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11951"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11964:latest",
+      "id": "sha256:bb840e5a07f0552c1fb8d68e4a0b378be827dd23bbcb215b5e05b52f7909e3e8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11964@sha256:a3d3a631f68fe44d05fc86f526fa25dfdccb611600baa46459558f674af48dae"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11964"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11999:latest",
+      "id": "sha256:7349e3b679296b3fd6d1db723ea8cdcd53b0b64497ce8df65576ec2abe8d257c",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11999@sha256:05dd1cd2aab112f4913de86ae083226419113b6aec969b8650f4ef45e34f2ddd"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-11999"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12039:latest",
+      "id": "sha256:c5bd39b008bb82e1a41314c2947bbf47af67d00e4a4c27d9e4bfb974c70c910d",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12039@sha256:a164db2152541c12d3a6ceae98645510ab3485cc753705da70f204515818f1ff"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12039"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12050:latest",
+      "id": "sha256:71e95c6d3dae88356ea28c2e7d8becd61bd3487cbda69df4a3857f65263c6e34",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12050@sha256:e9b0dbb6b2fec8535a33dc242342020a3c3574adefb95b30d46b25669fe72108"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12050"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12125:latest",
+      "id": "sha256:9a52f383c20ba46e835b3a5f0b9671a86dce0242c22337644e220625955db61a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12125@sha256:da33a102cd04dc2ed17350e8e227102b56db9405f0227977060eee610e67163d"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12125"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12143:latest",
+      "id": "sha256:2b9272d080d7ecabdf0006b40e19d97def6858dbf98fc9489c578c58ba6bfd36",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12143@sha256:8560b59ed16f4d585a141e68373ef49755094a589a160fb88cce7623804268a4"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12143"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12155:latest",
+      "id": "sha256:a3b144f5869b093c44bbc5807a4d2bbe6fc6f4a373f21fc4d9500c106667c9a9",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12155@sha256:a0cc9fcdd67a7a030e947521e227ba9bfc37df118525c0d68ae3ed0d620ca07a"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12155"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12193:latest",
+      "id": "sha256:65a6a28c4d13824391aa8bdbfe47c07947c9011ec09cb60197ad84e5ece738b2",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12193@sha256:0e4343c4247f2f7488a3bc852a6caaef5223a4bb150433e3806a3518f3152d3b"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12193"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12209:latest",
+      "id": "sha256:eae3d1fa6ff84b74fef3a0c9b01633f0ed67c9e004d66f3f63b1bdc4e9b04f6a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12209@sha256:e9e412759e0ecb8ae19fd06581a8e2a131745eea271d99b052eca76af566041a"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12209"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12262:latest",
+      "id": "sha256:787ee715329362232a740342aa38c45c7b01015c1a6031475ae3fae498b60af5",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12262@sha256:1adcba61b71713a4ac9732c2ac05194acc4aebb2f904437d489db6bbf73e143f"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12262"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12273:latest",
+      "id": "sha256:075463641d53e3110109bc6b02a4973f327cf22ba72304cb2449643a96b94dfa",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12273@sha256:75717e276e656f42bd46e25c4fd2b2754bef012539030ecb89bfe426031ce0bd"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12273"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12276:latest",
+      "id": "sha256:590b60981698bd7342f3c46cae07e70b7bb768d4a877a8794c756029a2c17a6b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12276@sha256:001fcf705cb514b1a4e6af9dad2a21a657127cf92fe00c1ef8200706d44186c9"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12276"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12304:latest",
+      "id": "sha256:a2dec7e80ac9b1d38ee5d2d4eea3e99c1d9690dd8b3eb6abb07ceb8c16865e0e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12304@sha256:86ac7281087965cb576c24e92ee6a71fecaf952948e388583949dac9935c5f7a"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12304"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12308:latest",
+      "id": "sha256:e49ccb30fc6e1f2f5153b2472b4bfcbb6accc8346f9eb55b1c45c7fcf4828d3e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12308@sha256:748bcffc9cb391f94983dcccfbd753f4ad34d948f2d6a0f06d359ad29a674fcc"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12308"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12325:latest",
+      "id": "sha256:dd50028e9df527a0a006446582c677f4960522562d97003f160110d170022346",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12325@sha256:ca93e7820abb93c4fdb4a567ab05b6625b6474ac437c9f2d9bd706093d7de9df"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12325"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12406:latest",
+      "id": "sha256:8bde10a31fde9b8f0467c49c959b5b2b9b47982aae8886374c90ef67ba7e4f39",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12406@sha256:02ec0a94d6eab4aa692f0a416af266132edd6d5264f184813f95bbb818d81914"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12406"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12419:latest",
+      "id": "sha256:23100ccbe352aeaa1827ac03a1c7fea60198ce08646b693f3d9ada659c5eb8dd",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12419@sha256:6c6b1fec0a323b9225564620cd34f2d39828cef8f32496ad4a6c9ca0f7256768"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12419"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12663:latest",
+      "id": "sha256:8c000d1960ebd4f84ef9218cde860a7fd5450841793edb119e32b9154228e995",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12663@sha256:44fcecdc823d4eb00d6cd2f4c3a2610874e911acf9133e0604db9324850051d9"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12663"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12708:latest",
+      "id": "sha256:d2350b4777439318bceac057b7357dd12af613566258edd4fd9e545e3ec7bb8e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12708@sha256:5f920ccf13410e9fbc43b9e3a83e2b876f5a28d6b0db5369b428552320567b7d"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12708"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12713:latest",
+      "id": "sha256:025d9d3c1a49211a42d554f7aed70bb4e731323871b6a565fece76e5395f0d04",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12713@sha256:7a238335a0f05c3fbc1d9d193efb32d83cbba7c7fc72a89e37cc0496901e1993"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12713"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12741:latest",
+      "id": "sha256:b6cf724a79b6a635007f35642366ae17805e565b49a9bbfd8be7ec1b8139c491",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12741@sha256:313ba8e7fa1d1c4e517d4f1aa9dc7e018c8250352221c7b6e20a8e216bff980a"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12741"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12754:latest",
+      "id": "sha256:eb6f5d97babf450137683eb41ff94bd046a9f051a68f1582be619d1cf33c7835",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12754@sha256:449c15ed1d3f73bb30a9665965f57de8ea72a3589c8c1194a8a8dd0da4f753e5"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12754"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12774:latest",
+      "id": "sha256:40aefa7e73bfdef48180c055d19d6f59f3b1049738a18fcba9cfb2b691b7eb20",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12774@sha256:1f65dc6387cca60297bcfccacc30a38367c5c82787a35b444f78d8bace351436"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12774"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12858:latest",
+      "id": "sha256:193b52a2b2053be091a62500d46c5bdee26985cb37bf3f221d8783224126d5a2",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12858@sha256:0f2c9691e38e64ea455e2018fbc7dad293ff79945ce6d8f048c8bab4b2c9c2b9"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12858"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-12965:latest",
+      "id": "sha256:86891379c72823490524a9ac9badd617344ae634c6a42b1f969dca148e93a868",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12965@sha256:8b70283e444098dbd94df614b2ccab6557cd200d5a03c6fbafb947cc66e85359"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-12965"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13012:latest",
+      "id": "sha256:f3d7d25dccb43b7d72ca85fc8dbf2187827a3ef93f4a027db6582f548219e79d",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13012@sha256:7659744249a363a023de49161042b3cc2e77586e60b28e627565ca7f8020b314"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13012"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13023:latest",
+      "id": "sha256:c62eb7d71aba8970d858d9d93f2d1ec8b34c53702a4d736dea747597b9ceb2ce",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13023@sha256:98735e2bdaa0eed58a83544f66e90a0d36e2304eb88df013b175a5b36990abc0"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13023"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13028:latest",
+      "id": "sha256:c551d1937f9abdb74cde05152148a8bc5a36a06dbe0253217502ca571b51ace8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13028@sha256:ce749003e93f6fdccf00ca1a13ef7bd32040214ed26f06d2787af2c963057d0b"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13028"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13033:latest",
+      "id": "sha256:45361a6ede057fd3cf72220aa2402888084464dd2cbc62b05112bea65289b6c8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13033@sha256:62ddb4ba635a095b58e0209b146ad13b039af3f1fcd0b318b8182e4ccc88a3a9"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13033"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13089:latest",
+      "id": "sha256:8e7a67be0a6e9b51d491b1a161981d0244255ea6b51a57e7e0a177db8fd146a3",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13089@sha256:800b15850facfa2657e9d7db3fb15222af02c166b996ed490f2cc4184e51510b"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13089"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13109:latest",
+      "id": "sha256:f07d510a95590299d5ce8c02d761a33704c82e65f6b67e582f383fefe015e27b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13109@sha256:bcf1df49ac00f04235e755722507cf04a02df3371a9a7f39801481242cf808a0"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13109"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13112:latest",
+      "id": "sha256:5b9f918f75545c96110d7fb663cfcd6f486322e5520cc58142ff5a9332c0f1dd",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13112@sha256:bcb7b5774dc303f2bd664c3c614a5fb99e5fbbe803a776d127621a7841dcae64"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13112"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13121:latest",
+      "id": "sha256:0d90a24e1b072387c47732366ddbb160d6b8acf956f8388e835a444861e9c568",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13121@sha256:2c2930a18a172c78c1454f02a2eda84c0cb8404246c98044e59876f554ac82fe"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13121"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13128:latest",
+      "id": "sha256:d7eb71a85e8ed3ad4e068ddf8811073569aecdd24e049079d2f1e2f93d368b65",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13128@sha256:04c63492a9ef0e667a5b72571eea581247204e8c59065707f4a0dc354263e132"
+      ],
+      "source": "already_cached",
+      "seconds": 0,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 18241316247,
+      "instance_id": "django__django-13128"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13158:latest",
+      "id": "sha256:d22b7b2807b45299ef5abf8066975a656322e376111fbb6927994af442ea9c03",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13158@sha256:ed8dd115b1b27e4eec5b2a5e940f7a4e5d7abfcff4ff4332b2c1d34566fa58c5"
+      ],
+      "source": "registry",
+      "seconds": 7.953294133999998,
+      "cache_added_bytes": 94381407,
+      "cache_total_bytes": 18335697654,
+      "instance_id": "django__django-13158"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13195:latest",
+      "id": "sha256:9498cb73bd069497b910d57b6abf464bc078acce9cfb585978f8d7b93bbc0cbd",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13195@sha256:18befd1acb588516d019e63b99f00126f44323a4aa23e4a493ef3eebb4610b03"
+      ],
+      "source": "registry",
+      "seconds": 6.377709110999998,
+      "cache_added_bytes": 94113172,
+      "cache_total_bytes": 18429810826,
+      "instance_id": "django__django-13195"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13212:latest",
+      "id": "sha256:96ec8d3c284106346882f675d94344cc5b5b5f474a987c8aac45c3d9cfa9df4a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13212@sha256:e227ab2b42f174d78b4281b23e14b13f83ad54953f8215cbc0c622c09a84acb0"
+      ],
+      "source": "registry",
+      "seconds": 6.657566290000002,
+      "cache_added_bytes": 94167708,
+      "cache_total_bytes": 18523978534,
+      "instance_id": "django__django-13212"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13279:latest",
+      "id": "sha256:a2ce19d948c4264bc8bf32d6cd3e13294096c15eb8326a28ad473a6439c6f3af",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13279@sha256:9bab50ce3f2e0c86a1e423d36ac6c7dd77c2034979d5e68bd72c96098fbb1470"
+      ],
+      "source": "registry",
+      "seconds": 13.266308776000002,
+      "cache_added_bytes": 94822019,
+      "cache_total_bytes": 18618800553,
+      "instance_id": "django__django-13279"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13297:latest",
+      "id": "sha256:ca66a7eeb804ce23b06420dd501f6e5fe4149dc62b3efe9ef6a56049852db755",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13297@sha256:2986b686f47814e48022af56b7f148cf0e71d81795869821a198bb404a4968f6"
+      ],
+      "source": "registry",
+      "seconds": 7.885639305000005,
+      "cache_added_bytes": 95051301,
+      "cache_total_bytes": 18713851854,
+      "instance_id": "django__django-13297"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13315:latest",
+      "id": "sha256:93a3046edcb6ae41448c06d5cd73cce71ea49c5f13086a0bf8807785e00f8897",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13315@sha256:4ce970c572389d6c32ffa77a2c6871e32643f32c909a8b00a5b8e5ad99519f14"
+      ],
+      "source": "registry",
+      "seconds": 8.275222693000003,
+      "cache_added_bytes": 95917309,
+      "cache_total_bytes": 18809769163,
+      "instance_id": "django__django-13315"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13343:latest",
+      "id": "sha256:280024acdf333bf529baec7e580cd03e62556557eefcc91125f0f4695eb0e8ea",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13343@sha256:913df49ece3ea99cf855b2fdd62edcf10843a412f39aeb6943fd06732ec7d2f5"
+      ],
+      "source": "registry",
+      "seconds": 7.115361961999994,
+      "cache_added_bytes": 95189622,
+      "cache_total_bytes": 18904958785,
+      "instance_id": "django__django-13343"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13344:latest",
+      "id": "sha256:2536b147b7da2dc94686bdf36e1cdbf10843d42cc88856225c145cd200a14514",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13344@sha256:675551ddbb2800e5a3095003a0c044c5a2d36594fc630101dc2b34fb18e80373"
+      ],
+      "source": "registry",
+      "seconds": 8.283848479,
+      "cache_added_bytes": 95217992,
+      "cache_total_bytes": 19000176777,
+      "instance_id": "django__django-13344"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13346:latest",
+      "id": "sha256:5297fbfb017dcb9c45cce0a3a9b844487cff98829826779007a62fade3c29a29",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13346@sha256:2514141f625fc58dba82c51e7bfe4ed43ad3169194d98eeb2fe5bc23a73ebcae"
+      ],
+      "source": "registry",
+      "seconds": 11.714007994,
+      "cache_added_bytes": 95229073,
+      "cache_total_bytes": 19095405850,
+      "instance_id": "django__django-13346"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13363:latest",
+      "id": "sha256:919fe978f887ff32aed7cb7fa345dae57fd59187c8eb0d6d62ec9ea73184cbb4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13363@sha256:63af332c463d5014cbe0f6cc0336d6b9a29748be24b809b0c26901a55e6cf68c"
+      ],
+      "source": "registry",
+      "seconds": 6.461766816999997,
+      "cache_added_bytes": 95258853,
+      "cache_total_bytes": 19190664703,
+      "instance_id": "django__django-13363"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13401:latest",
+      "id": "sha256:fe9dff8a31b76e659487f557d549afa2762eefcf9151c8ff8a5132fe1ee2f16e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13401@sha256:64a74a21a4c80468a65e56823461e9ec05625df646d92b989bc59c20f4989a01"
+      ],
+      "source": "registry",
+      "seconds": 6.736375534999993,
+      "cache_added_bytes": 95807968,
+      "cache_total_bytes": 19286472671,
+      "instance_id": "django__django-13401"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13406:latest",
+      "id": "sha256:ddba07a9b1f14a56e28dd59fc2d0ea792ceb3c47a4a23a5acc841e7244f606c2",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13406@sha256:6e373c233883d3deece4cc2ddc043a8fcfb2a71cadfd7230b4168b4cad73729b"
+      ],
+      "source": "registry",
+      "seconds": 6.3578563720000005,
+      "cache_added_bytes": 94944442,
+      "cache_total_bytes": 19381417113,
+      "instance_id": "django__django-13406"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13410:latest",
+      "id": "sha256:f5fa79b26f52016a0cdaf12d7f41b37ad9534d392d61a3399f504de9c5a8600e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13410@sha256:78f814438b2ca1a63da0567362046f8e12e0d630d1c492947a7eb8bb015df8ec"
+      ],
+      "source": "registry",
+      "seconds": 4.268737126000005,
+      "cache_added_bytes": 95393193,
+      "cache_total_bytes": 19476810306,
+      "instance_id": "django__django-13410"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13417:latest",
+      "id": "sha256:f6a9d111252292cdf0068f0526acd8543beec70ab980d17dcb06e77f765567c8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13417@sha256:f66b0252a26d1d4673bcbc76c17898c363b813a8e458cd32d5f8b5093a856a5e"
+      ],
+      "source": "registry",
+      "seconds": 7.936079013000011,
+      "cache_added_bytes": 95292345,
+      "cache_total_bytes": 19572102651,
+      "instance_id": "django__django-13417"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13449:latest",
+      "id": "sha256:820cd63dce1f8459bfdf53d528c9bd7d321e77bfe226dac6cee3fcb5f65754e7",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13449@sha256:37219d2a63db909b824e1ff8c742283b5ea30047293a47098fe9249cfbc7b316"
+      ],
+      "source": "registry",
+      "seconds": 7.121912410999997,
+      "cache_added_bytes": 95482399,
+      "cache_total_bytes": 19667585050,
+      "instance_id": "django__django-13449"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13512:latest",
+      "id": "sha256:6d829b07502b56c84e0a8fffea5d4a9acd0eac8219dd52fbd1357a7614c1a6b4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13512@sha256:d9ed685983c9725847d150a52114aaae03d8c922e266d37a61c4dadf4d89633e"
+      ],
+      "source": "registry",
+      "seconds": 6.174680749000004,
+      "cache_added_bytes": 95427439,
+      "cache_total_bytes": 19763012489,
+      "instance_id": "django__django-13512"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13513:latest",
+      "id": "sha256:906ba84e4e8c7791fc4115d889ef771cf080532942cd15290a1b65625006d58b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13513@sha256:70adad783c72816162c0bccfd70e3baaf87d13a59591915712ea7802502cf076"
+      ],
+      "source": "registry",
+      "seconds": 6.727897283999994,
+      "cache_added_bytes": 95540400,
+      "cache_total_bytes": 19858552889,
+      "instance_id": "django__django-13513"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13516:latest",
+      "id": "sha256:402ea553aae39f7ddc56b0fafa1ccd97e265f0aa40c35bb22b2fc707168e744a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13516@sha256:55556b453052f67e5e6a638fd02b62027142727be88d0ab3b5b21e42f14f52ab"
+      ],
+      "source": "registry",
+      "seconds": 7.69374466299999,
+      "cache_added_bytes": 95475052,
+      "cache_total_bytes": 19954027941,
+      "instance_id": "django__django-13516"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+      "id": "sha256:81ec78861f8295a3008efb0cceda4a3b9be43999a2864aa89604f26eaeb10690",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13551@sha256:034ffe826b52073dfffd4835a71da0df9e8fc240f98b198181c4030e82598d53"
+      ],
+      "source": "registry",
+      "seconds": 6.244835487999978,
+      "cache_added_bytes": 96080588,
+      "cache_total_bytes": 20050108529,
+      "instance_id": "django__django-13551"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13568:latest",
+      "id": "sha256:c33bad7ee545de6dbe154615b4c53f22328d88efdf0a7ce6bef38b43b83a4659",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13568@sha256:00682fdd0ca3bf2a288635ab7cc1ac6d5dbd6181c75249bf3474eb6e9a56d6fe"
+      ],
+      "source": "registry",
+      "seconds": 6.507941321000004,
+      "cache_added_bytes": 95477545,
+      "cache_total_bytes": 20145586074,
+      "instance_id": "django__django-13568"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13569:latest",
+      "id": "sha256:66aca58a4dea91d51fa8932d182faf25aa5224469f0739142d4dae9e4844a570",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13569@sha256:941f05dde54551c184816c4510eb5dde3085bef76087834294436bce215c10d5"
+      ],
+      "source": "registry",
+      "seconds": 7.197477386000003,
+      "cache_added_bytes": 95498704,
+      "cache_total_bytes": 20241084778,
+      "instance_id": "django__django-13569"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13590:latest",
+      "id": "sha256:21e8319f9c7930bb0fa6650774b5e13a80cd477401036b8b200f80f6dc129148",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13590@sha256:110b5da1873bdf35482ad8c22a77effbc19e0fa93466067502a1dba03f695f0c"
+      ],
+      "source": "registry",
+      "seconds": 5.896568177000006,
+      "cache_added_bytes": 95924154,
+      "cache_total_bytes": 20337008932,
+      "instance_id": "django__django-13590"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13658:latest",
+      "id": "sha256:73b866dca1bd1098fe076dc5f0ce40e11aee0d10fced97ec75d9422e3b06a393",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13658@sha256:14bd49881bd2989a3a3b4bfd003198521d220242d035d6864927e5cc409b2f86"
+      ],
+      "source": "registry",
+      "seconds": 7.206799098000005,
+      "cache_added_bytes": 96075421,
+      "cache_total_bytes": 20433084353,
+      "instance_id": "django__django-13658"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13670:latest",
+      "id": "sha256:d2462cf4a82be9339191b802f1be6cca2bbe133c71424ee263b396743f68d9a4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13670@sha256:ee8ca5f87cf82d944380bba31970c509b364716f84cb1d2727c3397d2369c881"
+      ],
+      "source": "registry",
+      "seconds": 6.425342267000019,
+      "cache_added_bytes": 95885870,
+      "cache_total_bytes": 20528970223,
+      "instance_id": "django__django-13670"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13741:latest",
+      "id": "sha256:01d3f26c411a951cf73ef0a86f7f3cf7835e2d3c6e0d432420eb4b6fa783078b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13741@sha256:4cbaf1ac645650663a4ff49f9efc604b6effebdbfb26b64c0dd8a75d80514d93"
+      ],
+      "source": "registry",
+      "seconds": 6.734865698999982,
+      "cache_added_bytes": 95894938,
+      "cache_total_bytes": 20624865161,
+      "instance_id": "django__django-13741"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13786:latest",
+      "id": "sha256:b0647556424fdd8811cf5bb493f58c24b6a5223ca0f80c4faab7c9f7fc586db9",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13786@sha256:badae8719be4c3dfb0e76c067cd472135935cf6d4b80a2e63f8f867b0e9610a5"
+      ],
+      "source": "registry",
+      "seconds": 6.378720162000008,
+      "cache_added_bytes": 95960956,
+      "cache_total_bytes": 20720826117,
+      "instance_id": "django__django-13786"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13794:latest",
+      "id": "sha256:71828caceb9e0bd93ce68518fb3174b449b1dd5e5d70d79e37ff7dcaf8de340c",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13794@sha256:548bb9ecf7d40b61275bb7de3ac4e3c92c66360c2b012b1239ebcd6541b61ded"
+      ],
+      "source": "registry",
+      "seconds": 6.7864922269999965,
+      "cache_added_bytes": 95939782,
+      "cache_total_bytes": 20816765899,
+      "instance_id": "django__django-13794"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13807:latest",
+      "id": "sha256:8dd6ade9c734c99748320547a9dcc0147e6fa2fe337c0ee159a36cdbe6dff983",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13807@sha256:3ff0e9e834ecdfd11c159f8f52b641a8602260380243b1b8f7cedffddd29b589"
+      ],
+      "source": "registry",
+      "seconds": 6.548754051000003,
+      "cache_added_bytes": 95994351,
+      "cache_total_bytes": 20912760250,
+      "instance_id": "django__django-13807"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13809:latest",
+      "id": "sha256:8e381f2d3b66b0585a5afe53926c9e85d5b8681fe675bd05aa14b5dd64b39671",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13809@sha256:505a1ddf221a3f814648afba808f88eb05cdb03a606b2cf78185d001422d6412"
+      ],
+      "source": "registry",
+      "seconds": 15.580898281999993,
+      "cache_added_bytes": 531587798,
+      "cache_total_bytes": 21444348048,
+      "instance_id": "django__django-13809"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13810:latest",
+      "id": "sha256:99afe0762b1d494eda78928fbd5917fb3fb2b5dfe5b8624542007ed76e49346b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13810@sha256:9f21a861697a2eb806de71a7aa11ecf8f73842981c8a9930c5af2f00d83df5af"
+      ],
+      "source": "registry",
+      "seconds": 6.343494155999991,
+      "cache_added_bytes": 95880438,
+      "cache_total_bytes": 21540228486,
+      "instance_id": "django__django-13810"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13820:latest",
+      "id": "sha256:272e3cbbefa5280d2b9030473cd003d029114722bba97cd06fa08b35eec5a070",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13820@sha256:5b1737db790332410d17e1b47a9df8f7344a83002ce219593bcbf74a16d8b8eb"
+      ],
+      "source": "registry",
+      "seconds": 6.2989609170000165,
+      "cache_added_bytes": 95956489,
+      "cache_total_bytes": 21636184975,
+      "instance_id": "django__django-13820"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13821:latest",
+      "id": "sha256:770da3d3b8a11de3947c1e0183a61a516c04ff04039ddd14440faa55c1fd405e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13821@sha256:8abb785ed67a7c3cce1ec344f7a97725829970cdd69b0af1db8465e9cb3cf832"
+      ],
+      "source": "registry",
+      "seconds": 6.403858546000009,
+      "cache_added_bytes": 96111401,
+      "cache_total_bytes": 21732296376,
+      "instance_id": "django__django-13821"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13837:latest",
+      "id": "sha256:c207cacd618002ab203374eef1bffaaa511626f6dc025c9e17ee05e082cfa4ac",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13837@sha256:662a8d801fb6a0f9c221f9f2b73be8fcd98d3e51b4e5b70b24f9505c3787d530"
+      ],
+      "source": "registry",
+      "seconds": 6.6245277270000145,
+      "cache_added_bytes": 95987504,
+      "cache_total_bytes": 21828283880,
+      "instance_id": "django__django-13837"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13925:latest",
+      "id": "sha256:c08d4a51e5a5c8aee7ce9b06c8f01ff0c67da737d328525c66232bda661eff9f",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13925@sha256:dfcffa35bc68e3b014c6e4c041210721cfc17179fd372e4f7385c6e6384d5db6"
+      ],
+      "source": "registry",
+      "seconds": 18.269377294000037,
+      "cache_added_bytes": 532289088,
+      "cache_total_bytes": 22360572968,
+      "instance_id": "django__django-13925"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13933:latest",
+      "id": "sha256:fb0f1e982f28caf87464a0530df8aaca419bee4430549771f917ac0e12c7ad84",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13933@sha256:9872c1a03b783ad17cfaf332ebfc7c9d992dea47f911b2b7e0e31cbfc0064297"
+      ],
+      "source": "registry",
+      "seconds": 6.687580002000004,
+      "cache_added_bytes": 96668704,
+      "cache_total_bytes": 22457241672,
+      "instance_id": "django__django-13933"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-13964:latest",
+      "id": "sha256:b86726f94f4e4eb918f03260dffc975da7eb07f2f841bb799f8ed87570b96c0b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-13964@sha256:ebc4bedcdd617d5ed6f711d830ec6af129c7f8d7875cf075db34dd7d5368f124"
+      ],
+      "source": "registry",
+      "seconds": 6.5922451170000045,
+      "cache_added_bytes": 96742405,
+      "cache_total_bytes": 22553984077,
+      "instance_id": "django__django-13964"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14007:latest",
+      "id": "sha256:4d9df53b1d5096734de8072084cd4eaa6af5f9143d12330ddf0bbea3b4a2bc21",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14007@sha256:a7f15cde39353cf6a45f4108104182951506a55eb1067030b792d5a502ce4110"
+      ],
+      "source": "registry",
+      "seconds": 6.517534032000015,
+      "cache_added_bytes": 97492085,
+      "cache_total_bytes": 22651476162,
+      "instance_id": "django__django-14007"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+      "id": "sha256:77ec8ae57902f5638921fd9eafcdd32a557d139b7118c471f28a5542253408f0",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14011@sha256:453eb9c941d6adadbe078e38620d787616d545c50d4ce4bffaf770db45fabf56"
+      ],
+      "source": "registry",
+      "seconds": 6.527116430000035,
+      "cache_added_bytes": 97261376,
+      "cache_total_bytes": 22748737538,
+      "instance_id": "django__django-14011"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14017:latest",
+      "id": "sha256:562c9d96fb9c2f6df6cd6740479a8a88d239a2fa2ed6488d5f86d43f5d9a9da0",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14017@sha256:affc6bda6a7b7f002a2a166b941a70aee8b20c9fb123d2703695ff4447d9e51f"
+      ],
+      "source": "registry",
+      "seconds": 10.92182047099999,
+      "cache_added_bytes": 96908183,
+      "cache_total_bytes": 22845645721,
+      "instance_id": "django__django-14017"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14034:latest",
+      "id": "sha256:57c4a75e0ef575a605e87fa14e17c49b0ce1e7b611951467de3d6fb09bbaa361",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14034@sha256:a418d2ce60722b04983d018e8d46f88f236fdb22f331ae908f8528104631cdcc"
+      ],
+      "source": "registry",
+      "seconds": 6.57644091200001,
+      "cache_added_bytes": 97634404,
+      "cache_total_bytes": 22943280125,
+      "instance_id": "django__django-14034"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14053:latest",
+      "id": "sha256:f576a75d70871c378722cd3bb44564b951514ca3bcc12d3f28437a65cd929b8a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14053@sha256:eaac81aa3dc8b32b8650ffd8405b34538ad30fe4a2cf78f9a4bd7e07ff9cba5a"
+      ],
+      "source": "registry",
+      "seconds": 6.599806789000013,
+      "cache_added_bytes": 96605997,
+      "cache_total_bytes": 23039886122,
+      "instance_id": "django__django-14053"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14089:latest",
+      "id": "sha256:307e2028e8b6a3d39005785bb3595a356f2088b0f64e2d438275f0f1dc3d979a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14089@sha256:350ca9194f232f18e2e5e38b2fe7b0f3669cebb94b25d6fa2e3f2307ada0a6b7"
+      ],
+      "source": "registry",
+      "seconds": 4.542351161999989,
+      "cache_added_bytes": 96401653,
+      "cache_total_bytes": 23136287775,
+      "instance_id": "django__django-14089"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14122:latest",
+      "id": "sha256:18e4423c9c88729ddfab2140b26518a3c89760b24e57bea4e9f1889d056e8a02",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14122@sha256:7fc3bb62f68f709d5cf5f8da26fb41c187fa096769c40367b150bb634c14bfe5"
+      ],
+      "source": "registry",
+      "seconds": 4.702839021999978,
+      "cache_added_bytes": 96894772,
+      "cache_total_bytes": 23233182547,
+      "instance_id": "django__django-14122"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14140:latest",
+      "id": "sha256:3ed1a9652b0476ebb99bf82373ad2017b6809963312a72fc2457d87d21555180",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14140@sha256:5c682d252da98928dcb05e831b2091c72fc10ae54b0ea9d13052a7379d0bb42a"
+      ],
+      "source": "registry",
+      "seconds": 5.6568706250000105,
+      "cache_added_bytes": 96286725,
+      "cache_total_bytes": 23329469272,
+      "instance_id": "django__django-14140"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14155:latest",
+      "id": "sha256:b7e5f65d8f45528abe5f4f1f3b42fa2cfb4634de2d540a53a7e214678fe68672",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14155@sha256:1890602326397108ee8f6551174834e1867446aabf63a143b0016b18c6e2f720"
+      ],
+      "source": "registry",
+      "seconds": 5.060259018000011,
+      "cache_added_bytes": 97142202,
+      "cache_total_bytes": 23426611474,
+      "instance_id": "django__django-14155"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14170:latest",
+      "id": "sha256:4e8c1f0ba7634c0469799c5340f1f438afe254651e872fe11e3dd0d79bbb9585",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14170@sha256:d10fbbbb16acdfa184b9e4c8292ca40becd40099afba97a19665384d4ea5d751"
+      ],
+      "source": "registry",
+      "seconds": 4.808730816999969,
+      "cache_added_bytes": 97038659,
+      "cache_total_bytes": 23523650133,
+      "instance_id": "django__django-14170"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14238:latest",
+      "id": "sha256:2633b9a754a4e19d263d6462c91d90a1639273646314e0c1145f574936937aae",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14238@sha256:8b0f67486ca67f6a129bfdcebee43c86b2831942204b0840e321321b4fae0ba4"
+      ],
+      "source": "registry",
+      "seconds": 4.519537513999978,
+      "cache_added_bytes": 97614557,
+      "cache_total_bytes": 23621264690,
+      "instance_id": "django__django-14238"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14311:latest",
+      "id": "sha256:c98dc4433fb25574ebc786bff99cb768a8847ce1946cc48ae88f169adb360816",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14311@sha256:8c297d331cd58ef315300306c6467aa5e00c6b26aea5559b05a73c1d91b39ae4"
+      ],
+      "source": "registry",
+      "seconds": 4.866370307000011,
+      "cache_added_bytes": 97780112,
+      "cache_total_bytes": 23719044802,
+      "instance_id": "django__django-14311"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14315:latest",
+      "id": "sha256:b66f7e675f75fcc2513649e5e176aecb3ce72c0a582cef2ab259ab49e90827fc",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14315@sha256:f914cdb3cce55703e51ad3714a4f92f5cf40752174afef9d278dd9317435cf5e"
+      ],
+      "source": "registry",
+      "seconds": 4.771588269999995,
+      "cache_added_bytes": 97348028,
+      "cache_total_bytes": 23816392830,
+      "instance_id": "django__django-14315"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14349:latest",
+      "id": "sha256:afa17acff7de8ca631ca538fa99bc312d69f92a5dccc53fa3b6ee70d108fc59f",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14349@sha256:cf38516897206f8b489543ed8e792249af107f5767e6148287636c5e195acb7b"
+      ],
+      "source": "registry",
+      "seconds": 4.481380486000035,
+      "cache_added_bytes": 97262748,
+      "cache_total_bytes": 23913655578,
+      "instance_id": "django__django-14349"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14351:latest",
+      "id": "sha256:8e4827611db2ab98d56ed4fd2844c9c04fe7de1a48c1ef413b303e139e344c90",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14351@sha256:cdbd1bfcd9546406425b6dc517312e5fe55d2c6b13ab4acb53a71d1b1ae4f624"
+      ],
+      "source": "registry",
+      "seconds": 4.356337588000031,
+      "cache_added_bytes": 97284749,
+      "cache_total_bytes": 24010940327,
+      "instance_id": "django__django-14351"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14373:latest",
+      "id": "sha256:2ae71515b1f2097d52a26512a39a10f45a671176b37f1b6a8c66eeba40eb7fd5",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14373@sha256:347f288fb0684e3eacc2c2184634d7820f9345d8d4851b5542ad27067fcbea26"
+      ],
+      "source": "registry",
+      "seconds": 4.4075241639999945,
+      "cache_added_bytes": 97266070,
+      "cache_total_bytes": 24108206397,
+      "instance_id": "django__django-14373"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14376:latest",
+      "id": "sha256:361c60ef55ff38574b399af7ea90eb80160c7b6a8744479ea1bf24c0d3234d53",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14376@sha256:77a303e37421cf6a4c4453a3c72923dc53f888b2556136b2a2b82b4b75c1ca8a"
+      ],
+      "source": "registry",
+      "seconds": 9.447932879000007,
+      "cache_added_bytes": 97331137,
+      "cache_total_bytes": 24205537534,
+      "instance_id": "django__django-14376"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14404:latest",
+      "id": "sha256:add13b9d27952259a00613edcdc63998bdc588079a9c7d1d5855194a4e966f58",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14404@sha256:474478576b8632dd65d7168645fb7cb08a1d1065783dd262985ad95d7b898934"
+      ],
+      "source": "registry",
+      "seconds": 6.375829189000001,
+      "cache_added_bytes": 97402278,
+      "cache_total_bytes": 24302939812,
+      "instance_id": "django__django-14404"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14434:latest",
+      "id": "sha256:ea04025d4c818808840e559f38ff5e2eb9326944b440dc5baaa344121ce334a4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14434@sha256:3eaf46f79dcfd5fa4141f4613fff0ce5d5d3d24fdb0548d2cdb5456e5cfc85ec"
+      ],
+      "source": "registry",
+      "seconds": 6.762602804999972,
+      "cache_added_bytes": 97025644,
+      "cache_total_bytes": 24399965456,
+      "instance_id": "django__django-14434"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14493:latest",
+      "id": "sha256:1167d13a2d671de231295c3c8d3730908a4211c725a810cd84bb0e343fcaca3e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14493@sha256:2377c0605e2989cab80b3acbdf331f8599234c7f9c6b1a881df65a1e64a1640c"
+      ],
+      "source": "registry",
+      "seconds": 6.196636587,
+      "cache_added_bytes": 97445475,
+      "cache_total_bytes": 24497410931,
+      "instance_id": "django__django-14493"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14500:latest",
+      "id": "sha256:50c597241b9fff1eb704199b5bb7b887ad2fb675684378731cee73ec0256f79c",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14500@sha256:226410c4379e6c35a04b231cac4aae8bdc740818b13d126584ef2367d315f8e6"
+      ],
+      "source": "registry",
+      "seconds": 7.124075839,
+      "cache_added_bytes": 97449101,
+      "cache_total_bytes": 24594860032,
+      "instance_id": "django__django-14500"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14534:latest",
+      "id": "sha256:75aadded6a70bba28f53336de84f9848c582a3d2a8dd48472b5c3105ad176fd6",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14534@sha256:2e2c4c046f01df8af119486f0f266b156e5195603868f9cd481ff05996442e84"
+      ],
+      "source": "registry",
+      "seconds": 6.298562368999967,
+      "cache_added_bytes": 98096591,
+      "cache_total_bytes": 24692956623,
+      "instance_id": "django__django-14534"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14539:latest",
+      "id": "sha256:87ee174bf76b880a59fe31b9e4587a8cd9db24fe0728e5aed16ceecd07a23432",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14539@sha256:c8ce818e7f4d925c74fc38cec3d64585371a24e2cd1f0a60a478db7bd44c3bba"
+      ],
+      "source": "registry",
+      "seconds": 6.411485991999996,
+      "cache_added_bytes": 97756871,
+      "cache_total_bytes": 24790713494,
+      "instance_id": "django__django-14539"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14559:latest",
+      "id": "sha256:8bc43a2b552764aeee2b54cf80a285614b11d351339bbcad7823b64fb6aad19f",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14559@sha256:4dbe7b478a97d5f2470619f5db3a9d5c9297766bca3d3a288e77f2d3c39cc0d5"
+      ],
+      "source": "registry",
+      "seconds": 6.940058695999994,
+      "cache_added_bytes": 97706097,
+      "cache_total_bytes": 24888419591,
+      "instance_id": "django__django-14559"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14580:latest",
+      "id": "sha256:cc4d56ca2cc8dce38ab49e434fa68397528ef189ef4e73382b03032edab496e1",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14580@sha256:36ae66cb383bf48c5bc41a87e0d2e37d98f5bbadc3d42dbd0a21b3077ef10dad"
+      ],
+      "source": "registry",
+      "seconds": 6.563491682999995,
+      "cache_added_bytes": 97881098,
+      "cache_total_bytes": 24986300689,
+      "instance_id": "django__django-14580"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14608:latest",
+      "id": "sha256:10fcd7470f0ce7502bb6aba23ac9d7f34585a65b3db5bb023445f4e61dd5bc09",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14608@sha256:115014157acb675b51ffbdf53e9b546a207978c630ab3a8c686d2aedef62efab"
+      ],
+      "source": "registry",
+      "seconds": 6.903612225000018,
+      "cache_added_bytes": 98152065,
+      "cache_total_bytes": 25084452754,
+      "instance_id": "django__django-14608"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14631:latest",
+      "id": "sha256:d8117c513c689dec4730707dde0b3ade0c4b1768d266208d3937e04ad37c4774",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14631@sha256:5f67eee68cd7e4eb00d1642840df30774b1fd42b0f8bfd9f08851df5bd6079ba"
+      ],
+      "source": "registry",
+      "seconds": 6.677203279000025,
+      "cache_added_bytes": 97626531,
+      "cache_total_bytes": 25182079285,
+      "instance_id": "django__django-14631"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14672:latest",
+      "id": "sha256:3900bcfb498dc50546d1dfd866b9ad2d1929a2a90adb5d4f517be37d90cd3b95",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14672@sha256:9a59520a1e6af73e6e440228774e44d00471efe1f65e1edaf7987a144510843d"
+      ],
+      "source": "registry",
+      "seconds": 6.279786191000028,
+      "cache_added_bytes": 98143007,
+      "cache_total_bytes": 25280222292,
+      "instance_id": "django__django-14672"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14725:latest",
+      "id": "sha256:d5f75212df8be67c757d609fc21dd9a75dc370e95edb4e5f25a1ad018482f7ca",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14725@sha256:a2959303beab095c21aaa41a60f7f7b0c8333744cfc85ee39bceafd01abbfd97"
+      ],
+      "source": "registry",
+      "seconds": 13.577258330000006,
+      "cache_added_bytes": 548449282,
+      "cache_total_bytes": 25828671574,
+      "instance_id": "django__django-14725"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14752:latest",
+      "id": "sha256:219dc24da52c7b907bd05393403092998fb3bf74046f9544b61bc5ac3d7ea755",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14752@sha256:df8caa4518b9d1295e55052e61c939bb583e33dbd57db7d44693bc27077c426d"
+      ],
+      "source": "registry",
+      "seconds": 4.795663323999975,
+      "cache_added_bytes": 98520854,
+      "cache_total_bytes": 25927192428,
+      "instance_id": "django__django-14752"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14765:latest",
+      "id": "sha256:757047eb63063472c831f1fa4a6668f99021baa7bbb3e1ccc81af9ab47c3f188",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14765@sha256:db08499870716d958f64bb2e1d3b92fef4b42264db01482dda36818227e9e42d"
+      ],
+      "source": "registry",
+      "seconds": 6.739145120999979,
+      "cache_added_bytes": 98105613,
+      "cache_total_bytes": 26025298041,
+      "instance_id": "django__django-14765"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14771:latest",
+      "id": "sha256:5994e5ec38df96106aa0696a72d7c7ea538bbcc1783a0de1b69fdb02b547931a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14771@sha256:3ad8d3502223b8f51cb12167946619e2dcb10d39d17c7d138dc62236b291ba92"
+      ],
+      "source": "registry",
+      "seconds": 5.04177647299997,
+      "cache_added_bytes": 98558312,
+      "cache_total_bytes": 26123856353,
+      "instance_id": "django__django-14771"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14787:latest",
+      "id": "sha256:ce8c3f289670ac50768dd38f1a637af814260baf2a016def2427952745388a85",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14787@sha256:f029159b39942836a8c09738bda245bfea9d197e1b94f23e3eeaf576e3008600"
+      ],
+      "source": "registry",
+      "seconds": 11.588326458999973,
+      "cache_added_bytes": 548036298,
+      "cache_total_bytes": 26671892651,
+      "instance_id": "django__django-14787"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14792:latest",
+      "id": "sha256:818ebc66d0ff98d7ca03c919f7269d92c89dc763614aa2ca9bfd5291d48601bf",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14792@sha256:1fdb4a4184fa605d16ce742e6a0900a3625e66df9b9bc5aeefb5baf264f3bfee"
+      ],
+      "source": "registry",
+      "seconds": 5.052410014000031,
+      "cache_added_bytes": 98294026,
+      "cache_total_bytes": 26770186677,
+      "instance_id": "django__django-14792"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14855:latest",
+      "id": "sha256:4482ed260f2daf4e3726fe2ac6f2feabba5c99d5716c18289d44740b8f263380",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14855@sha256:9608345ccf73197d430f05bea45b9b73cc9d52ddf40dcecbb75f5b60ef5d1ab6"
+      ],
+      "source": "registry",
+      "seconds": 4.616002164999998,
+      "cache_added_bytes": 98704496,
+      "cache_total_bytes": 26868891173,
+      "instance_id": "django__django-14855"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14915:latest",
+      "id": "sha256:5da7c9cd3246d607388b6ad0fa70f22459860c73d087f2f7948544cd8cbe4a6c",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14915@sha256:a46bf61e9ccbbdf80b8c3537847ece7951bd55488465ae1ba0dd4695f7960487"
+      ],
+      "source": "registry",
+      "seconds": 4.570540007999966,
+      "cache_added_bytes": 98708191,
+      "cache_total_bytes": 26967599364,
+      "instance_id": "django__django-14915"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-14999:latest",
+      "id": "sha256:47f695b50ae665d0e5503c90f6bd5c0898c33ae7c20349de4ceaa62db415aa3b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14999@sha256:ace2e4a5a8c7583dd493e54b2b24c11e2e3581e80394ceb7c583fc0cb8c0f9da"
+      ],
+      "source": "registry",
+      "seconds": 4.558525476999989,
+      "cache_added_bytes": 98766891,
+      "cache_total_bytes": 27066366255,
+      "instance_id": "django__django-14999"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15022:latest",
+      "id": "sha256:ca0da26a151cdb702773eae825f15be553cc8ccd445ad2ebadf7e0eeeb93eac9",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15022@sha256:a5648b63cd3b579c7d8be9d7b8cedb4f6649d1754c524c36da24669ad86fccaa"
+      ],
+      "source": "registry",
+      "seconds": 5.725908023999978,
+      "cache_added_bytes": 99228161,
+      "cache_total_bytes": 27165594416,
+      "instance_id": "django__django-15022"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+      "id": "sha256:1a016025bfbddd6e8bce37805238019a57bba016eab7fac5c2df58d0476bd55b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15037@sha256:efaf24c62399c834f8821267cc43523d6736563643ddaf0493ce6e3b94c76554"
+      ],
+      "source": "registry",
+      "seconds": 6.929181269999958,
+      "cache_added_bytes": 98523248,
+      "cache_total_bytes": 27264117664,
+      "instance_id": "django__django-15037"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15098:latest",
+      "id": "sha256:428c60663ad7d04c9507b11a452a1dff40a830e4a84950b89979a7fb74b0c23c",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15098@sha256:e08a44a2dd643ea52827ac099e826e64645fdea72cc31763d1a0facc791d205d"
+      ],
+      "source": "registry",
+      "seconds": 6.937959066999952,
+      "cache_added_bytes": 98608691,
+      "cache_total_bytes": 27362726355,
+      "instance_id": "django__django-15098"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15103:latest",
+      "id": "sha256:10ca209ff265ccb996602e08fe0362a94b3f6b3f80a0f4fb34cabc22fe697ae8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15103@sha256:7296563628e6ce00dba17a6c255a7407cabf9fea5243f519ff6e8094878b2970"
+      ],
+      "source": "registry",
+      "seconds": 6.773036089999891,
+      "cache_added_bytes": 98548804,
+      "cache_total_bytes": 27461275159,
+      "instance_id": "django__django-15103"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15104:latest",
+      "id": "sha256:34009e99071097d9eab883bf9c9a4234d7f4c7328189a9e80d73da69918ffb75",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15104@sha256:935b41f18bb3b5f83eb1075d75b4f4b57af84d2610168c7ab9f929eb1fbdb6db"
+      ],
+      "source": "registry",
+      "seconds": 5.998927531000049,
+      "cache_added_bytes": 98714753,
+      "cache_total_bytes": 27559989912,
+      "instance_id": "django__django-15104"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+      "id": "sha256:00e88d105ad8b422700c78afd3808674a8c04e6fe450b47c499a4801a0e6fd3b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15127@sha256:2a85d524a0bb3d4de0079586b6ad1dd7830ad590f32c225b4ecd4177795b26ec"
+      ],
+      "source": "registry",
+      "seconds": 6.583638519000033,
+      "cache_added_bytes": 98436322,
+      "cache_total_bytes": 27658426234,
+      "instance_id": "django__django-15127"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15128:latest",
+      "id": "sha256:701503fc31c4025965b7ec0a69f0b11b104bb25e167e7344ba42e384f231b1e8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15128@sha256:348b8d046ad5a6e952740ce2c442c44059ef244c6d91ae8d8af1c56a91d1901b"
+      ],
+      "source": "registry",
+      "seconds": 7.407964342000014,
+      "cache_added_bytes": 99617626,
+      "cache_total_bytes": 27758043860,
+      "instance_id": "django__django-15128"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+      "id": "sha256:714284375c65f9480825f1b3e309d21a2885f48698e73eb023c24a209eeca4cc",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15161@sha256:4b6f9d0d4d694d6ed3bc62a74206e19ff909a98bd5c8f84a7caac02679255c6e"
+      ],
+      "source": "registry",
+      "seconds": 6.902727492000054,
+      "cache_added_bytes": 99730596,
+      "cache_total_bytes": 27857774456,
+      "instance_id": "django__django-15161"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+      "id": "sha256:f316fc9d1cf9dddbffddece8f07e81eb12f781e05c105a54fe820797331ec44a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15252@sha256:6fb27c04c61a568c3d4b6207ce9f9ad40fae0bc890c42e2ad82b64d744229e6f"
+      ],
+      "source": "registry",
+      "seconds": 10.713715310999987,
+      "cache_added_bytes": 99690692,
+      "cache_total_bytes": 27957465148,
+      "instance_id": "django__django-15252"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15268:latest",
+      "id": "sha256:d6f8a7aa1e47de97370a03fa3d4d7815fd96b27d8e6dd688f5336c2d3eedfcff",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15268@sha256:26494a45d6639a4d8abe230a5eaf665ceef8e34b8e01d788f9e4eaa1a51c0144"
+      ],
+      "source": "registry",
+      "seconds": 6.706936780000092,
+      "cache_added_bytes": 99655549,
+      "cache_total_bytes": 28057120697,
+      "instance_id": "django__django-15268"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15277:latest",
+      "id": "sha256:54db236cd830d506e36bd83344777ff69479eff67645dde910ce3b5168c4ba45",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15277@sha256:51a2cad9356481327ab27c5d0bd78db0682b687d84246feea641aafeb4335920"
+      ],
+      "source": "registry",
+      "seconds": 6.688773262000041,
+      "cache_added_bytes": 99692091,
+      "cache_total_bytes": 28156812788,
+      "instance_id": "django__django-15277"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15278:latest",
+      "id": "sha256:d6f8a7aa1e47de97370a03fa3d4d7815fd96b27d8e6dd688f5336c2d3eedfcff",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15278@sha256:26494a45d6639a4d8abe230a5eaf665ceef8e34b8e01d788f9e4eaa1a51c0144"
+      ],
+      "source": "registry",
+      "seconds": 1.7681863100000328,
+      "cache_added_bytes": 0,
+      "cache_total_bytes": 28156812788,
+      "instance_id": "django__django-15278"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15280:latest",
+      "id": "sha256:c42ac2709bf2b9886179c2c18d2c83e40ae1302e1619a3446daae6f120ee2d33",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15280@sha256:d1fc6c4600c4e41b9f1894611a22b91f30baa109270ee8205a42de90d995b54d"
+      ],
+      "source": "registry",
+      "seconds": 6.610014847000002,
+      "cache_added_bytes": 99369904,
+      "cache_total_bytes": 28256182692,
+      "instance_id": "django__django-15280"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15315:latest",
+      "id": "sha256:2e07d3afc906495f955de922f5b8a8743c294cd36683036e08fce71a5ae6c593",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15315@sha256:f81a013b2cd280eb464bc2104c5818bb22820f9634f03c4a5a6d3e2873defe33"
+      ],
+      "source": "registry",
+      "seconds": 6.39603746399996,
+      "cache_added_bytes": 99456320,
+      "cache_total_bytes": 28355639012,
+      "instance_id": "django__django-15315"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15368:latest",
+      "id": "sha256:a7dcf8a1e92d154c8457bd2ffae545cc326dfa7d5f74ab621cb70e321815fca7",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15368@sha256:c4d11f1520b99129b8640cf8841eeda3d8d58f1b59ca75bc289dacf0cb812592"
+      ],
+      "source": "registry",
+      "seconds": 6.100734057000068,
+      "cache_added_bytes": 99693545,
+      "cache_total_bytes": 28455332557,
+      "instance_id": "django__django-15368"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15375:latest",
+      "id": "sha256:0466fc9414c86e16c54630011c760c6fab88f8cdfd757e144f6c1150cdcf962f",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15375@sha256:9b5c4d37ff4e256b9ae6999aeafde0d36b71a56b6a36ecd1995fa874b8161628"
+      ],
+      "source": "registry",
+      "seconds": 6.7519571139999925,
+      "cache_added_bytes": 99827881,
+      "cache_total_bytes": 28555160438,
+      "instance_id": "django__django-15375"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15380:latest",
+      "id": "sha256:5846c13ceaaa86ce81373d2cf030f1469185887fd20ecdb3f2e60cce7e07e905",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15380@sha256:8b523d4c313891a8271aa513ff57162d48bcf1a548e741cf9d5a1f1a183c835c"
+      ],
+      "source": "registry",
+      "seconds": 6.3236991350000835,
+      "cache_added_bytes": 99615595,
+      "cache_total_bytes": 28654776033,
+      "instance_id": "django__django-15380"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15382:latest",
+      "id": "sha256:6ccd1b564af927aa899f921e71f70d9193d1f2968ef1dd6c8d4b86f26cff9c05",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15382@sha256:707d72504c601f8de623d8ec58d1186d25f960b2fec9f72635d64537f64250ae"
+      ],
+      "source": "registry",
+      "seconds": 4.848936763999973,
+      "cache_added_bytes": 99600780,
+      "cache_total_bytes": 28754376813,
+      "instance_id": "django__django-15382"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15467:latest",
+      "id": "sha256:243cff475747ec42d930169a9973d9d5663e9032bac5bcae1b62f444b48b8f72",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15467@sha256:11917468f167d62037940b6d0e96e1ea6398768379b2c160e309d93c135d1b0f"
+      ],
+      "source": "registry",
+      "seconds": 4.650403926999957,
+      "cache_added_bytes": 101552809,
+      "cache_total_bytes": 28855929622,
+      "instance_id": "django__django-15467"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15499:latest",
+      "id": "sha256:86f6a8b39f21a9094d5f352edacd6052ff061aab6175054291d6d28be8947051",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15499@sha256:13a23a0a1cb8d4241463f3750a8c75c5ae964c6e0b6984cedc549fa9f65e71ab"
+      ],
+      "source": "registry",
+      "seconds": 6.96736470299993,
+      "cache_added_bytes": 101638178,
+      "cache_total_bytes": 28957567800,
+      "instance_id": "django__django-15499"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15503:latest",
+      "id": "sha256:6900f0289199e549bdb1142578148936226f5dabe1ce55fd55019b66d03638b1",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15503@sha256:9bbfaa2555a462e4a1e0d0768bc8cb907b91326ff1539cd6e548db4fe64eec67"
+      ],
+      "source": "registry",
+      "seconds": 6.3158982840000135,
+      "cache_added_bytes": 101486490,
+      "cache_total_bytes": 29059054290,
+      "instance_id": "django__django-15503"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15525:latest",
+      "id": "sha256:837c7f8bc22765ac417b69ec0ff582fca636314db29cffcd09245b32154d77b8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15525@sha256:0dd30cd3dcceec598e33aa8167c7fccb008767c060683a544bf1935162fab203"
+      ],
+      "source": "registry",
+      "seconds": 7.127123482000002,
+      "cache_added_bytes": 101435482,
+      "cache_total_bytes": 29160489772,
+      "instance_id": "django__django-15525"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15554:latest",
+      "id": "sha256:c3abd6dccbf6a809df13ae2ad16708733617836426f46587b1ada05ffb263039",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15554@sha256:e7ac5458ec19454f0616b7f2ae7b8e0853a05faf6a6941fd497f9938cd0905b4"
+      ],
+      "source": "registry",
+      "seconds": 6.423407657999974,
+      "cache_added_bytes": 102279238,
+      "cache_total_bytes": 29262769010,
+      "instance_id": "django__django-15554"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15561:latest",
+      "id": "sha256:b2501135cfa0f522ac81df2ee521339db64118ca1c1f08314e4aceb1959c4008",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15561@sha256:2e9e4bc6f609ad3497862f05bb8413f125f17d51065af09302e5146faccca490"
+      ],
+      "source": "registry",
+      "seconds": 6.71661299699997,
+      "cache_added_bytes": 102340961,
+      "cache_total_bytes": 29365109971,
+      "instance_id": "django__django-15561"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15563:latest",
+      "id": "sha256:b9c8f9de693f3cb82cc98cbb5fe846951150289d45606b43d41982830dd98165",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15563@sha256:94186b4d24bc8f1da5f54488e4367dd466aba0ceb6fc29f0057479e30275445e"
+      ],
+      "source": "registry",
+      "seconds": 7.672512436000034,
+      "cache_added_bytes": 102210226,
+      "cache_total_bytes": 29467320197,
+      "instance_id": "django__django-15563"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15569:latest",
+      "id": "sha256:748d48e2832b08ee21d8b1cb77fed0511afe162e0d703c7182b5a4ac6f6af434",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15569@sha256:1e9a54d724442423798d68fb4fa505f9db5ba0ad782c067df3d40eb6c4902d50"
+      ],
+      "source": "registry",
+      "seconds": 6.344343449000007,
+      "cache_added_bytes": 102193991,
+      "cache_total_bytes": 29569514188,
+      "instance_id": "django__django-15569"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15572:latest",
+      "id": "sha256:d2e4011d8607464cec27ee3387b19b7316bb3e2771319e5353f9ff3d21cd5f78",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15572@sha256:675e046b90690bebc1de1d46ea5dc44445e4228c748eccae69309ecc17e03c90"
+      ],
+      "source": "registry",
+      "seconds": 4.389947493000022,
+      "cache_added_bytes": 102209630,
+      "cache_total_bytes": 29671723818,
+      "instance_id": "django__django-15572"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15629:latest",
+      "id": "sha256:030cf63287cdaa49710da2746e6428ec27474faa0a5357d08f5d20e513bbf723",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15629@sha256:70d0f93a3891c6d334c7cc3028b2bf1de51b64a216c3d99712608cc9a0e501ae"
+      ],
+      "source": "registry",
+      "seconds": 5.0069736749999265,
+      "cache_added_bytes": 102317066,
+      "cache_total_bytes": 29774040884,
+      "instance_id": "django__django-15629"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15695:latest",
+      "id": "sha256:0579f22ab677d4c076278018e4ea1e550eb6eef9d65ae20f0731103d7dc976e7",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15695@sha256:a067cc9cec81ba8be9799c03da7a3355fdcd1f10477142052f3477ce8b33057d"
+      ],
+      "source": "registry",
+      "seconds": 5.0567865969999275,
+      "cache_added_bytes": 103224612,
+      "cache_total_bytes": 29877265496,
+      "instance_id": "django__django-15695"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15731:latest",
+      "id": "sha256:223d732012f056ecc8a0bbb73014b08d452f33bcc16e1a33f82b41d300592f6a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15731@sha256:4b07f5b55b6506cc56d140418ccf83902fd3234141906b9c2c23baf55e886dc8"
+      ],
+      "source": "registry",
+      "seconds": 4.512929030999999,
+      "cache_added_bytes": 102826389,
+      "cache_total_bytes": 29980091885,
+      "instance_id": "django__django-15731"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15732:latest",
+      "id": "sha256:13ca813c80897314bdd31be5e1d11d02bfbcc5968f66760322279abd62047b63",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15732@sha256:1377a10a8d02939da2f4f7225b84ae4a47720bbca1417de2e2ba77194f15d83b"
+      ],
+      "source": "registry",
+      "seconds": 4.604226522999966,
+      "cache_added_bytes": 102839044,
+      "cache_total_bytes": 30082930929,
+      "instance_id": "django__django-15732"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15741:latest",
+      "id": "sha256:fb6361834e0211b409343e21ec0e1430af20532774bd81750ca0c77a35420edf",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15741@sha256:319ba85c6304fce090f7e0fe65ae1f7785ecfd5d3d57c318ca08711883e1b4d4"
+      ],
+      "source": "registry",
+      "seconds": 4.54244084000004,
+      "cache_added_bytes": 102854910,
+      "cache_total_bytes": 30185785839,
+      "instance_id": "django__django-15741"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15814:latest",
+      "id": "sha256:bbb92ea94d87c830be8da788d6c734b814c0ff09ef35ebe85f963eae60f54318",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15814@sha256:58230bd6169c8c769fa8fc74d59bcc2f68e41bc46e8190aeff5a63cad5fdd1b0"
+      ],
+      "source": "registry",
+      "seconds": 5.294258184,
+      "cache_added_bytes": 103355619,
+      "cache_total_bytes": 30289141458,
+      "instance_id": "django__django-15814"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15851:latest",
+      "id": "sha256:e0ceb3bc6c43cf005600fb2be423877cf763494b1a69b9678b0384d763b0d600",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15851@sha256:25255217ee5f2ba10801b5ec77738959d8167898e119bc483eafe93b1fa05c5f"
+      ],
+      "source": "registry",
+      "seconds": 5.248153292999973,
+      "cache_added_bytes": 103463002,
+      "cache_total_bytes": 30392604460,
+      "instance_id": "django__django-15851"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15863:latest",
+      "id": "sha256:b30f477a7b55b52a52212e6a8a6ebb54eed561c6461abe38f10730365e750bb3",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15863@sha256:9a40f4fb56bb78f3936e763ee8332f764ec461d2757f38cffb037a1aca47f1bf"
+      ],
+      "source": "registry",
+      "seconds": 3.9105287439999756,
+      "cache_added_bytes": 103332843,
+      "cache_total_bytes": 30495937303,
+      "instance_id": "django__django-15863"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15916:latest",
+      "id": "sha256:e347356c79405be12c1c6d90476eb68302542b814b12bfb95ae479250e22b65c",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15916@sha256:5ef0d4365a38dac6adb76f5f4ea100a32355b90bf24e9d64506ef9154ea5150e"
+      ],
+      "source": "registry",
+      "seconds": 5.15193148600008,
+      "cache_added_bytes": 103230287,
+      "cache_total_bytes": 30599167590,
+      "instance_id": "django__django-15916"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15930:latest",
+      "id": "sha256:7fd0b34caf0995b4eb8d32b7f7980baabeedf55beef301d0c3e1571b1145651b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15930@sha256:fe178684ad09a827fdd8fd62708a80b85f97f238bacda032ab15392fed4c0c6d"
+      ],
+      "source": "registry",
+      "seconds": 4.532471471000008,
+      "cache_added_bytes": 103504117,
+      "cache_total_bytes": 30702671707,
+      "instance_id": "django__django-15930"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+      "id": "sha256:9f8a9395422947576288c0955ad7a7b75bb160ea2ea3660578518d19860f4f70",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15957@sha256:7e2694f891d96ec8eaef27b746823acaa6dd28d65832b79db2bd18a816b3437e"
+      ],
+      "source": "registry",
+      "seconds": 4.546098287999939,
+      "cache_added_bytes": 103576215,
+      "cache_total_bytes": 30806247922,
+      "instance_id": "django__django-15957"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15973:latest",
+      "id": "sha256:ec0087b0b1014e1340959767e7b80516df93c0b791a736e8185d379dc2424404",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15973@sha256:54ada7b5f0e3cc5032e960c4a6e3aa8903fdfd83618cb0d6c0453e10dc75521a"
+      ],
+      "source": "registry",
+      "seconds": 4.738010724999981,
+      "cache_added_bytes": 103345261,
+      "cache_total_bytes": 30909593183,
+      "instance_id": "django__django-15973"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-15987:latest",
+      "id": "sha256:2ef290ccea93b68171a237aee5bc6e07faf0597df80c02d961eaf88cb46e81ec",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-15987@sha256:0909f223e32ae24cc92e70293005467061f15773176cc8e855768885007269fa"
+      ],
+      "source": "registry",
+      "seconds": 7.023005398999999,
+      "cache_added_bytes": 103313278,
+      "cache_total_bytes": 31012906461,
+      "instance_id": "django__django-15987"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16032:latest",
+      "id": "sha256:07105c2befa5265e960c259b878f0fdc5ca315d849b458f2f9329882b87ea64e",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16032@sha256:2b05c0e1e5815995e627e3780e332cafad8b06acb1fee06a9b7db4e2cff18066"
+      ],
+      "source": "registry",
+      "seconds": 8.189784697999926,
+      "cache_added_bytes": 103351598,
+      "cache_total_bytes": 31116258059,
+      "instance_id": "django__django-16032"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16082:latest",
+      "id": "sha256:7c100d59942555019000e212bddc7178a551ae435b30df50eeb4a062574fddf4",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16082@sha256:983c9f9fb852ccc0377c3a348f122f2f6cb4d90e107ec6ab978c55d11940ffd1"
+      ],
+      "source": "registry",
+      "seconds": 6.137770204000049,
+      "cache_added_bytes": 103257399,
+      "cache_total_bytes": 31219515458,
+      "instance_id": "django__django-16082"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16100:latest",
+      "id": "sha256:3e1e318029b8db32f39db86b87d695633aa6cc1200fa166e87a36d8561a566ed",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16100@sha256:07524a702c042e0baa5725c35e2e1ae8c8f50a221682b5bf21ff26438fc46fdd"
+      ],
+      "source": "registry",
+      "seconds": 6.528716028999952,
+      "cache_added_bytes": 103290376,
+      "cache_total_bytes": 31322805834,
+      "instance_id": "django__django-16100"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16116:latest",
+      "id": "sha256:3f7099fc3ef8a5f4d3fe605181dbb9eab22fd9668ed480e0a04cdc847e82928b",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16116@sha256:249c616c6e80522bfa1a7828c51fe1dd9b79e1002c2ad0b95ad2e9e34ee7bf9c"
+      ],
+      "source": "registry",
+      "seconds": 7.160009725000009,
+      "cache_added_bytes": 103326645,
+      "cache_total_bytes": 31426132479,
+      "instance_id": "django__django-16116"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16136:latest",
+      "id": "sha256:2afbffff7caf2c80d2ea852dfe4e3634743fe49218321597329fb8a01b7f3c61",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16136@sha256:6636ca265ca6aba6f61aeb7e96300b832a5b72c162b96d07133185928da387cc"
+      ],
+      "source": "registry",
+      "seconds": 7.111498455999936,
+      "cache_added_bytes": 103605850,
+      "cache_total_bytes": 31529738329,
+      "instance_id": "django__django-16136"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16139:latest",
+      "id": "sha256:8cc09e22476d50b11ee3d4800f693998659782130cf79ec565f1a67e1669f4dc",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16139@sha256:3dc112cdde1abd0b6f4ed9f4c7636df2bd194c5d023cda23d34bec90005c9bdd"
+      ],
+      "source": "registry",
+      "seconds": 6.09299485400004,
+      "cache_added_bytes": 103987792,
+      "cache_total_bytes": 31633726121,
+      "instance_id": "django__django-16139"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16145:latest",
+      "id": "sha256:73759043f4e93113d3ca4315967a25bd69a6bb516082eb62e61b2a0cd5707662",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16145@sha256:c492ee3cf570167ea0106630bc76873c2a710716788b5be066708f25697f26a9"
+      ],
+      "source": "registry",
+      "seconds": 6.452005548999978,
+      "cache_added_bytes": 103357931,
+      "cache_total_bytes": 31737084052,
+      "instance_id": "django__django-16145"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16255:latest",
+      "id": "sha256:fb1593929bbd32a6856c86c56f9f5badf56e2fadd4eeb7b81885b37d2bfcd862",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16255@sha256:6be06e9f3f8f648539f2aebf68a2630c49df6b6632a1cf889d61b0f6677fa3a2"
+      ],
+      "source": "registry",
+      "seconds": 6.530747814000051,
+      "cache_added_bytes": 104107027,
+      "cache_total_bytes": 31841191079,
+      "instance_id": "django__django-16255"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16256:latest",
+      "id": "sha256:820e360d9a6b25713f67566b021c5389fe7fe1504d448c77c76261c4f34ade2a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16256@sha256:dff239fbb615e9ef3f22f5eb4e7e9e3b19f0712ce78ad048e00361c2c9247f20"
+      ],
+      "source": "registry",
+      "seconds": 6.887849236000079,
+      "cache_added_bytes": 103552220,
+      "cache_total_bytes": 31944743299,
+      "instance_id": "django__django-16256"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+      "id": "sha256:c319c7b74ee6dcdc08124592acf3fda159c24e40edf6172f2b827648690da1c1",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16263@sha256:6ffbe9abb5fe3ce7e36bfa9ce81a43985958acdd25fc56bb8ffc14f6e80e2bfb"
+      ],
+      "source": "registry",
+      "seconds": 6.563104121000038,
+      "cache_added_bytes": 103709082,
+      "cache_total_bytes": 32048452381,
+      "instance_id": "django__django-16263"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16315:latest",
+      "id": "sha256:cf002ee478c283d0ec0a48939a01ee6eb25ac27f636f699214af5214a9400f1a",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16315@sha256:627059a814b3107840a7cf1b01b6d67ee0aa78569fdd305961a1bbee7f647231"
+      ],
+      "source": "registry",
+      "seconds": 6.359487283000021,
+      "cache_added_bytes": 103573505,
+      "cache_total_bytes": 32152025886,
+      "instance_id": "django__django-16315"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16333:latest",
+      "id": "sha256:05f73fc5a9a204f68ff5cb1e5775bbfaff387040012948f3494d042b466e3d12",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16333@sha256:a6fd5a545edb1bd60024060f68fb9ba28c96b7b2ecdea3fb1a38998841c942e1"
+      ],
+      "source": "registry",
+      "seconds": 6.162680329000068,
+      "cache_added_bytes": 103521821,
+      "cache_total_bytes": 32255547707,
+      "instance_id": "django__django-16333"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16429:latest",
+      "id": "sha256:b512eab14c4dcea9ae45e7d4c726cdadd5685383588844a7192fd60f5bd33748",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16429@sha256:2c6681b7bc14c7b0847d3c0b5c5b3bd1ef41e3764b43852ac5415a6e5dde3ae8"
+      ],
+      "source": "registry",
+      "seconds": 5.97484363500007,
+      "cache_added_bytes": 104161784,
+      "cache_total_bytes": 32359709491,
+      "instance_id": "django__django-16429"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16454:latest",
+      "id": "sha256:565109e7a112ddc8b05ea0a041abfa76b831a60be775d3230ab08e59ec6bd560",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16454@sha256:674eab0bce68e359a0913f77ca80873a95e952906939c92a253dfb74af837719"
+      ],
+      "source": "registry",
+      "seconds": 13.925522551999961,
+      "cache_added_bytes": 580695034,
+      "cache_total_bytes": 32940404525,
+      "instance_id": "django__django-16454"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16485:latest",
+      "id": "sha256:5fe07904aeca850bb40f45087f3cf47c38512d0661ee9c329530681b6aaa4f66",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16485@sha256:beb779e5314f19ed69da3214744fda2b26025511054dc7f367d617f88b216966"
+      ],
+      "source": "registry",
+      "seconds": 4.525850404000039,
+      "cache_added_bytes": 104264988,
+      "cache_total_bytes": 33044669513,
+      "instance_id": "django__django-16485"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16493:latest",
+      "id": "sha256:df22c82c08c9fa67117b9506708123f69e8d853f1e52db6d844e6da89b62e390",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16493@sha256:43fbf022eb3ddbbd32edf3cbc325c8dc532b48551f78fef14c2afd1d26dde858"
+      ],
+      "source": "registry",
+      "seconds": 6.634201035999922,
+      "cache_added_bytes": 104033631,
+      "cache_total_bytes": 33148703144,
+      "instance_id": "django__django-16493"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16502:latest",
+      "id": "sha256:9a11c6e2c643ff3ff7ff55726832849d6bb5de264538d2330a2676548d2d3680",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16502@sha256:95234213ffb269fe318ed370c2d2aef2febf6b6199ba6cbe4fc1fa42495a7ac2"
+      ],
+      "source": "registry",
+      "seconds": 7.093906253,
+      "cache_added_bytes": 104300919,
+      "cache_total_bytes": 33253004063,
+      "instance_id": "django__django-16502"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16527:latest",
+      "id": "sha256:657684a2242dc8698d426921eecb501543252ef00a32d1395e31ea8d03fd0e84",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16527@sha256:b5e7ef7a165a387b1ef6822dc7c4aed38f8548b36deda48ae2e8639146a8113b"
+      ],
+      "source": "registry",
+      "seconds": 17.251477815000044,
+      "cache_added_bytes": 581332664,
+      "cache_total_bytes": 33834336727,
+      "instance_id": "django__django-16527"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16560:latest",
+      "id": "sha256:86afcd19b6c56e5e271a1dfc62177cf03157fe9c9643be560db11480b317cb27",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16560@sha256:0bafff953ce186aa261162d4091549fb4ad49df938900474b5f070d511bb1604"
+      ],
+      "source": "registry",
+      "seconds": 6.722866318000001,
+      "cache_added_bytes": 104373747,
+      "cache_total_bytes": 33938710474,
+      "instance_id": "django__django-16560"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16569:latest",
+      "id": "sha256:a558e3191ed4b268fb25b32c2a761b3e0a586ba2e5c82be04afd3210662da3a0",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16569@sha256:c9c5cbfba8c3f8668d942bdcc892aa5d5e59627f979f4bb91d931184f3f62354"
+      ],
+      "source": "registry",
+      "seconds": 6.196984328999974,
+      "cache_added_bytes": 104531656,
+      "cache_total_bytes": 34043242130,
+      "instance_id": "django__django-16569"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16595:latest",
+      "id": "sha256:717e2df227dae274a1ced6a2b5359e7cb825ad103309f8309eb5845ee9281029",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16595@sha256:edcfa6ee3bb948db7c58d751d88e4113a29a5083495fd2ee9979d8df85c7b896"
+      ],
+      "source": "registry",
+      "seconds": 5.874067544000013,
+      "cache_added_bytes": 105074681,
+      "cache_total_bytes": 34148316811,
+      "instance_id": "django__django-16595"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+      "id": "sha256:1e8dc70a0bdce4d51bfa0a3b6959756271e2f91d2ff386be999db8327ffcf96f",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16612@sha256:649981ea000e74f8f8b7411df99002a0079ff0519a6e5140c7f95bd2720b944d"
+      ],
+      "source": "registry",
+      "seconds": 6.530728514999964,
+      "cache_added_bytes": 104690669,
+      "cache_total_bytes": 34253007480,
+      "instance_id": "django__django-16612"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+      "id": "sha256:f98d847d93a79e92472e6320cccd2cd56b5219cc372f0cc43c8ee30101f740cd",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16631@sha256:73106409d800e32a921110d86ba25e1ac6764b76dc5b6bddeca8b8e4439f0a20"
+      ],
+      "source": "registry",
+      "seconds": 6.407042704999981,
+      "cache_added_bytes": 104669703,
+      "cache_total_bytes": 34357677183,
+      "instance_id": "django__django-16631"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16642:latest",
+      "id": "sha256:96e514914a389f46da64d339722dfc4eef8ae365257c83e970645db68dcd7d35",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16642@sha256:f21c3dbda9cb09b04064cf6a4ce1df9fc8fe1845446b5905b386e19ece2e0632"
+      ],
+      "source": "registry",
+      "seconds": 6.619535803999952,
+      "cache_added_bytes": 104880825,
+      "cache_total_bytes": 34462558008,
+      "instance_id": "django__django-16642"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16661:latest",
+      "id": "sha256:2fc366a974440a46436f1ff9e8ec69ce7675fb87858abdcfd2b7821a90f119cb",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16661@sha256:1cdf60316383c26bbcf7f4fcd8413cb26f9d43ce7a733e23e24397edbc8bcdb4"
+      ],
+      "source": "registry",
+      "seconds": 6.192553209000039,
+      "cache_added_bytes": 104814166,
+      "cache_total_bytes": 34567372174,
+      "instance_id": "django__django-16661"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16662:latest",
+      "id": "sha256:ca7f9508b5a257feb67032ace35ad9373caa179aaba0d7eb1a3a41ef9b9110f8",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16662@sha256:88f4e9078d8d403ca4f431b35a9c4dcfeb83b8f59dad2a69d988cca6a82a7bbc"
+      ],
+      "source": "registry",
+      "seconds": 4.9398205210000015,
+      "cache_added_bytes": 104721127,
+      "cache_total_bytes": 34672093301,
+      "instance_id": "django__django-16662"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16667:latest",
+      "id": "sha256:9db8497f2ece3a7339aef6c29aead8d52d657a6b294cdf8da9fab325a7630300",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16667@sha256:a0f59024db622ca13d7b34fe9356230a199588e8895a958e3501ea39251368a6"
+      ],
+      "source": "registry",
+      "seconds": 6.534469624999929,
+      "cache_added_bytes": 104913006,
+      "cache_total_bytes": 34777006307,
+      "instance_id": "django__django-16667"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16801:latest",
+      "id": "sha256:472ee82cf5f13b8c96a24720db5a01437ae39b88fb0266a856e7de2dab6376ca",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16801@sha256:6bfbc6942ff3a56a0b04da729d25412ac6c8dd40e2b33e231d8e296ad9c3557b"
+      ],
+      "source": "registry",
+      "seconds": 6.330650289999994,
+      "cache_added_bytes": 105688565,
+      "cache_total_bytes": 34882694872,
+      "instance_id": "django__django-16801"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16819:latest",
+      "id": "sha256:ebd2a396da682fd0ebc4d0e4c0c7a93f2f0a922d7948e4e7a4866e773c3e5c1d",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16819@sha256:63e2e4d9ac42c73b2504606f895d6030d735885e9c0bacc8a2add11c86166771"
+      ],
+      "source": "registry",
+      "seconds": 6.628535360000001,
+      "cache_added_bytes": 105594729,
+      "cache_total_bytes": 34988289601,
+      "instance_id": "django__django-16819"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16877:latest",
+      "id": "sha256:7dda8ce8c8ef383021f4b506a36513fe69ac672b9272ff82fa4f69413c11a413",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16877@sha256:c7728d1eb4c5548548a890b5bb146b0711e8509452c2a83c17b03c7f6335b2bf"
+      ],
+      "source": "registry",
+      "seconds": 6.653377831000057,
+      "cache_added_bytes": 105576660,
+      "cache_total_bytes": 35093866261,
+      "instance_id": "django__django-16877"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16899:latest",
+      "id": "sha256:faf104698a555bb3e598d64b1a322c466aea52ca3d00603062cb4f82a8cb7491",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16899@sha256:aeb2cd928b8a5fb3593464f6a1b8d7d9e9131a1bf59922647e11e5d5627e0332"
+      ],
+      "source": "registry",
+      "seconds": 6.62480739199998,
+      "cache_added_bytes": 105587025,
+      "cache_total_bytes": 35199453286,
+      "instance_id": "django__django-16899"
+    },
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-16901:latest",
+      "id": "sha256:e38bd2bd2c9e3005fc8c2ff604a2fc2c5fc39708cfdeaa50fc401de6a746bf5d",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-16901@sha256:4383d373042de54a5ea704401481045dbd8d98740c2e7125f94e4fe95cbf3fa3"
+      ],
+      "source": "registry",
+      "seconds": 6.375463754000066,
+      "cache_added_bytes": 105512820,
+      "cache_total_bytes": 35304966106,
+      "instance_id": "django__django-16901"
+    }
+  ],
+  "failures": [],
+  "seconds": 973.242290432,
+  "storage_bytes": 35304966106
+}

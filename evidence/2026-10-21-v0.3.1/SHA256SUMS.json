@@ -1,6 +1,8 @@
 {
-  "authenticated-prewarm-receipt.json": "90dc4be8f60f010a4b57b71b15568cd7126e1bd953244fd63d14f55f9949b50c",
-  "coordinator-snapshot.json": "4046ec1d15085fe907d93e50ed18a0e4a8b26492edde1bbf7c2863d52fce4f7f",
+  "authenticated-prewarm-receipt.json": "7ba5f26d4b7f97ded898e5d06b47fb0abfa8f6697afbe81073365ce1ae644d1a",
+  "authenticated-prewarm-summary.json": "52659600b5f89b53d46a5a4c4fe55fc4316e6865cf0b81889f4e0a816cf9ec28",
+  "billing-snapshot.json": "a402b0407c342c61cdab23acfef23b89017843c41ba67d75c97645b3896b2d56",
+  "coordinator-snapshot.json": "8f76d92920a8f52d87cce7a137f0713f9590facf52ec4ad648b4488e17af11ce",
   "source-secret-probe.json": "b0e8c912eed30840f07dadf6100a007c06db677ec2575d9386b3c97d6cc59d78",
-  "verification.json": "cc126792401e4e8ad23d26a9a69e37be6b00b695bb5501e7def3ad60a4254026"
+  "verification.json": "f90c31399d116f7447d187e8d0ff8b563b636dc2340c88f3383e919629d1a1e0"
 }

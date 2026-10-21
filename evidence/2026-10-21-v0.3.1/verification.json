@@ -1,8 +1,8 @@
 {
   "version": "0.3.1",
-  "offline_tests_passed": 48,
+  "offline_tests_passed": 49,
   "openssl_ephemeral_oaep_roundtrip": "passed_with_synthetic_fixture",
-  "live_authenticated_download": "in_progress",
+  "live_authenticated_download": "verified_145_additional_images_in_first_run_then_resumed",
   "source_secret_exists": true,
   "source_allocation": "blocked_by_provider_spend_limit",
   "source_credential_file_auth_status": 401,
@@ -11,26 +11,39 @@
   "source_spend_limit_changed": false,
   "rate_limit_observed": "200;w=3600",
   "cache_progress_snapshot": {
-    "cached_count": 214,
+    "cached_count": 261,
     "requested": 500,
-    "storage_bytes": 31012906461,
-    "run_id": "auth-prewarm-20261021-01",
-    "updated_at": "2026-10-21T12:33:57.693830+00:00"
+    "storage_bytes": 47324973800,
+    "run_id": "auth-resume-20261021-1",
+    "updated_at": "2026-10-21T12:43:38.498040+00:00"
   },
   "coordinator": {
     "finite": true,
     "adopted_runs": 1,
-    "max_further_attempts": 3,
+    "max_further_attempts": 10,
     "lifetime_seconds": 1800,
     "budget_usd": 2,
-    "prior_spend_reserved_usd": 0.11,
+    "prior_spend_reserved_usd": 0.275924,
     "egress_reserved_usd": 0.05,
     "cpu_ram_allocation_bound_per_run_usd": 0.165924,
-    "combined_reservation_bound_usd": 0.823696
+    "combined_reservation_bound_usd": 1.985164,
+    "budget_blocks_attempts_above_remaining_allocation": true,
+    "prior_includes_first_authenticated_vm_full_allocation": true,
+    "source_lifetime_bound_vm_count_at_budget": 11,
+    "adopted_run": "auth-resume-20261021-1",
+    "run_prefix": "auth-resume-20261021b",
+    "cooldown_seconds": 3660
   },
-  "gcp_tests_passed": 48,
-  "source_commit": "0d958112bb20cebb7b877fc9c887823dc62de706",
-  "gcp_release": "/home/kieusontung8/apps/swebench-web/releases/0d95811",
+  "gcp_tests_passed": 49,
+  "source_commit": "a7a88e4ab7f7bb4211e8ce26a0079a6c07a4d569",
+  "gcp_release": "/home/kieusontung8/apps/swebench-web/releases/a7a88e4",
   "web_cache_api": "verified_live",
-  "coordinator_process": "running_independent_of_ssh_and_web_service"
+  "coordinator_process": "running_independent_of_ssh_and_web_service",
+  "released_v031_offline_tests_passed": 48,
+  "initial_authenticated_run_cached": 246,
+  "initial_authenticated_run_terminated": true,
+  "cache_preload_complete": false,
+  "full_verified_grading_run": false,
+  "total_task_compute_egress_reported_usd": "0.21918097",
+  "billing_is_final_invoice": false
 }

@@ -25,5 +25,10 @@
   "registry_auth": "secret",
   "app_id": "ap-vo8KnlIlAsBINHam4CSQOI",
   "sandbox_id": "sb-01M5F6H5X3QPD00PEWFF9N2242",
-  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI"
+  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "archive_sha256": "164d0012ec3df753dc950c16500c7bdfedbe88abd38dbf09b308fa897fd4e5d8",
+  "sandbox_terminated": true,
+  "exit_code": 1,
+  "error": null,
+  "finished_at": "2026-10-21T12:37:41.847254+00:00"
 }

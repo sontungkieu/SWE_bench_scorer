@@ -1,0 +1,237 @@
+{
+  "reported_at": "2026-10-21T12:42:33.480866+00:00",
+  "profile": "phamvanvuhoan",
+  "metered_before_credits": true,
+  "not_final_invoice": true,
+  "active_run_billing_may_be_delayed": true,
+  "total_metered_usd": "0.21918097",
+  "per_app_usd": {
+    "ap-OCzUGdMCtAxudUJCR5wik2": "0.00709421",
+    "ap-os9IaYKfLwgAGyGNefzXHs": "0.02288013",
+    "ap-iFb60VnJW6z6ts0evGqCI5": "0.04905196",
+    "ap-oWXBwSws6lJbhK57wuoWL4": "0.00055576",
+    "ap-8eXkknK2C5dpgsaBnr5HOf": "0.01136952",
+    "ap-vo8KnlIlAsBINHam4CSQOI": "0.09177677",
+    "ap-LvxIw6gZBxcHGFMVarfTp1": "0.00336739",
+    "ap-AR4RmOTyuvyQ1KJMHexMzx": "0.02330159",
+    "ap-tlPsAd5PZWgCdbexLj43mz": "0.00978364"
+  },
+  "rows": [
+    {
+      "object_id": "ap-8eXkknK2C5dpgsaBnr5HOf",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00000315"
+    },
+    {
+      "object_id": "ap-8eXkknK2C5dpgsaBnr5HOf",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.00677969"
+    },
+    {
+      "object_id": "ap-8eXkknK2C5dpgsaBnr5HOf",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00458668"
+    },
+    {
+      "object_id": "ap-AR4RmOTyuvyQ1KJMHexMzx",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00025996"
+    },
+    {
+      "object_id": "ap-AR4RmOTyuvyQ1KJMHexMzx",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.01970830"
+    },
+    {
+      "object_id": "ap-AR4RmOTyuvyQ1KJMHexMzx",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00333333"
+    },
+    {
+      "object_id": "ap-LvxIw6gZBxcHGFMVarfTp1",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00004934"
+    },
+    {
+      "object_id": "ap-LvxIw6gZBxcHGFMVarfTp1",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.00283804"
+    },
+    {
+      "object_id": "ap-LvxIw6gZBxcHGFMVarfTp1",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00048001"
+    },
+    {
+      "object_id": "ap-OCzUGdMCtAxudUJCR5wik2",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00012057"
+    },
+    {
+      "object_id": "ap-OCzUGdMCtAxudUJCR5wik2",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.00521365"
+    },
+    {
+      "object_id": "ap-OCzUGdMCtAxudUJCR5wik2",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00175999"
+    },
+    {
+      "object_id": "ap-iFb60VnJW6z6ts0evGqCI5",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00057225"
+    },
+    {
+      "object_id": "ap-iFb60VnJW6z6ts0evGqCI5",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.04146637"
+    },
+    {
+      "object_id": "ap-iFb60VnJW6z6ts0evGqCI5",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00701334"
+    },
+    {
+      "object_id": "ap-oWXBwSws6lJbhK57wuoWL4",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00000270"
+    },
+    {
+      "object_id": "ap-oWXBwSws6lJbhK57wuoWL4",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.00047305"
+    },
+    {
+      "object_id": "ap-oWXBwSws6lJbhK57wuoWL4",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00008001"
+    },
+    {
+      "object_id": "ap-os9IaYKfLwgAGyGNefzXHs",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00030182"
+    },
+    {
+      "object_id": "ap-os9IaYKfLwgAGyGNefzXHs",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.01687162"
+    },
+    {
+      "object_id": "ap-os9IaYKfLwgAGyGNefzXHs",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00570669"
+    },
+    {
+      "object_id": "ap-tlPsAd5PZWgCdbexLj43mz",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00000335"
+    },
+    {
+      "object_id": "ap-tlPsAd5PZWgCdbexLj43mz",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.00583364"
+    },
+    {
+      "object_id": "ap-tlPsAd5PZWgCdbexLj43mz",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.00394665"
+    },
+    {
+      "object_id": "ap-vo8KnlIlAsBINHam4CSQOI",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00108474"
+    },
+    {
+      "object_id": "ap-vo8KnlIlAsBINHam4CSQOI",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.07757203"
+    },
+    {
+      "object_id": "ap-vo8KnlIlAsBINHam4CSQOI",
+      "description": "swebench-modal-grader",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.01312000"
+    }
+  ]
+}
