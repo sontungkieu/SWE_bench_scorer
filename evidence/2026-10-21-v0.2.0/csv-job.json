@@ -1,0 +1,38 @@
+{
+  "id": "web-20261021T105050Z-994d1f6c",
+  "request_id": "gcp-web-csv-20261021-01",
+  "filename": "smoke-upload.csv",
+  "mode": "smoke",
+  "model": "MOCK-CONTROL-gold",
+  "count": 1,
+  "empty_count": 0,
+  "selected": [
+    "django__django-11099"
+  ],
+  "status": "completed",
+  "created": "2026-10-21T10:50:50.918950+00:00",
+  "started": "2026-10-21T10:51:18.748502+00:00",
+  "finished": "2026-10-21T10:52:27.482955+00:00",
+  "exit_code": 0,
+  "summaries": {
+    "evaluation": {
+      "scope": "smoke_subset",
+      "selected_count": 1,
+      "resolved_count": 1,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "django__django-11099"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "label": "evaluation"
+    }
+  },
+  "artifacts_ready": true
+}

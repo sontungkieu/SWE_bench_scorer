@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "source_commit": "d9a5017",
+  "gcp": {
+    "project": "coherent-vim-457802-j4",
+    "zone": "us-west1-b",
+    "machine_type": "e2-micro",
+    "service": "swebench-web",
+    "listener": "127.0.0.1:8765",
+    "access": "SSH tunnel"
+  },
+  "offline_tests": {
+    "windows_passed": 19,
+    "gcp_passed": 19
+  },
+  "web_mock_controls_passed": 3,
+  "csv_upload_resolved_count": 1,
+  "archive_download_hashes_verified": true,
+  "source_hashes_match": true,
+  "full_500_executed": false,
+  "browser_visual_qa": "unverified: CUA kernel asset initialization failed with Windows os error 3",
+  "http_get_status": 200,
+  "secret_provisioning": "only selected Modal profile, outside source, mode 0600"
+}

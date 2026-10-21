@@ -61,4 +61,5 @@ EOF
 sudo -n install -m 644 "$unit_file" /etc/systemd/system/swebench-web.service
 sudo -n systemctl daemon-reload
 sudo -n systemctl enable --now swebench-web.service
+sudo -n systemctl restart swebench-web.service
 systemctl is-active swebench-web.service

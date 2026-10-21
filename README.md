@@ -8,6 +8,12 @@ Upload **JSON, JSONL hoặc CSV**, validate, chọn smoke/full hoặc chạy moc
 xem lịch sử/live log và tải archive kết quả. Web nhẹ chạy trên GCP; official
 harness và Docker chạy trên Modal. [Hướng dẫn truy cập và vận hành](deploy/README.md).
 
+Đã kiểm chứng v0.2.0: **19/19 test** trên Windows và GCP, **3/3 mock control**
+tạo qua web đúng kỳ vọng, **CSV upload chấm thật resolved** trên một gold patch.
+[Receipt và kiểm chứng](evidence/2026-10-21-v0.2.0/verification.json).
+Visual/browser QA chưa xác nhận do công cụ automation không khởi tạo được;
+API, HTTP GET và download/checksum đã kiểm tra. Chưa chạy full 500 bài.
+
 ```powershell
 ssh -N -o ExitOnForwardFailure=yes -L 127.0.0.1:18765:127.0.0.1:8765 Free-tierGCP
 # Giữ terminal chạy, rồi mở http://127.0.0.1:18765

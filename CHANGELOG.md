@@ -9,8 +9,9 @@
 - GCP chỉ chạy web/Modal client; chấm Docker trên Modal, một worker mỗi lượt.
 - Portable billing guard, profile scoped, systemd service và source/state tách biệt.
 - Chặn cross-origin POST, job idempotency, không tự retry job trả phí bị gián đoạn.
-- Kiểm chứng parser/HTTP/queue/score bằng 19 test offline; qualification web
-  cloud được ghi riêng, không coi unit test là kết quả full 500 bài.
+- 19 test pass trên Windows và GCP; web mock 3/3 control đúng kỳ vọng;
+  CSV upload chấm thật một gold patch resolved, artifacts được tải và verify hash.
+  Visual/browser QA chưa xác nhận (automation lỗi); full 500 chưa chạy.
 
 ## 0.1.1 - 2026-10-21
 

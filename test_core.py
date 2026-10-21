@@ -16,9 +16,9 @@ class InputAndScoreTests(unittest.TestCase):
         fixtures = root / "fixtures/mock"
         for control in json.loads((fixtures / "manifest.json").read_text())["controls"]:
             self.assertEqual(hashlib.sha256((fixtures / control["predictions"]).read_bytes()).hexdigest(), control["sha256"])
-        evidence = root / "evidence/2026-10-21-v0.1.0"
-        for name, expected in json.loads((evidence / "SHA256SUMS.json").read_text()).items():
-            self.assertEqual(hashlib.sha256((evidence / name).read_bytes()).hexdigest(), expected, name)
+        for manifest in (root / "evidence").glob("*/SHA256SUMS.json"):
+            for name, expected in json.loads(manifest.read_text()).items():
+                self.assertEqual(hashlib.sha256((manifest.parent / name).read_bytes()).hexdigest(), expected, name)
 
     def rows(self):
         return [{"instance_id": MOCK_ID, "model_name_or_path": "mock", "model_patch": "diff"},

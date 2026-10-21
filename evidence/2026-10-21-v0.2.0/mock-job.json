@@ -1,0 +1,95 @@
+{
+  "id": "web-20261021T105002Z-ed971726",
+  "request_id": "gcp-web-mock-20261021-01",
+  "filename": "Mock controls",
+  "mode": "mock",
+  "model": "MOCK-CONTROL",
+  "count": 1,
+  "empty_count": 0,
+  "selected": [
+    "django__django-11099"
+  ],
+  "status": "completed",
+  "created": "2026-10-21T10:50:02.049808+00:00",
+  "started": "2026-10-21T10:50:02.236314+00:00",
+  "finished": "2026-10-21T10:51:18.696336+00:00",
+  "exit_code": 0,
+  "summaries": {
+    "wrong": {
+      "scope": "smoke_subset",
+      "selected_count": 1,
+      "resolved_count": 0,
+      "unresolved_count": 1,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [],
+      "unresolved_ids": [
+        "django__django-11099"
+      ],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 0.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "label": "wrong"
+    },
+    "empty": {
+      "scope": "smoke_subset",
+      "selected_count": 1,
+      "resolved_count": 0,
+      "unresolved_count": 1,
+      "empty_patch_count": 1,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [],
+      "unresolved_ids": [
+        "django__django-11099"
+      ],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 0.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "label": "empty"
+    },
+    "gold": {
+      "scope": "smoke_subset",
+      "selected_count": 1,
+      "resolved_count": 1,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "django__django-11099"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "label": "gold"
+    }
+  },
+  "mock_checks": {
+    "mock_only": true,
+    "checks": [
+      {
+        "control": "gold",
+        "expected_resolved": true,
+        "passed": true
+      },
+      {
+        "control": "wrong",
+        "expected_resolved": false,
+        "passed": true
+      },
+      {
+        "control": "empty",
+        "expected_resolved": false,
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "artifacts_ready": true
+}

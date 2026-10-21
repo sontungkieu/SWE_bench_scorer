@@ -1,24 +1,26 @@
-# SWE-bench Scorer v0.1.1
+# SWE-bench Scorer v0.2.0
 
-Bản vá chuẩn hóa LF và tính lại checksum fixture/evidence sau read-back từ
-GitHub. Hành vi chấm giữ nguyên v0.1.0. Log/receipt cloud đính kèm vẫn là
-bằng chứng nguyên bản của v0.1.0, không gắn nhãn lại thành một lần chạy mới.
+Web riêng tư chạy trên GCP VM hiện có, truy cập qua SSH tunnel. Upload JSON,
+JSONL hoặc CSV, validate input, chọn smoke/full, chạy mock, theo dõi lịch sử và
+live log, tải report/log gốc. Official Docker harness vẫn chạy trên Modal CPU.
 
-Trình chấm `preds.jsonl` bằng official SWE-bench harness trên Modal VM CPU.
-Máy cá nhân chỉ validate input, gọi Modal và nhận artifact; không chạy Docker,
-không tải checkpoint và không cần GPU cho khâu chấm.
+Ba trường bắt buộc: `instance_id`, `model_name_or_path`, `model_patch`.
+JSON nhận list hoặc mapping theo ID. CSV giữ nguyên patch nhiều dòng khi cell
+được quote đúng. Cả CLI và web chuẩn hóa input sang JSONL trước khi chấm.
 
-Gồm mock gold/wrong/empty cho bài thật `django__django-11099`, hướng dẫn
-PowerShell/WSL, billing guard, dataset revision và receipt/hash để đối chiếu.
+Kiểm chứng: 19/19 test trên Windows và GCP; mock tạo qua web pass 3/3 control;
+CSV upload qua web chấm thật một gold patch, resolved, không thiếu report.
+Hai run đều hoàn tất và terminate sandbox. Đây là kiểm thử hạ tầng trên cùng
+một instance, không phải điểm VAI hoặc qualification full 500 bài.
 
-Kiểm chứng offline: 7/7 test ở v0.1.1 (thêm regression test checksum).
-Bằng chứng mock cloud và source hash của v0.1.0 có trong
-`evidence/2026-10-21-v0.1.0`; log gốc nằm trong release asset. Ba control phải
-cho kết quả gold resolved, wrong unresolved, empty unresolved.
+UI được phục vụ qua HTTP 200 và API đã kiểm tra end-to-end. Browser automation
+không khởi động được do lỗi kernel assets của môi trường Codex; visual/browser
+QA chưa được xác nhận. Đây không phải kết quả kiểm tra giao diện trực quan.
 
-Đây là kiểm tra hạ tầng trên một bài, không phải điểm model. Full 500 bài
-chưa chạy; chế độ full cần ngân sách và kiểm tra thêm tài nguyên cho workload
-thực tế. `--estimate-usd` là input cho guard, không phải hard billing cap.
+Queue SQLite bền vững, một job chạy mỗi lần, billing guard trước launch,
+credential Modal scoped nằm ngoài source, loopback listener sau SSH. Đóng tab
+không mất job. Job bị gián đoạn không tự chạy lại để tránh chi phí trùng lặp.
 
-Đọc README trước khi chấm file thật. Không có API token/credential trong repo
-hoặc release asset.
+Xem `deploy/README.md` để mở SSH tunnel và vận hành service. Full 500 cần chọn
+riêng, xác nhận và đủ ngân sách; chưa chạy trong lần setup này. Dự trù guard
+không phải hard billing cap. Không có credential trong repo/release asset.

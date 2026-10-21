@@ -1,0 +1,25 @@
+{
+  "scorer_version": "0.2.0",
+  "run_id": "web-20261021T105050Z-994d1f6c",
+  "mode": "smoke",
+  "profile": "phamvanvuhoan",
+  "modal_client": "1.6.2",
+  "harness": "4.1.0",
+  "source_sha256": {
+    "core.py": "169894464f696d0bf27677d3544284ce49f63fd0468c232a7622da406e819266",
+    "remote_worker.py": "1b4acdfb85763a6f887353ae992a2d88d7484ba20e4a3d2c4502eaf4a5163da7",
+    "launch.py": "8e82c85dac9dea8eb34b858eb2e40bb8473f5ddf7276cfaf3963debbcb10ff66"
+  },
+  "lifetime_seconds": 1800,
+  "estimate_usd": 0.5,
+  "estimate_is_hard_billing_cap": false,
+  "started_at": "2026-10-21T10:51:22.473727+00:00",
+  "app_id": "ap-3ajFM9K0h8eYXh3U0BGUC2",
+  "sandbox_id": "sb-01M5F1CMN1YPK5KNDGTPM0QG98",
+  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "archive_sha256": "857d87ae1f6ee373902a066313304b3f033a83cb05286b08cdf94f94881b7141",
+  "sandbox_terminated": true,
+  "exit_code": 0,
+  "error": null,
+  "finished_at": "2026-10-21T10:52:27.073441+00:00"
+}
