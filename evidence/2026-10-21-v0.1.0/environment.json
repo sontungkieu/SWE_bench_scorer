@@ -1,0 +1,8 @@
+{
+  "scorer_version": "0.1.0",
+  "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+  "harness": "4.1.0",
+  "dataset": "SWE-bench/SWE-bench_Verified",
+  "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+  "mode": "mock"
+}

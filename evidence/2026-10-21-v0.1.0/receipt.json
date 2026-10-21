@@ -1,0 +1,25 @@
+{
+  "scorer_version": "0.1.0",
+  "run_id": "mock-v0_1_0-20261021-02",
+  "mode": "mock",
+  "profile": "phamvanvuhoan",
+  "modal_client": "1.6.2",
+  "harness": "4.1.0",
+  "source_sha256": {
+    "core.py": "c4a4c5ad74b49eb518621011be62778aeda06b7514c6705c1f7ca6b24de18bd8",
+    "remote_worker.py": "1b4acdfb85763a6f887353ae992a2d88d7484ba20e4a3d2c4502eaf4a5163da7",
+    "launch.py": "1ead25f7f4c18831753574b29651a39ef7e0d001cce253ddb175c931b16d666a"
+  },
+  "lifetime_seconds": 1800,
+  "estimate_usd": 0.5,
+  "estimate_is_hard_billing_cap": false,
+  "started_at": "2026-10-21T10:25:28.381570+00:00",
+  "app_id": "ap-GhMCKwFJFTsYeTu1EWU3aA",
+  "sandbox_id": "sb-01M5EZX8DCNMN7AQG89DYHY03B",
+  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "archive_sha256": "907b69a4aff959be255ef7c5d1de94047ca28157fbdb4db8b1ca78b9daf344b5",
+  "sandbox_terminated": true,
+  "exit_code": 0,
+  "error": null,
+  "finished_at": "2026-10-21T10:27:18.378171+00:00"
+}

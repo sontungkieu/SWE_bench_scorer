@@ -1,0 +1,6 @@
+{
+  "dataset": "SWE-bench/SWE-bench_Verified",
+  "revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+  "count": 500,
+  "sha256": "6a6fb72484bfc40f35cecbae1ae4615e9460905f729c57659df5f4ef9d7dec6e"
+}

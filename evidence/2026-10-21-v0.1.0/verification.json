@@ -1,0 +1,13 @@
+{
+  "offline_unit_tests": {
+    "passed": 6,
+    "total": 6,
+    "command": "python -m unittest -v test_core.py"
+  },
+  "remote_mock_controls_passed": 3,
+  "remote_instance_count": 1,
+  "full_verified_executed": false,
+  "source_hashes_match_release_worktree": true,
+  "artifact_sha256_verified": true,
+  "credential_pattern_scan": "no matches; VM had no injected credentials"
+}

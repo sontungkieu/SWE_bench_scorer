@@ -1,0 +1,18 @@
+{
+  "scope": "smoke_subset",
+  "selected_count": 1,
+  "resolved_count": 1,
+  "unresolved_count": 0,
+  "empty_patch_count": 0,
+  "error_or_missing_report_count": 0,
+  "complete": true,
+  "resolved_ids": [
+    "django__django-11099"
+  ],
+  "unresolved_ids": [],
+  "error_or_missing_report_ids": [],
+  "subset_resolved_rate": 1.0,
+  "verified_score": null,
+  "harness_exit_code": 0,
+  "label": "gold"
+}

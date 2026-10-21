@@ -2,6 +2,12 @@
 
 Phiên bản: **0.1.0**.
 
+Đã chạy mock thật trên Modal profile `phamvanvuhoan`: **3/3 control pass**
+(gold resolved, wrong unresolved, empty unresolved); 6/6 test offline pass.
+Xem [bằng chứng kiểm thử](evidence/2026-10-21-v0.1.0/verification.json)
+và [release v0.1.0](https://github.com/sontungkieu/SWE_bench_scorer/releases/tag/v0.1.0).
+Chưa chạy file prediction VAI hoặc full 500 bài.
+
 Nhận `preds.jsonl` theo trang 21 tài liệu VAI và chạy **official SWE-bench
 harness 4.1.0** trong **Modal VM CPU**. Docker, dataset và image instance chỉ
 tải/chạy trên Modal. Máy Windows dùng Modal client 1.6.2 đã có trong WSL.
@@ -16,7 +22,7 @@ cd D:\dev\codex\research_vdt\swebench-modal
 .\run.ps1 validate --predictions D:\path\to\preds.jsonl
 
 # Sau khi refresh billing cho profile được phép dùng:
-.\run.ps1 mock --profile phamvanvuhoan --run-id mock-20261021-01
+.\run.ps1 mock --profile phamvanvuhoan --run-id my-mock-001
 
 # Chấm thử file thật; chọn ID thực sự có trong file.
 .\run.ps1 smoke --profile phamvanvuhoan --predictions D:\path\to\preds.jsonl --instance-ids django__django-11099 --run-id vai-smoke-01
