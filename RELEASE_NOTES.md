@@ -17,6 +17,12 @@ OCI prewarm khoảng 26 giây và restore khoảng 28 giây. Đây là kiểm th
 trên một instance; chưa phải hệ số tăng tốc hay chi phí full 500 bài.
 Receipt/source hash và trạng thái prewarm lưu trong thư mục evidence v0.3.0.
 
+Bulk prewarm đã lưu bền vững 101/500 image (~17 GiB gồm prototype), dừng vì
+Docker Hub HTTP 429 và terminate VM. 399 image chưa nạp; không có auto retry
+hoặc VM giữ để chờ quota. Tổng app compute/egress của các thử nghiệm cache và
+mock được báo cáo $0.10410261 trước credits; bulk run riêng $0.04905196.
+Chưa cấu hình credential Docker Hub hoặc lịch nạp tiếp; không tuyên bố đủ 500.
+
 Cấu hình GCP cũ được giữ, tự dùng cache mặc định. Hướng dẫn prewarm, resume,
 tắt cache và giới hạn chi phí ở README. Storage allowance dùng chung workspace.
 

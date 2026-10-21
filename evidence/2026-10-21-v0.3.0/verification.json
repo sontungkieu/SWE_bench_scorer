@@ -12,10 +12,41 @@
   "full_500_evaluated": false,
   "prewarm": {
     "run_id": "oci-prewarm-20261021-v030",
-    "status": "running",
+    "status": "rate_limited",
     "budget_authorized_usd": 2,
     "lifetime_seconds": 13500,
-    "cpu_memory_allocation_bound_usd": 1.24443
+    "cpu_memory_allocation_bound_usd": 1.24443,
+    "cached": 101,
+    "requested": 500,
+    "storage_bytes": 18241316247,
+    "seconds": 519.367840106,
+    "failures": [
+      {
+        "instance_id": "django__django-13158",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    ],
+    "sandbox_terminated": true,
+    "persisted_oci_manifest_count": 101,
+    "auto_resume_scheduled": false,
+    "registry_auth": "anonymous"
   },
-  "qualification_receipts": "Source hashes in each receipt identify the exact tested candidate; source metadata and accounting changed afterward."
+  "qualification_receipts": "Source hashes in each receipt identify the exact tested candidate; source metadata and accounting changed afterward.",
+  "billing": {
+    "task_metered_cpu_ram_egress_usd": "0.10410261",
+    "bulk_metered_cpu_ram_egress_usd": "0.04905196",
+    "before_credits": true,
+    "not_final_invoice": true,
+    "shared_volume_storage_not_included": true
+  },
+  "gcp": {
+    "version": "0.3.0",
+    "service_active": true,
+    "api_config_verified": true,
+    "upload_validate_verified": true,
+    "source_commit": "412de46928c0c8c1b411e0be4efb9b1e0a260e6d",
+    "source_tree": "0db61799e5a00403d1617b0d10fe6a0635980446",
+    "path": "releases/tree-0db61799e5a00403d1617b0d10fe6a0635980446",
+    "access": "SSH tunnel"
+  }
 }

@@ -53,6 +53,21 @@ cache job. Đây không phải provider hard cap hay bao gồm mọi phí khác.
 có 1 TiB miễn phí/tháng dùng chung workspace; chưa xác nhận tổng dung lượng
 Volume của mọi dự án. Thời gian test vẫn tính compute, cache không xóa khoản đó.
 
+Lượt nạp ngày 2026-10-21 đã commit **101/500 image**, khoảng **17 GiB** gồm
+prototype cũ, rồi dừng ở HTTP 429 của Docker Hub; VM đã terminate. SDK đọc lại
+xác nhận có 101 OCI manifest sau khi VM dừng. Lượt bulk mất khoảng 519 giây,
+chi phí CPU/RAM/egress được báo cáo $0.04905196; tổng cả các lượt thử cache và
+mock $0.10410261 trước credits, chưa phải hóa đơn cuối hoặc phí storage chung.
+[Receipt, billing và tiến độ](evidence/2026-10-21-v0.3.0/verification.json).
+
+Downloader hiện dùng quyền anonymous của Registry API. Theo
+[Docker Hub](https://docs.docker.com/docker-hub/usage/pulls/), anonymous có
+100 pull/6 giờ/IP; Personal đăng nhập có 200/6 giờ; Pro/Team/Business không có
+giới hạn pull đó, vẫn chịu fair use. Token Personal không tự nâng thành Pro.
+`docker login` trên GCP không tự truyền vào downloader trong Modal; kết nối
+token cần kênh secret riêng. Không đưa PAT/token vào source, flags hoặc log.
+Chưa cấu hình registry credential hoặc lịch tự động nạp tiếp phần còn thiếu.
+
 ## Web riêng tư trên GCP
 
 Upload **JSON, JSONL hoặc CSV**, validate, chọn smoke/full hoặc chạy mock,

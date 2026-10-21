@@ -1,0 +1,32 @@
+{
+  "scorer_version": "0.3.0",
+  "run_id": "oci-prewarm-20261021-v030",
+  "mode": "cache",
+  "profile": "phamvanvuhoan",
+  "modal_client": "1.6.2",
+  "harness": "4.1.0",
+  "source_sha256": {
+    "core.py": "d9905a51893695636725e454234651af95fce2b15d9f00eef6f81531b2fef239",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "launch.py": "f3744f20359ac94c8b5b2d0aff01fd89f55e73c3c07b01e4f96be2e9879dfef0",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "f2005b6bf03ecbc74c4b3c1b44bb8ccc15a8bb04a7f5b95ba67873838637e6ac"
+  },
+  "lifetime_seconds": 13500,
+  "estimate_usd": 1.6,
+  "estimate_is_hard_billing_cap": false,
+  "started_at": "2026-10-21T11:41:46.396225+00:00",
+  "cache_volume": "swebench-verified-images-v1",
+  "cache_limit_gib": 256,
+  "require_cached": false,
+  "cpu_memory_allocation_bound_usd": 1.24443,
+  "allocation_bound_price_date": "2026-10-21",
+  "app_id": "ap-iFb60VnJW6z6ts0evGqCI5",
+  "sandbox_id": "sb-01M5F48XGBDBSMC4AC270FYMZX",
+  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "archive_sha256": "d602c6eafb19140b5a9d23e640395868c15fc1da41c5f4a8be9ce89e93ae0739",
+  "sandbox_terminated": true,
+  "exit_code": 1,
+  "error": null,
+  "finished_at": "2026-10-21T11:50:35.452486+00:00"
+}
