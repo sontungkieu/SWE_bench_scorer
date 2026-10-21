@@ -1,0 +1,21 @@
+{
+  "verified_image_ref_and_id_pairs": 500,
+  "restored_layer_chains_checked_by_worker": 500,
+  "unique_instance_ids_match_pinned_dataset": true,
+  "every_shard_plan_hash_matches_manifest_and_restored_receipt": true,
+  "source_readback_matches": true,
+  "executed_sources_match_git_index": true,
+  "local_offline_tests_passed": 84,
+  "remote_unit_tests_passed": 14,
+  "source_git_base": "b48669c5543c5ccbc46f0fa5cd6dd8c186d3ce2d",
+  "executed_staged_diff_sha256": "6ae27cb42626d562b81f904bd94ef2467bf44d775be50f0ef3148590468ac9f2",
+  "new_source_checkpoint_status": "blocked_gpg_pinentry_timeout",
+  "last_pushed_commit": "b48669c5543c5ccbc46f0fa5cd6dd8c186d3ce2d",
+  "new_code_pushed": false,
+  "terminated_shard_vm_ids_count": 22,
+  "all_3_app_vm_lists_empty": true,
+  "full_500_evaluated": false,
+  "two_consecutive_final_billing_reads_equal": true,
+  "raw_shards_metadata_archive_sha256": "e3a57e6a6297e6c99172d66d369430e8b1af3c94fa1b0422dec503a5c838e468",
+  "raw_failure_metadata_archive_sha256": "0d6d29625d3d6bcb0294ce571fba3901949ad963b687c1bc97896a5efc1c1eae"
+}

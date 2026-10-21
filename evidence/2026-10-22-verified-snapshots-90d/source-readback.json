@@ -1,0 +1,16 @@
+{
+  "actual_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8",
+    "snapshot_catalog_worker.py": "37cc5fcacfc72249657275f194db2cf5d640351acb9594e4526168c3dc828044"
+  },
+  "expected_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8",
+    "snapshot_catalog_worker.py": "37cc5fcacfc72249657275f194db2cf5d640351acb9594e4526168c3dc828044"
+  },
+  "matches": true,
+  "sandbox_id": "sb-01M5G5NJ0B7D213A1TF7575RB9"
+}

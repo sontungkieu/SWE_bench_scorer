@@ -1,0 +1,171 @@
+{
+  "qualified": true,
+  "image_count": 500,
+  "snapshot_count": 11,
+  "repository_count": 12,
+  "startup_checks_passed": 22,
+  "snapshot_ttl_seconds": 7776000,
+  "earliest_use_before_utc": "2027-01-19T21:23:45.978494+00:00",
+  "earliest_use_before_vietnam": "2027-01-20T04:23:45.978494+07:00",
+  "sharded_build_wall_seconds": 5408.518027547747,
+  "sum_root_filesystem_used_bytes": 386013855744,
+  "sum_root_usage_is_not_unique_or_billable_snapshot_storage": true,
+  "inventory": [
+    {
+      "index": 0,
+      "image_count": 100,
+      "snapshot_image_id": "im-01M5G5N13R0B6XPWPPC0NYET5S",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T21:23:45.978494+00:00",
+      "root_used_bytes": 35978207232,
+      "preload_seconds": 390.252122258,
+      "snapshot_seconds": 21.53060287795961,
+      "restore_docker_ready_seconds": 13.532735975459218,
+      "startup_checks_passed": 2
+    },
+    {
+      "index": 1,
+      "image_count": 100,
+      "snapshot_image_id": "im-01M5G65ZQG50W3VKPY9ZN6X5NK",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T21:32:54.792222+00:00",
+      "root_used_bytes": 30802046976,
+      "preload_seconds": 499.71726540000003,
+      "snapshot_seconds": 28.281097976490855,
+      "restore_docker_ready_seconds": 18.744613338261843,
+      "startup_checks_passed": 1
+    },
+    {
+      "index": 2,
+      "image_count": 59,
+      "snapshot_image_id": "im-01M5G6RH7J1SCGR9X70611VNYG",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T21:42:58.150275+00:00",
+      "root_used_bytes": 40013438976,
+      "preload_seconds": 538.823836587,
+      "snapshot_seconds": 32.65563401207328,
+      "restore_docker_ready_seconds": 14.193868689239025,
+      "startup_checks_passed": 2
+    },
+    {
+      "index": 3,
+      "image_count": 8,
+      "snapshot_image_id": "im-01M5G78DP5VM1GCK2WDAPC9N6B",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T21:51:28.889761+00:00",
+      "root_used_bytes": 38418411520,
+      "preload_seconds": 450.74509553,
+      "snapshot_seconds": 42.60677468031645,
+      "restore_docker_ready_seconds": 16.58319957740605,
+      "startup_checks_passed": 1
+    },
+    {
+      "index": 4,
+      "image_count": 9,
+      "snapshot_image_id": "im-01M5G7RTJGR6HJKCA9NWN0E3W7",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T22:00:39.139376+00:00",
+      "root_used_bytes": 38959603712,
+      "preload_seconds": 474.089821303,
+      "snapshot_seconds": 29.820173820480704,
+      "restore_docker_ready_seconds": 12.030873499810696,
+      "startup_checks_passed": 1
+    },
+    {
+      "index": 5,
+      "image_count": 9,
+      "snapshot_image_id": "im-01M5G87F5VNXAKRYB1WQPSREZE",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T22:08:39.910072+00:00",
+      "root_used_bytes": 34939998208,
+      "preload_seconds": 427.38626492599997,
+      "snapshot_seconds": 28.895916178822517,
+      "restore_docker_ready_seconds": 15.307388516142964,
+      "startup_checks_passed": 1
+    },
+    {
+      "index": 6,
+      "image_count": 27,
+      "snapshot_image_id": "im-01M5G8QWRPBRJFYWF3YQZ7W8B0",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T22:17:37.114142+00:00",
+      "root_used_bytes": 38826049536,
+      "preload_seconds": 479.03078924199997,
+      "snapshot_seconds": 29.897848756983876,
+      "restore_docker_ready_seconds": 14.393351962789893,
+      "startup_checks_passed": 5
+    },
+    {
+      "index": 7,
+      "image_count": 21,
+      "snapshot_image_id": "im-01M5G97E5AXWNJJKDYGX40R9KM",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T22:26:06.606424+00:00",
+      "root_used_bytes": 40400400384,
+      "preload_seconds": 452.187195312,
+      "snapshot_seconds": 29.69901119545102,
+      "restore_docker_ready_seconds": 10.96755856089294,
+      "startup_checks_passed": 3
+    },
+    {
+      "index": 8,
+      "image_count": 43,
+      "snapshot_image_id": "im-01M5G9QEMP54F288SX524QY66P",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T22:35:02.833008+00:00",
+      "root_used_bytes": 39641067520,
+      "preload_seconds": 485.32026010600003,
+      "snapshot_seconds": 18.24256969243288,
+      "restore_docker_ready_seconds": 10.399181168526411,
+      "startup_checks_passed": 2
+    },
+    {
+      "index": 9,
+      "image_count": 100,
+      "snapshot_image_id": "im-01M5GA91FFQ893059BFCATR374",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T22:44:34.891911+00:00",
+      "root_used_bytes": 38092152832,
+      "preload_seconds": 533.294808099,
+      "snapshot_seconds": 22.525988794863224,
+      "restore_docker_ready_seconds": 11.258563820272684,
+      "startup_checks_passed": 3
+    },
+    {
+      "index": 10,
+      "image_count": 24,
+      "snapshot_image_id": "im-01M5GAD16RDT2NFT4R2D4S17N3",
+      "snapshot_ttl_seconds": 7776000,
+      "use_before": "2027-01-19T22:46:59.581526+00:00",
+      "root_used_bytes": 9942478848,
+      "preload_seconds": 99.3360812,
+      "snapshot_seconds": 8.630119688808918,
+      "restore_docker_ready_seconds": 5.332751229405403,
+      "startup_checks_passed": 1
+    }
+  ],
+  "costs_usd": {
+    "failed_single_store": "0.53845001",
+    "retention_probe_reported": "0E-8",
+    "successful_shards_latest_read": "0.55957331",
+    "this_build_including_failed_attempt": "1.09802332",
+    "prior_gcp_setup_14_apps": "0.43935820",
+    "prior_24_case_snapshot_experiment": "0.27996446",
+    "sum_of_listed_preparation_jobs": "1.81734598"
+  },
+  "before_credits": true,
+  "not_final_invoice": true,
+  "snapshot_storage_price_confirmed": false,
+  "two_final_billing_reads_equal": true,
+  "all_target_vms_terminated": true,
+  "full_500_evaluated": false,
+  "production_backend_changed": false,
+  "settled_billing_read_files": [
+    "billing-shards-second.json",
+    "billing-shards-third.json"
+  ],
+  "reported_unchanged_between_utc": [
+    "2026-10-21T22:51:07.323815+00:00",
+    "2026-10-21T22:54:43.557178+00:00"
+  ]
+}

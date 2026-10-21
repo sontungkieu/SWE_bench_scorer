@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-21T22:51:09.385411+00:00",
+  "apps": {
+    "failed_single": {
+      "app_id": "ap-Y9vnazqiWSp4ZjXruAY36O",
+      "remaining_sandboxes": []
+    },
+    "retention_probe": {
+      "app_id": "ap-BAVKD0vLxANkKfT3T4uDxJ",
+      "remaining_sandboxes": []
+    },
+    "shards": {
+      "app_id": "ap-Jq1jUAHsyZmYDlnzOcGG0h",
+      "remaining_sandboxes": []
+    }
+  }
+}

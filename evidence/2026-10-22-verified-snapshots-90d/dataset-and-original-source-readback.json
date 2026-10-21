@@ -1,0 +1,10 @@
+{
+  "dataset_file_sha256": "6a6fb72484bfc40f35cecbae1ae4615e9460905f729c57659df5f4ef9d7dec6e",
+  "source_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8"
+  },
+  "source_readback_matches": true,
+  "dataset_checksum_matches": true
+}

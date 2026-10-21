@@ -24,6 +24,8 @@ def identity(reference):
 
 
 def validate_rows(rows, expected=500):
+    if not 1 <= expected <= 500:
+        raise ValueError("Expected count outside the bounded catalog")
     if len(rows) != expected or len({r['reference'] for r in rows}) != expected:
         raise ValueError("Wrong image count or duplicate reference")
     if len({identity(r['reference']) for r in rows}) != expected:
@@ -134,7 +136,7 @@ def save(path, value):
 def preload(plan):
     from registry_cache import RegistryCache
     rows = plan['images']
-    validate_rows(rows)
+    validate_rows(rows, expected=plan['image_count'])
     if importlib.metadata.version('swebench') != '4.1.0':
         raise ValueError("Unexpected harness")
     if Path('/work/preds.jsonl').exists() or subprocess.check_output(['docker', 'ps', '-aq']).strip():
@@ -143,7 +145,7 @@ def preload(plan):
         raise ValueError("Expected qualified overlay2 driver")
     cache = RegistryCache('/image-cache', 256)
     started = time.monotonic()
-    progress = {'completed': 0, 'requested': 500, 'batches': [], 'tests_run': False,
+    progress = {'completed': 0, 'requested': len(rows), 'batches': [], 'tests_run': False,
                 'predictions_present': False, 'registry_download_bytes': 0}
     for index, batch in enumerate(batches_of(rows)):
         expanded = sum(b['uncompressed_size'] for b in layers_of(batch).values())
@@ -178,7 +180,7 @@ def preload(plan):
 
 def verify(plan):
     rows = plan['images']
-    validate_rows(rows)
+    validate_rows(rows, expected=plan['image_count'])
     saved = json.loads(Path('/snapshot-catalog-manifest.json').read_text())
     digest = hashlib.sha256(Path('/work/catalog-plan.json').read_bytes()).hexdigest()
     if saved['plan_sha256'] != digest or saved['tests_run'] or saved['predictions_present']:

@@ -1,5 +1,35 @@
 # Verified 500-image filesystem snapshot, 90-day retention
 
+**Live result:** the first single-VM attempt loaded/verified 500 images but the
+provider rejected filesystem snapshot creation with `InternalError`, reference
+`J5RJJ4HP`. All VMs were terminated. No usable 500-image snapshot was produced
+by that attempt. The provider has not confirmed a size/inode limit or root cause.
+A separate minimal VM successfully created a 90-day snapshot, so a 90-day TTL
+alone is supported. The single-image recipe below is retained as experiment
+provenance, not a qualified production workflow.
+
+Recovery uses `snapshot_shards.py`: 11 disjoint groups, at most 100 images and
+35 GiB of expanded unique layers per group. Each snapshot is restored and
+verified before advancing; completed groups survive a later failure. The same
+frozen 500-image plan is required by SHA-256. There are no automatic paid retries.
+One VM at a time uses 2 cores / 4 GiB, with a 5700-second overall coordinator
+deadline and finite per-VM lifetimes. Estimated compute/egress is $0.65; the
+CPU/RAM envelope is $0.601464. Including the original cache/mock task, 24-case
+snapshot experiment, failed single-store attempt and retention probe bound,
+the planned cumulative amount remains below the original $2 preload allowance.
+This is not a provider hard cap or a snapshot-storage quote.
+
+```bash
+python probes/snapshot_shards.py build --out SHARD_RUN --source EXISTING_RELEASE
+python probes/snapshot_shards.py collect --out SHARD_RUN --billing-name billing-first.json
+```
+
+`SHARD_RUN` must contain the original byte-identical `catalog-plan.json`, the
+successful `retention-probe.json`, and an audited `source-context.json` (Git base,
+staged diff SHA-256 and actual packaged file hashes if GPG signing is pending).
+The final `usable-shards-catalog.json` requires all 500 unique identities and
+successful restore/termination receipts. This does not run 500 grading tests.
+
 This prepares a clean Docker image store for all 500 already-cached official
 Verified images on `phamvanvuhoan`. It does not grade 500 patches or switch the
 production web/CLI backend. Filesystem snapshots accept a configurable TTL;

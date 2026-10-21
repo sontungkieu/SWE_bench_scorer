@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-21T21:32:19.159793+00:00",
+  "role": "retention_probe",
+  "app_id": "ap-BAVKD0vLxANkKfT3T4uDxJ",
+  "rows": [
+    {
+      "object_id": "ap-BAVKD0vLxANkKfT3T4uDxJ",
+      "description": "swebench-snapshot-90d-retention-probe",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0E-8"
+    },
+    {
+      "object_id": "ap-BAVKD0vLxANkKfT3T4uDxJ",
+      "description": "swebench-snapshot-90d-retention-probe",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0E-8"
+    }
+  ],
+  "compute_egress_usd": "0E-8",
+  "before_credits": true,
+  "not_final_invoice": true,
+  "remaining_sandboxes": []
+}

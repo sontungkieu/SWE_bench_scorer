@@ -2,9 +2,10 @@
 
 Phiên bản: **0.3.1**.
 
-Chuẩn bị snapshot VM chứa đủ 500 image, TTL **90 ngày**:
+Đã lưu và kiểm tra **11 snapshot VM bao phủ đủ 500 image**, TTL **90 ngày**:
+[catalog và bằng chứng](evidence/2026-10-22-verified-snapshots-90d/README.md),
 [quy trình và giới hạn](probes/SNAPSHOT_CATALOG.md). Đây là bước nạp môi trường;
-không chấm full 500 và chưa đổi backend của web/CLI.
+chưa chấm full 500 và chưa đổi backend của web/CLI.
 
 ## Dùng Docker Hub token qua Modal Secret
 

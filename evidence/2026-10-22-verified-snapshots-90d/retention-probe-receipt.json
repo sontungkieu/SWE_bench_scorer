@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-10-21T21:12:07.773229+00:00",
+  "cpu": 2,
+  "memory_gib": 4,
+  "vm_lifetime_seconds": 120,
+  "allocation_bound_usd": 0.012662399999999999,
+  "ttl_seconds": 7776000,
+  "runtime_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "helper_sha256": "7891bd0113e5c2332da3176879fddc4797793d913c0d3356d8a98964d83ad4bf",
+  "app_id": "ap-BAVKD0vLxANkKfT3T4uDxJ",
+  "sandbox_id": "sb-01M5G4X8PKEPJ3KBZQKWVGPTV0",
+  "passed": true,
+  "snapshot_image_id": "im-01M5G4XADFS6ZC5383YWEJFTJJ",
+  "sandbox_terminated": true,
+  "finished_at": "2026-10-21T21:12:10.982322+00:00",
+  "wall_seconds": 3.2087959181517363
+}
