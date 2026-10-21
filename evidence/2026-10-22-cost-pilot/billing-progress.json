@@ -1,0 +1,56 @@
+{
+  "cost": {
+    "native": "0.14566705",
+    "vm": "0.49906502"
+  },
+  "rows": [
+    {
+      "object_id": "ap-KduJ8ShSSodr8wFg0vMZuF",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.13207620"
+    },
+    {
+      "object_id": "ap-KduJ8ShSSodr8wFg0vMZuF",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.01259135"
+    },
+    {
+      "object_id": "ap-KduJ8ShSSodr8wFg0vMZuF",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00099950"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.29767454"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.20138658"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00000390"
+    }
+  ]
+}

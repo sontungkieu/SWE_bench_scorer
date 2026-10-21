@@ -1,0 +1,86 @@
+{
+  "astropy/astropy": {
+    "selected": 2,
+    "native_reports": 1,
+    "native_resolved": 1,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "django/django": {
+    "selected": 3,
+    "native_reports": 3,
+    "native_resolved": 3,
+    "vm_reports": 3,
+    "vm_resolved": 3
+  },
+  "matplotlib/matplotlib": {
+    "selected": 2,
+    "native_reports": 1,
+    "native_resolved": 1,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "mwaskom/seaborn": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 2,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "pallets/flask": {
+    "selected": 1,
+    "native_reports": 1,
+    "native_resolved": 1,
+    "vm_reports": 1,
+    "vm_resolved": 1
+  },
+  "psf/requests": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 2,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "pydata/xarray": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 1,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "pylint-dev/pylint": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 1,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "pytest-dev/pytest": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 2,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "scikit-learn/scikit-learn": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 2,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "sphinx-doc/sphinx": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 2,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  },
+  "sympy/sympy": {
+    "selected": 2,
+    "native_reports": 2,
+    "native_resolved": 2,
+    "vm_reports": 2,
+    "vm_resolved": 2
+  }
+}

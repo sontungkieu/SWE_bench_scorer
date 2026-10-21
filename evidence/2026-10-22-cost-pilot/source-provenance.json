@@ -1,0 +1,14 @@
+{
+  "vm_sources_read_from_running_sandbox_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8"
+  },
+  "vm_release_path": "/home/kieusontung8/apps/swebench-web/releases/6650928",
+  "pilot_sources_sha256": {
+    "cost_pilot.py": "f50ff043b2fa03c37b5164329dfe61b241543a8b0c9edd0d7776d119188ccc2e",
+    "cost_pilot_vm.py": "05e487bbcc1ab1930e48140b4837fc0de6a3002683f97d88c119b0cd4ee51e52",
+    "modal_sdk_compat.py": "a65edc287550f30fa3d211f36893a873b2b16e3bb161fcb7213eb44c64df6f54"
+  }
+}

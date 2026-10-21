@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "object_id": "ap-KduJ8ShSSodr8wFg0vMZuF",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.41498040"
+    },
+    {
+      "object_id": "ap-KduJ8ShSSodr8wFg0vMZuF",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00288586"
+    },
+    {
+      "object_id": "ap-KduJ8ShSSodr8wFg0vMZuF",
+      "description": "swebench-evaluation",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.04510380"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.59030424"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00003652"
+    },
+    {
+      "object_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.39936016"
+    }
+  ],
+  "reported_cost_usd": {
+    "native": "0.46297006",
+    "vm": "0.98970092"
+  },
+  "checked_at": "2026-10-21T18:59:19.661306+00:00",
+  "before_credits": true,
+  "billing_may_lag": true
+}

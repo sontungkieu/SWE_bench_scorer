@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "app_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+      "description": "swebench-cost-pilot-vm",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-10-21 18:31:04+00:00",
+      "stopped_at": "2026-10-21 18:46:48+00:00"
+    },
+    {
+      "app_id": "ap-KduJ8ShSSodr8wFg0vMZuF",
+      "description": "swebench-evaluation",
+      "state": "stopped",
+      "tasks": "0",
+      "created_at": "2026-10-21 18:31:02+00:00",
+      "stopped_at": "2026-10-21 18:59:08+00:00"
+    }
+  ],
+  "sandboxes": {
+    "ap-KduJ8ShSSodr8wFg0vMZuF": [],
+    "ap-WLV8aqDSJDd2u8Pn1JX2mp": []
+  }
+}

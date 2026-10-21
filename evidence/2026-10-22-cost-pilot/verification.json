@@ -1,0 +1,37 @@
+{
+  "sample_count": 24,
+  "repository_count": 12,
+  "full_500_evaluated": false,
+  "gold_controls_not_model_predictions": true,
+  "measurement_finished": true,
+  "native_qualification_passed": false,
+  "vm_qualification_passed": true,
+  "native_reports": 22,
+  "native_resolved": 20,
+  "native_missing_reports": 2,
+  "native_gold_unresolved_reports": 2,
+  "vm_reports": 24,
+  "vm_resolved": 24,
+  "complete_native_vm_report_matches": 20,
+  "offline_tests_passed": 8,
+  "no_registry_downloads_in_vm": true,
+  "same_pilot_data_and_gold_input_sha256": {
+    "pilot_sha256": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+    "predictions_sha256": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f"
+  },
+  "cost_usd_before_credits": {
+    "native": "0.46610054",
+    "vm": "0.98970092"
+  },
+  "total_cost_usd": "1.45580146",
+  "consecutive_final_billing_reads_equal": true,
+  "final_billing_not_invoice": true,
+  "task_apps_stopped": true,
+  "remaining_sandboxes": 0,
+  "executed_runner_sources_match_workspace": true,
+  "collector_sha256": "d6e1870d61f7ff60b46c484b500d063d83ca09de07f3af47935dd42769b84dd5",
+  "source_checkpoint": "7c1fc9f",
+  "raw_archive_sha256": "44a33f6a24759ea313ab0c7bf17530a92713f3719fe9dc3fc6151d1fd6d6e7fe",
+  "raw_archive_final_billing_timestamp_precedes_last_read": true,
+  "production_backend_changed": false
+}

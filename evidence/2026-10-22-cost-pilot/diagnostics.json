@@ -1,0 +1,21 @@
+{
+  "astropy__astropy-8707": {
+    "kind": "image_build_failure",
+    "observed_error": "ModuleNotFoundError: No module named 'pkg_resources'"
+  },
+  "matplotlib__matplotlib-25122": {
+    "kind": "function_timeout",
+    "timeout_seconds": 1200,
+    "note": "Includes cold image build; Sandbox lifetime was below its 600-second limit"
+  },
+  "pylint-dev__pylint-4604": {
+    "kind": "official_gold_unresolved",
+    "failing_required_test": "tests/checkers/unittest_variables.py::TestMissingSubmodule::test_package_all",
+    "root_cause_not_established": true
+  },
+  "pydata__xarray-6938": {
+    "kind": "official_gold_unresolved",
+    "failing_required_test": "xarray/tests/test_variable.py::TestNumpyCoercion::test_from_sparse[Variable]",
+    "root_cause_not_established": true
+  }
+}

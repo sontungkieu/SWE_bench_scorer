@@ -1,0 +1,16 @@
+{
+  "wall_seconds": 1695.0701166279614,
+  "exit_code": 0,
+  "timed_out": false,
+  "app_ids": [
+    "ap-KduJ8ShSSodr8wFg0vMZuF"
+  ],
+  "selected_count": 24,
+  "reports": 22,
+  "resolved_count": 20,
+  "missing_ids": [
+    "astropy__astropy-8707",
+    "matplotlib__matplotlib-25122"
+  ],
+  "full_500_evaluated": false
+}

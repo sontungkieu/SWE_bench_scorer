@@ -1,0 +1,16 @@
+{
+  "backend": "production Docker evaluator in VM, pilot batch policy",
+  "workers": 8,
+  "cpu": 16,
+  "memory_gib": 64,
+  "lifetime_seconds": 1800,
+  "require_cached": true,
+  "full_500_evaluated": false,
+  "started_at": "2026-10-21T18:31:03.928239+00:00",
+  "app_id": "ap-WLV8aqDSJDd2u8Pn1JX2mp",
+  "sandbox_id": "sb-01M5FVPBCPWV1JQTWQ63SECRQ0",
+  "image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "exit_code": 0,
+  "sandbox_terminated": true,
+  "wall_seconds": 944.6862960755825
+}

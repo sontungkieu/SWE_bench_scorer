@@ -1,0 +1,16 @@
+{
+  "max_containers": 4,
+  "cpu_request_limit": [
+    4,
+    4
+  ],
+  "memory_request_limit_mib": [
+    1024,
+    8192
+  ],
+  "function_timeout_seconds": 1200,
+  "sandbox_timeout_seconds": 600,
+  "coordinator_timeout_seconds": 1800,
+  "sandbox_create_attempts": 1,
+  "backend_sha256": "0dccf7193c607831c37ea027bb94433021f7e805a1ce787ed6ddd5e131851f72"
+}

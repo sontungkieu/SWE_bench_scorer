@@ -262,9 +262,16 @@ không cam kết rebuild bit-for-bit chỉ từ source. Dữ liệu lớn không
 
 Trong VM chạy `python -m swebench.harness.run_evaluation --modal false` vì
 Docker đã ở trên Modal. Đây là official Docker harness trên Modal VM, không
-phải backend `--modal true` tích hợp của SWE-bench. Lựa chọn này tránh backend
-Modal mới nhất có TODO về TestSpec/setup scripts, đồng thời giữ nguyên test
-và grading chính thức. Không sửa harness hoặc test benchmark.
+phải backend `--modal true` tích hợp của SWE-bench. Backend Docker đang dùng
+giữ nguyên harness, test và grading chính thức. TODO TestSpec của upstream
+mới nhất không áp dụng trực tiếp cho phiên bản 4.1.0 đã pin.
+
+Đã đo riêng hai đường trên cùng 24 gold patch, 12 repo: VM nhận đủ 24 report,
+24 gold resolved, chi phí được ghi nhận $0.98970092; native 4.1.0 + SDK
+compatibility overlay nhận 22 report, 20 gold resolved, chi phí $0.46610054.
+Các số trước credits, không phải điểm model hoặc chi phí full 500 bài.
+Hai app đã dừng; chưa chuyển backend production sang native.
+[Protocol, sai khác từng bài và billing](evidence/2026-10-22-cost-pilot/README.md).
 
 Sandbox luôn terminate trong `finally`, có lifetime hữu hạn nếu client mất
 kết nối. CPU/RAM trong lúc build, pull và load image đều tính compute; Volume
