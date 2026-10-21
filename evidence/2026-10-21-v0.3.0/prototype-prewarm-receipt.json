@@ -1,0 +1,31 @@
+{
+  "scorer_version": "0.3.0",
+  "run_id": "cache-prewarm-20261021-v030",
+  "mode": "cache",
+  "profile": "phamvanvuhoan",
+  "modal_client": "1.6.2",
+  "harness": "4.1.0",
+  "source_sha256": {
+    "core.py": "d9905a51893695636725e454234651af95fce2b15d9f00eef6f81531b2fef239",
+    "remote_worker.py": "72b61a9c3a978955f8157da1f42b60a7d26304ec15491b3f804fd56b555616a6",
+    "launch.py": "ba35199b20fda5275cf746c65f4641555c50be8cddbe7280c7f012d839083ffa",
+    "image_cache.py": "7245761ec7256e41e99aa9a783f360db3149ee02d53e1bbda48f18498596e95f"
+  },
+  "lifetime_seconds": 13500,
+  "estimate_usd": 1.6,
+  "estimate_is_hard_billing_cap": false,
+  "started_at": "2026-10-21T11:29:18.756384+00:00",
+  "cache_volume": "swebench-verified-images-v1",
+  "cache_limit_gib": 256,
+  "require_cached": false,
+  "cpu_memory_allocation_bound_usd": 1.42452,
+  "allocation_bound_price_date": "2026-10-21",
+  "app_id": "ap-os9IaYKfLwgAGyGNefzXHs",
+  "sandbox_id": "sb-01M5F3J3BVY9MXDTTP9PV11C6N",
+  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "archive_sha256": "80a4347b8ece554ccc1fafcaea5068dfa375078435e79ebe284d96963b73dc34",
+  "sandbox_terminated": true,
+  "exit_code": 130,
+  "error": null,
+  "finished_at": "2026-10-21T11:32:55.865197+00:00"
+}

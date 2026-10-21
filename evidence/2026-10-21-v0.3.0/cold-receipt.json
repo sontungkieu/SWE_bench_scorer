@@ -1,0 +1,29 @@
+{
+  "scorer_version": "0.2.0",
+  "run_id": "cache-cold-20261021-v1",
+  "mode": "cache",
+  "profile": "phamvanvuhoan",
+  "modal_client": "1.6.2",
+  "harness": "4.1.0",
+  "source_sha256": {
+    "core.py": "169894464f696d0bf27677d3544284ce49f63fd0468c232a7622da406e819266",
+    "remote_worker.py": "b49fc27b60907d252df5d75755aca034e33ed44a3348a5d4b780a040e2ba6b33",
+    "launch.py": "5d61c598732490b8e8e87a85a1bd3c793c989e29200fa18be7089739a0bbec37",
+    "image_cache.py": "56b1f1919ad7e65482432fa6cfd06be5847d366100bb50912030e96e216dedcc"
+  },
+  "lifetime_seconds": 900,
+  "estimate_usd": 0.15,
+  "estimate_is_hard_billing_cap": false,
+  "started_at": "2026-10-21T11:23:42.699931+00:00",
+  "cache_volume": "swebench-verified-images-v1",
+  "cache_limit_gib": 256,
+  "require_cached": false,
+  "app_id": "ap-OCzUGdMCtAxudUJCR5wik2",
+  "sandbox_id": "sb-01M5F37VA5GPF4C97KMV4N1MTZ",
+  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI",
+  "archive_sha256": "37ea574ab99c8fc0a07ac4b3e22448fc9cad0965e9ba9943303fa86b539963f8",
+  "sandbox_terminated": true,
+  "exit_code": 0,
+  "error": null,
+  "finished_at": "2026-10-21T11:24:52.839397+00:00"
+}

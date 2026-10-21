@@ -1,0 +1,14 @@
+{
+  "requested": 1,
+  "cached": 0,
+  "complete": false,
+  "records": [],
+  "failures": [
+    {
+      "instance_id": "django__django-11099",
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    }
+  ],
+  "seconds": 0.35633156999999915,
+  "storage_bytes": 2990164644
+}

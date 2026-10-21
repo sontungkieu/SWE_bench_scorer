@@ -3,5 +3,7 @@
   "allow_full": true,
   "full_estimate_usd": 20,
   "max_estimate_usd": 20,
-  "monthly_hard_limit_usd": 29
+  "monthly_hard_limit_usd": 29,
+  "cache_volume": "swebench-verified-images-v1",
+  "cache_limit_gib": 256
 }

@@ -11,6 +11,14 @@ the web worker and SQLite queue running when a browser tab closes. No public
 HTTP listener or new VM is required. SSH authenticates access; this build is
 not a publicly exposed multi-user service.
 
+v0.3.0 enables persistent image caching by default. Existing config files are
+preserved: omitted `cache_volume` / `cache_limit_gib` use
+`swebench-verified-images-v1` / 256 GiB. The launcher serializes cache access
+with `state/image-cache.lock`, shared by CLI prewarm and web jobs on this GCP VM.
+The web can accept uploads during prewarm; grading waits before allocating a VM.
+Use one coordinator: do not write this cache concurrently from other hosts.
+See the root README for prewarm/resume commands and storage limits.
+
 App layout on the VM:
 
 - `~/apps/swebench-web/releases/<commit>/`: source only, current release symlink.

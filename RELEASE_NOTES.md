@@ -1,4 +1,26 @@
-# SWE-bench Scorer v0.2.0
+# SWE-bench Scorer v0.3.0
+
+Web và CLI tái sử dụng image giữa các job qua Modal Volume v2. Lệnh `cache`
+nạp trước một phần hoặc toàn bộ Verified; lần chạy sau bỏ qua manifest đã có.
+Tải trực tiếp layer nén từ Registry API, deduplicate theo SHA-256, pin image ID
+và platform manifest digest, kiểm tra hash khi khôi phục. Không chạy Docker
+daemon hay giải nén ra disk/nén lại khi prewarm. Không đổi official tests.
+
+Patch rỗng bỏ qua image và harness, vẫn tính unresolved trong mẫu số 500.
+Giới hạn cache mặc định 256 GiB blob nén; thời gian hữu hạn và billing guard
+trước mọi cloud job. Trên GCP, web/prewarm chia sẻ file lock trước khi tạo VM.
+Cache hỏng hoặc thiếu dữ liệu trả lỗi; `--require-cached` cấm cache miss.
+
+Kiểm chứng: 33 test offline pass. Nạp image rồi khôi phục trên VM mới bằng
+`--require-cached`, cả gold/wrong/empty đúng kỳ vọng. Với một image Django,
+OCI prewarm khoảng 26 giây và restore khoảng 28 giây. Đây là kiểm thử hạ tầng
+trên một instance; chưa phải hệ số tăng tốc hay chi phí full 500 bài.
+Receipt/source hash và trạng thái prewarm lưu trong thư mục evidence v0.3.0.
+
+Cấu hình GCP cũ được giữ, tự dùng cache mặc định. Hướng dẫn prewarm, resume,
+tắt cache và giới hạn chi phí ở README. Storage allowance dùng chung workspace.
+
+## Web từ v0.2.0
 
 Web riêng tư chạy trên GCP VM hiện có, truy cập qua SSH tunnel. Upload JSON,
 JSONL hoặc CSV, validate input, chọn smoke/full, chạy mock, theo dõi lịch sử và

@@ -1,0 +1,21 @@
+{
+  "mock_only": true,
+  "checks": [
+    {
+      "control": "gold",
+      "expected_resolved": true,
+      "passed": true
+    },
+    {
+      "control": "wrong",
+      "expected_resolved": false,
+      "passed": true
+    },
+    {
+      "control": "empty",
+      "expected_resolved": false,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

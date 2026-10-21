@@ -1,0 +1,15 @@
+COMMAND ["/usr/local/bin/python", "-m", "pip", "freeze"]
+FINISHED pip-freeze.txt exit_code 0
+COMMAND ["/usr/local/bin/python", "-m", "swebench.harness.run_evaluation", "--help"]
+FINISHED harness-help.txt exit_code 0
+SWE_IMAGE_JSON={"reference": "swebench/sweb.eval.x86_64.django_1776_django-11099:latest", "id": "sha256:b2ef446a617d9ae83dad07fcc470d745b2134d4b5a488438da5854cab2251b61", "repo_digests": ["swebench/sweb.eval.x86_64.django_1776_django-11099@sha256:364ab4524539dda8fc9c18c7b4761c76113eba606b79b845563d5052dec163c4"], "source": "volume", "seconds": 27.929847027, "cache_added_bytes": 0, "cache_total_bytes": 4141968861, "instance_id": "django__django-11099"}
+COMMAND ["/usr/local/bin/python", "-m", "swebench.harness.run_evaluation", "--dataset_name", "/work/verified.json", "--split", "test", "--predictions_path", "/work/output/gold/preds.jsonl", "--instance_ids", "django__django-11099", "--max_workers", "1", "--run_id", "gold", "--timeout", "600", "--modal", "false", "--cache_level", "instance", "--clean", "false"]
+FINISHED harness.log exit_code 0
+SWE_TEST_SECONDS=20.345890041000004
+SWE_SUMMARY_JSON={"scope": "smoke_subset", "selected_count": 1, "resolved_count": 1, "unresolved_count": 0, "empty_patch_count": 0, "error_or_missing_report_count": 0, "complete": true, "resolved_ids": ["django__django-11099"], "unresolved_ids": [], "error_or_missing_report_ids": [], "subset_resolved_rate": 1.0, "verified_score": null, "harness_exit_code": 0, "label": "gold"}
+SWE_IMAGE_JSON={"reference": "swebench/sweb.eval.x86_64.django_1776_django-11099:latest", "id": "sha256:b2ef446a617d9ae83dad07fcc470d745b2134d4b5a488438da5854cab2251b61", "repo_digests": ["swebench/sweb.eval.x86_64.django_1776_django-11099@sha256:364ab4524539dda8fc9c18c7b4761c76113eba606b79b845563d5052dec163c4"], "source": "local", "seconds": 0.013116955000000985, "cache_added_bytes": 0, "cache_total_bytes": 4141968861, "instance_id": "django__django-11099"}
+COMMAND ["/usr/local/bin/python", "-m", "swebench.harness.run_evaluation", "--dataset_name", "/work/verified.json", "--split", "test", "--predictions_path", "/work/output/wrong/preds.jsonl", "--instance_ids", "django__django-11099", "--max_workers", "1", "--run_id", "wrong", "--timeout", "600", "--modal", "false", "--cache_level", "instance", "--clean", "false"]
+FINISHED harness.log exit_code 0
+SWE_TEST_SECONDS=20.051676218000004
+SWE_SUMMARY_JSON={"scope": "smoke_subset", "selected_count": 1, "resolved_count": 0, "unresolved_count": 1, "empty_patch_count": 0, "error_or_missing_report_count": 0, "complete": true, "resolved_ids": [], "unresolved_ids": ["django__django-11099"], "error_or_missing_report_ids": [], "subset_resolved_rate": 0.0, "verified_score": null, "harness_exit_code": 0, "label": "wrong"}
+SWE_SUMMARY_JSON={"scope": "smoke_subset", "selected_count": 1, "resolved_count": 0, "unresolved_count": 1, "empty_patch_count": 1, "error_or_missing_report_count": 0, "complete": true, "resolved_ids": [], "unresolved_ids": ["django__django-11099"], "error_or_missing_report_ids": [], "subset_resolved_rate": 0.0, "verified_score": null, "harness_exit_code": 0, "label": "empty"}

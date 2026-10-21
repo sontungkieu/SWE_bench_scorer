@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.0 - 2026-10-21
+
+- Persistent image cache on a Modal v2 Volume: deduplicated OCI compressed blobs,
+  SHA-256 verification, pinned image IDs/digests, atomic committed manifests.
+- `cache` downloads layers directly from the registry without Docker unpacking
+  or recompression; CLI prewarms selected/all 500 images and resumes completed
+  entries; storage/time bounds stop work without deleting completed cache.
+- Web and CLI share the cache by default; GCP coordinator serializes writers.
+- Empty patches skip image loading and tests while remaining unresolved in score.
+- Cross-VM cache restore passed all three mock controls; 33 offline tests pass.
+  Full 500 image prewarm is separately recorded; no full benchmark eval claimed.
+
 ## 0.2.0 - 2026-10-21
 
 - Web upload và chấm qua GCP SSH tunnel: validate, queue, live log, kết quả,

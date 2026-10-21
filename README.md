@@ -1,6 +1,57 @@
 # Chấm SWE-bench Verified trên Modal
 
-Phiên bản: **0.2.0**.
+Phiên bản: **0.3.0**.
+
+## Cache image giữa các lần chấm
+
+Web và CLI mặc định dùng Modal **Volume v2** `swebench-verified-images-v1`.
+Lần đầu, các layer nén được tải trực tiếp từ Docker Registry API theo SHA-256;
+không chạy Docker, giải nén ra disk hoặc nén lại trong lúc prewarm. Layer chung
+chỉ lưu một bản. Manifest ghi image ID và registry digest cho linux/amd64.
+Lần sau `docker load` trực tiếp từ Volume, kiểm tra hash và image ID; không
+resolve lại tag khi đã có cache. Không mount Volume làm Docker overlay2 data root.
+Docker vẫn chạy trên disk VM, batch image vẫn được dọn sau khi chấm full.
+
+Đã kiểm chứng trên **hai VM độc lập**: nạp một image rồi mock với
+`--require-cached` (cấm pull nếu thiếu cache), cả gold/wrong/empty đúng kỳ vọng.
+Cache Docker-save thử nghiệm đầu tiên khôi phục khoảng 36 giây. Bản OCI tối ưu
+nạp cùng image trong khoảng 26 giây (bản đầu khoảng 61 giây gồm pull/export),
+khôi phục từ Volume trên VM mới khoảng 28 giây và mock pass 3/3 control.
+Đây là số đo riêng một image, không cùng trạng thái cache/network. Đây chưa phải
+benchmark tốc độ cho 500 bài. Patch rỗng không pull/load image hoặc chạy harness,
+vẫn được tính unresolved trong mẫu số 500. Test chính thức không thay đổi.
+
+```powershell
+# Chỉ nạp image, không chạy test; mặc định một bài mock.
+.\run.ps1 cache --profile phamvanvuhoan --run-id cache-one
+
+# Nạp cả 500; lặp lại với run-id mới để tiếp tục, bài có manifest được bỏ qua.
+# 2 cores / 2 GiB, tối đa 13.500 giây; dự trù cho guard $1.60.
+.\run.ps1 cache --all-instances --profile phamvanvuhoan --lifetime 13500 --estimate-usd 1.60 --run-id cache-all-01
+
+# Kiểm chứng chỉ dùng image đã lưu, không fallback về registry.
+.\run.ps1 mock --profile phamvanvuhoan --require-cached --run-id cache-check
+```
+
+Giới hạn mặc định **256 GiB blob nén**, đổi bằng `--cache-limit-gib`.
+Hết dung lượng, thời hạn hoặc gặp lỗi registry thì dừng; các manifest đã commit
+vẫn dùng được. `output/cache-summary.json` ghi số đã cache, lỗi và dung lượng.
+Nạp xong image không có nghĩa là đã eval hay qualification đủ 500 bài.
+Để tắt cache dùng `--cache-volume none`; khi đó mỗi VM mới có thể phải pull lại.
+Cache hỏng/mất blob hoặc image khác manifest sẽ báo lỗi, không âm thầm đổi bản.
+
+Chỉ chạy một cache writer mỗi lần. Trên GCP, launcher và web dùng cùng file lock
+trong state: job đến sau chờ trước khi tạo VM, không tính compute khi chờ.
+Không nạp từ client khác vào cùng Volume trong lúc GCP đang ghi cache.
+`sync /image-cache` commit blob trước rồi mới publish/commit manifest, theo
+[cơ chế Volume v2](https://modal.com/docs/guide/volumes#in-v2-you-can-commit-using-sync).
+
+Theo [giá Modal kiểm tra ngày 2026-10-21](https://modal.com/pricing), cache-only
+2 cores/2 GiB có allocation CPU/RAM tối đa $0.331848/giờ, tương ứng $1.24443
+cho 13.500 giây. Launcher từ chối thời hạn có bound CPU/RAM vượt estimate của
+cache job. Đây không phải provider hard cap hay bao gồm mọi phí khác. Volumes
+có 1 TiB miễn phí/tháng dùng chung workspace; chưa xác nhận tổng dung lượng
+Volume của mọi dự án. Thời gian test vẫn tính compute, cache không xóa khoản đó.
 
 ## Web riêng tư trên GCP
 
@@ -117,8 +168,9 @@ Dataset `SWE-bench/SWE-bench_Verified` test revision
 `78f471bf655a3137b2e8a75af1501690ec009ec3` (500 bài). Harness pin 4.1.0,
 client pin 1.6.2. Các dependency phụ được lưu `pip-freeze.txt`, runtime được
 nhận diện bằng Modal image ID. Image test chính thức `swebench/sweb.eval...`
-được pull từ Docker Hub rồi ghi content digest. Tag `latest` được resolve lại
-ở mỗi VM; đối chiếu `images.json` trước khi so sánh hai lần chấm. Runtime apt
+được pull từ Docker Hub rồi ghi content digest. Cache đã có được pin theo
+manifest; chỉ cache miss hoặc tắt cache mới resolve tag `latest`.
+Đối chiếu `images.json` trước khi so sánh hai lần chấm. Runtime apt
 và dependency phụ chưa có lock hoàn chỉnh; Modal cache giữ image đã build,
 không cam kết rebuild bit-for-bit chỉ từ source. Dữ liệu lớn không qua laptop.
 
@@ -129,12 +181,14 @@ Modal mới nhất có TODO về TestSpec/setup scripts, đồng thời giữ ng
 và grading chính thức. Không sửa harness hoặc test benchmark.
 
 Sandbox luôn terminate trong `finally`, có lifetime hữu hạn nếu client mất
-kết nối. Image build/cache có billing riêng; không deploy dịch vụ chạy thường
-trực, không mount hay chuyển credential vào VM. Outputs tải về trước terminate;
+kết nối. CPU/RAM trong lúc build, pull và load image đều tính compute; Volume
+có hạn mức storage riêng. Không deploy dịch vụ chấm chạy thường trực, không
+chuyển credential vào VM. Outputs tải về trước terminate;
 nếu VM hết lifetime trước khi tải thì một số log có thể không thu được.
 
-Kiểm tra nhẹ offline bằng `python -m unittest -v test_core.py test_web.py`. Các unit test
-chỉ kiểm tra JSONL và phép tính điểm; mock cloud mới xác nhận Docker/test runtime.
+Kiểm tra nhẹ offline bằng `python -m unittest -v test_core.py test_web.py test_image_cache.py test_registry_cache.py`.
+Unit test kiểm tra input/score, queue/web và cache roundtrip, dedup, corruption,
+partial writes, storage limit, empty-patch skipping; mock cloud xác nhận Docker/test runtime.
 
 Nguồn: [SWE-bench evaluation](https://www.swebench.com/SWE-bench/guides/evaluation/),
 [harness v4.1.0](https://github.com/SWE-bench/SWE-bench/tree/v4.1.0),

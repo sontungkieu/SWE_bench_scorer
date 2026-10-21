@@ -18,6 +18,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from core import MOCK_ID, SCORER_VERSION, parse_predictions
+from image_cache import DEFAULT_VOLUME
 
 HERE = Path(__file__).resolve().parent
 MAX_BODY = 32 * 1024 * 1024
@@ -146,6 +147,8 @@ class Store:
                        "--run-id", job_id, "--workers", "1", "--lifetime", "86400" if row["mode"] == "full" else "1800",
                        "--estimate-usd", str(self.config["full_estimate_usd"] if row["mode"] == "full" else 0.5),
                        "--guard-script", str(HERE / "web_budget.py"), "--output-root", str(self.state / "runs")]
+            command += ["--cache-volume", self.config.get("cache_volume", DEFAULT_VOLUME),
+                        "--cache-limit-gib", str(self.config.get("cache_limit_gib", 256))]
             if row["mode"] != "mock":
                 command += ["--predictions", str(self.state / "inputs" / (job_id + ".jsonl")),
                             "--instance-ids", *json.loads(row["selected"])]
@@ -198,7 +201,8 @@ def create_handler(store):
             if path == "/api/config":
                 return self.respond(200, {"version": SCORER_VERSION, "profile": store.config["profile"],
                     "allow_full": store.config.get("allow_full", False), "full_estimate_usd": store.config["full_estimate_usd"],
-                    "monthly_hard_limit_usd": store.config["monthly_hard_limit_usd"], "max_upload_mib": 20})
+                    "monthly_hard_limit_usd": store.config["monthly_hard_limit_usd"], "max_upload_mib": 20,
+                    "image_cache_enabled": store.config.get("cache_volume", DEFAULT_VOLUME) != "none"})
             if path == "/api/jobs":
                 return self.respond(200, {"jobs": store.listing()})
             if path.startswith("/api/fixtures/"):

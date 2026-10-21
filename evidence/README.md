@@ -1,5 +1,16 @@
 # Bằng chứng kiểm thử
 
+`2026-10-21-v0.3.0` ghi hai vòng thử nghiệm cache trên các VM độc lập.
+`oci-*` là định dạng OCI dùng trong bản phát hành: image nạp từ registry rồi
+khôi phục với `--require-cached`, mock pass 3/3. Các file không có tiền tố OCI
+là prototype Docker-save ban đầu; không dùng số đo đó để hứa hiệu năng full.
+Lượt prototype prewarm được dừng có chủ đích để thay bằng direct OCI download;
+manifest đã commit vẫn giữ. Một lỗi HTTP redirect ở canary đã được sửa và có
+regression test không chuyển registry Authorization sang CDN. `verification.json`
+và receipt phân biệt qualification, tiến độ cache và full benchmark evaluation.
+Source hash là bằng chứng source thực sự chạy; các canary trước release có thể
+khác version/source metadata với commit cuối. Không chứa registry/Modal token.
+
 `2026-10-21-v0.1.0` là snapshot của run `mock-v0_1_0-20261021-02`,
 profile Modal `phamvanvuhoan`, app
 <https://modal.com/apps/phamvanvuhoan/main/ap-GhMCKwFJFTsYeTu1EWU3aA>.

@@ -1,0 +1,21 @@
+{
+  "version": "0.3.0",
+  "offline_tests": {
+    "windows_passed": 33,
+    "gcp_passed": 33
+  },
+  "oci_cold_seconds": 25.693446611,
+  "oci_restore_seconds": 27.929847027,
+  "mock_controls_passed": 3,
+  "require_cached": true,
+  "cross_vm_restore": true,
+  "full_500_evaluated": false,
+  "prewarm": {
+    "run_id": "oci-prewarm-20261021-v030",
+    "status": "running",
+    "budget_authorized_usd": 2,
+    "lifetime_seconds": 13500,
+    "cpu_memory_allocation_bound_usd": 1.24443
+  },
+  "qualification_receipts": "Source hashes in each receipt identify the exact tested candidate; source metadata and accounting changed afterward."
+}

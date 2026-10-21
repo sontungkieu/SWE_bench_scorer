@@ -1,0 +1,22 @@
+{
+  "requested": 1,
+  "cached": 1,
+  "complete": true,
+  "records": [
+    {
+      "reference": "swebench/sweb.eval.x86_64.django_1776_django-11099:latest",
+      "id": "sha256:b2ef446a617d9ae83dad07fcc470d745b2134d4b5a488438da5854cab2251b61",
+      "repo_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11099@sha256:364ab4524539dda8fc9c18c7b4761c76113eba606b79b845563d5052dec163c4"
+      ],
+      "source": "registry",
+      "seconds": 25.693446611000002,
+      "cache_added_bytes": 1151803046,
+      "cache_total_bytes": 4141967690,
+      "instance_id": "django__django-11099"
+    }
+  ],
+  "failures": [],
+  "seconds": 25.741258541000004,
+  "storage_bytes": 4141967690
+}

@@ -5,7 +5,7 @@ import csv
 import io
 from pathlib import Path
 
-SCORER_VERSION = "0.2.0"
+SCORER_VERSION = "0.3.0"
 DATASET = "SWE-bench/SWE-bench_Verified"
 REVISION = "78f471bf655a3137b2e8a75af1501690ec009ec3"
 HARNESS = "4.1.0"
