@@ -3,10 +3,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core import MOCK_ID, load_predictions, summarize
+from core import MOCK_ID, SCORER_VERSION, load_predictions, summarize
 
 
 class InputAndScoreTests(unittest.TestCase):
+    def test_version_matches_release_file(self):
+        self.assertEqual(SCORER_VERSION, Path(__file__).with_name("VERSION").read_text().strip())
+
     def rows(self):
         return [{"instance_id": MOCK_ID, "model_name_or_path": "mock", "model_patch": "diff"},
                 {"instance_id": "django__django-11133", "model_name_or_path": "mock", "model_patch": ""}]

@@ -10,7 +10,7 @@ import tarfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-from core import CLIENT, HARNESS, MOCK_ID, load_predictions
+from core import CLIENT, HARNESS, MOCK_ID, SCORER_VERSION, load_predictions
 
 HERE = Path(__file__).resolve().parent
 
@@ -82,7 +82,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     source = {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
               for name in ("core.py", "remote_worker.py", "launch.py")}
-    receipt = {"run_id": args.run_id, "mode": args.action, "profile": args.profile,
+    receipt = {"scorer_version": SCORER_VERSION, "run_id": args.run_id, "mode": args.action, "profile": args.profile,
                "modal_client": CLIENT, "harness": HARNESS, "source_sha256": source,
                "lifetime_seconds": args.lifetime, "estimate_usd": args.estimate_usd,
                "estimate_is_hard_billing_cap": False,
@@ -110,6 +110,7 @@ def main():
                     readiness_probe=modal.Probe.with_exec("docker", "info", interval_ms=1000))
                 receipt.update(app_id=app.app_id, sandbox_id=sandbox.object_id,
                                modal_image_id=image.object_id)
+                (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
                 subprocess.run(ledger + ["--status", "running", "--app-id", app.app_id], check=True)
                 print("SWE_LAUNCH_JSON=" + json.dumps(receipt), flush=True)
                 sandbox.wait_until_ready(timeout=120)

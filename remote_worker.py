@@ -8,7 +8,7 @@ import sys
 import traceback
 from pathlib import Path
 
-from core import DATASET, REVISION, HARNESS, MOCK_ID, load_predictions, summarize
+from core import DATASET, REVISION, HARNESS, MOCK_ID, SCORER_VERSION, load_predictions, summarize
 
 ROOT = Path("/work")
 OUT = ROOT / "output"
@@ -38,29 +38,38 @@ def evaluate(rows, selected, dataset_path, label, args):
     # Pull once, retain content digests in the receipt, and let official harness
     # reuse the exact locally cached image for all controls in this VM.
     image_records = []
-    dataset = json.loads(dataset_path.read_text())
-    for instance in dataset:
-        if instance["instance_id"] not in selected:
-            continue
-        spec = make_test_spec(instance, namespace="swebench")
-        image = spec.instance_image_key
-        cached = subprocess.run(["docker", "image", "inspect", image],
-                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
-        if not cached:
-            rc = execute(["docker", "pull", image], case / f"pull-{instance['instance_id']}.log", timeout=600)
-            if rc:
-                raise RuntimeError(f"Image pull failed: {image}; see pull log")
-        inspected = json.loads(subprocess.check_output(["docker", "image", "inspect", image]))[0]
-        image_records.append({"instance_id": instance["instance_id"], "reference": image,
-                              "id": inspected["Id"], "repo_digests": inspected.get("RepoDigests", [])})
-    write_json(case / "images.json", image_records)
-    command = [sys.executable, "-m", "swebench.harness.run_evaluation",
-               "--dataset_name", str(dataset_path), "--split", "test",
-               "--predictions_path", str(pred_path), "--instance_ids", *selected,
-               "--max_workers", str(args.workers), "--run_id", label,
-               "--timeout", str(args.test_timeout), "--modal", "false",
-               "--cache_level", "instance", "--clean", "false"]
-    rc = execute(command, case / "harness.log", cwd=case)
+    dataset = {r["instance_id"]: r for r in json.loads(dataset_path.read_text())}
+    # Bound disk use instead of preloading hundreds of multi-GB images.
+    batches = ([selected[i:i + args.workers] for i in range(0, len(selected), args.workers)]
+               if args.mode == "full" else [selected])
+    rc = 0
+    for index, batch in enumerate(batches):
+        batch_images = []
+        for iid in batch:
+            spec = make_test_spec(dataset[iid], namespace="swebench")
+            image = spec.instance_image_key
+            cached = subprocess.run(["docker", "image", "inspect", image],
+                                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
+            if not cached:
+                pull_rc = execute(["docker", "pull", image], case / f"pull-{iid}.log", timeout=600)
+                if pull_rc:
+                    raise RuntimeError(f"Image pull failed: {image}; see pull log")
+            inspected = json.loads(subprocess.check_output(["docker", "image", "inspect", image]))[0]
+            image_records.append({"instance_id": iid, "reference": image,
+                                  "id": inspected["Id"], "repo_digests": inspected.get("RepoDigests", [])})
+            batch_images.append(image)
+        write_json(case / "images.json", image_records)
+        command = [sys.executable, "-m", "swebench.harness.run_evaluation",
+                   "--dataset_name", str(dataset_path), "--split", "test",
+                   "--predictions_path", str(pred_path), "--instance_ids", *batch,
+                   "--max_workers", str(args.workers), "--run_id", label,
+                   "--timeout", str(args.test_timeout), "--modal", "false",
+                   "--cache_level", "instance", "--clean", "false"]
+        log_name = f"harness-batch-{index:03d}.log" if args.mode == "full" else "harness.log"
+        batch_rc = execute(command, case / log_name, cwd=case)
+        rc = rc or batch_rc
+        if args.mode == "full":
+            execute(["docker", "image", "rm", *batch_images], case / f"cleanup-{index:03d}.log")
     reports = {}
     for path in case.glob("logs/**/report.json"):
         value = json.loads(path.read_text())
@@ -80,7 +89,7 @@ def main():
     parser.add_argument("--instance-ids", nargs="+", default=[MOCK_ID])
     args = parser.parse_args()
     OUT.mkdir(parents=True)
-    write_json(OUT / "environment.json", {"python": sys.version,
+    write_json(OUT / "environment.json", {"scorer_version": SCORER_VERSION, "python": sys.version,
                "harness": importlib.metadata.version("swebench"), "dataset": DATASET,
                "dataset_revision": REVISION, "mode": args.mode})
     execute([sys.executable, "-m", "pip", "freeze"], OUT / "pip-freeze.txt")

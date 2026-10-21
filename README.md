@@ -1,5 +1,7 @@
 # Chấm SWE-bench Verified trên Modal
 
+Phiên bản: **0.1.0**.
+
 Nhận `preds.jsonl` theo trang 21 tài liệu VAI và chạy **official SWE-bench
 harness 4.1.0** trong **Modal VM CPU**. Docker, dataset và image instance chỉ
 tải/chạy trên Modal. Máy Windows dùng Modal client 1.6.2 đã có trong WSL.
@@ -55,7 +57,8 @@ chỉ pass khi cả ba nhánh cho kết quả đúng và harness không lỗi.
 
 ## Đọc kết quả
 
-`runs/RUN_ID/receipt.json`: profile, app/sandbox/image ID, source SHA-256,
+`runs/console-*.log` lưu stdout/stderr của launcher. `runs/RUN_ID/receipt.json`:
+profile, app/sandbox/image ID, source SHA-256,
 thời gian, exit code, checksum archive và xác nhận terminate sandbox.
 `results.tar.gz` cùng bản đã giải nén chứa:
 
@@ -68,6 +71,9 @@ Smoke chỉ có `subset_resolved_rate`; `verified_score=null`. Full đòi đúng
 500 ID của dataset đã pin và tính `resolved / 500`, bao gồm patch rỗng.
 Thiếu report cho patch không rỗng là lỗi hạ tầng/incomplete; score để `null`.
 Harness exit code 0 một mình chưa đủ chứng minh pass; phải kiểm tra summary.
+Full chạy từng batch tối đa `workers` image và xóa image batch đã chấm để
+không tải trước toàn bộ 500 image vào disk VM. Toàn bộ 500 bài chưa được
+qualification trong lần setup mock này.
 
 ## Runtime và khả năng tái lập
 

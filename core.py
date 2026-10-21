@@ -3,6 +3,7 @@ import json
 import re
 from pathlib import Path
 
+SCORER_VERSION = "0.1.0"
 DATASET = "SWE-bench/SWE-bench_Verified"
 REVISION = "78f471bf655a3137b2e8a75af1501690ec009ec3"
 HARNESS = "4.1.0"
