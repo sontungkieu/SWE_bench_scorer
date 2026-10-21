@@ -28,7 +28,7 @@
       <label for="instanceIds" class="field-label">Instance IDs <span>không bắt buộc cho smoke</span></label><textarea id="instanceIds" rows="2" placeholder="Mặc định chọn 3 ID đầu tiên trong file"></textarea>
       <div class="run-budget"><span>Ngân sách dự trù cho guard</span><strong id="estimate">$0.50</strong><small>Đây là dự trù kiểm tra ngân sách, không phải hard cap của Modal.</small></div>
       <p id="fullHint" class="muted small">Một worker CPU; mỗi job smoke có thời hạn tối đa 30 phút.</p>
-      <p class="muted small">Image đã lưu được tái sử dụng giữa các job. Bài chưa có cache cần tải lần đầu; patch rỗng được bỏ qua test.</p>
+      <p id="cacheStatus" class="muted small">Image đã lưu được tái sử dụng giữa các job. Bài chưa có cache cần tải lần đầu; patch rỗng được bỏ qua test.</p>
       <button class="button primary" id="evaluateButton" disabled>Chọn file để bắt đầu <span>→</span></button><small class="run-footnote">Một job chạy mỗi lần. Đóng tab không làm mất trạng thái.</small>
     </article>
   </section>

@@ -13,6 +13,7 @@ import urllib.error
 from unittest.mock import patch
 
 from registry_cache import RegistryCache, RegistryRedirect, copy_blob, registry_token
+from bootstrap_registry_secret import credential_from_files
 
 
 class RegistryCacheTests(unittest.TestCase):
@@ -123,6 +124,20 @@ class RegistryCacheTests(unittest.TestCase):
             "mock", "--profile", "offline-test", "--registry-secret", "test-only"], capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("only be injected into cache-only VMs", result.stderr)
+
+    def test_pat_only_file_can_reuse_legacy_username_and_handle_bom(self):
+        pat = Path(self.tmp.name) / "new.txt"
+        username = Path(self.tmp.name) / "old.txt"
+        pat.write_bytes(b"\xef\xbb\xbfsynthetic-new-token\n")
+        username.write_text("test-user\nold-token-not-used\n")
+        self.assertEqual(credential_from_files(pat, username),
+                         {"REGISTRY_USERNAME": "test-user", "REGISTRY_PASSWORD": "synthetic-new-token"})
+
+    def test_pat_only_file_requires_username_source(self):
+        pat = Path(self.tmp.name) / "new.txt"
+        pat.write_text("synthetic-new-token\n")
+        with self.assertRaisesRegex(ValueError, "username"):
+            credential_from_files(pat)
 
 
 if __name__ == "__main__":

@@ -19,6 +19,14 @@ The web can accept uploads during prewarm; grading waits before allocating a VM.
 Use one coordinator: do not write this cache concurrently from other hosts.
 See the root README for prewarm/resume commands and storage limits.
 
+v0.3.1 can run a finite `prewarm_queue.py` batch under `nohup` using the existing
+service environment. Keep its PID/log in state; do not start another coordinator
+with the same run prefix. `prewarm-queue.lock` blocks duplicate coordinators.
+`state/image-cache-status.json` is atomically written and `/api/cache` exposes
+only progress fields. Quota cooldown runs on GCP after Modal termination, with
+no Modal compute held while waiting. Unexpected errors stop the batch.
+A web-service restart does not manage this separate finite batch process.
+
 App layout on the VM:
 
 - `~/apps/swebench-web/releases/<commit>/`: source only, current release symlink.

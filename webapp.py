@@ -205,6 +205,11 @@ def create_handler(store):
                     "image_cache_enabled": store.config.get("cache_volume", DEFAULT_VOLUME) != "none"})
             if path == "/api/jobs":
                 return self.respond(200, {"jobs": store.listing()})
+            if path == "/api/cache":
+                status_file = store.state / "image-cache-status.json"
+                value = json.loads(status_file.read_text()) if status_file.exists() else {"status": "idle"}
+                keys = {"status", "cached_count", "requested", "storage_bytes", "next_retry_at", "updated_at"}
+                return self.respond(200, {key: val for key, val in value.items() if key in keys})
             if path.startswith("/api/fixtures/"):
                 label = path.rsplit("/", 1)[-1]
                 if label not in {"gold", "wrong", "empty"}:

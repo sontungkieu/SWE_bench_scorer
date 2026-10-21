@@ -8,8 +8,14 @@
   no PAT in arguments, logs, source or extra plaintext files.
 - Bounded encrypted migration helper for an existing cross-workspace Secret.
   Live source allocation was blocked by Modal spend limit; no validity claim.
-- 38 offline tests cover authenticated/anonymous requests, rejected credentials,
-  partial credentials, redirects and exclusion of secrets from evaluation VMs.
+- Support a PAT-only credential file with a separate username header; Docker Hub
+  authenticated JWT subjects may be opaque account IDs.
+- Finite GCP coordinator resumes clean time boundaries, waits outside Modal on
+  HTTP 429, and reserves allocation bounds before each new VM. Web shows cache
+  progress through a public-field-only endpoint.
+- 48 offline tests cover auth, redirects, secret exclusion, budget/termination
+  gates, quota cooldown and finite-work resumptions. New PAT authenticated live;
+  all-500 cache completion is recorded separately from any benchmark grading.
 
 ## 0.3.0 - 2026-10-21
 

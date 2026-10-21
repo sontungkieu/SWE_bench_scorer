@@ -83,6 +83,15 @@ class WebTests(unittest.TestCase):
         self.assertEqual(preview["count"], 1)
         self.assertEqual(self.store.listing(), [])
 
+    def test_cache_progress_exposes_only_safe_fields(self):
+        (Path(self.tmp.name) / "image-cache-status.json").write_text(json.dumps({
+            "status": "cooldown", "cached_count": 301, "requested": 500,
+            "next_retry_at": "2026-10-21T14:00:00Z", "REGISTRY_PASSWORD": "synthetic-do-not-expose"}))
+        with urllib.request.urlopen(self.base + "/api/cache") as response:
+            value = json.load(response)
+        self.assertEqual(value["cached_count"], 301)
+        self.assertNotIn("REGISTRY_PASSWORD", value)
+
     def test_submit_normalizes_and_is_idempotent(self):
         first = self.post("/api/jobs", self.payload())
         second = self.post("/api/jobs", self.payload())

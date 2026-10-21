@@ -19,8 +19,12 @@ UV_OFFLINE=1 /home/tung/.local/bin/uv tool run --offline --from modal python \
   --secret-name swebench-dockerhub
 ```
 
-File có hai dòng: username rồi PAT, giữ ngoài Git. Bootstrap xác thực và kiểm
-tra pull scope trước khi tạo secret, từ chối ghi đè secret đã có. Sau đó:
+File có hai dòng: username rồi PAT, giữ ngoài Git. Nếu file mới chỉ có PAT,
+thêm `--username-file /home/tung/dockerhub.txt`: chỉ đọc dòng username đầu tiên
+của file cũ. Windows Downloads dùng đường dẫn WSL `/mnt/c/Users/Tung/Downloads/…`.
+Bootstrap xác thực và kiểm tra pull scope trước khi tạo secret, từ chối ghi đè
+secret đã có. Docker Hub có thể dùng opaque account ID trong JWT `sub`.
+Token mới đã xác thực và tạo secret đích ngày 2026-10-21. Sau đó:
 
 ```powershell
 .\run.ps1 cache --all-instances --profile phamvanvuhoan --registry-secret swebench-dockerhub --lifetime 13500 --estimate-usd 1.60 --run-id cache-auth-01
@@ -99,6 +103,35 @@ giới hạn pull đó, vẫn chịu fair use. Token Personal không tự nâng 
 `docker login` trên GCP không tự truyền vào downloader trong Modal; kết nối
 token cần kênh secret riêng. Không đưa PAT/token vào source, flags hoặc log.
 Trạng thái credential và các lượt nạp mới hơn được ghi riêng trong evidence.
+
+### Nạp tiếp hữu hạn, chờ quota trên GCP
+
+`prewarm_queue.py` dùng runtime Modal có sẵn trên GCP, không đọc PAT. Mỗi VM có
+lifetime hữu hạn; chỉ tạo VM tiếp khi receipt xác nhận VM trước đã terminate.
+Hết thời lượng sạch thì nối tiếp; HTTP 429 thì chờ trên GCP. Lỗi auth/khác hoặc
+receipt không rõ thì dừng. Manifest đã commit được bỏ qua khi chạy tiếp.
+
+```bash
+# Chạy trong source release; dùng service.env riêng, không đưa vào source.
+set -a; . ~/.config/swebench-web/service.env; set +a
+~/apps/swebench-web/runtime/venv/bin/python prewarm_queue.py \
+  --profile phamvanvuhoan --registry-secret swebench-dockerhub \
+  --state ~/apps/swebench-web/state --run-prefix cache-next-unique \
+  --budget-usd 2 --prior-spend-usd 0.11 --egress-reserve-usd 0.05 \
+  --lifetime 1800 --max-attempts 3
+```
+
+`--adopt-run ID` theo dõi một lượt đã chạy, rồi mới nối tiếp. Không tái sử dụng
+run prefix; file lock chặn hai coordinator. Budget cộng chi phí cũ, dự phòng và
+CPU/RAM tối đa theo lifetime trước mỗi allocation; không phải provider hard cap.
+1800 giây có bound $0.165924/VM. Lượt hiện tại + tối đa ba lượt nối tiếp, cộng
+$0.11 cũ và $0.05 dự phòng, có bound $0.823696 theo các giả định tài nguyên này.
+
+Mặc định cooldown 6 giờ + 60 giây. Header xác thực quan sát ngày 2026-10-21 là
+`200;w=3600`; lượt này dùng `--cooldown-seconds 3660` theo header thực tế đó,
+không coi đây là chính sách chung thay cho docs Docker Hub. File state
+`image-cache-status.json` lưu tiến độ; web `/api/cache` chỉ trả count, size,
+status, thời điểm cập nhật/chạy tiếp. Không mở quyền chấm full tự động.
 
 ## Web riêng tư trên GCP
 
@@ -233,7 +266,7 @@ có hạn mức storage riêng. Không deploy dịch vụ chấm chạy thườn
 chuyển credential vào VM. Outputs tải về trước terminate;
 nếu VM hết lifetime trước khi tải thì một số log có thể không thu được.
 
-Kiểm tra nhẹ offline bằng `python -m unittest -v test_core.py test_web.py test_image_cache.py test_registry_cache.py`.
+Kiểm tra nhẹ offline bằng `python -m unittest -v test_core.py test_web.py test_image_cache.py test_registry_cache.py test_prewarm_queue.py`.
 Unit test kiểm tra input/score, queue/web và cache roundtrip, dedup, corruption,
 partial writes, storage limit, empty-patch skipping; mock cloud xác nhận Docker/test runtime.
 

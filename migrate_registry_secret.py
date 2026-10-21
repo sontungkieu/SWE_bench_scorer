@@ -27,7 +27,7 @@ try:
     request=urllib.request.Request("https://auth.docker.io/token?"+query,headers={"Authorization":"Basic "+basic})
     with urllib.request.urlopen(request,timeout=12) as r: token=json.load(r)["token"]
     claims=json.loads(base64.urlsafe_b64decode(token.split(".")[1]+"==="))
-    if claims.get("sub")!=username: raise ValueError("Unexpected registry subject")
+    if not claims.get("sub"): raise ValueError("Anonymous registry subject")
     request=urllib.request.Request(f"https://registry-1.docker.io/v2/{repository}/manifests/latest",method="HEAD",headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.oci.image.index.v1+json"})
     with urllib.request.urlopen(request,timeout=12) as r:
         result["rate_limit_headers"]={k.lower():v for k,v in r.headers.items() if "ratelimit" in k.lower() and "source" not in k.lower()}

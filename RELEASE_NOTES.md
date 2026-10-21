@@ -3,14 +3,23 @@
 Optional `--registry-secret` supports existing Docker Hub credentials for cache
 prewarm only. Patch evaluation rejects this option. A WSL bootstrap validates
 the supplied username/PAT before storing it directly in Modal Secret; failed
-authentication does not fall back to anonymous. 38 offline tests pass.
+authentication does not fall back to anonymous. PAT-only files can reuse just
+an existing username header. 48 offline tests pass.
 
 The existing source Secret was found on kieusontung8, but Modal rejected source
 allocation because its spend limit was exceeded. Its stored key has not been
 validated or migrated. The original credential file returned HTTP 401. The
 encrypted migration helper has offline crypto verification only, no live
-qualification. Account spend limits were not changed. Cache progress remains
-101/500 until a valid credential or permitted resume is available.
+qualification. Account spend limits were not changed. A newly supplied PAT authenticated and
+created `swebench-dockerhub` on phamvanvuhoan. Authenticated prewarm is running;
+completion evidence will distinguish image preload from benchmark evaluation.
+
+A finite GCP coordinator resumes committed images within the chosen $2 budget.
+HTTP 429 cooldown holds no Modal VM; unexpected errors stop. Each next allocation
+requires a terminated prior VM and a fresh budget check. Web exposes safe cache
+progress fields. The adopted 1800-second run plus three further runs has a
+CPU/RAM upper allocation bound of $0.663696; with $0.11 prior spend and $0.05
+reserve, $0.823696. This is a conservative resource reservation, not an invoice.
 
 ## Persistent image cache from v0.3.0
 
@@ -35,7 +44,7 @@ Bulk prewarm đã lưu bền vững 101/500 image (~17 GiB gồm prototype), d�
 Docker Hub HTTP 429 và terminate VM. 399 image chưa nạp; không có auto retry
 hoặc VM giữ để chờ quota. Tổng app compute/egress của các thử nghiệm cache và
 mock được báo cáo $0.10410261 trước credits; bulk run riêng $0.04905196.
-Chưa cấu hình credential Docker Hub hoặc lịch nạp tiếp; không tuyên bố đủ 500.
+Đây là snapshot v0.3.0; credential và các lượt nối tiếp được ghi trong evidence v0.3.1.
 
 Cấu hình GCP cũ được giữ, tự dùng cache mặc định. Hướng dẫn prewarm, resume,
 tắt cache và giới hạn chi phí ở README. Storage allowance dùng chung workspace.

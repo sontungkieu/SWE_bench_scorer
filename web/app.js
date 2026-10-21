@@ -87,7 +87,15 @@ async function refresh(){
   if(!selectedJob&&result.jobs.length)selectedJob=result.jobs[0].id;
   if(selectedJob&&result.jobs.some(j=>j.id===selectedJob))await showJob(selectedJob);
 }
+async function refreshCache(){
+  const cache=await api("/api/cache");
+  if(cache.cached_count===undefined)return;
+  const count=cache.cached_count+"/"+(cache.requested||500);
+  const size=cache.storage_bytes ? " · "+(cache.storage_bytes/1024**3).toFixed(1)+" GiB" : "";
+  const note=cache.status==="complete" ? "Đã nạp đủ image Verified" : cache.status==="cooldown" ? "Chờ quota Docker Hub; thử tiếp sau "+formatTime(cache.next_retry_at)+". Modal VM đã dừng" : cache.status==="warming" ? "Đang nạp image" : "Tiến độ cache ("+cache.status+")";
+  $("cacheStatus").textContent=count+size+" · "+note;
+}
 $("fileInput").addEventListener("change",e=>chooseFile(e.target.files[0]));$("clearFile").addEventListener("click",clearFile);$("evaluateButton").addEventListener("click",()=>submit());$("mockButton").addEventListener("click",()=>submit(true));$("refreshHistory").addEventListener("click",()=>refresh().catch(e=>toast(e.message)));
 document.querySelectorAll('input[name="mode"]').forEach(input=>input.addEventListener("change",updatePlan));
 const dz=$("dropzone");dz.addEventListener("dragover",e=>{e.preventDefault();dz.classList.add("dragging");});dz.addEventListener("dragleave",()=>dz.classList.remove("dragging"));dz.addEventListener("drop",e=>{e.preventDefault();dz.classList.remove("dragging");chooseFile(e.dataTransfer.files[0]);});dz.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){$("fileInput").click();e.preventDefault();}});
-(async()=>{try{config=await api("/api/config");$("version").textContent="v"+config.version;$("footerVersion").textContent="v"+config.version;$("profile").textContent=config.profile;if(!config.allow_full){$("fullOption").classList.add("disabled");$("fullOption").querySelector("input").disabled=true;}selectedJob=localStorage.getItem("swe-selected-job");updatePlan();await refresh();setInterval(()=>refresh().catch(()=>{}),3000);}catch(error){toast(error.message);}})();
+(async()=>{try{config=await api("/api/config");$("version").textContent="v"+config.version;$("footerVersion").textContent="v"+config.version;$("profile").textContent=config.profile;if(!config.allow_full){$("fullOption").classList.add("disabled");$("fullOption").querySelector("input").disabled=true;}selectedJob=localStorage.getItem("swe-selected-job");updatePlan();await refresh();await refreshCache();setInterval(()=>refresh().catch(()=>{}),3000);setInterval(()=>refreshCache().catch(()=>{}),15000);}catch(error){toast(error.message);}})();

@@ -13,24 +13,37 @@ from registry_cache import registry_token, urlopen
 import urllib.request
 
 
+def credential_from_files(path, username_file=None):
+    lines = [line.strip() for line in Path(path).read_text(encoding="utf-8-sig").splitlines() if line.strip()]
+    if len(lines) == 1 and username_file:
+        # Read only the username header from the legacy file, not its old PAT.
+        with Path(username_file).open(encoding="utf-8-sig") as stream:
+            username = next((line.strip() for line in stream if line.strip()), "")
+        if not username:
+            raise ValueError("Username file has no username")
+        lines.insert(0, username)
+    if len(lines) != 2:
+        raise ValueError("Use username/PAT lines, or a PAT file with --username-file")
+    return {"REGISTRY_USERNAME": lines[0], "REGISTRY_PASSWORD": lines[1]}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--profile", required=True)
     parser.add_argument("--credential-file", required=True)
     parser.add_argument("--secret-name", required=True)
+    parser.add_argument("--username-file", help="Use only its first nonempty line when PAT file has one line")
     args = parser.parse_args()
-    lines = [line.strip() for line in Path(args.credential_file).read_text().splitlines() if line.strip()]
-    if len(lines) != 2:
-        raise ValueError("Credential file must contain username then PAT")
-    credential = {"REGISTRY_USERNAME": lines[0], "REGISTRY_PASSWORD": lines[1]}
+    credential = credential_from_files(args.credential_file, args.username_file)
     previous = {key: os.environ.get(key) for key in credential}
     try:
         os.environ.update(credential)
         repository = "swebench/sweb.eval.x86_64.django_1776_django-13158"
         token = registry_token(repository)
         claims = json.loads(base64.urlsafe_b64decode(token.split(".")[1] + "==="))
-        if claims.get("sub") != credential["REGISTRY_USERNAME"]:
-            raise ValueError("Auth response did not identify the expected account")
+        # Docker Hub may identify the account with an opaque subject ID.
+        if not claims.get("sub"):
+            raise ValueError("Auth response is anonymous")
         request = urllib.request.Request(f"https://registry-1.docker.io/v2/{repository}/manifests/latest",
             method="HEAD", headers={"Authorization": "Bearer " + token, "Accept": "application/vnd.oci.image.index.v1+json"})
         with urlopen(request, timeout=30) as response:
