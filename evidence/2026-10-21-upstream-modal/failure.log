@@ -71,5 +71,5 @@ swebench.harness.utils.EvaluationError: django__django-11099: Error creating san
 Check (logs/run_evaluation/upstream-modal-20261021-02-gold/MOCK-CONTROL-gold/django__django-11099/run_instance.log) for more information.
 
 Stopping app - local entrypoint completed.
-✓ App completed. View run at 
+✓ App completed. View run at
 https://modal.com/apps/phamvanvuhoan/main/ap-AFiVtnJqIEUMBtmjIbFsHQ
