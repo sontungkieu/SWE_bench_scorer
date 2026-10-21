@@ -53,3 +53,17 @@ verification and settled per-app billing. The receipt stores the Image ID and a
 conservative `use_before` deadline. Retention is measured from snapshot creation,
 not extended by reading it. Storage pricing for snapshots has not been confirmed;
 do not apply the Volume rate to Images without provider evidence.
+
+After successful restoration and termination, collect read-only evidence:
+
+```bash
+python probes/summarize_snapshot_catalog.py --out RUN --billing-name billing-first.json
+# Wait for provider billing to catch up, then read again.
+python probes/summarize_snapshot_catalog.py --out RUN --billing-name billing-second.json \
+  --previous-billing RUN/billing-first.json
+```
+
+The collector refuses incomplete coverage/provenance or a remaining live VM.
+`usable-catalog.json` contains the snapshot Image ID, conservative expiry and
+all 500 instance-to-Docker-image identities for a future scoring integration.
+It does not change the production web/CLI backend.
