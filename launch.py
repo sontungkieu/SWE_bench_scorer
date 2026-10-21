@@ -43,8 +43,11 @@ def main():
     parser.add_argument("--test-timeout", type=int, default=600)
     parser.add_argument("--lifetime", type=int, default=1800)
     parser.add_argument("--estimate-usd", type=float, default=0.50)
+    parser.add_argument("--output-root", help="Persistent run directory (defaults to ./runs beside launcher)")
     parser.add_argument("--guard-script", default="/mnt/c/Users/Tung/.codex/skills/modal-gpu-ops/scripts/modal_billing_guard.py")
     args = parser.parse_args()
+    if args.action == "mock" and args.predictions:
+        parser.error("Mock creates its own controls; do not supply --predictions")
     if not re.fullmatch(r"[a-zA-Z0-9_-]+", args.run_id):
         parser.error("run-id must contain only letters, digits, _ and -")
     if args.action != "mock":
@@ -78,7 +81,7 @@ def main():
     import modal
     if modal.__version__ != CLIENT:
         raise RuntimeError(f"Use cached Modal {CLIENT}; got {modal.__version__}")
-    output = HERE / "runs" / args.run_id
+    output = (host_path(args.output_root) if args.output_root else HERE / "runs") / args.run_id
     output.mkdir(parents=True, exist_ok=False)
     source = {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
               for name in ("core.py", "remote_worker.py", "launch.py")}
@@ -121,7 +124,8 @@ def main():
                 for name in ("core.py", "remote_worker.py"):
                     sandbox.filesystem.copy_from_local(str(HERE / name), "/work/" + name)
                 if args.predictions:
-                    sandbox.filesystem.copy_from_local(str(host_path(args.predictions)), "/work/preds.jsonl")
+                    canonical = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows)
+                    sandbox.filesystem.write_text(canonical, "/work/preds.jsonl")
                 worker = ["python", "-u", "/work/remote_worker.py", "--mode", args.action,
                           "--workers", str(args.workers), "--test-timeout", str(args.test_timeout),
                           "--instance-ids", *args.instance_ids]

@@ -1,6 +1,28 @@
 # Chấm SWE-bench Verified trên Modal
 
-Phiên bản: **0.1.1**.
+Phiên bản: **0.2.0**.
+
+## Web riêng tư trên GCP
+
+Upload **JSON, JSONL hoặc CSV**, validate, chọn smoke/full hoặc chạy mock,
+xem lịch sử/live log và tải archive kết quả. Web nhẹ chạy trên GCP; official
+harness và Docker chạy trên Modal. [Hướng dẫn truy cập và vận hành](deploy/README.md).
+
+```powershell
+ssh -N -o ExitOnForwardFailure=yes -L 127.0.0.1:18765:127.0.0.1:8765 Free-tierGCP
+# Giữ terminal chạy, rồi mở http://127.0.0.1:18765
+```
+
+CLI cũng đọc `.json`, `.jsonl`, `.csv` qua `--predictions`; ba trường bắt buộc
+là `instance_id`, `model_name_or_path`, `model_patch`. JSON nhận list hoặc mapping
+theo ID. CSV cần header đúng và quote patch chứa dấu phẩy/xuống dòng. Browser
+upload file; không dùng đường dẫn trên máy cá nhân để yêu cầu server đọc file.
+
+Web dùng SQLite queue bền vững, một job chạy mỗi lần, billing guard trước
+launch và 127.0.0.1 listener sau SSH. Full 500 cần lựa chọn và xác nhận riêng;
+chưa được chạy trong quá trình setup này. Không tự chạy lại job trả phí sau lỗi.
+
+## CLI và bằng chứng trước đây
 
 Đã chạy mock thật trên Modal profile `phamvanvuhoan`: **3/3 control pass**
 (gold resolved, wrong unresolved, empty unresolved); 7/7 test offline v0.1.1 pass.
@@ -105,7 +127,7 @@ kết nối. Image build/cache có billing riêng; không deploy dịch vụ ch�
 trực, không mount hay chuyển credential vào VM. Outputs tải về trước terminate;
 nếu VM hết lifetime trước khi tải thì một số log có thể không thu được.
 
-Kiểm tra nhẹ offline bằng `python -m unittest -v test_core.py`. Các unit test
+Kiểm tra nhẹ offline bằng `python -m unittest -v test_core.py test_web.py`. Các unit test
 chỉ kiểm tra JSONL và phép tính điểm; mock cloud mới xác nhận Docker/test runtime.
 
 Nguồn: [SWE-bench evaluation](https://www.swebench.com/SWE-bench/guides/evaluation/),

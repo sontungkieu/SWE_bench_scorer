@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SWE Scorer · Evaluation workspace</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><span class="brand-icon">[s]</span><span>SWE<span class="brand-light">scorer</span></span></a>
+  <div class="workspace-label">RESEARCH WORKSPACE</div>
+  <div class="nav active"><span>▦</span> Evaluation</div><a class="nav" href="#history"><span>◷</span> Lịch sử chạy</a>
+  <div class="sidebar-note"><span class="tiny-label">MỘT FILE. MỘT QUY TRÌNH.</span><p>Từ prediction đến kết quả test có thể kiểm tra lại.</p><div class="flow">Upload <span>→</span> Validate <span>→</span> Evaluate</div></div>
+  <div class="host-card"><span class="green-dot"></span> Private workspace<div>GCP host · Modal compute</div><small id="version">Đang kết nối…</small></div>
+</aside>
+<main>
+  <header><span class="breadcrumb">WORKSPACE <span>/</span> SWE-BENCH VERIFIED</span><span class="privacy">◉ SSH access only</span></header>
+  <section class="heading"><div><div class="eyebrow">EVALUATION WORKSPACE</div><h1>Chấm patch. Xem bằng chứng.</h1><p>Upload predictions, chạy official harness trên Modal, đọc kết quả ở một nơi.</p></div><button id="mockButton" class="button secondary">◇ Chạy mock 3 nhánh</button></section>
+  <div class="context-strip"><span><span class="green-dot"></span> SWE-bench Verified <b>500 tasks</b></span><span>Official harness <b>4.1.0</b></span><span>Compute <b>Modal CPU</b></span><span>Profile <b id="profile">—</b></span></div>
+  <section class="two-column">
+    <article class="panel upload-panel">
+      <div class="panel-heading"><div><span class="step">01</span><h2>Prediction input</h2></div><span class="muted">Tối đa 20 MiB</span></div>
+      <label class="dropzone" id="dropzone" for="fileInput" tabindex="0"><span class="upload-icon">↥</span><strong>Kéo file prediction vào đây</strong><span>hoặc <b>chọn file từ máy</b></span><small>JSONL &nbsp;·&nbsp; JSON &nbsp;·&nbsp; CSV</small><input id="fileInput" type="file" accept=".jsonl,.json,.csv" hidden></label>
+      <div id="fileInfo" class="file-info hidden"><div class="file-symbol">{ }</div><div><strong id="fileName"></strong><small id="fileSize"></small></div><button id="clearFile" class="icon-button" aria-label="Bỏ file">×</button></div>
+      <div id="validation" class="validation muted">Chưa có file. Dữ liệu được kiểm tra trước khi tạo job.</div>
+      <div id="inputStats" class="input-stats hidden"><div><strong id="count">0</strong><span>predictions</span></div><div><strong id="emptyCount">0</strong><span>patch rỗng</span></div><div class="model-stat"><strong id="model">—</strong><span>model</span></div></div>
+      <details class="schema"><summary>File cần có những gì?</summary><p>Ba trường bắt buộc: <code>instance_id</code>, <code>model_name_or_path</code>, <code>model_patch</code>. Patch là unified diff; chuỗi rỗng được tính unresolved.</p><p>JSON: list hoặc mapping theo ID. CSV: quote cell chứa dấu phẩy hoặc xuống dòng.</p><div class="sample-links">Tải mock: <a href="/api/fixtures/gold">gold.jsonl</a> <a href="/api/fixtures/wrong">wrong.jsonl</a> <a href="/api/fixtures/empty">empty.jsonl</a></div></details>
+    </article>
+    <article class="panel run-panel">
+      <div class="panel-heading"><div><span class="step">02</span><h2>Evaluation plan</h2></div></div>
+      <div class="mode-picker"><label class="mode active"><input type="radio" name="mode" value="smoke" checked><div><strong>Smoke test <span class="tag">BẮT ĐẦU Ở ĐÂY</span></strong><small>Chấm 1–3 bài để kiểm tra pipeline và patch.</small></div><span class="radio-mark"></span></label><label class="mode" id="fullOption"><input type="radio" name="mode" value="full"><div><strong>Full Verified <span class="tag subtle">500 TASKS</span></strong><small>Chấm đủ dataset; score = resolved / 500.</small></div><span class="radio-mark"></span></label></div>
+      <label for="instanceIds" class="field-label">Instance IDs <span>không bắt buộc cho smoke</span></label><textarea id="instanceIds" rows="2" placeholder="Mặc định chọn 3 ID đầu tiên trong file"></textarea>
+      <div class="run-budget"><span>Ngân sách dự trù cho guard</span><strong id="estimate">$0.50</strong><small>Đây là dự trù kiểm tra ngân sách, không phải hard cap của Modal.</small></div>
+      <p id="fullHint" class="muted small">Một worker CPU; mỗi job smoke có thời hạn tối đa 30 phút.</p>
+      <button class="button primary" id="evaluateButton" disabled>Chọn file để bắt đầu <span>→</span></button><small class="run-footnote">Một job chạy mỗi lần. Đóng tab không làm mất trạng thái.</small>
+    </article>
+  </section>
+  <section class="panel results-panel" id="results">
+    <div class="panel-heading"><div><span class="step">03</span><h2>Run overview</h2><span id="runStatus" class="status idle">Chưa có job</span></div><a id="downloadArtifact" class="button secondary small hidden">↓ Tải logs &amp; reports</a></div>
+    <div id="emptyResult" class="empty-result"><span>◎</span><div><strong>Sẵn sàng cho lần chấm đầu tiên</strong><p>Kết quả, lỗi hạ tầng và log test sẽ xuất hiện ở đây. Mock dùng patch chuẩn, patch sai và patch rỗng của cùng một bài.</p></div></div>
+    <div id="activeResult" class="hidden"><div class="run-meta"><code id="runId"></code><span id="runTime"></span></div><div id="resultCards" class="result-cards"></div><p id="runExplanation" class="muted small"></p><details id="logDetails" class="log-details"><summary>Live log <span>48 KB cuối</span></summary><pre id="liveLog">Đang chờ worker…</pre></details></div>
+  </section>
+  <section class="panel history-panel" id="history"><div class="panel-heading"><div><h2>Lịch sử chạy</h2><span id="historyCount" class="muted">0 jobs</span></div><button id="refreshHistory" class="text-button">↻ Làm mới</button></div><div class="table-wrap"><table><thead><tr><th>RUN / FILE</th><th>MODE</th><th>INPUT</th><th>TRẠNG THÁI</th><th>BẮT ĐẦU</th></tr></thead><tbody id="historyBody"><tr><td colspan="5" class="table-empty">Chưa có job nào trong workspace.</td></tr></tbody></table></div></section>
+  <footer><span>Reproducible by default. Mỗi run lưu source hash, dataset revision và report gốc.</span><span>SWE Scorer <b id="footerVersion"></b></span></footer>
+</main><div id="toast" role="alert" class="toast hidden"></div>
+</body></html>

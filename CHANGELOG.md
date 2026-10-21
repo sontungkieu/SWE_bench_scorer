@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0 - 2026-10-21
+
+- Web upload và chấm qua GCP SSH tunnel: validate, queue, live log, kết quả,
+  download artifact, mock controls và lịch sử job bằng SQLite.
+- JSON list/ID mapping và CSV (gồm multiline patch/BOM) cùng JSONL; chuẩn hóa
+  thành JSONL trước khi gửi official harness.
+- GCP chỉ chạy web/Modal client; chấm Docker trên Modal, một worker mỗi lượt.
+- Portable billing guard, profile scoped, systemd service và source/state tách biệt.
+- Chặn cross-origin POST, job idempotency, không tự retry job trả phí bị gián đoạn.
+- Kiểm chứng parser/HTTP/queue/score bằng 19 test offline; qualification web
+  cloud được ghi riêng, không coi unit test là kết quả full 500 bài.
+
 ## 0.1.1 - 2026-10-21
 
 - Chuẩn hóa text LF bằng .gitattributes, sửa checksum fixture và evidence để
