@@ -1,0 +1,12 @@
+{
+  "old_secret": "swebench-dockerhub",
+  "new_secret": "swebench-dockerhub-phat",
+  "profile": "phamvanvuhoan",
+  "old_run": "auth-resume-20261021b-1",
+  "cached_at_switch": 301,
+  "old_sandbox_terminated": true,
+  "prior_budget_carried_usd": 0.441848,
+  "budget_usd": 2,
+  "old_cooldown_coordinator_stopped": 1236571,
+  "source_commit": "6650928f93eca1e28f7797bc615ff23c6a7771f1"
+}

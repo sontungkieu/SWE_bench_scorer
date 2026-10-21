@@ -1,0 +1,14 @@
+{
+  "requested": 500,
+  "cached": 301,
+  "complete": false,
+  "failures": [
+    {
+      "instance_id": "pydata__xarray-3305",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "seconds": 254.087033724,
+  "storage_bytes": 95172330171,
+  "full_summary_sha256": "ee95d0ab466480f6a30cc806b31e5ad2870f6c5c2b98e15876ee68f551e13411"
+}

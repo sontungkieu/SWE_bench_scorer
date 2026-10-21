@@ -1,0 +1,29 @@
+{
+  "scorer_version": "0.3.1",
+  "run_id": "phat-prewarm-20261021-1",
+  "mode": "cache",
+  "profile": "phamvanvuhoan",
+  "modal_client": "1.6.2",
+  "harness": "4.1.0",
+  "source_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "launch.py": "1976573280db004a6caa655ce26e8251532ebcf19c17bb03bedea21a522644c6",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8"
+  },
+  "lifetime_seconds": 1800,
+  "estimate_usd": 0.195924,
+  "estimate_is_hard_billing_cap": false,
+  "started_at": "2026-10-21T13:00:40.595571+00:00",
+  "cache_volume": "swebench-verified-images-v1",
+  "cache_limit_gib": 256,
+  "require_cached": false,
+  "cpu_memory_allocation_bound_usd": 0.16592400000000002,
+  "allocation_bound_price_date": "2026-10-21",
+  "registry_secret": "swebench-dockerhub-phat",
+  "registry_auth": "secret",
+  "app_id": "ap-VJF8w8PkdsfmFOSOQ0RcxB",
+  "sandbox_id": "sb-01M5F8SCS3NGPAQ9EBSG8N2GGZ",
+  "modal_image_id": "im-xE1XGZwwpKZrzcYW0wqjEI"
+}
