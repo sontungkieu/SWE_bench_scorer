@@ -1,0 +1,70 @@
+{
+  "checked_at": "2026-10-21T23:04:54.278000+00:00",
+  "profile": "phamvanvuhoan",
+  "sdk_version": "1.6.2",
+  "live_vms_by_app": {
+    "ap-Y9vnazqiWSp4ZjXruAY36O": [],
+    "ap-BAVKD0vLxANkKfT3T4uDxJ": [],
+    "ap-Jq1jUAHsyZmYDlnzOcGG0h": []
+  },
+  "billing_rows": [
+    {
+      "object_id": "ap-BAVKD0vLxANkKfT3T4uDxJ",
+      "description": "swebench-snapshot-90d-retention-probe",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0E-8"
+    },
+    {
+      "object_id": "ap-BAVKD0vLxANkKfT3T4uDxJ",
+      "description": "swebench-snapshot-90d-retention-probe",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0E-8"
+    },
+    {
+      "object_id": "ap-Jq1jUAHsyZmYDlnzOcGG0h",
+      "description": "swebench-verified-500-shards-90d",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.14144033"
+    },
+    {
+      "object_id": "ap-Jq1jUAHsyZmYDlnzOcGG0h",
+      "description": "swebench-verified-500-shards-90d",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.41813298"
+    },
+    {
+      "object_id": "ap-Y9vnazqiWSp4ZjXruAY36O",
+      "description": "swebench-verified-500-snapshot-90d",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Memory",
+      "cost": "0.21728000"
+    },
+    {
+      "object_id": "ap-Y9vnazqiWSp4ZjXruAY36O",
+      "description": "swebench-verified-500-snapshot-90d",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00000301"
+    },
+    {
+      "object_id": "ap-Y9vnazqiWSp4ZjXruAY36O",
+      "description": "swebench-verified-500-snapshot-90d",
+      "environment": "main",
+      "interval_start": "2026-10-21T00:00:00",
+      "resource": "CPU",
+      "cost": "0.32116700"
+    }
+  ],
+  "read_only": true,
+  "new_compute_started": false
+}

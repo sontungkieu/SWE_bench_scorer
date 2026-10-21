@@ -28,7 +28,19 @@ python probes/snapshot_shards.py collect --out SHARD_RUN --billing-name billing-
 successful `retention-probe.json`, and an audited `source-context.json` (Git base,
 staged diff SHA-256 and actual packaged file hashes if GPG signing is pending).
 The final `usable-shards-catalog.json` requires all 500 unique identities and
-successful restore/termination receipts. This does not run 500 grading tests.
+successful restore/termination receipts. The validator also binds every image
+to its own planned shard index/count and rejects reused snapshot IDs. This
+prevents swapped per-shard metadata from passing a global-union-only check.
+This does not run 500 grading tests.
+
+The [scientific audit](../evidence/2026-10-22-scientific-audit/README.md) preserves
+the executed source checkpoint separately from this later validator fix. Its
+independent stdlib checker verifies saved plans, inputs, reports and billing
+without launching any VM:
+
+```bash
+python probes/audit_snapshot_evidence.py --source-ref e0ffeaea19e51c7b2e0f5d3ccc44493b6aface22
+```
 
 This prepares a clean Docker image store for all 500 already-cached official
 Verified images on `phamvanvuhoan`. It does not grade 500 patches or switch the

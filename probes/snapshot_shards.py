@@ -41,12 +41,28 @@ def shard_plan(catalog):
 
 def verify_catalog(plan,shards):
     expected={r['reference']:r['id'] for g in plan['groups'] for r in g['images']}
-    found={}
+    groups={g['index']:g for g in plan['groups']}
+    found={}; seen_groups=set(); snapshots=set()
     if len(shards) != plan['shard_count']:
         raise ValueError('Incomplete shard count')
     for shard in shards:
-        if not shard.get('verified') or not shard.get('all_vms_terminated'):
+        if shard.get('verified') is not True or shard.get('all_vms_terminated') is not True:
             raise ValueError('Unverified shard or missing termination confirmation')
+        index=shard.get('index')
+        if index not in groups or index in seen_groups:
+            raise ValueError('Unknown or duplicate shard index')
+        seen_groups.add(index)
+        group=groups[index]
+        rows=shard['images']
+        actual={r['reference']:r['id'] for r in rows}
+        required={r['reference']:r['id'] for r in group['images']}
+        if (shard.get('image_count') != group['image_count'] or len(rows) != group['image_count']
+                or len(actual) != len(rows) or actual != required):
+            raise ValueError('Image coverage differs from its verified shard plan')
+        snapshot=shard.get('snapshot_image_id')
+        if not isinstance(snapshot,str) or not snapshot.startswith('im-') or snapshot in snapshots:
+            raise ValueError('Missing or reused snapshot image ID')
+        snapshots.add(snapshot)
         for row in shard['images']:
             if row['reference'] in found:
                 raise ValueError('Duplicate coverage across shards')

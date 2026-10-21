@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-10-21T23:10:00.274212+00:00",
+  "input_sha256": {
+    "pilot.json": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+    "preds.jsonl": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f"
+  },
+  "baseline_and_snapshot_input_bytes_equal": true,
+  "gold_patch_matches_pinned_pilot_rows": 24,
+  "new_compute_started": false,
+  "gcp_host_python": "3.13.7 (main, Mar  3 2026, 12:19:54) [GCC 15.2.0]",
+  "remote_host_unit_tests_passed": 16,
+  "source_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "probes/test_snapshot_catalog.py": "1b755af35de451bbf5fa72cd5e0cba33d9c5830d8d17e10a49d9a6c8a0661b64",
+    "probes/test_snapshot_shards.py": "c3076a00ea09568e4af24614ff562f28a09b77ba6eeee820994b76b06d6e007a",
+    "probes/snapshot_pilot.py": "1fae30a6f07d2cd2727fd4213d3bda450bd8a41e52f3de62b1d4ac9b1939927b",
+    "probes/snapshot_catalog_worker.py": "37cc5fcacfc72249657275f194db2cf5d640351acb9594e4526168c3dc828044",
+    "probes/snapshot_shards.py": "23d3a53d9de971618e783ee6c5c0ce155ea16b7f8aa61b0ffb384c30d85284a5",
+    "probes/snapshot_catalog.py": "5cee9ece2dd5c1ccc969daf6e708a54694b51dbbb1e326b29d8f7a313b884dca"
+  }
+}

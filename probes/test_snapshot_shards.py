@@ -21,7 +21,9 @@ class ShardTests(unittest.TestCase):
         return shard_plan({'images':rows(unique),'image_count':500,'snapshot_ttl_seconds':TTL,'dataset':{}})
 
     def receipts(self,plan):
-        return [dict(images=g['images'],verified=True,all_vms_terminated=True) for g in plan['groups']]
+        return [dict(index=g['index'],image_count=g['image_count'],images=g['images'],
+                     snapshot_image_id=f"im-fixture-{g['index']}",
+                     verified=True,all_vms_terminated=True) for g in plan['groups']]
 
     def test_partition_covers_every_image_once_with_size_and_count_bounds(self):
         plan=self.plan(unique=True)
@@ -56,6 +58,16 @@ class ShardTests(unittest.TestCase):
     def test_worker_rejects_empty_or_unbounded_shards(self):
         with self.assertRaises(ValueError):validate_rows([],expected=0)
         with self.assertRaises(ValueError):validate_rows(rows(),expected=501)
+
+    def test_swapped_groups_cannot_publish_wrong_instance_to_snapshot_mapping(self):
+        plan=self.plan();shards=self.receipts(plan)
+        shards[0]['images'],shards[1]['images']=shards[1]['images'],shards[0]['images']
+        with self.assertRaisesRegex(ValueError,'verified shard plan'):verify_catalog(plan,shards)
+
+    def test_duplicate_index_snapshot_or_count_mismatch_is_rejected(self):
+        for key,value in [('index',0),('snapshot_image_id','im-fixture-0'),('image_count',99)]:
+            plan=self.plan();shards=self.receipts(plan);shards[1][key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):verify_catalog(plan,shards)
 
 
 if __name__=='__main__':unittest.main()

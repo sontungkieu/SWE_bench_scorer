@@ -2,6 +2,10 @@
 
 Phiên bản: **0.3.1**.
 
+[Báo cáo audit khoa học/kỹ thuật ngày 22/10/2026](evidence/2026-10-22-scientific-audit/README.md)
+đối chiếu input, report parity, coverage từng snapshot và billing; ghi rõ giới
+hạn suy rộng và fix validator mapping shard. Lệnh kiểm tra offline đi kèm.
+
 Đã lưu và kiểm tra **11 snapshot VM bao phủ đủ 500 image**, TTL **90 ngày**:
 [catalog và bằng chứng](evidence/2026-10-22-verified-snapshots-90d/README.md),
 [quy trình và giới hạn](probes/SNAPSHOT_CATALOG.md). Đây là bước nạp môi trường;
