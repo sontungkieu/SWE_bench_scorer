@@ -1,12 +1,14 @@
 # Chấm SWE-bench Verified trên Modal
 
-Phiên bản: **0.1.0**.
+Phiên bản: **0.1.1**.
 
 Đã chạy mock thật trên Modal profile `phamvanvuhoan`: **3/3 control pass**
-(gold resolved, wrong unresolved, empty unresolved); 6/6 test offline pass.
+(gold resolved, wrong unresolved, empty unresolved); 7/7 test offline v0.1.1 pass.
 Xem [bằng chứng kiểm thử](evidence/2026-10-21-v0.1.0/verification.json)
-và [release v0.1.0](https://github.com/sontungkieu/SWE_bench_scorer/releases/tag/v0.1.0).
+và [release v0.1.1](https://github.com/sontungkieu/SWE_bench_scorer/releases/tag/v0.1.1).
 Chưa chạy file prediction VAI hoặc full 500 bài.
+Mock cloud được chạy ở v0.1.0; v0.1.1 chỉ sửa chính sách LF/checksum và version,
+giữ nguyên thuật toán chấm. Receipt/log gốc v0.1.0 được giữ nguyên.
 
 Nhận `preds.jsonl` theo trang 21 tài liệu VAI và chạy **official SWE-bench
 harness 4.1.0** trong **Modal VM CPU**. Docker, dataset và image instance chỉ

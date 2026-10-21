@@ -10,19 +10,19 @@
       "control": "gold",
       "predictions": "gold/preds.jsonl",
       "expected_resolved": true,
-      "sha256": "01be86e2fdbba125f2e6356a6390f538505ff729c9bd5482e6c6bc58b3369352"
+      "sha256": "86f5d552857ded038294817c59640dc81a34c701c0e8c6fab60bea220b56d2b9"
     },
     {
       "control": "wrong",
       "predictions": "wrong/preds.jsonl",
       "expected_resolved": false,
-      "sha256": "0fd070579450967f5791c8c54e320b7939a669a57dd21018a2126a85bfd93986"
+      "sha256": "d8e7c4de0e9a5e967e0df5670c92e263ea2c7cbace8be6f9fb4ea145294740bb"
     },
     {
       "control": "empty",
       "predictions": "empty/preds.jsonl",
       "expected_resolved": false,
-      "sha256": "ee9a1bba5484d60d88e65a898fe04ffe4a1c15b817bae296d3ddd2a3ce605973"
+      "sha256": "adb1eb4e602d0a3e213604ca381b99b6491e6b9bd547407ae1a6e112a4cc2f3d"
     }
   ]
 }

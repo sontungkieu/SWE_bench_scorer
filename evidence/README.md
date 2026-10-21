@@ -4,7 +4,8 @@
 profile Modal `phamvanvuhoan`, app
 <https://modal.com/apps/phamvanvuhoan/main/ap-GhMCKwFJFTsYeTu1EWU3aA>.
 Source code tại commit `39dc635`; hash từng source trong receipt khớp nội dung
-v0.1.0. Những commit sau chỉ bổ sung hướng dẫn và bằng chứng phát hành.
+v0.1.0. v0.1.1 thay version và chuẩn hóa LF/checksum; thuật toán grading không
+đổi. Hash core.py trong receipt vẫn chỉ về source v0.1.0 đã chạy cloud.
 
 Ba nhánh của cùng instance `django__django-11099`:
 

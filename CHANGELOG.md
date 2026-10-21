@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 - 2026-10-21
+
+- Chuẩn hóa text LF bằng .gitattributes, sửa checksum fixture và evidence để
+  khớp byte đọc lại từ GitHub trên Windows/Linux.
+- Giữ nguyên log/receipt mock v0.1.0 và hành vi grading; không chạy lại cloud
+  chỉ để thay version/checksum metadata. 7/7 test offline pass, gồm regression
+  test checksum fixture/evidence.
+
 ## 0.1.0 - 2026-10-21
 
 - Official SWE-bench 4.1.0 Docker harness chạy trong Modal VM CPU, client 1.6.2.
