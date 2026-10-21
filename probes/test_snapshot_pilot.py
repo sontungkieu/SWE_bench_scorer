@@ -6,6 +6,7 @@ import unittest
 from unittest.mock import patch
 
 from probes.snapshot_pilot import validate_inputs
+from probes.snapshot_worker import check_plan, verify_local_images
 
 
 class FrozenPilotTests(unittest.TestCase):
@@ -46,6 +47,30 @@ class FrozenPilotTests(unittest.TestCase):
         self.save()
         with self.assertRaisesRegex(ValueError, "exact previous"):
             validate_inputs(self.root)
+
+
+class RestoredImageTests(unittest.TestCase):
+    def plan(self):
+        return [{"instance_id": str(i), "reference": "swebench/sweb.eval.x86_64.fixture-" + str(i),
+                 "id": "sha256:" + "a" * 64} for i in range(24)]
+
+    def test_restored_images_match_pinned_ids(self):
+        records = verify_local_images(self.plan(), lambda _: {"Id": "sha256:" + "a" * 64})
+        self.assertEqual(len(records), 24)
+
+    def test_missing_image_fails_before_grading(self):
+        with self.assertRaises(RuntimeError):
+            verify_local_images(self.plan(), lambda _: None)
+
+    def test_changed_image_fails_before_grading(self):
+        with self.assertRaises(RuntimeError):
+            verify_local_images(self.plan(), lambda _: {"Id": "sha256:" + "b" * 64})
+
+    def test_duplicate_image_selection_fails(self):
+        plan = self.plan()
+        plan[-1]["instance_id"] = plan[0]["instance_id"]
+        with self.assertRaises(ValueError):
+            check_plan(plan)
 
 
 if __name__ == "__main__":

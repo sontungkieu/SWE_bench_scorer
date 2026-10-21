@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import subprocess
 import shutil
+import tarfile
 import sys
 import time
 
@@ -216,9 +217,85 @@ def prepare(out, source, baseline, canary_path):
     return 0 if receipt.get("passed") else 1
 
 
+def score(out, source, baseline):
+    import modal
+    validate_inputs(out)
+    validate_inputs(baseline)
+    prepared = json.loads((out / "prepare-receipt.json").read_text())
+    if not prepared.get("passed") or not prepared.get("sandbox_terminated"):
+        raise ValueError("Clean snapshot preparation must finish before scoring")
+    baseline_hashes = json.loads((baseline / "source-provenance.json").read_text())["vm_sources_read_from_running_sandbox_sha256"]
+    current_hashes = {name: hashlib.sha256((source / name).read_bytes()).hexdigest() for name in baseline_hashes}
+    if current_hashes != baseline_hashes:
+        raise ValueError("Scoring sources differ from original baseline")
+    case = out / "score"
+    case.mkdir(exist_ok=False)
+    label = out.name + "-score"
+    estimate = 2
+    guard(source, label, estimate)
+    guard(source, label, estimate, "planned")
+    app = modal.App("swebench-snapshot-score")
+    sandbox = None
+    started = time.monotonic()
+    receipt = {"started_at": datetime.now(timezone.utc).isoformat(), "snapshot_image_id": prepared["snapshot_image_id"],
+               "workers": 8, "cpu": 16, "memory_gib": 64, "lifetime_seconds": 1800,
+               "allocation_bound_usd": 1800 * (16 * .00003942 + 64 * .00000667),
+               "image_cache_volume_attached": False, "registry_secrets_injected": False,
+               "source_sha256": current_hashes, "full_500_evaluated": False,
+               "frozen_pilot_sha256": PILOT_SHA, "frozen_predictions_sha256": PREDS_SHA,
+               "snapshot_worker_sha256": hashlib.sha256(Path(__file__).with_name("snapshot_worker.py").read_bytes()).hexdigest()}
+    try:
+        with modal.enable_output(), app.run():
+            try:
+                guard(source, label, estimate, "running", app.app_id)
+                startup = time.monotonic()
+                sandbox = modal.Sandbox.create("dockerd", "--host=unix:///var/run/docker.sock", "--storage-driver=overlay2",
+                    app=app, image=modal.Image.from_id(prepared["snapshot_image_id"]), runtime="vm",
+                    cpu=(16, 16), memory=(65536, 65536), timeout=1800,
+                    readiness_probe=modal.Probe.with_exec("docker", "info", interval_ms=1000))
+                receipt.update(app_id=app.app_id, sandbox_id=sandbox.object_id)
+                dump(out / "score-receipt.json", receipt)
+                sandbox.wait_until_ready(timeout=180)
+                receipt["restore_docker_ready_seconds"] = time.monotonic() - startup
+                for name in baseline_hashes:
+                    sandbox.filesystem.copy_from_local(str(source / name), "/work/" + name)
+                sandbox.filesystem.copy_from_local(str(Path(__file__).with_name("snapshot_worker.py")), "/work/snapshot_worker.py")
+                for name in ("pilot.json", "preds.jsonl"):
+                    sandbox.filesystem.copy_from_local(str(out / name), "/work/" + name)
+                actual = json.loads(execute(sandbox, "python", "-c", "import hashlib,json,pathlib; "
+                    "print(json.dumps({n:hashlib.sha256((pathlib.Path('/work')/n).read_bytes()).hexdigest() "
+                    "for n in ['core.py','remote_worker.py','image_cache.py','registry_cache.py']}))"))
+                if actual != baseline_hashes:
+                    raise ValueError("Source read back from score VM differs from baseline")
+                dump(case / "source-provenance.json", actual)
+                stream(sandbox, ["python", "-u", "/work/snapshot_worker.py", "evaluate"], case / "console.log", 1500)
+                receipt["passed"] = True
+                receipt["exit_code"] = 0
+            finally:
+                if sandbox is not None:
+                    try:
+                        execute(sandbox, "tar", "-czf", "/tmp/snapshot-score.tar.gz", "-C", "/work", "output")
+                        sandbox.filesystem.copy_to_local("/tmp/snapshot-score.tar.gz", str(case / "artifacts.tar.gz"))
+                        with tarfile.open(case / "artifacts.tar.gz") as archive:
+                            archive.extractall(case, filter="data")
+                    except Exception as exc:
+                        receipt.update(passed=False, artifact_error=type(exc).__name__ + ": " + str(exc))
+                    finally:
+                        sandbox.terminate(wait=True)
+                        receipt["sandbox_terminated"] = True
+    except Exception as exc:
+        receipt.update(passed=False, error=type(exc).__name__ + ": " + str(exc))
+    finally:
+        receipt.update(wall_seconds=time.monotonic() - started,
+                       finished_at=datetime.now(timezone.utc).isoformat())
+        dump(out / "score-receipt.json", receipt)
+        guard(source, label, estimate, "completed" if receipt.get("passed") else "failed")
+    return 0 if receipt.get("passed") else 1
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["canary", "prepare"])
+    parser.add_argument("action", choices=["canary", "prepare", "score"])
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--source", required=True, type=Path)
     parser.add_argument("--baseline", type=Path)
@@ -230,9 +307,13 @@ def main():
     if modal.__version__ != "1.6.2":
         raise ValueError("Requires existing Modal SDK 1.6.2")
     out = args.out.resolve()
-    out.mkdir(parents=True, exist_ok=False)
+    out.mkdir(parents=True, exist_ok=args.action == "score")
     if args.action == "canary":
         return canary(out, args.source.resolve())
+    if args.action == "score":
+        if not args.baseline:
+            parser.error("score requires --baseline")
+        return score(out, args.source.resolve(), args.baseline.resolve())
     if not args.baseline or not args.canary:
         parser.error("prepare requires --baseline and --canary")
     return prepare(out, args.source.resolve(), args.baseline.resolve(), args.canary.resolve())
