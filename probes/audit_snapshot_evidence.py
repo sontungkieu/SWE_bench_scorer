@@ -274,5 +274,6 @@ if __name__ == '__main__':
     result = audit(Path(__file__).resolve().parents[1], args.source_ref)
     payload = json.dumps(result, indent=2) + '\n'
     if args.out:
-        args.out.write_text(payload, encoding='utf-8')
+        # Preserve checksum bytes across Windows working trees and Git LF blobs.
+        args.out.write_bytes(payload.encode('utf-8'))
     print(json.dumps({k: v for k, v in result.items() if k != 'inventory'}, indent=2))

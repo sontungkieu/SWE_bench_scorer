@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-21T23:14:37.693849+00:00",
+  "checked_at": "2026-10-21T23:15:54.720558+00:00",
   "results": [
     {
       "command": [
@@ -10,8 +10,8 @@
         "-q"
       ],
       "exit_code": 0,
-      "stdout": "SWE_SUMMARY_JSON={\"scope\": \"smoke_subset\", \"selected_count\": 1, \"resolved_count\": 0, \"unresolved_count\": 1, \"empty_patch_count\": 1, \"error_or_missing_report_count\": 0, \"complete\": true, \"resolved_ids\": [], \"unresolved_ids\": [\"django__django-11099\"], \"error_or_missing_report_ids\": [], \"subset_resolved_rate\": 0.0, \"verified_score\": null, \"harness_exit_code\": 0, \"label\": \"empty\"}\n2026-10-21T23:14:33.139576+00:00 GET /api/cache\n2026-10-21T23:14:33.675894+00:00 POST /api/jobs\n2026-10-21T23:14:34.213686+00:00 POST /api/jobs\n2026-10-21T23:14:35.288570+00:00 POST /api/jobs\n2026-10-21T23:14:35.844703+00:00 POST /api/jobs\n2026-10-21T23:14:35.849703+00:00 POST /api/jobs\n2026-10-21T23:14:36.391812+00:00 POST /api/validate\n",
-      "stderr": "----------------------------------------------------------------------\nRan 50 tests in 4.923s\n\nOK\n"
+      "stdout": "SWE_SUMMARY_JSON={\"scope\": \"smoke_subset\", \"selected_count\": 1, \"resolved_count\": 0, \"unresolved_count\": 1, \"empty_patch_count\": 1, \"error_or_missing_report_count\": 0, \"complete\": true, \"resolved_ids\": [], \"unresolved_ids\": [\"django__django-11099\"], \"error_or_missing_report_ids\": [], \"subset_resolved_rate\": 0.0, \"verified_score\": null, \"harness_exit_code\": 0, \"label\": \"empty\"}\n2026-10-21T23:15:50.148157+00:00 GET /api/cache\n2026-10-21T23:15:50.687364+00:00 POST /api/jobs\n2026-10-21T23:15:51.228529+00:00 POST /api/jobs\n2026-10-21T23:15:52.311130+00:00 POST /api/jobs\n2026-10-21T23:15:52.869804+00:00 POST /api/jobs\n2026-10-21T23:15:52.873809+00:00 POST /api/jobs\n2026-10-21T23:15:53.407848+00:00 POST /api/validate\n",
+      "stderr": "----------------------------------------------------------------------\nRan 50 tests in 4.933s\n\nOK\n"
     },
     {
       "command": [
@@ -25,14 +25,14 @@
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": "----------------------------------------------------------------------\nRan 44 tests in 0.284s\n\nOK\n"
+      "stderr": "----------------------------------------------------------------------\nRan 44 tests in 0.286s\n\nOK\n"
     }
   ],
   "total_tests_passed": 94,
   "source_sha256": {
     "probes/snapshot_shards.py": "23d3a53d9de971618e783ee6c5c0ce155ea16b7f8aa61b0ffb384c30d85284a5",
     "probes/test_snapshot_shards.py": "c3076a00ea09568e4af24614ff562f28a09b77ba6eeee820994b76b06d6e007a",
-    "probes/audit_snapshot_evidence.py": "127393de958376a3f1a0bc53f5e7015dbf5fcc0f1c1418b81466328f6ec07e12",
+    "probes/audit_snapshot_evidence.py": "86c4c935ac09c53ab23ddad63cedca4bc5fef776e869587994ab329cb760f84d",
     "probes/test_audit_snapshot_evidence.py": "0bd6f8dff939f34558b8b28d2fac6aa5d73a8ef6777d691f9fac81c63886f125"
   }
 }

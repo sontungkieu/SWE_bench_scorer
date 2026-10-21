@@ -371,6 +371,8 @@ Artifact chính:
   [bằng chứng 500](../2026-10-22-verified-snapshots-90d/README.md): receipts,
   reports, plan, context, raw metadata và checksum cũ được bảo toàn.
 - `SHA256SUMS.txt` của thư mục này xác định byte của báo cáo và artifact audit.
+  Text artifact audit dùng UTF-8/LF và được đối chiếu từ Git blob sau stage để
+  tránh checksum khác do newline Windows bị Git chuẩn hóa lúc commit.
 
 Raw test/log archive cũ còn ở các thư mục `runs/cost-pilot-20261022-01` và
 `runs/snapshot-pilot-20261022-01` trên workspace, ngoài Git. Docker image nhiều
