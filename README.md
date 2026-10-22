@@ -422,3 +422,21 @@ dùng 4 core/4 GiB và lifetime 1100s; restore verify vẫn 2 core/4 GiB, 120s.
 Envelope mới $7.6383504 CPU/RAM; cộng $0.19 dự phòng cho tối đa hai builder cũ
 là $7.8283504, còn phần nhỏ cho egress trong trần tổng $8. VM chấm vẫn 16 core/
 64 GiB, 8 worker, timeout 600s. Không thay code/test benchmark để giảm thời gian.
+
+### Độ ổn định và điều tra hai required-test failures
+
+N11 từng đạt 24/24 parity **không phải chứng chỉ ổn định**: Matplotlib-20859
+có assertion phụ thuộc elapsed thật; Requests-1921 có failure cookie lịch sử
+chưa xác định nguyên nhân và gọi HTTP service công cộng. Lượt chẩn đoán cố định
+mới có bốn official gold controls resolved và bốn target observations pass;
+không dùng các lần pass này để xóa failure trước hoặc qualify N7.
+
+`eval_modes.py` sau run/collect N11/N11max tạo `scientific-validity.json` và
+trả exit 2 khi selection có known instability, dù raw report hiện tại pass.
+File giữ `research_score=null`, bảo toàn raw official reports và mẫu số.
+Chạy audit riêng offline: `python probes/stability_audit.py --out RETAINED_RUN`.
+Các probe được gọi trực tiếp và production web chưa tích hợp gate này.
+
+[Điều tra, giới hạn và hướng sửa protocol](evidence/2026-10-22-stability-diagnosis/README.md).
+Đây là chốt chống báo độ tin cậy sai; chưa khắc phục tận gốc sự bất định của
+benchmark gốc. Không chỉnh test, ép clock/warning hay chọn repetition pass.

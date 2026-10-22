@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-10-22T04:55:15.829366+00:00",
+  "estimate_usd": 6.214079999999999,
+  "prior_cost_usd": 1.30621108,
+  "combined_bound_usd": 7.520291079999999,
+  "profile": "phamvanvuhoan",
+  "max_vms": 2,
+  "lifetime_each": 2900,
+  "cpu": 16,
+  "memory_gib": 64,
+  "workers": 8,
+  "test_timeout": 600,
+  "full_500_evaluated": false,
+  "attempts": [
+    {
+      "iid": "psf__requests-1921",
+      "snapshot": "im-01M5GTKPBE338K6R6RECPYQ5Z9",
+      "vm_id": "sb-01M5GZDA05HQS39KATG8ERGCY9"
+    },
+    {
+      "iid": "matplotlib__matplotlib-20859",
+      "snapshot": "im-01M5G6RH7J1SCGR9X70611VNYG",
+      "vm_id": "sb-01M5GZHZN3B9N8R8Z8CG12JY9N"
+    }
+  ],
+  "terminated": [
+    "sb-01M5GZDA05HQS39KATG8ERGCY9",
+    "sb-01M5GZHZN3B9N8R8Z8CG12JY9N"
+  ],
+  "app_id": "ap-XCvA7sURRf8l6O1IVhhooB",
+  "complete": true,
+  "finished_at": "2026-10-22T05:00:12.722339+00:00"
+}

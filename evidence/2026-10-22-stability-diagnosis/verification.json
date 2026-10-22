@@ -1,0 +1,18 @@
+{
+  "official_controls_resolved": 4,
+  "original_full_suites": 4,
+  "observed_full_suites": 4,
+  "target_observations_pass": 4,
+  "test_and_implementation_files_unchanged": true,
+  "historical_failure_reproduced": false,
+  "root_causes_fully_fixed": false,
+  "billing_stable": true,
+  "all_new_vms_terminated": true,
+  "combined_compute_egress_usd": "1.60655749",
+  "full_500_evaluated": false,
+  "diagnostic_source_commits": [
+    "b999056",
+    "9566a04"
+  ],
+  "offline_probe_tests_passed": 112
+}

@@ -19,6 +19,8 @@ MODES = {
     'native': {'backend':'official --modal true + qualified SDK overlay', 'scope':24,
                'estimate_usd':3, 'scientific_parity_qualified':False},
     'optimizeN11': {'backend':'VM snapshot', 'catalog_shards':11, 'scope':24,
+                    'scientific_stability_qualified':False,
+                    'qualification_note':'historical 24/24 parity is not stability qualification; two frozen controls have known instability',
                     'max_active_vms':1, 'cpu':16, 'memory_gib':64, 'workers':8, 'test_timeout':600},
     'optimizeN11max': {'backend':'VM snapshot', 'catalog_shards':11, 'scope':24,
                        'scientific_parity_qualified':False,
@@ -93,7 +95,9 @@ def main():
     if a.action=='collect':
         if a.mode=='native':p.error('native uses its own cost_pilot evidence collector')
         from sharded_pilot import collect
-        collect(a.out.resolve(),a.billing_name);return 0
+        collect(a.out.resolve(),a.billing_name)
+        from stability_audit import write_audit
+        return write_audit(a.out.resolve())
     if not a.source:p.error('--source required')
     if os.environ.get('MODAL_PROFILE')!='phamvanvuhoan':
         raise ValueError('Only the authorized phamvanvuhoan profile may run')
@@ -107,7 +111,12 @@ def main():
         from sharded_pilot import run
     else:
         from parallel_sharded_pilot import run
-    return run(a.out.resolve(),a.source.resolve(),a.baseline.resolve())
+    result = run(a.out.resolve(),a.source.resolve(),a.baseline.resolve())
+    if (a.out/'reports.json').is_file():
+        from stability_audit import write_audit
+        validity = write_audit(a.out.resolve())
+        return result or validity
+    return result
 
 
 if __name__=='__main__':raise SystemExit(main())

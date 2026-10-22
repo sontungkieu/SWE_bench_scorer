@@ -1,0 +1,278 @@
+{
+  "psf__requests-1921": [
+    {
+      "test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+      "epoch": 1792645011.916493,
+      "calls": [
+        {
+          "url": "http://httpbin.org/cookies",
+          "epoch_before": 1792645012.042024,
+          "cookies_before": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "status": 200,
+          "response_url": "http://httpbin.org/cookies",
+          "headers": {
+            "date": "Thu, 22 Oct 2026 04:56:52 GMT",
+            "server": "gunicorn/19.9.0"
+          },
+          "cookies_after": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "response_cookie_jar": [],
+          "history": [],
+          "body_prefix": "{\n  \"cookies\": {\n    \"foo\": \"bar\"\n  }\n}\n",
+          "epoch_after": 1792645012.1041503
+        },
+        {
+          "url": "http://httpbin.org/cookies/set?foo=bar",
+          "epoch_before": 1792645011.9192193,
+          "cookies_before": [],
+          "status": 200,
+          "response_url": "http://httpbin.org/cookies",
+          "headers": {
+            "date": "Thu, 22 Oct 2026 04:56:52 GMT",
+            "server": "gunicorn/19.9.0"
+          },
+          "cookies_after": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "response_cookie_jar": [],
+          "history": [
+            {
+              "url": "http://httpbin.org/cookies/set?foo=bar",
+              "status": 302,
+              "set_cookie": "foo=bar; Path=/"
+            }
+          ],
+          "body_prefix": "{\n  \"cookies\": {\n    \"foo\": \"bar\"\n  }\n}\n",
+          "epoch_after": 1792645012.1041763
+        },
+        {
+          "url": "http://httpbin.org/response-headers?Set-Cookie=foo%3Ddeleted%3B+expires%3DThu%2C+01-Jan-1970+00%3A00%3A01+GMT",
+          "epoch_before": 1792645012.1044552,
+          "cookies_before": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "status": 200,
+          "response_url": "http://httpbin.org/response-headers?Set-Cookie=foo%3Ddeleted%3B+expires%3DThu%2C+01-Jan-1970+00%3A00%3A01+GMT",
+          "headers": {
+            "date": "Thu, 22 Oct 2026 04:56:52 GMT",
+            "server": "gunicorn/19.9.0",
+            "set-cookie": "foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT"
+          },
+          "cookies_after": [],
+          "response_cookie_jar": [],
+          "history": [],
+          "body_prefix": "{\n  \"Content-Length\": \"140\", \n  \"Content-Type\": \"application/json\", \n  \"Set-Cookie\": \"foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT\"\n}\n",
+          "epoch_after": 1792645012.1686654
+        }
+      ],
+      "diagnostic_only": true,
+      "clock_replaced": false,
+      "httpbin_test_setting": "http://httpbin.org/",
+      "send_source": "    def send(self, request, **kwargs):\n        \"\"\"Send a given PreparedRequest.\"\"\"\n        # Set defaults that the hooks can utilize to ensure they always have\n        # the correct parameters to reproduce the previous request.\n        kwargs.setdefault('stream', self.stream)\n        kwargs.setdefault('verify', self.verify)\n        kwargs.setdefault('cert', self.cert)\n        kwargs.setdefault('proxies', self.proxies)\n\n        # It's possible that users might accidentally send a Request object.\n        # Guard against that specific failure case.\n        if not isinstance(request, PreparedRequest):\n            raise ValueError('You can only send PreparedRequests.')\n\n        # Set up variables needed for resolve_redirects and dispatching of hooks\n        allow_redirects = kwargs.pop('allow_redirects', True)\n        stream = kwargs.get('stream')\n        timeout = kwargs.get('timeout')\n        verify = kwargs.get('verify')\n        cert = kwargs.get('cert')\n        proxies = kwargs.get('proxies')\n        hooks = request.hooks\n\n        # Get the appropriate adapter to use\n        adapter = self.get_adapter(url=request.url)\n\n        # Start time (approximately) of the request\n        start = datetime.utcnow()\n\n        # Send the request\n        r = adapter.send(request, **kwargs)\n\n        # Total elapsed time of the request (approximately)\n        r.elapsed = datetime.utcnow() - start\n\n        # Response manipulation hooks\n        r = dispatch_hook('response', hooks, r, **kwargs)\n\n        # Persist cookies\n        if r.history:\n\n            # If the hooks create history then we want those cookies too\n            for resp in r.history:\n                extract_cookies_to_jar(self.cookies, resp.request, resp.raw)\n\n        extract_cookies_to_jar(self.cookies, request, r.raw)\n\n        # Redirect resolving generator.\n        gen = self.resolve_redirects(r, request,\n            stream=stream,\n            timeout=timeout,\n            verify=verify,\n            cert=cert,\n            proxies=proxies)\n\n        # Resolve redirects if allowed.\n        history = [resp for resp in gen] if allow_redirects else []\n\n        # Shuffle things around if there's history.\n        if history:\n            # Insert the first (original) request at the start\n            history.insert(0, r)\n            # Get the last request made\n            r = history.pop()\n            r.history = tuple(history)\n\n        return r\n",
+      "test_source": "    def test_cookie_removed_on_expire(self):\n        s = requests.session()\n        s.get(httpbin('cookies/set?foo=bar'))\n        assert s.cookies['foo'] == 'bar'\n        s.get(\n            httpbin('response-headers'),\n            params={\n                'Set-Cookie':\n                    'foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT'\n            }\n        )\n        assert 'foo' not in s.cookies\n",
+      "file_hashes_before": {
+        "test": "318da0521e0d056ccf97b64adee853e7d53244f7c82b4b8c7dd7c0ef72d50ae2",
+        "implementation": "255330e7f0848488b0bcfcd304c45c56809002805d9416e7b586a1bbb7eb1a86"
+      },
+      "test_exception": null,
+      "file_hashes_after": {
+        "test": "318da0521e0d056ccf97b64adee853e7d53244f7c82b4b8c7dd7c0ef72d50ae2",
+        "implementation": "255330e7f0848488b0bcfcd304c45c56809002805d9416e7b586a1bbb7eb1a86"
+      }
+    },
+    {
+      "test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+      "epoch": 1792645044.3195937,
+      "calls": [
+        {
+          "url": "http://httpbin.org/cookies",
+          "epoch_before": 1792645044.4497979,
+          "cookies_before": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "status": 200,
+          "response_url": "http://httpbin.org/cookies",
+          "headers": {
+            "date": "Thu, 22 Oct 2026 04:57:24 GMT",
+            "server": "gunicorn/19.9.0"
+          },
+          "cookies_after": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "response_cookie_jar": [],
+          "history": [],
+          "body_prefix": "{\n  \"cookies\": {\n    \"foo\": \"bar\"\n  }\n}\n",
+          "epoch_after": 1792645044.51389
+        },
+        {
+          "url": "http://httpbin.org/cookies/set?foo=bar",
+          "epoch_before": 1792645044.32231,
+          "cookies_before": [],
+          "status": 200,
+          "response_url": "http://httpbin.org/cookies",
+          "headers": {
+            "date": "Thu, 22 Oct 2026 04:57:24 GMT",
+            "server": "gunicorn/19.9.0"
+          },
+          "cookies_after": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "response_cookie_jar": [],
+          "history": [
+            {
+              "url": "http://httpbin.org/cookies/set?foo=bar",
+              "status": 302,
+              "set_cookie": "foo=bar; Path=/"
+            }
+          ],
+          "body_prefix": "{\n  \"cookies\": {\n    \"foo\": \"bar\"\n  }\n}\n",
+          "epoch_after": 1792645044.513926
+        },
+        {
+          "url": "http://httpbin.org/response-headers?Set-Cookie=foo%3Ddeleted%3B+expires%3DThu%2C+01-Jan-1970+00%3A00%3A01+GMT",
+          "epoch_before": 1792645044.5143583,
+          "cookies_before": [
+            {
+              "name": "foo",
+              "value": "bar",
+              "domain": "httpbin.org",
+              "path": "/",
+              "expires": null,
+              "discard": true
+            }
+          ],
+          "status": 200,
+          "response_url": "http://httpbin.org/response-headers?Set-Cookie=foo%3Ddeleted%3B+expires%3DThu%2C+01-Jan-1970+00%3A00%3A01+GMT",
+          "headers": {
+            "date": "Thu, 22 Oct 2026 04:57:24 GMT",
+            "server": "gunicorn/19.9.0",
+            "set-cookie": "foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT"
+          },
+          "cookies_after": [],
+          "response_cookie_jar": [],
+          "history": [],
+          "body_prefix": "{\n  \"Content-Length\": \"140\", \n  \"Content-Type\": \"application/json\", \n  \"Set-Cookie\": \"foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT\"\n}\n",
+          "epoch_after": 1792645044.5784583
+        }
+      ],
+      "diagnostic_only": true,
+      "clock_replaced": false,
+      "httpbin_test_setting": "http://httpbin.org/",
+      "send_source": "    def send(self, request, **kwargs):\n        \"\"\"Send a given PreparedRequest.\"\"\"\n        # Set defaults that the hooks can utilize to ensure they always have\n        # the correct parameters to reproduce the previous request.\n        kwargs.setdefault('stream', self.stream)\n        kwargs.setdefault('verify', self.verify)\n        kwargs.setdefault('cert', self.cert)\n        kwargs.setdefault('proxies', self.proxies)\n\n        # It's possible that users might accidentally send a Request object.\n        # Guard against that specific failure case.\n        if not isinstance(request, PreparedRequest):\n            raise ValueError('You can only send PreparedRequests.')\n\n        # Set up variables needed for resolve_redirects and dispatching of hooks\n        allow_redirects = kwargs.pop('allow_redirects', True)\n        stream = kwargs.get('stream')\n        timeout = kwargs.get('timeout')\n        verify = kwargs.get('verify')\n        cert = kwargs.get('cert')\n        proxies = kwargs.get('proxies')\n        hooks = request.hooks\n\n        # Get the appropriate adapter to use\n        adapter = self.get_adapter(url=request.url)\n\n        # Start time (approximately) of the request\n        start = datetime.utcnow()\n\n        # Send the request\n        r = adapter.send(request, **kwargs)\n\n        # Total elapsed time of the request (approximately)\n        r.elapsed = datetime.utcnow() - start\n\n        # Response manipulation hooks\n        r = dispatch_hook('response', hooks, r, **kwargs)\n\n        # Persist cookies\n        if r.history:\n\n            # If the hooks create history then we want those cookies too\n            for resp in r.history:\n                extract_cookies_to_jar(self.cookies, resp.request, resp.raw)\n\n        extract_cookies_to_jar(self.cookies, request, r.raw)\n\n        # Redirect resolving generator.\n        gen = self.resolve_redirects(r, request,\n            stream=stream,\n            timeout=timeout,\n            verify=verify,\n            cert=cert,\n            proxies=proxies)\n\n        # Resolve redirects if allowed.\n        history = [resp for resp in gen] if allow_redirects else []\n\n        # Shuffle things around if there's history.\n        if history:\n            # Insert the first (original) request at the start\n            history.insert(0, r)\n            # Get the last request made\n            r = history.pop()\n            r.history = tuple(history)\n\n        return r\n",
+      "test_source": "    def test_cookie_removed_on_expire(self):\n        s = requests.session()\n        s.get(httpbin('cookies/set?foo=bar'))\n        assert s.cookies['foo'] == 'bar'\n        s.get(\n            httpbin('response-headers'),\n            params={\n                'Set-Cookie':\n                    'foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT'\n            }\n        )\n        assert 'foo' not in s.cookies\n",
+      "file_hashes_before": {
+        "test": "318da0521e0d056ccf97b64adee853e7d53244f7c82b4b8c7dd7c0ef72d50ae2",
+        "implementation": "255330e7f0848488b0bcfcd304c45c56809002805d9416e7b586a1bbb7eb1a86"
+      },
+      "test_exception": null,
+      "file_hashes_after": {
+        "test": "318da0521e0d056ccf97b64adee853e7d53244f7c82b4b8c7dd7c0ef72d50ae2",
+        "implementation": "255330e7f0848488b0bcfcd304c45c56809002805d9416e7b586a1bbb7eb1a86"
+      }
+    }
+  ],
+  "matplotlib__matplotlib-20859": [
+    {
+      "test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+      "epoch": 1792645159.208679,
+      "calls": [
+        {
+          "outer_elapsed_seconds": 1.4969994150000048,
+          "loc_used_default": true
+        },
+        {
+          "outer_elapsed_seconds": 1.6201398599999948,
+          "loc_used_default": true
+        }
+      ],
+      "diagnostic_only": true,
+      "clock_replaced": false,
+      "file_hashes_before": {
+        "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+        "implementation": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+      },
+      "test_exception": null,
+      "file_hashes_after": {
+        "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+        "implementation": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+      }
+    },
+    {
+      "test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+      "epoch": 1792645189.4418888,
+      "calls": [
+        {
+          "outer_elapsed_seconds": 1.5867951240000053,
+          "loc_used_default": true
+        },
+        {
+          "outer_elapsed_seconds": 1.5497307929999948,
+          "loc_used_default": true
+        }
+      ],
+      "diagnostic_only": true,
+      "clock_replaced": false,
+      "file_hashes_before": {
+        "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+        "implementation": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+      },
+      "test_exception": null,
+      "file_hashes_after": {
+        "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+        "implementation": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+      }
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "compact24": {
+    "selected_count": 24,
+    "report_count": 24,
+    "raw_resolved_count": 24,
+    "missing_report_ids": [],
+    "invalid_report_ids": [],
+    "status": "blocked_known_instability",
+    "scientific_stability_qualified": false,
+    "research_score": null,
+    "known_risks": [
+      {
+        "required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+        "mechanism": "real_elapsed_time_warning_threshold",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-matplotlib-timing/README.md",
+        "instance_id": "matplotlib__matplotlib-20859",
+        "current_required_test": "pass"
+      },
+      {
+        "required_test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+        "mechanism": "external_http_dependency_with_unexplained_historical_cookie_failure",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-stability-diagnosis/README.md",
+        "instance_id": "psf__requests-1921",
+        "current_required_test": "pass"
+      }
+    ],
+    "official_reports_modified": false,
+    "tests_excluded": [],
+    "interpretation": "raw official outcome retained; no rerun-to-pass, denominator reduction or stability guarantee",
+    "input_reports_sha256": "ea0f31311623619c518d36f69cb5707fa96b261e172bd1ee2beaa2a828eb53f1"
+  },
+  "N11": {
+    "selected_count": 24,
+    "report_count": 24,
+    "raw_resolved_count": 24,
+    "missing_report_ids": [],
+    "invalid_report_ids": [],
+    "status": "blocked_known_instability",
+    "scientific_stability_qualified": false,
+    "research_score": null,
+    "known_risks": [
+      {
+        "required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+        "mechanism": "real_elapsed_time_warning_threshold",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-matplotlib-timing/README.md",
+        "instance_id": "matplotlib__matplotlib-20859",
+        "current_required_test": "pass"
+      },
+      {
+        "required_test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+        "mechanism": "external_http_dependency_with_unexplained_historical_cookie_failure",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-stability-diagnosis/README.md",
+        "instance_id": "psf__requests-1921",
+        "current_required_test": "pass"
+      }
+    ],
+    "official_reports_modified": false,
+    "tests_excluded": [],
+    "interpretation": "raw official outcome retained; no rerun-to-pass, denominator reduction or stability guarantee",
+    "input_reports_sha256": "ae72d398e5ad6b4b7f447d49355b2548d63ac656663767c4d34635e8f96da505"
+  },
+  "N11max": {
+    "selected_count": 24,
+    "report_count": 24,
+    "raw_resolved_count": 23,
+    "missing_report_ids": [],
+    "invalid_report_ids": [],
+    "status": "blocked_known_instability",
+    "scientific_stability_qualified": false,
+    "research_score": null,
+    "known_risks": [
+      {
+        "required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+        "mechanism": "real_elapsed_time_warning_threshold",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-matplotlib-timing/README.md",
+        "instance_id": "matplotlib__matplotlib-20859",
+        "current_required_test": "fail"
+      },
+      {
+        "required_test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+        "mechanism": "external_http_dependency_with_unexplained_historical_cookie_failure",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-stability-diagnosis/README.md",
+        "instance_id": "psf__requests-1921",
+        "current_required_test": "pass"
+      }
+    ],
+    "official_reports_modified": false,
+    "tests_excluded": [],
+    "interpretation": "raw official outcome retained; no rerun-to-pass, denominator reduction or stability guarantee",
+    "input_reports_sha256": "13eede1d58b3a58c09373019eab6fa68991a107c41af51e4b946dcf7902e8665"
+  },
+  "N7merge": {
+    "selected_count": 24,
+    "report_count": 24,
+    "raw_resolved_count": 23,
+    "missing_report_ids": [],
+    "invalid_report_ids": [],
+    "status": "blocked_known_instability",
+    "scientific_stability_qualified": false,
+    "research_score": null,
+    "known_risks": [
+      {
+        "required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+        "mechanism": "real_elapsed_time_warning_threshold",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-matplotlib-timing/README.md",
+        "instance_id": "matplotlib__matplotlib-20859",
+        "current_required_test": "fail"
+      },
+      {
+        "required_test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+        "mechanism": "external_http_dependency_with_unexplained_historical_cookie_failure",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-stability-diagnosis/README.md",
+        "instance_id": "psf__requests-1921",
+        "current_required_test": "pass"
+      }
+    ],
+    "official_reports_modified": false,
+    "tests_excluded": [],
+    "interpretation": "raw official outcome retained; no rerun-to-pass, denominator reduction or stability guarantee",
+    "input_reports_sha256": "837932ea61e121fb031a01ad0a636964d5baea2454b92790d46563645c5053f1"
+  },
+  "N7weighted": {
+    "selected_count": 24,
+    "report_count": 24,
+    "raw_resolved_count": 22,
+    "missing_report_ids": [],
+    "invalid_report_ids": [],
+    "status": "blocked_known_instability",
+    "scientific_stability_qualified": false,
+    "research_score": null,
+    "known_risks": [
+      {
+        "required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+        "mechanism": "real_elapsed_time_warning_threshold",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-matplotlib-timing/README.md",
+        "instance_id": "matplotlib__matplotlib-20859",
+        "current_required_test": "fail"
+      },
+      {
+        "required_test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+        "mechanism": "external_http_dependency_with_unexplained_historical_cookie_failure",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-stability-diagnosis/README.md",
+        "instance_id": "psf__requests-1921",
+        "current_required_test": "fail"
+      }
+    ],
+    "official_reports_modified": false,
+    "tests_excluded": [],
+    "interpretation": "raw official outcome retained; no rerun-to-pass, denominator reduction or stability guarantee",
+    "input_reports_sha256": "13f106a9a9c24fcba2f0f8c802c5f460c74a20580cf6c289e319e933b9306cb3"
+  },
+  "fresh-official-0": {
+    "selected_count": 2,
+    "report_count": 2,
+    "raw_resolved_count": 2,
+    "missing_report_ids": [],
+    "invalid_report_ids": [],
+    "status": "blocked_known_instability",
+    "scientific_stability_qualified": false,
+    "research_score": null,
+    "known_risks": [
+      {
+        "required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+        "mechanism": "real_elapsed_time_warning_threshold",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-matplotlib-timing/README.md",
+        "instance_id": "matplotlib__matplotlib-20859",
+        "current_required_test": "pass"
+      },
+      {
+        "required_test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+        "mechanism": "external_http_dependency_with_unexplained_historical_cookie_failure",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-stability-diagnosis/README.md",
+        "instance_id": "psf__requests-1921",
+        "current_required_test": "pass"
+      }
+    ],
+    "official_reports_modified": false,
+    "tests_excluded": [],
+    "interpretation": "raw official outcome retained; no rerun-to-pass, denominator reduction or stability guarantee"
+  },
+  "fresh-official-1": {
+    "selected_count": 2,
+    "report_count": 2,
+    "raw_resolved_count": 2,
+    "missing_report_ids": [],
+    "invalid_report_ids": [],
+    "status": "blocked_known_instability",
+    "scientific_stability_qualified": false,
+    "research_score": null,
+    "known_risks": [
+      {
+        "required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+        "mechanism": "real_elapsed_time_warning_threshold",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-matplotlib-timing/README.md",
+        "instance_id": "matplotlib__matplotlib-20859",
+        "current_required_test": "pass"
+      },
+      {
+        "required_test": "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire",
+        "mechanism": "external_http_dependency_with_unexplained_historical_cookie_failure",
+        "source_verified": true,
+        "historical_failure_cause_fully_proven": false,
+        "evidence": "evidence/2026-10-22-stability-diagnosis/README.md",
+        "instance_id": "psf__requests-1921",
+        "current_required_test": "pass"
+      }
+    ],
+    "official_reports_modified": false,
+    "tests_excluded": [],
+    "interpretation": "raw official outcome retained; no rerun-to-pass, denominator reduction or stability guarantee"
+  }
+}
