@@ -17,7 +17,7 @@ from types import SimpleNamespace
 from snapshot_pilot import dump, execute, guard, stream, validate_inputs
 
 IDS = ('psf__requests-1921', 'matplotlib__matplotlib-20859')
-LIFETIME = 780
+LIFETIME = 2900  # Four complete 600s test windows plus setup/readiness/collection.
 PRIOR_COST = 1.30621108
 RATE = 16 * .00003942 + 64 * .00000667
 ESTIMATE = 2 * LIFETIME * RATE + .08
@@ -161,7 +161,7 @@ def run(out, source, reference):
                         'print(json.dumps({n:hashlib.sha256((pathlib.Path("/work")/n).read_bytes()).hexdigest() for n in names}))'))
                     if actual != hashes: raise ValueError('Source/input readback failed')
                     dump(case/'source-readback.json', actual)
-                    stream(active, ['python','-u','/work/stability_diagnosis.py','worker','--iid',iid], case/'worker.log', 660)
+                    stream(active, ['python','-u','/work/stability_diagnosis.py','worker','--iid',iid], case/'worker.log', 2700)
                 finally:
                     if active is not None:
                         try:
