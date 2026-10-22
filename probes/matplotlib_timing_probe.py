@@ -33,10 +33,9 @@ def worker():
     import docker
     import remote_worker as base
     from snapshot_catalog_worker import verify_images
-    from swebench.harness.docker_build import build_container
+    from swebench.harness.docker_build import build_container,setup_logger
     from swebench.harness.docker_utils import copy_to_container,cleanup_container,exec_run_with_timeout
     from swebench.harness.test_spec.test_spec import make_test_spec
-    from swebench.harness.utils import setup_logger
     root=Path('/work');out=root/'timing-output';out.mkdir(exist_ok=False)
     assignment=json.loads((root/'assignment.json').read_text())
     data=json.loads((root/'pilot.json').read_text())
@@ -113,7 +112,11 @@ def run(out,source,reference):
     import modal
     if os.environ.get('MODAL_PROFILE')!='phamvanvuhoan' or modal.__version__!='1.6.2':raise ValueError('Unauthorized profile/SDK')
     if (out/'receipt.json').exists():raise ValueError('No paid retry')
-    if OLD_COST+RATE*LIFETIME+.02>2:raise ValueError('Combined prior run + full diagnostic lifetime exceeds $2')
+    # The first diagnostic stopped before tests in 26.958s (import error).
+    # Retain its entire coordinator interval as a conservative allocation bound.
+    failed_diagnostic_bound=RATE*26.958
+    if OLD_COST+failed_diagnostic_bound+RATE*LIFETIME+.02>2:
+        raise ValueError('Combined prior runs + full diagnostic lifetime exceeds $2')
     validate_inputs(reference)
     original=json.loads((reference/'receipt.json').read_text())
     if original['app_id']!='ap-ieIjh0VdOg7IiggbOW7dh5':raise ValueError('Wrong original run')
@@ -127,6 +130,7 @@ def run(out,source,reference):
     guard(source,out.name,ESTIMATE);guard(source,out.name,ESTIMATE,'planned')
     record={'started_at':datetime.now(timezone.utc).isoformat(),'profile':'phamvanvuhoan','cpu':16,'memory_gib':64,
             'lifetime_seconds':LIFETIME,'estimate_usd':ESTIMATE,'prior_run_cost_usd':OLD_COST,
+            'failed_first_diagnostic_allocation_bound_usd':failed_diagnostic_bound,
             'snapshot_image_id':group['snapshot_image_id'],'source_sha256':expected,
             'original_results_not_modified':True,'full_500_evaluated':False,'source_git_commit':os.environ['MPL_DIAG_COMMIT']}
     active=None;started=time.monotonic();app=modal.App('swebench-matplotlib-clock-diagnosis')
@@ -161,14 +165,16 @@ def run(out,source,reference):
                         execute(active,'tar','-czf','/tmp/timing-output.tar.gz','-C','/work','timing-output',timeout=30)
                         active.filesystem.copy_to_local('/tmp/timing-output.tar.gz',str(out/'artifacts.tar.gz'))
                         with tarfile.open(out/'artifacts.tar.gz') as archive:archive.extractall(out,filter='data')
+                    except Exception as exc:
+                        record['artifact_error']=type(exc).__name__+': '+str(exc)
                     finally:
                         active.terminate(wait=True);record['all_vms_terminated']=True
     except Exception as exc:record['error']=type(exc).__name__+': '+str(exc)
     finally:
         record.update(finished_at=datetime.now(timezone.utc).isoformat(),wall_seconds=time.monotonic()-started)
         dump(out/'receipt.json',record)
-        guard(source,out.name,ESTIMATE,'completed' if record.get('worker_completed') else 'failed')
-    return 0 if record.get('worker_completed') and record.get('all_vms_terminated') else 1
+        guard(source,out.name,ESTIMATE,'completed' if record.get('worker_completed') and not record.get('artifact_error') else 'failed')
+    return 0 if record.get('worker_completed') and record.get('all_vms_terminated') and not record.get('artifact_error') else 1
 
 
 if __name__=='__main__':
