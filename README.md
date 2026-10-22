@@ -440,3 +440,25 @@ Các probe được gọi trực tiếp và production web chưa tích hợp gat
 [Điều tra, giới hạn và hướng sửa protocol](evidence/2026-10-22-stability-diagnosis/README.md).
 Đây là chốt chống báo độ tin cậy sai; chưa khắc phục tận gốc sự bất định của
 benchmark gốc. Không chỉnh test, ép clock/warning hay chọn repetition pass.
+
+### Thử predictions thật trên một shard N7merge
+
+`probes/n7_predictions.py` là entry point riêng cho 1–3 predictions thật cùng
+một shard N7merge; không thay giới hạn gold-control của các probe cũ. Chạy trên
+profile `phamvanvuhoan`, một VM 16 core/64 GiB, 8 worker, timeout test 600s,
+lifetime 900s, envelope $1.05; không build snapshot, pull image hoặc tự retry.
+Phải chốt SHA-256 file input trước `prepare`; dataset và catalog được pin.
+`run` giữ nguyên official harness/evaluator/test, không dùng observer hoặc
+protocol deterministic. Patch rỗng không tạo official report giả và vẫn nằm
+trong mẫu số; thiếu report của patch không rỗng là lỗi/incomplete.
+
+```bash
+python probes/n7_predictions.py prepare --out NEW_RUN --source SOURCE --predictions INPUT.jsonl --expected-sha256 INPUT_SHA256 --dataset PINNED_VERIFIED_JSON
+python probes/n7_predictions.py run --out NEW_RUN --source SOURCE
+python probes/n7_predictions.py collect --out NEW_RUN --billing-name billing-first.json
+```
+
+Collect billing lại sau ít nhất 60 giây, so tiền theo đúng app và xác nhận VM
+list rỗng trước báo chi phí. Model predictions và raw output giữ trong `runs/`
+private, không tự đưa lên GitHub. Trial trên input thật không qualify N7 hoặc
+suy ra điểm Verified đầy đủ.
