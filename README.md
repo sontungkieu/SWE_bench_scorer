@@ -344,3 +344,10 @@ khớp** với N11 tuần tự: `matplotlib-20859` không phát warning mà mộ
 PASS_TO_PASS yêu cầu. Test upstream này phụ thuộc ngưỡng thời gian 1 giây.
 Giữ kết quả chính thức, **chưa qualification N11max**, không bỏ test hay sửa
 score để làm parity pass. [Billing, chẩn đoán và phân tích N16](evidence/2026-10-22-optimizeN11max/README.md).
+
+`probes/matplotlib_timing_probe.py` là phép chẩn đoán riêng, một VM 16 cores/
+64 GiB: chạy cố định hai lượt harness trên nhóm shard 2 gốc, rồi hai lượt
+quan sát bằng pytest plugin. Plugin dùng `sys.setprofile` để ghi khoảng thời
+gian bao quanh clock sample thật tại điều kiện warning và phân biệt early
+return; không monkeypatch clock, sửa test hoặc thay official report. Profiler
+có overhead, nên bằng chứng này được lưu riêng và không thay kết quả 24 bài.
