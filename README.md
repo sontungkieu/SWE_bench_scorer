@@ -2,6 +2,11 @@
 
 Phiên bản: **0.3.1**.
 
+Đã chấm lại **đúng 24 gold controls trên bộ snapshot mới**: 24/24 report khớp
+baseline; **$0.50332977**, **515.25 giây**, dùng 8/11 snapshot chứa các bài đó.
+[Báo cáo và giới hạn so sánh](evidence/2026-10-22-sharded-snapshot-pilot/README.md).
+Chưa chấm full 500; mức giảm chi phí đo được so với OCI baseline là 49.14%.
+
 [Báo cáo audit khoa học/kỹ thuật ngày 22/10/2026](evidence/2026-10-22-scientific-audit/README.md)
 đối chiếu input, report parity, coverage từng snapshot và billing; ghi rõ giới
 hạn suy rộng và fix validator mapping shard. Lệnh kiểm tra offline đi kèm.

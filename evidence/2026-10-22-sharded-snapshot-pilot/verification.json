@@ -1,0 +1,18 @@
+{
+  "qualified": true,
+  "full_report_matches_baseline": 24,
+  "full_report_matches_old_snapshot": 24,
+  "all_24_image_sources_local": true,
+  "full_500_evaluated": false,
+  "production_backend_changed": false,
+  "source_git_commit": "b6191e24c99c175ba46e2debcc1d4c5616946e66",
+  "local_offline_tests_passed": 106,
+  "remote_host_preflight_tests_passed": 8,
+  "all_8_source_readbacks_match": true,
+  "all_8_vms_terminated": true,
+  "sdk_app_vm_lists_empty_in_all_billing_reads": true,
+  "stable_last_3_billing_reads": true,
+  "raw_evidence_sha256": "80464a18fe668c894a613f4ec8355d130d175da18e275eaf2b971a40c3ef1819",
+  "raw_evidence_bytes": 1147673,
+  "exit_code": 0
+}

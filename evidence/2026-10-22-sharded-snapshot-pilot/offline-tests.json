@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-10-22T00:15:11.820198+00:00",
+  "total_tests_passed": 106,
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Tung\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "SWE_SUMMARY_JSON={\"scope\": \"smoke_subset\", \"selected_count\": 1, \"resolved_count\": 0, \"unresolved_count\": 1, \"empty_patch_count\": 1, \"error_or_missing_report_count\": 0, \"complete\": true, \"resolved_ids\": [], \"unresolved_ids\": [\"django__django-11099\"], \"error_or_missing_report_ids\": [], \"subset_resolved_rate\": 0.0, \"verified_score\": null, \"harness_exit_code\": 0, \"label\": \"empty\"}\n2026-10-22T00:15:05.978548+00:00 GET /api/cache\n2026-10-22T00:15:06.502441+00:00 POST /api/jobs\n2026-10-22T00:15:07.035493+00:00 POST /api/jobs\n2026-10-22T00:15:08.098611+00:00 POST /api/jobs\n2026-10-22T00:15:08.642301+00:00 POST /api/jobs\n2026-10-22T00:15:08.648357+00:00 POST /api/jobs\n2026-10-22T00:15:09.165585+00:00 POST /api/validate\n",
+      "stderr": "----------------------------------------------------------------------\nRan 50 tests in 5.208s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Tung\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "probes",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "----------------------------------------------------------------------\nRan 56 tests in 1.519s\n\nOK\n"
+    }
+  ],
+  "source_sha256": {
+    "probes/sharded_pilot.py": "26e19a3750b2d5112bb61ca0665cf4bd772f86a81fd98099216685816b11e435",
+    "probes/sharded_pilot_worker.py": "d894a82bcef3859257b603ed58c57d108afc6df70317ebd563c27acc6921bd22",
+    "probes/test_sharded_pilot.py": "1092f01829028d010632bb159cb6ca8947eac3f2736da1fe316976684162cfa5",
+    "probes/summarize_sharded_pilot.py": "05a24971d38cfda840cf18818da79f9bf392a87bcd4cb907d6f0d94ab196b350",
+    "probes/test_summarize_sharded_pilot.py": "7722a8503385f1a8a2a2b13c39b5bc3862fa630a1614885fffcbad69e31e1586"
+  }
+}

@@ -1,0 +1,522 @@
+[
+  {
+    "index": 0,
+    "assignment": {
+      "index": 0,
+      "snapshot_image_id": "im-01M5G5N13R0B6XPWPPC0NYET5S",
+      "instance_ids": [
+        "astropy__astropy-13398",
+        "astropy__astropy-8707",
+        "django__django-11490",
+        "django__django-11149"
+      ],
+      "images": [
+        {
+          "instance_id": "astropy__astropy-13398",
+          "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-13398:latest",
+          "id": "sha256:b0cc2d0d0b35da88c91934467a68aabdc725a7cda238fad2b52696bfc1598d2b"
+        },
+        {
+          "instance_id": "astropy__astropy-8707",
+          "reference": "swebench/sweb.eval.x86_64.astropy_1776_astropy-8707:latest",
+          "id": "sha256:7e8744255777087d6a5c5806921bc30330de5c610de1c227e8a4dd0e3257d1fb"
+        },
+        {
+          "instance_id": "django__django-11490",
+          "reference": "swebench/sweb.eval.x86_64.django_1776_django-11490:latest",
+          "id": "sha256:d5cd499c4e01ac98f896ef1a7ea850978a1b0b91963c572f11a13315b474c45f"
+        },
+        {
+          "instance_id": "django__django-11149",
+          "reference": "swebench/sweb.eval.x86_64.django_1776_django-11149:latest",
+          "id": "sha256:4ae9b0e3ab2ff58390766b9f068c43b37fb2b241f26ed6178810398ce1fc08f9"
+        }
+      ],
+      "snapshot_plan_sha256": "46a723fcca6b7a8fe9f6dfbcdda834e1cc9cffc80fa125fe070abbb17530028b"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 4,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 0
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 4,
+      "resolved_count": 4,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "astropy__astropy-13398",
+        "astropy__astropy-8707",
+        "django__django-11149",
+        "django__django-11490"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 106.46669682800001
+    },
+    "restored_image_metadata_count": 100
+  },
+  {
+    "index": 2,
+    "assignment": {
+      "index": 2,
+      "snapshot_image_id": "im-01M5G6RH7J1SCGR9X70611VNYG",
+      "instance_ids": [
+        "matplotlib__matplotlib-20859",
+        "django__django-16429"
+      ],
+      "images": [
+        {
+          "instance_id": "matplotlib__matplotlib-20859",
+          "reference": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-20859:latest",
+          "id": "sha256:bb7506e2d7551e15bcf2d317b4cff11f2a142f753468ea407023ac5e486410a0"
+        },
+        {
+          "instance_id": "django__django-16429",
+          "reference": "swebench/sweb.eval.x86_64.django_1776_django-16429:latest",
+          "id": "sha256:b512eab14c4dcea9ae45e7d4c726cdadd5685383588844a7192fd60f5bd33748"
+        }
+      ],
+      "snapshot_plan_sha256": "7dab9c61274bf33bf5bd4bee86793ad9fac910df6c51cbe326ac1c3ddc3f55b7"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 2,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 2
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 2,
+      "resolved_count": 2,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "django__django-16429",
+        "matplotlib__matplotlib-20859"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 39.967243457
+    },
+    "restored_image_metadata_count": 59
+  },
+  {
+    "index": 4,
+    "assignment": {
+      "index": 4,
+      "snapshot_image_id": "im-01M5G7RTJGR6HJKCA9NWN0E3W7",
+      "instance_ids": [
+        "matplotlib__matplotlib-25122"
+      ],
+      "images": [
+        {
+          "instance_id": "matplotlib__matplotlib-25122",
+          "reference": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25122:latest",
+          "id": "sha256:17b35fcaeadf12ee4d1900b19e6b598166ac699a6824385677b8d1a8ea011de4"
+        }
+      ],
+      "snapshot_plan_sha256": "e8a0b410fd880a08401700b2f94ec195641480a915a5e54d421111411cc28f2b"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 1,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 4
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 1,
+      "resolved_count": 1,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "matplotlib__matplotlib-25122"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 66.919318276
+    },
+    "restored_image_metadata_count": 9
+  },
+  {
+    "index": 6,
+    "assignment": {
+      "index": 6,
+      "snapshot_image_id": "im-01M5G8QWRPBRJFYWF3YQZ7W8B0",
+      "instance_ids": [
+        "mwaskom__seaborn-3187",
+        "mwaskom__seaborn-3069",
+        "pallets__flask-5014",
+        "psf__requests-1724",
+        "psf__requests-1921",
+        "pydata__xarray-4629"
+      ],
+      "images": [
+        {
+          "instance_id": "mwaskom__seaborn-3187",
+          "reference": "swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3187:latest",
+          "id": "sha256:732b01eb52153ee680dfffa55aff4b39a79af9067a5b554fbc00350ee13b126c"
+        },
+        {
+          "instance_id": "mwaskom__seaborn-3069",
+          "reference": "swebench/sweb.eval.x86_64.mwaskom_1776_seaborn-3069:latest",
+          "id": "sha256:f0eff75310a1b33ffcdcdaeb2c0e1f67af9711d82cb79cb9a84fc5640d6a2d07"
+        },
+        {
+          "instance_id": "pallets__flask-5014",
+          "reference": "swebench/sweb.eval.x86_64.pallets_1776_flask-5014:latest",
+          "id": "sha256:bf8242431f5c177d67996b3c888a0f51e4bb7bd0b67009bee6c70842baca1241"
+        },
+        {
+          "instance_id": "psf__requests-1724",
+          "reference": "swebench/sweb.eval.x86_64.psf_1776_requests-1724:latest",
+          "id": "sha256:ed9f5969b9577a03109f518c2f519a6d24da6416e0d701d3fa9397430845259a"
+        },
+        {
+          "instance_id": "psf__requests-1921",
+          "reference": "swebench/sweb.eval.x86_64.psf_1776_requests-1921:latest",
+          "id": "sha256:ef715951df0c8e5504514a14c03362da52774c57faa88f990965b8787512d171"
+        },
+        {
+          "instance_id": "pydata__xarray-4629",
+          "reference": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4629:latest",
+          "id": "sha256:6ef760ecc8a78780f669f3e24a32e11a5ad5adaec505fce12cc15d27648657d0"
+        }
+      ],
+      "snapshot_plan_sha256": "36806a7b7bfc4b7168dc886f7215731eb1a327afe95ca4b3f4e5ed60b2a48701"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 6,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 6
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 6,
+      "resolved_count": 6,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "mwaskom__seaborn-3069",
+        "mwaskom__seaborn-3187",
+        "pallets__flask-5014",
+        "psf__requests-1724",
+        "psf__requests-1921",
+        "pydata__xarray-4629"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 50.70522505499999
+    },
+    "restored_image_metadata_count": 27
+  },
+  {
+    "index": 7,
+    "assignment": {
+      "index": 7,
+      "snapshot_image_id": "im-01M5G97E5AXWNJJKDYGX40R9KM",
+      "instance_ids": [
+        "pydata__xarray-6938",
+        "pylint-dev__pylint-4604",
+        "pylint-dev__pylint-4551"
+      ],
+      "images": [
+        {
+          "instance_id": "pydata__xarray-6938",
+          "reference": "swebench/sweb.eval.x86_64.pydata_1776_xarray-6938:latest",
+          "id": "sha256:954da55e2ada2f0e2d5d617865388ecdd4bc0793b3d7404e370f8fa4d75f0fd3"
+        },
+        {
+          "instance_id": "pylint-dev__pylint-4604",
+          "reference": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-4604:latest",
+          "id": "sha256:b5fac9ce8ae7da0c6ad028bce73932b257eb44656985e4f7c7d73d7dfc60dcf7"
+        },
+        {
+          "instance_id": "pylint-dev__pylint-4551",
+          "reference": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-4551:latest",
+          "id": "sha256:da002762f29d4a55bbd7b2874ff0187525e0cf23b0c1705411a5d54c25702ed5"
+        }
+      ],
+      "snapshot_plan_sha256": "c4ea74d3fbee03894e8533798d91d09a5d172166290c900e23a854079abb5a0b"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 3,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 7
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 3,
+      "resolved_count": 3,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "pydata__xarray-6938",
+        "pylint-dev__pylint-4551",
+        "pylint-dev__pylint-4604"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 36.6106161
+    },
+    "restored_image_metadata_count": 21
+  },
+  {
+    "index": 8,
+    "assignment": {
+      "index": 8,
+      "snapshot_image_id": "im-01M5G9QEMP54F288SX524QY66P",
+      "instance_ids": [
+        "pytest-dev__pytest-6202",
+        "pytest-dev__pytest-5840",
+        "scikit-learn__scikit-learn-12682",
+        "scikit-learn__scikit-learn-14087"
+      ],
+      "images": [
+        {
+          "instance_id": "pytest-dev__pytest-6202",
+          "reference": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-6202:latest",
+          "id": "sha256:eaf4c3f99339665936db9a9fee2ae21ded5c3d5bbd1168b2d5f1bad68208c1a8"
+        },
+        {
+          "instance_id": "pytest-dev__pytest-5840",
+          "reference": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5840:latest",
+          "id": "sha256:f120d658e0511543165e631c3c3bb6cee1b13a830f1e18bdf6f0d0d74f41a9fa"
+        },
+        {
+          "instance_id": "scikit-learn__scikit-learn-12682",
+          "reference": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-12682:latest",
+          "id": "sha256:a96877e56adac27bc829be89cc4fec3cb2544896852a52818a83942cb65af5a2"
+        },
+        {
+          "instance_id": "scikit-learn__scikit-learn-14087",
+          "reference": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14087:latest",
+          "id": "sha256:9c3a2dce699cfecf55e144b084d13995270a908eacd7f8616ad7d9764a61704a"
+        }
+      ],
+      "snapshot_plan_sha256": "ddb6e36195a5d2fb76da0008361c2c130825c2e3c0fb975859d6d5b5a78e6305"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 4,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 8
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 4,
+      "resolved_count": 4,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "pytest-dev__pytest-5840",
+        "pytest-dev__pytest-6202",
+        "scikit-learn__scikit-learn-12682",
+        "scikit-learn__scikit-learn-14087"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 27.808756426
+    },
+    "restored_image_metadata_count": 43
+  },
+  {
+    "index": 9,
+    "assignment": {
+      "index": 9,
+      "snapshot_image_id": "im-01M5GA91FFQ893059BFCATR374",
+      "instance_ids": [
+        "sphinx-doc__sphinx-11445",
+        "sphinx-doc__sphinx-8265",
+        "sympy__sympy-12489"
+      ],
+      "images": [
+        {
+          "instance_id": "sphinx-doc__sphinx-11445",
+          "reference": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11445:latest",
+          "id": "sha256:a8dd143149ea72f5d4dd8ac29b026992d69d114f6bbf9c582ef0b0d50c061508"
+        },
+        {
+          "instance_id": "sphinx-doc__sphinx-8265",
+          "reference": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8265:latest",
+          "id": "sha256:b95e2a6616e0eb7d0d9afff91f33c5017290e1defe38cf81968077a06202ed40"
+        },
+        {
+          "instance_id": "sympy__sympy-12489",
+          "reference": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12489:latest",
+          "id": "sha256:a8e8249d6252148720faa5b5ac2b4a8c29c03b2aab84e3fe093cbbfc951ed9aa"
+        }
+      ],
+      "snapshot_plan_sha256": "a9298ed0191f959a818de5116813db6e67abec51be5c56b03fe8951751f70369"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 3,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 9
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 3,
+      "resolved_count": 3,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "sphinx-doc__sphinx-11445",
+        "sphinx-doc__sphinx-8265",
+        "sympy__sympy-12489"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 26.732646517
+    },
+    "restored_image_metadata_count": 100
+  },
+  {
+    "index": 10,
+    "assignment": {
+      "index": 10,
+      "snapshot_image_id": "im-01M5GAD16RDT2NFT4R2D4S17N3",
+      "instance_ids": [
+        "sympy__sympy-20801"
+      ],
+      "images": [
+        {
+          "instance_id": "sympy__sympy-20801",
+          "reference": "swebench/sweb.eval.x86_64.sympy_1776_sympy-20801:latest",
+          "id": "sha256:115aca3626840cf0f5bbfa4e6a180a19bea08f57c9cc907887e862b1b01cc4c4"
+        }
+      ],
+      "snapshot_plan_sha256": "9ef5921c5ce238beb5e954b0fb012fd87ec6d5e0fe747afd43231f36f2f9750b"
+    },
+    "environment": {
+      "harness": "4.1.0",
+      "python": "3.11.12 (main, May 21 2025, 23:34:13) [GCC 12.2.0]",
+      "workers": 8,
+      "test_timeout": 600,
+      "selected_count": 1,
+      "frozen_pilot_count": 24,
+      "mock_gold_only": true,
+      "full_500_evaluated": false,
+      "image_cache_volume_attached": false,
+      "registry_secrets_injected": false,
+      "no_preexisting_test_containers": true,
+      "shard_index": 10
+    },
+    "summary": {
+      "scope": "smoke_subset",
+      "selected_count": 1,
+      "resolved_count": 1,
+      "unresolved_count": 0,
+      "empty_patch_count": 0,
+      "error_or_missing_report_count": 0,
+      "complete": true,
+      "resolved_ids": [
+        "sympy__sympy-20801"
+      ],
+      "unresolved_ids": [],
+      "error_or_missing_report_ids": [],
+      "subset_resolved_rate": 1.0,
+      "verified_score": null,
+      "harness_exit_code": 0,
+      "test_and_cleanup_seconds": 21.982123017
+    },
+    "restored_image_metadata_count": 24
+  }
+]

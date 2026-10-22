@@ -1,0 +1,22 @@
+{
+  "git_commit": "b6191e24c99c175ba46e2debcc1d4c5616946e66",
+  "file_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8",
+    "probes/sharded_pilot.py": "26e19a3750b2d5112bb61ca0665cf4bd772f86a81fd98099216685816b11e435",
+    "probes/sharded_pilot_worker.py": "d894a82bcef3859257b603ed58c57d108afc6df70317ebd563c27acc6921bd22",
+    "probes/test_sharded_pilot.py": "1092f01829028d010632bb159cb6ca8947eac3f2736da1fe316976684162cfa5",
+    "probes/snapshot_pilot.py": "1fae30a6f07d2cd2727fd4213d3bda450bd8a41e52f3de62b1d4ac9b1939927b",
+    "probes/snapshot_catalog_worker.py": "37cc5fcacfc72249657275f194db2cf5d640351acb9594e4526168c3dc828044",
+    "probes/summarize_snapshot_pilot.py": "f2b6b70123a41187715675424926e22c0db297a543c1130f0dea40df4fbf41f8",
+    "evidence/2026-10-22-scientific-audit/pilot-inputs.tar.gz": "44ceb2b13bb35834b3e95c8e82cbf8035ce7e8fca99e9b90c01d07690d5f0afe",
+    "evidence/2026-10-22-cost-pilot/selection.json": "c74c5ad1dfa88c6886bb90e0703147119b90a18fe01fedd90cf01e91ac41ad34",
+    "evidence/2026-10-22-vm-snapshot/image-plan.json": "504f276e2ff2dabeda33bbf0568ca33ded0a7659df3b1b722d46d847d1f4aa1e",
+    "evidence/2026-10-22-cost-pilot/vm-reports.json": "66464027bfdad31aaf90967fe14b8609570e2a031a039dde48283480558e0977",
+    "evidence/2026-10-22-verified-snapshots-90d/usable-shards-catalog.json": "6d6bb668130943a891fa0d9add90272398344d6588e3a1c6e0eb55c61cdadddb"
+  },
+  "local_probe_tests_passed": 52,
+  "new_full_500_grading_authorized": false
+}

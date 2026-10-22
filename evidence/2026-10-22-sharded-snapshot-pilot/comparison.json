@@ -1,0 +1,125 @@
+{
+  "qualified": true,
+  "selected_count": 24,
+  "reports": 24,
+  "resolved": 24,
+  "complete_report_matches_baseline": 24,
+  "different_baseline_ids": [],
+  "complete_report_matches_old_snapshot": 24,
+  "different_old_snapshot_ids": [],
+  "used_snapshot_count": 8,
+  "unused_catalog_snapshot_count": 3,
+  "groups": [
+    {
+      "index": 0,
+      "count": 4,
+      "docker_ready_seconds": 23.728117123246193,
+      "wall_seconds": 134.71582373976707,
+      "test_and_cleanup_seconds": 106.46669682800001,
+      "snapshot_image_id": "im-01M5G5N13R0B6XPWPPC0NYET5S",
+      "vm_id": "sb-01M5GEN4T1RKQZDEK5W0QXTVEJ"
+    },
+    {
+      "index": 2,
+      "count": 2,
+      "docker_ready_seconds": 17.293831769376993,
+      "wall_seconds": 61.34318500943482,
+      "test_and_cleanup_seconds": 39.967243457,
+      "snapshot_image_id": "im-01M5G6RH7J1SCGR9X70611VNYG",
+      "vm_id": "sb-01M5GES89DBBYR0MFW05ZAKTE1"
+    },
+    {
+      "index": 4,
+      "count": 1,
+      "docker_ready_seconds": 10.494003290310502,
+      "wall_seconds": 81.31736841239035,
+      "test_and_cleanup_seconds": 66.919318276,
+      "snapshot_image_id": "im-01M5G7RTJGR6HJKCA9NWN0E3W7",
+      "vm_id": "sb-01M5GEV46MNFTE26HWJM05SNCG"
+    },
+    {
+      "index": 6,
+      "count": 6,
+      "docker_ready_seconds": 17.246005412191153,
+      "wall_seconds": 70.46450191177428,
+      "test_and_cleanup_seconds": 50.70522505499999,
+      "snapshot_image_id": "im-01M5G8QWRPBRJFYWF3YQZ7W8B0",
+      "vm_id": "sb-01M5GEXKM02PFED36RN6QMRHSP"
+    },
+    {
+      "index": 7,
+      "count": 3,
+      "docker_ready_seconds": 9.278446702286601,
+      "wall_seconds": 49.88704301044345,
+      "test_and_cleanup_seconds": 36.6106161,
+      "snapshot_image_id": "im-01M5G97E5AXWNJJKDYGX40R9KM",
+      "vm_id": "sb-01M5GEZRE6Q817QNC6545NP5W2"
+    },
+    {
+      "index": 8,
+      "count": 4,
+      "docker_ready_seconds": 8.065753223374486,
+      "wall_seconds": 40.07852851226926,
+      "test_and_cleanup_seconds": 27.808756426,
+      "snapshot_image_id": "im-01M5G9QEMP54F288SX524QY66P",
+      "vm_id": "sb-01M5GF1959M2ESXNDDNZCN4WSE"
+    },
+    {
+      "index": 9,
+      "count": 3,
+      "docker_ready_seconds": 17.606827214360237,
+      "wall_seconds": 48.85723468102515,
+      "test_and_cleanup_seconds": 26.732646517,
+      "snapshot_image_id": "im-01M5GA91FFQ893059BFCATR374",
+      "vm_id": "sb-01M5GF2G9PS47FC28YJTDTN7Q0"
+    },
+    {
+      "index": 10,
+      "count": 1,
+      "docker_ready_seconds": 3.673443825915456,
+      "wall_seconds": 27.799598813056946,
+      "test_and_cleanup_seconds": 21.982123017,
+      "snapshot_image_id": "im-01M5GAD16RDT2NFT4R2D4S17N3",
+      "vm_id": "sb-01M5GF400QD8J4YGNATVJAE128"
+    }
+  ],
+  "all_8_vms_terminated": true,
+  "all_8_vm_source_readbacks_match": true,
+  "image_sources": {
+    "local": 24
+  },
+  "image_cache_added_bytes": 0,
+  "image_ensure_seconds": 0.42544649199999895,
+  "full_500_evaluated": false,
+  "production_backend_changed": false,
+  "gold_controls_not_model_score": true,
+  "frozen_pilot_sha256": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+  "frozen_predictions_sha256": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f",
+  "scoring_source_git_commit": "b6191e24c99c175ba46e2debcc1d4c5616946e66",
+  "cpu_per_vm": 16,
+  "memory_gib_per_vm": 64,
+  "workers": 8,
+  "test_timeout": 600,
+  "max_simultaneous_vms": 1,
+  "batching_changed_from_original_3x8": true,
+  "sharded_wall_seconds": 515.2492166236043,
+  "baseline_wall_seconds": 944.6862960755825,
+  "old_single_snapshot_wall_seconds": 171.66414378210902,
+  "baseline_over_new_wall_ratio": 1.8334550846405016,
+  "new_over_old_single_snapshot_wall_ratio": 3.0014958585504212,
+  "cost_usd": "0.50332977",
+  "baseline_cost_usd": "0.98970092",
+  "old_single_snapshot_cost_usd": "0.17555287",
+  "saving_vs_oci_baseline_percent": "49.14324521391775608332262640",
+  "increase_vs_old_single_snapshot_percent": "186.7112169684266625774901886",
+  "before_credits": true,
+  "not_final_invoice": true,
+  "snapshot_storage_not_in_app_sum": true,
+  "billing_read_gap_seconds": 213.807212,
+  "billing_stable_reads": [
+    "billing-third.json",
+    "billing-final.json"
+  ],
+  "snapshot_preparation_cost_is_separate": true,
+  "no_new_snapshot_built": true
+}

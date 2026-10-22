@@ -1,5 +1,11 @@
 # Frozen 24 gold controls on the new 11-snapshot catalog
 
+[Qualified live result](../evidence/2026-10-22-sharded-snapshot-pilot/README.md):
+24/24 complete official report matches, $0.50332977 compute/egress before
+credits, 515.2492166236043 s wall, all eight VMs terminated. This is 49.14%
+cheaper than the original OCI baseline but more expensive than the dedicated
+24-image snapshot pilot. Full-500 performance remains unmeasured.
+
 This evaluates exactly the original 24 instances/prediction bytes. It restores
 the eight snapshots that contain them (indices 0, 2, 4, 6, 7, 8, 9, 10); the
 other three have no selected case. No new snapshot is built, no full-500 grading
