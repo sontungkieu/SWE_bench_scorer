@@ -310,7 +310,7 @@ Nguồn: [SWE-bench evaluation](https://www.swebench.com/SWE-bench/guides/evalua
 
 ## Các mode so sánh snapshot (thực nghiệm, đúng 24 gold control)
 
-`python eval_modes.py list` liệt kê ba đường chạy đã lưu: `native` dùng
+`python eval_modes.py list` liệt kê các đường chạy và mode lập phương án: `native` dùng
 official `--modal true` với SDK compatibility overlay; `optimizeN11` giữ
 nguyên runner snapshot tuần tự; `optimizeN11max` chạy tối đa **2 VM** đồng thời.
 **N=11 là tổng shard của catalog 500 image**, workers trong mỗi VM vẫn là 8.
@@ -356,3 +356,34 @@ samples quan sát đều trên 1 giây và test pass. Chưa tái hiện nhánh d
 trong loạt chẩn đoán, nên giả thuyết tốc độ cho lượt fail cũ vẫn là suy luận
 có căn cứ, chưa phải clock lịch sử đã đo. [Báo cáo đầy đủ, tất cả repetitions
 và kiểm tra parser](evidence/2026-10-22-matplotlib-timing/README.md).
+
+### Mode gộp N7 riêng, giữ nguyên N11
+
+`optimizeN7merge` lưu đúng cách gộp đề xuất: `100,100,59,(27+21),43,100,(24+8+9+9)`.
+N=7, không phải 6. Năm snapshot có thể tái dùng sau kiểm tra live; hai nhóm gộp
+cần build snapshot mới từ OCI cache đã pin. Nhóm lớn nhất là **95,364 GiB layer tar**.
+Không thể ghép trực tiếp các ID snapshot hoặc thư mục Docker store để có snapshot mới.
+
+`optimizeN7weighted` tìm cách gộp **nguyên các shard N11** thành 7 nhóm, giới hạn
+64 GiB layer tar/100 image mỗi nhóm, tối thiểu hóa tổng thời gian hàng đợi LPT
+8 worker theo trọng số. Đây là proxy từ 24 thời gian gold đã đo và 476 giá trị
+điền bằng median từng repo, chưa phải dự báo billing. Không đổi thứ tự test
+thật theo LPT. Kết quả hiện tại có nhóm lớn nhất 63,954 GiB, cần 4 snapshot mới.
+
+Hai mode này **chỉ lập phương án offline**, chưa build/restore hay qualified
+report parity; `prepare`, `run`, `collect` bị chặn rõ ràng, không rơi vào runner
+N11 cũ. Tất cả mode N11/catalog pin và backend web giữ nguyên. Lệnh không dùng
+Modal, không cần credential, không tạo VM:
+
+```bash
+python eval_modes.py plan --mode optimizeN7merge --out NEW_N7_MERGE_PLAN
+python eval_modes.py plan --mode optimizeN7weighted --out NEW_N7_WEIGHTED_PLAN
+```
+
+Mỗi thư mục mới chứa `merge-plan.json.gz`: toàn bộ assignment, OCI identity,
+hash nguồn, dung lượng layer đã khử trùng và giới hạn suy luận. Không ghi đè
+plan/run cũ. Muốn chấm phải có budget build/qualification riêng, catalog mới
+đã read-back và runner 24 bài có lifetime/billing guard. Đặc biệt mẫu 24 bài
+ở N7merge có nhóm **9 bài**: cần hàng đợi với tối đa 8 worker, không bỏ bài,
+không tăng concurrency để vượt validator N11 hiện tại. Chưa mở full 500.
+[So sánh hai phương án và các bước còn lại](evidence/2026-10-22-merged-snapshot-plans/README.md).

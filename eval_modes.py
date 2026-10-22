@@ -1,10 +1,12 @@
 """Saved evaluation modes for the frozen scientific 24-case comparison.
 
 These are research entry points, separate from the production web/launch.py OCI
-backend. N denotes the 11-snapshot full-500 catalog, not workers per VM.
-No full-500 execution is exposed here.
+backend. N denotes total full-500 catalog shards, not workers per VM.
+N7 merge modes currently produce offline plans only. No full-500 execution is
+exposed here.
 """
 import argparse
+import gzip
 import json
 import os
 from pathlib import Path
@@ -23,6 +25,14 @@ MODES = {
                        'qualification_note':'23/24 reports matched; matplotlib-20859 warning test differed in cap2 pilot',
                        'max_active_vms':2, 'cpu':16, 'memory_gib':64, 'workers':8, 'test_timeout':600,
                        'budget_usd':2, 'cumulative_allocation_seconds':1800, 'lifetime_per_vm_seconds':780},
+    'optimizeN7merge': {'backend':'VM snapshot', 'catalog_shards':7,
+                       'status':'offline_plan_only', 'execution_enabled':False,
+                       'layout':'100,100,59,(27+21),43,100,(24+8+9+9)',
+                       'max_layer_tar_gib':96, 'scientific_parity_qualified':False},
+    'optimizeN7weighted': {'backend':'VM snapshot', 'catalog_shards':7,
+                          'status':'offline_plan_only', 'execution_enabled':False,
+                          'layout':'whole-N11-shard partition minimizing a weak runtime proxy',
+                          'max_layer_tar_gib':64, 'scientific_parity_qualified':False},
 }
 INPUTS = ['pilot.json','preds.jsonl','selection.json','usable-shards-catalog.json',
           'image-plan.json','snapshot-plan-hashes.json','baseline-reports.json']
@@ -45,7 +55,7 @@ def prepare(out, reference, commit):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('action',choices=['list','prepare','run','collect'])
+    p.add_argument('action',choices=['list','plan','prepare','run','collect'])
     p.add_argument('--mode',choices=MODES)
     p.add_argument('--out',type=Path)
     p.add_argument('--reference',type=Path)
@@ -56,6 +66,19 @@ def main():
     a=p.parse_args()
     if a.action=='list':
         print(json.dumps(MODES,indent=2));return 0
+    merge_modes=('optimizeN7merge','optimizeN7weighted')
+    if a.action=='plan':
+        if a.mode not in merge_modes:p.error('plan requires an optimizeN7 merge mode')
+        if a.out is None:p.error('--out required; use a new plan directory')
+        if a.out.exists():raise ValueError('Use a new output directory; never overwrite a prior plan')
+        from merged_snapshot_plan import plan_mode
+        value=plan_mode(a.mode)
+        a.out.mkdir(parents=True)
+        (a.out/'merge-plan.json.gz').write_bytes(gzip.compress((json.dumps(value,indent=2)+'\n').encode(),mtime=0))
+        print(json.dumps({'mode':a.mode,'status':value['status'],'summary':value['summary']},indent=2))
+        return 0
+    if a.mode in merge_modes:
+        p.error('N7 is offline_plan_only: use plan; new snapshots/catalog and a bounded 24-control runner are not qualified yet')
     if a.out is None:p.error('--out required')
     if a.action=='prepare':
         if not a.reference or not a.commit:p.error('prepare requires --reference and immutable --commit')
