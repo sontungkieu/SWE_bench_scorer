@@ -1,0 +1,14 @@
+{
+  "source_outer_sha256": "2791064d08cc611133560d75a098c643e037950a83cbd941f2e7756129515ff5",
+  "source_nested_sha256": "5cbe6cabc038b473cde8089de34ea78a21c04280e9a3f28dae6997da01629e00",
+  "retained_suffixes": [
+    "run_instance.log",
+    "test_output.txt",
+    "eval.sh",
+    "report.json"
+  ],
+  "file_count": 96,
+  "controls": 24,
+  "archive_sha256": "691bb49a00f98e490ba515db3d30c9c4dfc4febd51d4bafe00b7e375e3cf2fad",
+  "raw_file_bytes_unchanged": true
+}

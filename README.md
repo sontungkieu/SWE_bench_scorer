@@ -391,7 +391,7 @@ không tăng concurrency để vượt validator N11 hiện tại. Chưa mở fu
 `probes/merged_snapshot_experiment.py` là coordinator riêng cho lần qualification
 cả hai cách gộp, chưa thay dispatch/catalog pin của N11. `prepare --reuse-bases` chỉ đóng băng
 input/manifest; `run` có trả phí và chỉ dùng sau khi được duyệt ngân sách mới.
-Hợp đồng: tối đa 6 build + 6 restore verify (2 core/4 GiB), hai lượt đúng 24
+Hợp đồng: tối đa 6 build (4 core/4 GiB) + 6 restore verify (2 core/4 GiB), hai lượt đúng 24
 controls (16 core/64 GiB, 8 worker, timeout từng bài 600s), ngân sách compute/egress
 đã nâng lên $8 tính cả lượt đầu dừng. Mỗi lượt score có deadline 3000s; trước
 mỗi VM phải còn đủ lifetime cho toàn bộ timeout waves. Queue 9 bài cần 1380s
