@@ -19,6 +19,11 @@ from types import SimpleNamespace
 
 from snapshot_pilot import dump, execute, guard, stream
 
+# Direct CLI execution starts with probes/ on sys.path; the VM copies this
+# script beside core.py, while the coordinator keeps the repository layout.
+if (Path(__file__).resolve().parent.parent/'core.py').is_file():
+    sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
+
 LIFETIME = 900
 ESTIMATE = 1.05
 CATALOG = 'evidence/2026-10-22-n7-merged-qualification/optimizeN7merge-catalog.json'

@@ -1,4 +1,10 @@
 import unittest
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
 from n7_predictions import validate_reports, LIFETIME, ESTIMATE
 
 
@@ -19,6 +25,20 @@ class RealPredictionsTests(unittest.TestCase):
     def test_one_full_vm_lifetime_fits_trial_envelope(self):
         self.assertEqual(LIFETIME,900)
         self.assertLess(LIFETIME*(16*.00003942+64*.00000667),ESTIMATE)
+
+    def test_direct_cli_from_outside_repository_reaches_dataset_validation(self):
+        script=Path(__file__).with_name('n7_predictions.py').resolve()
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);pred=root/'preds.jsonl';data=root/'data.json'
+            pred.write_text(json.dumps({'instance_id':'django__django-11099',
+                'model_name_or_path':'test','model_patch':'diff'})+'\n')
+            data.write_text('[]')
+            result=subprocess.run([sys.executable,str(script),'prepare','--out',str(root/'out'),
+                '--source',str(script.parent.parent),'--predictions',str(pred),'--dataset',str(data),
+                '--expected-sha256',hashlib.sha256(pred.read_bytes()).hexdigest()],cwd=root,capture_output=True,text=True)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn('Wrong pinned Verified dataset',result.stderr)
+            self.assertNotIn('ModuleNotFoundError',result.stderr)
 
 
 if __name__=='__main__':unittest.main()
