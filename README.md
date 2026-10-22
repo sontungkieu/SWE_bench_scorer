@@ -387,3 +387,26 @@ plan/run cũ. Muốn chấm phải có budget build/qualification riêng, catalo
 ở N7merge có nhóm **9 bài**: cần hàng đợi với tối đa 8 worker, không bỏ bài,
 không tăng concurrency để vượt validator N11 hiện tại. Chưa mở full 500.
 [So sánh hai phương án và các bước còn lại](evidence/2026-10-22-merged-snapshot-plans/README.md).
+
+`probes/merged_snapshot_experiment.py` là coordinator riêng cho lần qualification
+cả hai cách gộp, chưa thay dispatch/catalog pin của N11. `prepare` chỉ đóng băng
+input/manifest; `run` có trả phí và chỉ dùng sau khi được duyệt ngân sách mới.
+Hợp đồng: tối đa 6 build + 6 restore verify (2 core/4 GiB), hai lượt đúng 24
+controls (16 core/64 GiB, 8 worker, timeout từng bài 600s), tổng envelope CPU/RAM
+$4.4531424 và dự trù compute/egress $5. Mỗi lượt score có deadline 1800s; trước
+mỗi VM phải còn đủ lifetime cho toàn bộ timeout waves. Queue 9 bài cần 1380s
+dự phòng, không tăng worker hoặc giảm timeout. Thiếu dự phòng thì dừng incomplete.
+Không tự retry, không chấm full 500. Snapshot mới TTL 90 ngày; storage được
+theo dõi riêng, không nằm trong envelope compute/egress một lần này.
+
+```bash
+python probes/merged_snapshot_experiment.py prepare --out NEW_DUAL_RUN --source SOURCE --reference QUALIFIED_N11_RUN --commit SOURCE_COMMIT
+python probes/merged_snapshot_experiment.py run --out NEW_DUAL_RUN --source SOURCE
+python probes/merged_snapshot_experiment.py collect --out NEW_DUAL_RUN --billing-name billing-first.json
+```
+
+Build và từng mode score có app billing riêng, VM chạy tuần tự và tắt sau thu
+artifact. Worker N7 dùng hàng đợi tới 24 controls, không sửa worker N11/evaluator
+gốc. Thu Docker events, CPU model và guest counters trước/sau ngoài test process;
+không patch clock hay profile test. Các số này hỗ trợ phân tích setup/test/cleanup,
+không đo trực tiếp provider physical I/O. `receipt.json` giữ mọi kết quả và mismatch.
