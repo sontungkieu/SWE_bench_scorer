@@ -307,3 +307,34 @@ partial writes, storage limit, empty-patch skipping; mock cloud xác nhận Dock
 Nguồn: [SWE-bench evaluation](https://www.swebench.com/SWE-bench/guides/evaluation/),
 [harness v4.1.0](https://github.com/SWE-bench/SWE-bench/tree/v4.1.0),
 [Modal VM và Docker](https://modal.com/docs/guide/sandbox).
+
+## Các mode so sánh snapshot (thực nghiệm, đúng 24 gold control)
+
+`python eval_modes.py list` liệt kê ba đường chạy đã lưu: `native` dùng
+official `--modal true` với SDK compatibility overlay; `optimizeN11` giữ
+nguyên runner snapshot tuần tự; `optimizeN11max` chạy tối đa **2 VM** đồng thời.
+**N=11 là tổng shard của catalog 500 image**, workers trong mỗi VM vẫn là 8.
+Pilot chỉ dùng 8/11 shard. Cả hai mode snapshot giữ 16 cores/64 GiB mỗi VM,
+test timeout 600 giây và cùng frozen input/source/image; mỗi VM tắt ngay sau
+khi thu output. Native cần venv đã có SWE-bench 4.1.0, có protocol tài nguyên
+khác và chưa đạt report parity trong lần đo trước.
+
+Đây là entry point nghiên cứu riêng; web và `launch.py` production vẫn dùng
+OCI backend hiện có. Chưa mở lệnh chấm full 500 qua các mode snapshot.
+Chuẩn bị thư mục mới từ một reference run đã đủ input (không ghi đè run cũ):
+
+```bash
+python eval_modes.py prepare --out NEW_RUN --reference FROZEN_SHARDED_RUN --commit SOURCE_COMMIT
+python eval_modes.py run --mode optimizeN11max --out NEW_RUN --source QUALIFIED_SOURCE --baseline ORIGINAL_COST_PILOT
+python eval_modes.py collect --mode optimizeN11max --out NEW_RUN --billing-name billing-first.json
+```
+
+Chạy trong GCP runtime đã có Modal 1.6.2, scoped env của dịch vụ và
+`MODAL_PROFILE=phamvanvuhoan`; không cài dependency hoặc build Docker local.
+Mode N11max hiện khóa cap 2 và trần $2: trước mỗi VM phải dự phòng đủ lifetime
+780 giây, tổng reservation + thời gian VM đã xong không vượt 1800 giây
+($1.90368 CPU/RAM, còn phần nhỏ cho egress). Không giảm CPU/RAM hay timeout để
+chạy vừa ngân sách. Nếu không còn đủ reservation, dừng với kết quả incomplete;
+không tự retry. Billing thực tế vẫn cần đọc sau run, trước credits và không
+bao gồm giá lưu snapshot. Chạy song song giảm wall time nhưng không tự động
+giảm tổng VM-seconds/chi phí.
