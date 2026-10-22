@@ -1,0 +1,100 @@
+[
+  {
+    "test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+    "file_hashes_before": {
+      "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+      "legend": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+    },
+    "find_best_position_source": "    def _find_best_position(self, width, height, renderer, consider=None):\n        \"\"\"\n        Determine the best location to place the legend.\n\n        *consider* is a list of ``(x, y)`` pairs to consider as a potential\n        lower-left corner of the legend. All are display coords.\n        \"\"\"\n        assert self.isaxes  # always holds, as this is only called internally\n\n        start_time = time.perf_counter()\n\n        bboxes, lines, offsets = self._auto_legend_data()\n\n        bbox = Bbox.from_bounds(0, 0, width, height)\n        if consider is None:\n            consider = [self._get_anchored_bbox(x, bbox,\n                                                self.get_bbox_to_anchor(),\n                                                renderer)\n                        for x in range(1, len(self.codes))]\n\n        candidates = []\n        for idx, (l, b) in enumerate(consider):\n            legendBox = Bbox.from_bounds(l, b, width, height)\n            badness = 0\n            # XXX TODO: If markers are present, it would be good to take them\n            # into account when checking vertex overlaps in the next line.\n            badness = (sum(legendBox.count_contains(line.vertices)\n                           for line in lines)\n                       + legendBox.count_contains(offsets)\n                       + legendBox.count_overlaps(bboxes)\n                       + sum(line.intersects_bbox(legendBox, filled=False)\n                             for line in lines))\n            if badness == 0:\n                return l, b\n            # Include the index to favor lower codes in case of a tie.\n            candidates.append((badness, idx, (l, b)))\n\n        _, _, (l, b) = min(candidates)\n\n        if self._loc_used_default and time.perf_counter() - start_time > 1:\n            _api.warn_external(\n                'Creating legend with loc=\"best\" can be slow with large '\n                'amounts of data.')\n\n        return l, b\n",
+    "observer_uses_real_clock": true,
+    "test_or_clock_monkeypatched": false,
+    "test_call_exception": null,
+    "calls": [
+      {
+        "clock_condition_brackets": [
+          {
+            "lower_seconds": 1.860360134000004,
+            "upper_seconds": 1.8603660020000063
+          }
+        ],
+        "loc_used_default": true,
+        "badness": 1000,
+        "candidates": 10,
+        "return_position": [
+          479.65,
+          -22580.8
+        ]
+      },
+      {
+        "clock_condition_brackets": [
+          {
+            "lower_seconds": 1.8753017140000026,
+            "upper_seconds": 1.8753076759999914
+          }
+        ],
+        "loc_used_default": true,
+        "badness": 1000,
+        "candidates": 10,
+        "return_position": [
+          479.65,
+          -22580.8
+        ]
+      }
+    ],
+    "file_hashes_after": {
+      "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+      "legend": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+    },
+    "repetition": 0,
+    "eval_script_seconds": 21.97462224960327
+  },
+  {
+    "test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+    "file_hashes_before": {
+      "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+      "legend": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+    },
+    "find_best_position_source": "    def _find_best_position(self, width, height, renderer, consider=None):\n        \"\"\"\n        Determine the best location to place the legend.\n\n        *consider* is a list of ``(x, y)`` pairs to consider as a potential\n        lower-left corner of the legend. All are display coords.\n        \"\"\"\n        assert self.isaxes  # always holds, as this is only called internally\n\n        start_time = time.perf_counter()\n\n        bboxes, lines, offsets = self._auto_legend_data()\n\n        bbox = Bbox.from_bounds(0, 0, width, height)\n        if consider is None:\n            consider = [self._get_anchored_bbox(x, bbox,\n                                                self.get_bbox_to_anchor(),\n                                                renderer)\n                        for x in range(1, len(self.codes))]\n\n        candidates = []\n        for idx, (l, b) in enumerate(consider):\n            legendBox = Bbox.from_bounds(l, b, width, height)\n            badness = 0\n            # XXX TODO: If markers are present, it would be good to take them\n            # into account when checking vertex overlaps in the next line.\n            badness = (sum(legendBox.count_contains(line.vertices)\n                           for line in lines)\n                       + legendBox.count_contains(offsets)\n                       + legendBox.count_overlaps(bboxes)\n                       + sum(line.intersects_bbox(legendBox, filled=False)\n                             for line in lines))\n            if badness == 0:\n                return l, b\n            # Include the index to favor lower codes in case of a tie.\n            candidates.append((badness, idx, (l, b)))\n\n        _, _, (l, b) = min(candidates)\n\n        if self._loc_used_default and time.perf_counter() - start_time > 1:\n            _api.warn_external(\n                'Creating legend with loc=\"best\" can be slow with large '\n                'amounts of data.')\n\n        return l, b\n",
+    "observer_uses_real_clock": true,
+    "test_or_clock_monkeypatched": false,
+    "test_call_exception": null,
+    "calls": [
+      {
+        "clock_condition_brackets": [
+          {
+            "lower_seconds": 1.8694577420000087,
+            "upper_seconds": 1.8694630939999968
+          }
+        ],
+        "loc_used_default": true,
+        "badness": 1000,
+        "candidates": 10,
+        "return_position": [
+          479.65,
+          -22580.8
+        ]
+      },
+      {
+        "clock_condition_brackets": [
+          {
+            "lower_seconds": 1.857005488999988,
+            "upper_seconds": 1.8570097829999952
+          }
+        ],
+        "loc_used_default": true,
+        "badness": 1000,
+        "candidates": 10,
+        "return_position": [
+          479.65,
+          -22580.8
+        ]
+      }
+    ],
+    "file_hashes_after": {
+      "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+      "legend": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+    },
+    "repetition": 1,
+    "eval_script_seconds": 21.604108572006226
+  }
+]

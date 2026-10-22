@@ -1,0 +1,8 @@
+{
+  "cpu_model_lines": [
+    "model name\t: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+    "vendor_id\t: GenuineIntel"
+  ],
+  "logical_cpus": 16,
+  "kernel": "7.2.9"
+}

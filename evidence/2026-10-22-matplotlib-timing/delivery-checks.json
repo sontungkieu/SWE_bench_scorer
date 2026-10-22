@@ -1,0 +1,19 @@
+{
+  "delivery_checks_passed": true,
+  "VM_allocations_including_script_failure": 3,
+  "successful_diagnostic_VM_allocations": 2,
+  "unmodified_official_repetitions": 4,
+  "profiled_full_suite_repetitions": 4,
+  "observed_condition_clock_samples": 8,
+  "all_observed_condition_samples_above_1_second": true,
+  "below_threshold_branch_reproduced": false,
+  "original_failed_clock_directly_measured": false,
+  "historical_failed_report_not_overwritten": true,
+  "CPU_models_differ_under_same_resource_request": true,
+  "all_VM_cleanup_confirmed": true,
+  "potential_credential_matches": 0,
+  "files_and_archive_members_scanned": 270,
+  "probe_tests_passed": 78,
+  "all_three_attempts_and_costs_retained": true,
+  "combined_cost_below_2_USD": true
+}

@@ -1,0 +1,42 @@
+{
+  "started_at": "2026-10-22T01:29:16.105414+00:00",
+  "profile": "phamvanvuhoan",
+  "cpu": 16,
+  "memory_gib": 64,
+  "lifetime_seconds": 780,
+  "estimate_usd": 0.85,
+  "prior_run_cost_usd": 0.45891859,
+  "failed_first_diagnostic_allocation_bound_usd": 0.028510780799999996,
+  "prior_completed_diagnostic_allocation_bound_usd": 0.1675937838548243,
+  "snapshot_image_id": "im-01M5G6RH7J1SCGR9X70611VNYG",
+  "source_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8"
+  },
+  "original_results_not_modified": true,
+  "full_500_evaluated": false,
+  "source_git_commit": "3d0cb53",
+  "app_id": "ap-hre6zuXN0VBBuysSUXHlsz",
+  "vm_id": "sb-01M5GKM3B2YWQSM3EG02WZZ4HW",
+  "copied_files_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8",
+    "snapshot_catalog_worker.py": "37cc5fcacfc72249657275f194db2cf5d640351acb9594e4526168c3dc828044",
+    "sharded_pilot_worker.py": "d894a82bcef3859257b603ed58c57d108afc6df70317ebd563c27acc6921bd22",
+    "matplotlib_timing_probe.py": "4537c568b293518a8d84d6a84ecc7a3636582c75d4480ab08bb20e7228aebe8d",
+    "matplotlib_clock_observer.py": "4063020648859a350b8d2bdbbf4db9112d7877efdc9e4f958bb89b5eef8ace1b",
+    "snapshot_pilot.py": "1fae30a6f07d2cd2727fd4213d3bda450bd8a41e52f3de62b1d4ac9b1939927b",
+    "pilot.json": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+    "preds.jsonl": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f",
+    "assignment.json": "bbd6a3605763229d06dd426af41b4a1c979ad20e59cf700fed552330c7d676ad",
+    "reference-eval.sh": "f3a432a872953c583ed024a50da0e88a35adad8310f91b43b4269dd0e3f1869a"
+  },
+  "worker_completed": true,
+  "all_vms_terminated": true,
+  "finished_at": "2026-10-22T01:32:05.276394+00:00",
+  "wall_seconds": 169.17094764858484
+}

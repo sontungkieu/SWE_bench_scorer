@@ -1,0 +1,13 @@
+{
+  "official_repetitions": 2,
+  "profiled_repetitions": 2,
+  "official_workers": 8,
+  "official_test_timeout": 600,
+  "group_ids": [
+    "matplotlib__matplotlib-20859",
+    "django__django-16429"
+  ],
+  "original_eval_script_sha256": "f3a432a872953c583ed024a50da0e88a35adad8310f91b43b4269dd0e3f1869a",
+  "profiled_script_changes": "add diagnostic pytest plugin and its output/PYTHONPATH; test/source/clock unchanged",
+  "diagnostic_reports_do_not_replace_original_24_case_reports": true
+}

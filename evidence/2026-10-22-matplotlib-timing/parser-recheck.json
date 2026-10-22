@@ -1,0 +1,11 @@
+{
+  "harness": "4.1.0",
+  "same_entire_report_from_retained_log": true,
+  "resolved": false,
+  "PASS_TO_PASS_failure": [
+    "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc"
+  ],
+  "source_log_sha256": "f7a22ee864edbfa28a40feb7ecf36929e54240a887b6c60eaef19417d923fdd8",
+  "grading_function_source_sha256": "c551b6119b67cbe3f4fd23f906bc5bff19383dffe201ae1e7bc80d36f6402e89",
+  "original_report_or_score_written": false
+}

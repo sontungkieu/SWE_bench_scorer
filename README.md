@@ -351,3 +351,8 @@ quan sát bằng pytest plugin. Plugin dùng `sys.setprofile` để ghi khoảng
 gian bao quanh clock sample thật tại điều kiện warning và phân biệt early
 return; không monkeypatch clock, sửa test hoặc thay official report. Profiler
 có overhead, nên bằng chứng này được lưu riêng và không thay kết quả 24 bài.
+Đã đo trên hai VM có CPU model khác nhau ở cùng resource request; 8 clock
+samples quan sát đều trên 1 giây và test pass. Chưa tái hiện nhánh dưới ngưỡng
+trong loạt chẩn đoán, nên giả thuyết tốc độ cho lượt fail cũ vẫn là suy luận
+có căn cứ, chưa phải clock lịch sử đã đo. [Báo cáo đầy đủ, tất cả repetitions
+và kiểm tra parser](evidence/2026-10-22-matplotlib-timing/README.md).

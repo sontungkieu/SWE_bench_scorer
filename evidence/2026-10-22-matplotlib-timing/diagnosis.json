@@ -1,0 +1,211 @@
+{
+  "historical": {
+    "resource_configuration": {
+      "cpu": 16,
+      "memory_gib": 64,
+      "workers": 8,
+      "test_timeout": 600
+    },
+    "same_shard_mapping_and_snapshot_ids": true,
+    "same_four_evaluator_and_two_helper_hashes": true,
+    "same_eval_script_and_gold_patch_sha256": {
+      "eval.sh": "f3a432a872953c583ed024a50da0e88a35adad8310f91b43b4269dd0e3f1869a",
+      "patch.diff": "c3148dbc6d6758e57d0999dc42b2e1166d836e082da402eba0a688855c4f4e4f"
+    },
+    "officially_resolved_serial": true,
+    "officially_resolved_parallel": false,
+    "only_changed_required_test": "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc",
+    "primary_FAIL_TO_PASS_still_passes": true,
+    "same_dependency_and_python_pytest_lines_in_retained_output": [
+      "Requirement already satisfied: cycler>=0.10 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (0.12.1)",
+      "Requirement already satisfied: fonttools>=4.22.0 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (4.56.0)",
+      "Requirement already satisfied: kiwisolver>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (1.4.7)",
+      "Requirement already satisfied: numpy>=1.17 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (1.24.4)",
+      "Requirement already satisfied: packaging>=20.0 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (24.2)",
+      "Requirement already satisfied: pillow>=6.2.0 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (10.4.0)",
+      "Requirement already satisfied: pyparsing>=2.2.1 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (2.4.7)",
+      "Requirement already satisfied: python-dateutil>=2.7 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (2.9.0.post0)",
+      "Requirement already satisfied: setuptools>=61 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from setuptools_scm>=4->matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (75.1.0)",
+      "Requirement already satisfied: setuptools_scm>=4 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (8.2.0)",
+      "Requirement already satisfied: six>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (1.17.0)",
+      "Requirement already satisfied: tomli>=1 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from setuptools_scm>=4->matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (2.2.1)",
+      "Requirement already satisfied: typing-extensions in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from setuptools_scm>=4->matplotlib==3.5.0.dev1717+g20bad9f2d5.d20261022) (4.12.2)",
+      "platform linux -- Python 3.8.20, pytest-8.3.4, pluggy-1.5.0"
+    ],
+    "historical_internal_clock_not_recorded": true,
+    "physical_CPU_model_not_pinned_by_request": true
+  },
+  "diagnostic_attempts": [
+    {
+      "vm": "01",
+      "app_id": "ap-fCv2l5QvSa6hu9p138plju",
+      "vm_id": "sb-01M5GK3PEFHG2AXNF2EXSDVH7D",
+      "cost_usd": "0.02114638",
+      "billing_stable_gap_seconds": 165.259402,
+      "wall_seconds": 26.957973131909966,
+      "worker_completed": false,
+      "diagnostic_script_failed_before_any_test": "Wrong setup_logger import; retained original traceback in archive"
+    },
+    {
+      "vm": "02",
+      "app_id": "ap-iFBohBtNo31AsWeRAsV5uA",
+      "vm_id": "sb-01M5GK8Z8BAAZ5KGHEQFQC0X50",
+      "cost_usd": "0.16071678",
+      "billing_stable_gap_seconds": 163.855402,
+      "wall_seconds": 158.46613450720906,
+      "worker_completed": true,
+      "audit": {
+        "fixed_official_repetitions": [
+          {
+            "repetition": 0,
+            "matplotlib_resolved": true,
+            "pass_to_pass_failures": []
+          },
+          {
+            "repetition": 1,
+            "matplotlib_resolved": true,
+            "pass_to_pass_failures": []
+          }
+        ],
+        "profiled_repetitions": [
+          {
+            "repetition": 0,
+            "profiled_test_call_exception": null,
+            "calls": [
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.8671287989999996,
+                "upper_seconds": 1.8671323089999987,
+                "badness": 1000
+              },
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.9014048599999995,
+                "upper_seconds": 1.9014085300000119,
+                "badness": 1000
+              }
+            ]
+          },
+          {
+            "repetition": 1,
+            "profiled_test_call_exception": null,
+            "calls": [
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.8725600599999837,
+                "upper_seconds": 1.8725642199999868,
+                "badness": 1000
+              },
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.8794869100000255,
+                "upper_seconds": 1.8794914100000142,
+                "badness": 1000
+              }
+            ]
+          }
+        ],
+        "test_and_library_file_hashes_unchanged_during_each_profiled_test": true,
+        "profiling_has_overhead": true,
+        "original_24_case_result_not_replaced": true,
+        "new_observations_do_not_recover_historical_unrecorded_clock_values": true
+      },
+      "hardware": {
+        "cpu_model_lines": [
+          "model name\t: AMD EPYC 9654 96-Core Processor",
+          "vendor_id\t: AuthenticAMD"
+        ],
+        "logical_cpus": 16,
+        "kernel": "7.2.9"
+      }
+    },
+    {
+      "vm": "03",
+      "app_id": "ap-hre6zuXN0VBBuysSUXHlsz",
+      "vm_id": "sb-01M5GKM3B2YWQSM3EG02WZZ4HW",
+      "cost_usd": "0.17128912",
+      "billing_stable_gap_seconds": 80.557129,
+      "wall_seconds": 169.17094764858484,
+      "worker_completed": true,
+      "audit": {
+        "fixed_official_repetitions": [
+          {
+            "repetition": 0,
+            "matplotlib_resolved": true,
+            "pass_to_pass_failures": []
+          },
+          {
+            "repetition": 1,
+            "matplotlib_resolved": true,
+            "pass_to_pass_failures": []
+          }
+        ],
+        "profiled_repetitions": [
+          {
+            "repetition": 0,
+            "profiled_test_call_exception": null,
+            "calls": [
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.860360134000004,
+                "upper_seconds": 1.8603660020000063,
+                "badness": 1000
+              },
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.8753017140000026,
+                "upper_seconds": 1.8753076759999914,
+                "badness": 1000
+              }
+            ]
+          },
+          {
+            "repetition": 1,
+            "profiled_test_call_exception": null,
+            "calls": [
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.8694577420000087,
+                "upper_seconds": 1.8694630939999968,
+                "badness": 1000
+              },
+              {
+                "classification": "above_one_second",
+                "lower_seconds": 1.857005488999988,
+                "upper_seconds": 1.8570097829999952,
+                "badness": 1000
+              }
+            ]
+          }
+        ],
+        "test_and_library_file_hashes_unchanged_during_each_profiled_test": true,
+        "profiling_has_overhead": true,
+        "original_24_case_result_not_replaced": true,
+        "new_observations_do_not_recover_historical_unrecorded_clock_values": true
+      },
+      "hardware": {
+        "cpu_model_lines": [
+          "model name\t: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+          "vendor_id\t: GenuineIntel"
+        ],
+        "logical_cpus": 16,
+        "kernel": "7.2.9"
+      }
+    }
+  ],
+  "diagnostic_cost_usd": "0.35315228",
+  "original_N11max_cost_usd": "0.45891859",
+  "combined_original_and_diagnostics_usd": "0.81207087",
+  "all_VM_cleanup_confirmed": true,
+  "before_credits": true,
+  "not_final_invoice": true,
+  "storage_not_in_app_billing": true,
+  "original_report_blob_unchanged_sha256": "13eede1d58b3a58c09373019eab6fa68991a107c41af51e4b946dcf7902e8665",
+  "same_test_and_legend_hashes_across_four_profiled_runs": {
+    "test": "7eb11e61e7ffe9dd3e3241d7f3eb3db49839c39294a259bbfa456ef62086f2bc",
+    "legend": "68b76910b4f56cbebcebf52936b337b6091b7cba62f981de7a579a99f5253378"
+  },
+  "same_find_best_position_source_sha256": "0a3b87d26498faeed02c805c7d94346ec38acb5c0dcb24bc765fcf96348972f3",
+  "fast_below_one_second_branch_not_reproduced_in_new_runs": true,
+  "original_missing_warning_caused_by_fast_clock_is_strong_inference_not_historically_measured": true
+}
