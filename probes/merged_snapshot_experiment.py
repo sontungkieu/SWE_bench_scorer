@@ -1,4 +1,4 @@
-"""Finite $5 combined N7 build + frozen-24 experiment, existing GCP coordinator.
+"""Finite $8 combined N7 build + frozen-24 experiment, existing GCP coordinator.
 
 One VM at a time, no retries, six new snapshot groups maximum. The old N11
 catalog and runners remain untouched. Never evaluate all 500 tasks here.
@@ -26,10 +26,10 @@ from snapshot_shards import verify_catalog
 from sharded_pilot import CATALOG_SHA, RATE
 from summarize_snapshot_pilot import compare
 
-ESTIMATE = 5
+ESTIMATE = 8
 BUILD_LIFETIME = 900
 VERIFY_LIFETIME = 120
-SCORE_DEADLINE = 1800
+SCORE_DEADLINE = 3000
 BUILD_RATE = 2*.00003942 + 4*.00000667
 BOUND = 6*(BUILD_LIFETIME+VERIFY_LIFETIME)*BUILD_RATE + 2*SCORE_DEADLINE*RATE
 EVALUATORS = ['core.py', 'remote_worker.py', 'image_cache.py', 'registry_cache.py']
@@ -74,12 +74,12 @@ def selected_groups(catalog, selection, image_plan):
 def build_contract(reuse_bases=False,prior_reservation=0.):
     if not 0 <= prior_reservation <= .19: raise ValueError('Prior-attempt reservation outside recovery contract')
     cpu=4 if reuse_bases else 2
-    lifetime=780 if reuse_bases else BUILD_LIFETIME
+    lifetime=1100 if reuse_bases else BUILD_LIFETIME
     bound=6*lifetime*(cpu*.00003942+4*.00000667)+6*VERIFY_LIFETIME*BUILD_RATE+2*SCORE_DEADLINE*RATE
-    if bound+prior_reservation > 4.94: raise ValueError('Insufficient $5 envelope / egress reserve')
+    if bound+prior_reservation > 7.84: raise ValueError('Insufficient $8 envelope / egress reserve')
     return {'reuse_bases':reuse_bases,'build_cpu':cpu,'build_memory_gib':4,'build_lifetime':lifetime,
             'prior_attempt_reservation_usd':prior_reservation,'new_run_cpu_ram_bound_usd':bound,
-            'combined_cpu_ram_bound_usd':bound+prior_reservation,'approved_total_compute_egress_usd':5}
+            'combined_cpu_ram_bound_usd':bound+prior_reservation,'approved_total_compute_egress_usd':8}
 
 
 def prepare(out, source, reference, commit, reuse_bases=False, prior_reservation=0.):
@@ -148,6 +148,7 @@ def run(out, source):
     plans = {mode:json.loads((out/mode/'merge-plan.json').read_text()) for mode in MODES}
     if plans != {mode:plan_mode(mode) for mode in MODES}: raise ValueError('Merge plan changed')
     contract=json.loads((out/'contract.json').read_text())
+    if not contract['reuse_bases']: raise ValueError('Use prepare --reuse-bases; full rebuild strategy is superseded')
     bounded=build_contract(contract['reuse_bases'],contract['prior_attempt_reservation_usd'])
     if any(contract.get(k)!=v for k,v in bounded.items()): raise ValueError('Build contract changed')
     if sum(p['summary']['new_snapshots_required'] for p in plans.values()) != 6:
@@ -165,7 +166,7 @@ def run(out, source):
     fcntl.flock(lock, fcntl.LOCK_EX|fcntl.LOCK_NB)
     guard(source,out.name,ESTIMATE); guard(source,out.name,ESTIMATE,'planned')
     record = {'started_at':datetime.now(timezone.utc).isoformat(),'source_context':context,
-              'profile':'phamvanvuhoan','budget_usd':5,'contract':contract,
+              'profile':'phamvanvuhoan','budget_usd':8,'contract':contract,
               'runtime':'vm','max_active_vms':1,'full_500_evaluated':False,
               'modes':{},'terminated_vm_ids':[],'vm_attempts':[]}
     active = None
@@ -252,7 +253,7 @@ def run(out, source):
                                 assert_readback(sb,[BUILD_HELPER])
                             start_docker(sb)
                             command=['python','-u','/work/'+BUILD_HELPER] if strategy else ['python','-u','/work/snapshot_catalog_worker.py','preload']
-                            stream(sb,command,case/'preload.log',min(650,build_lifetime-180))
+                            stream(sb,command,case/'preload.log',build_lifetime-180)
                             sb.filesystem.copy_to_local('/snapshot-catalog-manifest.json',str(case/'manifest.json'))
                             stop_docker(sb)
                             captured=datetime.now(timezone.utc);t=time.monotonic()

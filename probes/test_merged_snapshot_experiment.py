@@ -21,12 +21,12 @@ class ExperimentTests(unittest.TestCase):
         for base in [[],rows,rows+[rows[0]]]:
             with self.assertRaises(ValueError):partition_missing(rows,base)
 
-    def test_recovery_builder_fits_total_five_including_prior_attempt_reserve(self):
+    def test_recovery_builder_fits_total_eight_including_prior_attempt_reserve(self):
         contract=build_contract(True,.19)
         self.assertEqual(contract['build_cpu'],4)
-        self.assertEqual(contract['build_lifetime'],780)
-        self.assertLess(contract['combined_cpu_ram_bound_usd'],4.94)
-        self.assertAlmostEqual(contract['combined_cpu_ram_bound_usd'],4.9361392,places=5)
+        self.assertEqual(contract['build_lifetime'],1100)
+        self.assertLess(contract['combined_cpu_ram_bound_usd'],7.84)
+        self.assertAlmostEqual(contract['combined_cpu_ram_bound_usd'],7.8283504,places=5)
 
     def inputs(self):
         data=[{'instance_id':f'id-{i}','patch':f'gold-{i}'} for i in range(24)]
@@ -41,7 +41,7 @@ class ExperimentTests(unittest.TestCase):
         self.assertEqual(lifetime_for(8),780)
         self.assertEqual(lifetime_for(9),1380)
         self.assertLess(BOUND,ESTIMATE)
-        self.assertAlmostEqual(BOUND,4.4531424)
+        self.assertAlmostEqual(BOUND,6.9913824)
 
     def test_queue_does_not_weaken_frozen_gold_validation(self):
         data,preds=self.inputs()
