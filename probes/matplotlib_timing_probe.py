@@ -3,6 +3,7 @@ import argparse
 from datetime import datetime,timezone
 import hashlib
 import json
+import math
 import os
 from pathlib import Path,PurePosixPath
 import subprocess
@@ -115,7 +116,10 @@ def run(out,source,reference):
     # The first diagnostic stopped before tests in 26.958s (import error).
     # Retain its entire coordinator interval as a conservative allocation bound.
     failed_diagnostic_bound=RATE*26.958
-    if OLD_COST+failed_diagnostic_bound+RATE*LIFETIME+.02>2:
+    prior_completed_bound=float(os.environ.get('MPL_PRIOR_COMPLETED_DIAG_BOUND_USD','0'))
+    if not math.isfinite(prior_completed_bound) or prior_completed_bound<0:
+        raise ValueError('Invalid previous diagnostic allocation bound')
+    if OLD_COST+failed_diagnostic_bound+prior_completed_bound+RATE*LIFETIME+.02>2:
         raise ValueError('Combined prior runs + full diagnostic lifetime exceeds $2')
     validate_inputs(reference)
     original=json.loads((reference/'receipt.json').read_text())
@@ -131,6 +135,7 @@ def run(out,source,reference):
     record={'started_at':datetime.now(timezone.utc).isoformat(),'profile':'phamvanvuhoan','cpu':16,'memory_gib':64,
             'lifetime_seconds':LIFETIME,'estimate_usd':ESTIMATE,'prior_run_cost_usd':OLD_COST,
             'failed_first_diagnostic_allocation_bound_usd':failed_diagnostic_bound,
+            'prior_completed_diagnostic_allocation_bound_usd':prior_completed_bound,
             'snapshot_image_id':group['snapshot_image_id'],'source_sha256':expected,
             'original_results_not_modified':True,'full_500_evaluated':False,'source_git_commit':os.environ['MPL_DIAG_COMMIT']}
     active=None;started=time.monotonic();app=modal.App('swebench-matplotlib-clock-diagnosis')
