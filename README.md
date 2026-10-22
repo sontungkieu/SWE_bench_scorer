@@ -370,9 +370,11 @@ Không thể ghép trực tiếp các ID snapshot hoặc thư mục Docker store
 điền bằng median từng repo, chưa phải dự báo billing. Không đổi thứ tự test
 thật theo LPT. Kết quả hiện tại có nhóm lớn nhất 63,954 GiB, cần 4 snapshot mới.
 
-Hai mode này **chỉ lập phương án offline**, chưa build/restore hay qualified
-report parity; `prepare`, `run`, `collect` bị chặn rõ ràng, không rơi vào runner
-N11 cũ. Tất cả mode N11/catalog pin và backend web giữ nguyên. Lệnh không dùng
+Hai catalog đã build/restore thành công và được chấm đúng 24 controls:
+N7merge đạt **23/24**, N7weighted **22/24**, nên **chưa qualified report parity**.
+`eval_modes.py` vẫn chỉ cho N7 lập phương án offline; `prepare`, `run`, `collect`
+bị chặn rõ ràng, không rơi vào runner N11 cũ. Tất cả mode N11/catalog pin và
+backend web giữ nguyên. Lệnh lập phương án không dùng
 Modal, không cần credential, không tạo VM:
 
 ```bash
@@ -382,11 +384,13 @@ python eval_modes.py plan --mode optimizeN7weighted --out NEW_N7_WEIGHTED_PLAN
 
 Mỗi thư mục mới chứa `merge-plan.json.gz`: toàn bộ assignment, OCI identity,
 hash nguồn, dung lượng layer đã khử trùng và giới hạn suy luận. Không ghi đè
-plan/run cũ. Muốn chấm phải có budget build/qualification riêng, catalog mới
-đã read-back và runner 24 bài có lifetime/billing guard. Đặc biệt mẫu 24 bài
-ở N7merge có nhóm **9 bài**: cần hàng đợi với tối đa 8 worker, không bỏ bài,
-không tăng concurrency để vượt validator N11 hiện tại. Chưa mở full 500.
+plan/run cũ. Catalog mới đã read-back và runner riêng đã chấm đủ 24 bài với
+lifetime/billing guard. Nhóm **9 bài** ở N7merge đã chạy bằng hàng đợi tối đa
+8 worker, không bỏ bài hoặc tăng concurrency. Snapshot được giữ lại; trước
+khi mở mode chạy tiếp cần qualification phù hợp cho các required-test mismatch,
+không tự build lại hay retry để lấy pass. Chưa mở full 500.
 [So sánh hai phương án và các bước còn lại](evidence/2026-10-22-merged-snapshot-plans/README.md).
+[Kết quả build/test, failure, chi phí và log đầy đủ](evidence/2026-10-22-n7-merged-qualification/README.md).
 
 `probes/merged_snapshot_experiment.py` là coordinator riêng cho lần qualification
 cả hai cách gộp, chưa thay dispatch/catalog pin của N11. `prepare --reuse-bases` chỉ đóng băng

@@ -1,0 +1,165 @@
+{
+  "source_commit": "ea97319753106cb84318cc67acf4d6cb171a2016",
+  "full_500_evaluated": false,
+  "all_vms_terminated": true,
+  "app_ids": {
+    "build": "ap-tsSC0ap7lXxD4yy1V1G6L9",
+    "optimizeN7merge": "ap-Tw7f3uzWLPwWlxWT4UuvMt",
+    "optimizeN7weighted": "ap-oUAnetKPPLlqlcSv3DvECC"
+  },
+  "budget": {
+    "reuse_bases": true,
+    "build_cpu": 4,
+    "build_memory_gib": 4,
+    "build_lifetime": 1100,
+    "prior_attempt_reservation_usd": 0.19,
+    "new_run_cpu_ram_bound_usd": 7.638350399999999,
+    "combined_cpu_ram_bound_usd": 7.8283504,
+    "approved_total_compute_egress_usd": 8,
+    "profile": "phamvanvuhoan",
+    "runtime": "vm",
+    "new_snapshot_groups": 6,
+    "verify_lifetime": 120,
+    "score_cpu": 16,
+    "score_memory_gib": 64,
+    "workers": 8,
+    "test_timeout": 600,
+    "score_deadline_per_mode": 3000,
+    "max_active_vms": 1,
+    "ttl_seconds": 7776000,
+    "full_500_evaluated": false,
+    "no_automatic_paid_retry": true,
+    "storage_not_in_one_time_compute_egress_envelope": true
+  },
+  "modes": {
+    "optimizeN7merge": {
+      "official_comparison": {
+        "selected_count": 24,
+        "baseline_reports": 24,
+        "snapshot_reports": 24,
+        "snapshot_resolved": 23,
+        "missing_ids": [],
+        "extra_ids": [],
+        "different_report_ids": [
+          "matplotlib__matplotlib-20859"
+        ],
+        "complete_report_matches": 23
+      },
+      "catalog_complete": true,
+      "score_complete": true,
+      "build_error": null,
+      "score_error": null,
+      "score_vm_count": 6,
+      "source_readbacks": 6,
+      "live_cleanup_verified": true,
+      "all_source_readbacks_match": true,
+      "image_sources": {
+        "local": 24
+      },
+      "image_count": 24,
+      "cache_added_bytes": 0,
+      "harness_cli_invocations": 6,
+      "sum_harness_cli_seconds": 267.879179782,
+      "sum_vm_wall_seconds": 393.2920632045716,
+      "sum_docker_ready_seconds": 79.23970405384898,
+      "sum_metadata_verification_seconds": 1.449614325999999,
+      "sum_test_and_cleanup_seconds": 287.07990130400003,
+      "sum_image_cleanup_seconds": 7.655474246000004,
+      "score_wall_seconds": 393.3325475063175,
+      "cpu_models_by_group": {
+        "score-00": [
+          "AMD EPYC 9654 96-Core Processor"
+        ],
+        "score-02": [
+          "AMD EPYC 9655 96-Core Processor"
+        ],
+        "score-03": [
+          "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz"
+        ],
+        "score-04": [
+          "AMD EPYC 9654 96-Core Processor"
+        ],
+        "score-05": [
+          "AMD EPYC 9654 96-Core Processor"
+        ],
+        "score-06": [
+          "AMD EPYC 9655P 96-Core Processor"
+        ]
+      },
+      "effective_environment_configs_match": true,
+      "qualified_24_control_run": false
+    },
+    "optimizeN7weighted": {
+      "official_comparison": {
+        "selected_count": 24,
+        "baseline_reports": 24,
+        "snapshot_reports": 24,
+        "snapshot_resolved": 22,
+        "missing_ids": [],
+        "extra_ids": [],
+        "different_report_ids": [
+          "matplotlib__matplotlib-20859",
+          "psf__requests-1921"
+        ],
+        "complete_report_matches": 22
+      },
+      "catalog_complete": true,
+      "score_complete": true,
+      "build_error": null,
+      "score_error": null,
+      "score_vm_count": 6,
+      "source_readbacks": 6,
+      "live_cleanup_verified": true,
+      "all_source_readbacks_match": true,
+      "image_sources": {
+        "local": 24
+      },
+      "image_count": 24,
+      "cache_added_bytes": 0,
+      "harness_cli_invocations": 6,
+      "sum_harness_cli_seconds": 251.368546527,
+      "sum_vm_wall_seconds": 386.40755149535835,
+      "sum_docker_ready_seconds": 81.6904522255063,
+      "sum_metadata_verification_seconds": 1.6039981000000019,
+      "sum_test_and_cleanup_seconds": 275.047329075,
+      "sum_image_cleanup_seconds": 9.941217326,
+      "score_wall_seconds": 386.5042117405683,
+      "cpu_models_by_group": {
+        "score-00": [
+          "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz"
+        ],
+        "score-02": [
+          "AMD EPYC 9655P 96-Core Processor"
+        ],
+        "score-03": [
+          "AMD EPYC 9655P 96-Core Processor"
+        ],
+        "score-04": [
+          "AMD EPYC 9654 96-Core Processor"
+        ],
+        "score-05": [
+          "AMD EPYC 9654 96-Core Processor"
+        ],
+        "score-06": [
+          "AMD EPYC 9654 96-Core Processor"
+        ]
+      },
+      "effective_environment_configs_match": true,
+      "qualified_24_control_run": false
+    }
+  },
+  "costs": {
+    "first_stopped_usd": "0.08545511",
+    "recovery_by_role_usd": {
+      "build": "0.46785345",
+      "optimizeN7merge": "0.38067735",
+      "optimizeN7weighted": "0.37222517"
+    },
+    "combined_compute_egress_usd": "1.30621108",
+    "billing_complete": true,
+    "within_approved_eight_usd": true,
+    "before_credits": true,
+    "not_final_invoice": true,
+    "snapshot_storage_excluded": true
+  }
+}

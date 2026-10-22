@@ -2,8 +2,8 @@
 
 These are research entry points, separate from the production web/launch.py OCI
 backend. N denotes total full-500 catalog shards, not workers per VM.
-N7 merge modes currently produce offline plans only. No full-500 execution is
-exposed here.
+N7 catalogs have been built and tested; parity failed, so this entry point only
+allows offline N7 planning. No full-500 execution is exposed here.
 """
 import argparse
 import gzip
@@ -26,13 +26,19 @@ MODES = {
                        'max_active_vms':2, 'cpu':16, 'memory_gib':64, 'workers':8, 'test_timeout':600,
                        'budget_usd':2, 'cumulative_allocation_seconds':1800, 'lifetime_per_vm_seconds':780},
     'optimizeN7merge': {'backend':'VM snapshot', 'catalog_shards':7,
-                       'status':'offline_plan_only', 'execution_enabled':False,
+                       'status':'snapshots_built_parity_failed', 'execution_enabled':False,
                        'layout':'100,100,59,(27+21),43,100,(24+8+9+9)',
-                       'max_layer_tar_gib':96, 'scientific_parity_qualified':False},
+                       'max_layer_tar_gib':96, 'scientific_parity_qualified':False,
+                       'official_controls_resolved':23, 'baseline_report_matches':23,
+                       'catalog':'evidence/2026-10-22-n7-merged-qualification/optimizeN7merge-catalog.json',
+                       'catalog_sha256':'39aa9ca5302ccc42cd5ff6adabadc48976451527d8c47af11380ab378328f2c5'},
     'optimizeN7weighted': {'backend':'VM snapshot', 'catalog_shards':7,
-                          'status':'offline_plan_only', 'execution_enabled':False,
+                          'status':'snapshots_built_parity_failed', 'execution_enabled':False,
                           'layout':'whole-N11-shard partition minimizing a weak runtime proxy',
-                          'max_layer_tar_gib':64, 'scientific_parity_qualified':False},
+                          'max_layer_tar_gib':64, 'scientific_parity_qualified':False,
+                          'official_controls_resolved':22, 'baseline_report_matches':22,
+                          'catalog':'evidence/2026-10-22-n7-merged-qualification/optimizeN7weighted-catalog.json',
+                          'catalog_sha256':'eaba8c886b7e7c9ead2acbc3491863f9152d27df2bc91733042cbf75d2da5fd8'},
 }
 INPUTS = ['pilot.json','preds.jsonl','selection.json','usable-shards-catalog.json',
           'image-plan.json','snapshot-plan-hashes.json','baseline-reports.json']
@@ -78,7 +84,7 @@ def main():
         print(json.dumps({'mode':a.mode,'status':value['status'],'summary':value['summary']},indent=2))
         return 0
     if a.mode in merge_modes:
-        p.error('N7 is offline_plan_only: use plan; new snapshots/catalog and a bounded 24-control runner are not qualified yet')
+        p.error('N7 catalogs were built, but official report parity failed: run/prepare/collect stay disabled here; use plan or the separate experiment collector for retained runs')
     if a.out is None:p.error('--out required')
     if a.action=='prepare':
         if not a.reference or not a.commit:p.error('prepare requires --reference and immutable --commit')

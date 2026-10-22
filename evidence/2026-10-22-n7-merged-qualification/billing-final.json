@@ -1,0 +1,89 @@
+{
+  "checked_at": "2026-10-22T04:28:17.472595+00:00",
+  "app_ids": {
+    "build": "ap-tsSC0ap7lXxD4yy1V1G6L9",
+    "optimizeN7merge": "ap-Tw7f3uzWLPwWlxWT4UuvMt",
+    "optimizeN7weighted": "ap-oUAnetKPPLlqlcSv3DvECC"
+  },
+  "rows": [
+    {
+      "object_id": "ap-Tw7f3uzWLPwWlxWT4UuvMt",
+      "description": "swebench-optimizen7merge-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "CPU",
+      "cost": "0.22704056"
+    },
+    {
+      "object_id": "ap-Tw7f3uzWLPwWlxWT4UuvMt",
+      "description": "swebench-optimizen7merge-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00003641"
+    },
+    {
+      "object_id": "ap-Tw7f3uzWLPwWlxWT4UuvMt",
+      "description": "swebench-optimizen7merge-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "Memory",
+      "cost": "0.15360038"
+    },
+    {
+      "object_id": "ap-oUAnetKPPLlqlcSv3DvECC",
+      "description": "swebench-optimizen7weighted-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "CPU",
+      "cost": "0.22199905"
+    },
+    {
+      "object_id": "ap-oUAnetKPPLlqlcSv3DvECC",
+      "description": "swebench-optimizen7weighted-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "Network Egress",
+      "cost": "0.00003649"
+    },
+    {
+      "object_id": "ap-oUAnetKPPLlqlcSv3DvECC",
+      "description": "swebench-optimizen7weighted-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "Memory",
+      "cost": "0.15018963"
+    },
+    {
+      "object_id": "ap-tsSC0ap7lXxD4yy1V1G6L9",
+      "description": "swebench-n7-dual-build-and-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "Memory",
+      "cost": "0.06864019"
+    },
+    {
+      "object_id": "ap-tsSC0ap7lXxD4yy1V1G6L9",
+      "description": "swebench-n7-dual-build-and-24",
+      "environment": "main",
+      "interval_start": "2026-10-22T00:00:00",
+      "resource": "CPU",
+      "cost": "0.39921326"
+    }
+  ],
+  "cost_by_role_usd": {
+    "build": "0.46785345",
+    "optimizeN7merge": "0.38067735",
+    "optimizeN7weighted": "0.37222517"
+  },
+  "missing_billing_roles": [],
+  "before_credits": true,
+  "not_final_invoice": true,
+  "snapshot_storage_not_in_app_sum": true,
+  "remaining_vms": {
+    "build": [],
+    "optimizeN7merge": [],
+    "optimizeN7weighted": []
+  },
+  "compute_egress_usd": "1.22075597"
+}

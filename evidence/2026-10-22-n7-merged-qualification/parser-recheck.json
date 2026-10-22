@@ -1,0 +1,421 @@
+{
+  "harness": "4.1.0",
+  "pilot_sha256": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+  "predictions_sha256": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f",
+  "benchmark_tests_run": false,
+  "new_vms_created": false,
+  "grading_source_sha256": "88fc500ebaf692a53457149cec24dcf82dfa2d48f98021a894a087d275f61df4",
+  "modes": {
+    "optimizeN7merge": {
+      "count": 24,
+      "all_match": true,
+      "resolved_count": 23,
+      "rows": [
+        {
+          "instance_id": "astropy__astropy-13398",
+          "raw_output_sha256": "35179dfba6f16d88a293a444e6752361e335aa463cb767d18c6f985bafe8c481",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "astropy__astropy-8707",
+          "raw_output_sha256": "3a420d4660fae87c17f0401e1905bfce714d7925fcb3ecdcb86f25b01c3f8f8e",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "django__django-11149",
+          "raw_output_sha256": "6c8bc0e14d0dad5b06a8d453efffae45e341026de810d42b0013e8eb53f2c9f7",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "django__django-11490",
+          "raw_output_sha256": "25d4955a22761aec50f18e963fa2e5f50935d77d68de0518d3ffc91b93b2f7f5",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "django__django-16429",
+          "raw_output_sha256": "0968edc544faa963cc399123ee498042eb1754a13c585c778b276b8783306a3c",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "matplotlib__matplotlib-20859",
+          "raw_output_sha256": "f73ef1c49dca36907204b6e53703baf17d7f82ea6dc06eb605450edeba1186fc",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": false,
+          "required_failures": {
+            "PASS_TO_PASS": [
+              "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc"
+            ]
+          }
+        },
+        {
+          "instance_id": "matplotlib__matplotlib-25122",
+          "raw_output_sha256": "6d9278357979bc088f5302ee80b33f013b3cb5d241998ee19f53682b731328ab",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "mwaskom__seaborn-3069",
+          "raw_output_sha256": "ef586240b37074646eb1cf37a3cc1eb40a581009941b3bcdee037094a3bd563a",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "mwaskom__seaborn-3187",
+          "raw_output_sha256": "d9bc8ab3302e4906c1958c6cbc3a7fc66725a0cfae464734a14ff4ec2847a326",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pallets__flask-5014",
+          "raw_output_sha256": "fb8a45d996a3ef285e1982804a35d4d8eb6faf7998b9c6b7b33c3570fb14f9f2",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "psf__requests-1724",
+          "raw_output_sha256": "0868fe0bd600e56bf7c6fb08af449f30d69bb7713b7622bb77ef702e4ed4ccdd",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "psf__requests-1921",
+          "raw_output_sha256": "a2cbca7ea5bf9e4b9d83e7af13ddc482cdb64e2d801d7959c876b26cad6aca99",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pydata__xarray-4629",
+          "raw_output_sha256": "0932903ebff94d6f5d4813bfeb41943bd33274d1808063bcf5fb973f4239207e",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pydata__xarray-6938",
+          "raw_output_sha256": "39a20a33ae3195ea538c3c8025daaf027d0bc9e4278d4742ee8fa643cca97584",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pylint-dev__pylint-4551",
+          "raw_output_sha256": "320bd9efe1c6372a486dc55fe46c15c3b8f4e21e2a352a329dc52dd02c4073ea",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pylint-dev__pylint-4604",
+          "raw_output_sha256": "6d531b4a297e8498ea67c2d4f86169dbe544901662ee5ba69a4960aaa266b217",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pytest-dev__pytest-5840",
+          "raw_output_sha256": "99c7206859ddf281a12119df17ec5f64745286199a901f4961a23a93d57a98fb",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pytest-dev__pytest-6202",
+          "raw_output_sha256": "a060390642f2b7ab2020d3c49ed130bd8e962190db5cb524d015f56ba85a1671",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "scikit-learn__scikit-learn-12682",
+          "raw_output_sha256": "54ce4a49a31ea976e26b800f60b66c3caa22fa3ccbf0aaf6a12c25af1bf3daa2",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "scikit-learn__scikit-learn-14087",
+          "raw_output_sha256": "165cfb534d54cf6c0e05fbd0146166bbd468fe36bde45d97178c2e397fe8b4e4",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sphinx-doc__sphinx-11445",
+          "raw_output_sha256": "4b70dd40288cd45a41da95e301b95ef8be295f7f54fc8597611816c43caec23e",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sphinx-doc__sphinx-8265",
+          "raw_output_sha256": "0ab2864a12be24f54eab27f51308698d63118ca8ce466e449af8db3946dd7d9e",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sympy__sympy-12489",
+          "raw_output_sha256": "d0d98cb634729ec740e797e6da2387dabf8fcb1554e612cc4d6b8e59d3860862",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sympy__sympy-20801",
+          "raw_output_sha256": "63511af4ed6bc7ee1231b763fa7c899406f9cef5e822b94929ef0256f2acfbe1",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        }
+      ]
+    },
+    "optimizeN7weighted": {
+      "count": 24,
+      "all_match": true,
+      "resolved_count": 22,
+      "rows": [
+        {
+          "instance_id": "astropy__astropy-13398",
+          "raw_output_sha256": "720e566aa24d60c2c561b33dfb612f50f745025109545eb77829fb6f87d2731f",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "astropy__astropy-8707",
+          "raw_output_sha256": "582ec5351b1efdce6da6e12d522df40eb189327e0c3d56eba5dff067cbb41776",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "django__django-11149",
+          "raw_output_sha256": "d97be8b3d9e53909dd8d0597f6c9524628ff05390da3537cede2c70c3f10199f",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "django__django-11490",
+          "raw_output_sha256": "17135290641ac69288dca6293ee8c8091e54f2b2dbb037d0bac23ac472083149",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "django__django-16429",
+          "raw_output_sha256": "9cd6b198d1157fe46fd02b9ce8dd03a280b8b8d1b7ac6c3c0363aff02c155c37",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "matplotlib__matplotlib-20859",
+          "raw_output_sha256": "308a6572b3d390ec13988ff00cdc1ee6bf0dc6095238d64e1514dd1388ed048d",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": false,
+          "required_failures": {
+            "PASS_TO_PASS": [
+              "lib/matplotlib/tests/test_legend.py::test_warn_big_data_best_loc"
+            ]
+          }
+        },
+        {
+          "instance_id": "matplotlib__matplotlib-25122",
+          "raw_output_sha256": "5c129372b09a044ebce227326750808fa70b0da4a32b321461eaf44abc900beb",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "mwaskom__seaborn-3069",
+          "raw_output_sha256": "0c2fe1e617555f289d2951d4b4f3569caca67faa01f4b5569a36236f296d16f2",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "mwaskom__seaborn-3187",
+          "raw_output_sha256": "3172db6f7a1b47b8dd96340686d58bccd52fd58aac97b9bb10552fa2a1f914a3",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pallets__flask-5014",
+          "raw_output_sha256": "808bc9b493db2e1e957d439ba2d6edaa95443eadab11e33071fb96697a7c0f33",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "psf__requests-1724",
+          "raw_output_sha256": "aed8e0323ac3ff387463b5e63dccf4ee2b9e2eaf2cbacdeaca74041b9a656e1f",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "psf__requests-1921",
+          "raw_output_sha256": "92c3243bff47d03a9f39b9c58864297a55bbeaedbc6be2a435b0031c1a67d3de",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": false,
+          "required_failures": {
+            "PASS_TO_PASS": [
+              "test_requests.py::RequestsTestCase::test_cookie_removed_on_expire"
+            ]
+          }
+        },
+        {
+          "instance_id": "pydata__xarray-4629",
+          "raw_output_sha256": "3091d8e894373783513ea7ce85364a2f000d9504eb311ee53df04c63aa6a4af5",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pydata__xarray-6938",
+          "raw_output_sha256": "c965b5dd821de12bca3d2d7172713ad6eed5bbe9994ab4c9694e8c09b6d57dc5",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pylint-dev__pylint-4551",
+          "raw_output_sha256": "e2467b1bc41ca72a9b314801a59015962f3f6110b099705d8048f6cbc02725f2",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pylint-dev__pylint-4604",
+          "raw_output_sha256": "b75a8805365f114ca317bcf344a19169aaa58e680fbcc971b1585afd569df83d",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pytest-dev__pytest-5840",
+          "raw_output_sha256": "519cd56ba7286bd80ffc3fff04570ae005e5848ec2d9a56e082ff0c75f9d924f",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "pytest-dev__pytest-6202",
+          "raw_output_sha256": "b0469c4f6d18b88a71bf730f2b848c4a88e8ae6b1f2ee3d0cc455f8176caf338",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "scikit-learn__scikit-learn-12682",
+          "raw_output_sha256": "d31290ae48e13f1d507cdf447690719af159391e0832aba0b5423905e75d8433",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "scikit-learn__scikit-learn-14087",
+          "raw_output_sha256": "e418ad0a8d1013de284a72e0954056647f5bbd85be81df4563869f0ae86c60e5",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sphinx-doc__sphinx-11445",
+          "raw_output_sha256": "89392d269aab5e6d5b87d607a40695a605a6726c9f1cc256ef2d7f8beb73dcd4",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sphinx-doc__sphinx-8265",
+          "raw_output_sha256": "68d9a686ebf12ff04347cd4e8b9481e6134cc2682d03d21cae0cd83810875d43",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sympy__sympy-12489",
+          "raw_output_sha256": "dbc5e9a04229bebc275b5d88145259ab140827ffff25cb95b4feae0dbadc333a",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        },
+        {
+          "instance_id": "sympy__sympy-20801",
+          "raw_output_sha256": "310639bfd6df7a3a186b38d702505ec0380d78989b8fd69ddbaa8feeb5df0581",
+          "matches_per_case_report": true,
+          "matches_collected_report": true,
+          "resolved": true,
+          "required_failures": {}
+        }
+      ]
+    }
+  },
+  "all_48_match": true
+}

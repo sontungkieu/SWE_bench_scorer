@@ -1,6 +1,7 @@
 import copy
 from functools import lru_cache
 import gzip
+import hashlib
 import itertools
 import json
 from pathlib import Path
@@ -118,7 +119,7 @@ class MergePlanTests(unittest.TestCase):
             process = subprocess.run([sys.executable, str(ROOT/'eval_modes.py'), action,
                                       '--mode', 'optimizeN7merge'], capture_output=True, text=True)
             self.assertEqual(process.returncode, 2)
-            self.assertIn('offline_plan_only', process.stderr)
+            self.assertIn('parity failed', process.stderr)
             self.assertNotIn('Traceback', process.stderr)
 
     def test_plan_cli_is_offline_reproducible_and_refuses_overwrite(self):
@@ -146,6 +147,19 @@ class MergePlanTests(unittest.TestCase):
         self.assertEqual(modes['optimizeN11']['catalog_shards'], 11)
         self.assertEqual(modes['optimizeN11max']['max_active_vms'], 2)
         self.assertFalse(modes['optimizeN7merge']['execution_enabled'])
+
+    def test_published_catalog_pins_preserve_each_assignment_without_enabling_failed_parity(self):
+        import eval_modes
+        from snapshot_shards import verify_catalog
+        for mode in ['optimizeN7merge','optimizeN7weighted']:
+            entry=eval_modes.MODES[mode]
+            raw=(ROOT/entry['catalog']).read_bytes()
+            self.assertEqual(hashlib.sha256(raw).hexdigest(),entry['catalog_sha256'])
+            catalog=json.loads(raw)
+            verify_catalog(dict(groups=real_plan(mode)['groups'],shard_count=7),catalog['shards'])
+            self.assertEqual(catalog['image_count'],500)
+            self.assertFalse(entry['scientific_parity_qualified'])
+            self.assertFalse(entry['execution_enabled'])
 
 
 if __name__ == '__main__': unittest.main()

@@ -1,5 +1,9 @@
 # N7 merge plans alongside the unchanged N11 modes
 
+Historical planning checkpoint, before the paid build/test. Both catalogs were
+subsequently built and evaluated; results were 23/24 and 22/24, so neither is
+scientifically parity-qualified. See the [executed experiment and billing](../2026-10-22-n7-merged-qualification/README.md).
+
 Date: 2026-10-22. Status: **offline implementation and manifest validation only**.
 No new Modal application, VM, snapshot build, billing query or evaluation was
 started for this work. Neither N7 mode is qualified for scientific scoring yet.

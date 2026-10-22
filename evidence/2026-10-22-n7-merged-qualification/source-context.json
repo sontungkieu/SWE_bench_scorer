@@ -1,0 +1,18 @@
+{
+  "git_commit": "ea97319753106cb84318cc67acf4d6cb171a2016",
+  "reference_run": "/home/kieusontung8/apps/swebench-snapshot-probe/sharded-pilot-24-20261022-01",
+  "evaluator_sha256": {
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8"
+  },
+  "helper_sha256": {
+    "merged_pilot_worker.py": "72a34ba8b29d318cb6922e6985cbedd4192dde9166886b29ddda6404f7862ebf",
+    "sharded_pilot_worker.py": "d894a82bcef3859257b603ed58c57d108afc6df70317ebd563c27acc6921bd22",
+    "snapshot_catalog_worker.py": "37cc5fcacfc72249657275f194db2cf5d640351acb9594e4526168c3dc828044",
+    "merged_catalog_worker.py": "c50e09a9fa65b809c8ec1f50d51f5e9057a004aa9260a3ddc60fcfd8932d6c3a"
+  },
+  "coordinator_sha256": "59231f12eb1d7d5c597182e0892e3c3ed193643a42a35e58cc4d84e5ec5a5730",
+  "build_strategies_sha256": "5c23567bdb84dbc60f0763793016e9754c39c1e27be4dbe6f2d7c40860e41507"
+}
