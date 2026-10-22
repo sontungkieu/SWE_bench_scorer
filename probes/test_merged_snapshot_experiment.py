@@ -5,13 +5,29 @@ from pathlib import Path
 import unittest
 
 from merged_pilot_worker import select_queue
-from merged_snapshot_experiment import BOUND, ESTIMATE, lifetime_for, selected_groups, prepare
+from merged_snapshot_experiment import BOUND, ESTIMATE, build_contract, lifetime_for, selected_groups, prepare
+from merged_catalog_worker import partition_missing
 from snapshot_pilot import validate_inputs
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
 class ExperimentTests(unittest.TestCase):
+    def test_base_extension_preserves_oci_identity_and_loads_only_missing(self):
+        rows=[{'reference':str(i),'id':str(i),'layers':[]} for i in range(4)]
+        self.assertEqual(partition_missing(rows,rows[:2]),rows[2:])
+        with self.assertRaisesRegex(ValueError,'identity'):
+            partition_missing(rows,[dict(rows[0],id='changed')])
+        for base in [[],rows,rows+[rows[0]]]:
+            with self.assertRaises(ValueError):partition_missing(rows,base)
+
+    def test_recovery_builder_fits_total_five_including_prior_attempt_reserve(self):
+        contract=build_contract(True,.19)
+        self.assertEqual(contract['build_cpu'],4)
+        self.assertEqual(contract['build_lifetime'],780)
+        self.assertLess(contract['combined_cpu_ram_bound_usd'],4.94)
+        self.assertAlmostEqual(contract['combined_cpu_ram_bound_usd'],4.9361392,places=5)
+
     def inputs(self):
         data=[{'instance_id':f'id-{i}','patch':f'gold-{i}'} for i in range(24)]
         preds=[{'instance_id':r['instance_id'],'model_patch':r['patch']} for r in data]

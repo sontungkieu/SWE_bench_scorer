@@ -410,3 +410,11 @@ artifact. Worker N7 dùng hàng đợi tới 24 controls, không sửa worker N1
 gốc. Thu Docker events, CPU model và guest counters trước/sau ngoài test process;
 không patch clock hay profile test. Các số này hỗ trợ phân tích setup/test/cleanup,
 không đo trực tiếp provider physical I/O. `receipt.json` giữ mọi kết quả và mismatch.
+
+Recovery build được duyệt riêng có thể `prepare --reuse-bases --prior-reservation 0.19`:
+khởi động từ snapshot N11 sạch có lượng layer lớn nhất trong nhóm, xác nhận
+manifest/OCI IDs của base rồi chỉ nạp image còn thiếu qua loader cũ. Builder
+dùng 4 core/4 GiB và lifetime 780s; restore verify vẫn 2 core/4 GiB, 120s.
+Envelope mới $4.7461392 CPU/RAM; cộng $0.19 dự phòng cho tối đa hai builder cũ
+là $4.9361392, còn phần nhỏ cho egress trong trần tổng $5. VM chấm vẫn 16 core/
+64 GiB, 8 worker, timeout 600s. Không thay code/test benchmark để giảm thời gian.

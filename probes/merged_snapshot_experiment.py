@@ -18,7 +18,7 @@ import sys
 import tarfile
 import time
 
-from merged_snapshot_plan import MODES, plan_mode
+from merged_snapshot_plan import MODES, plan_mode, load_inputs, union_bytes
 from snapshot_catalog_worker import TTL
 from snapshot_pilot import RUNTIME, dump, execute, guard, start_docker, stream, validate_inputs
 from snapshot_catalog import stop_docker
@@ -34,6 +34,7 @@ BUILD_RATE = 2*.00003942 + 4*.00000667
 BOUND = 6*(BUILD_LIFETIME+VERIFY_LIFETIME)*BUILD_RATE + 2*SCORE_DEADLINE*RATE
 EVALUATORS = ['core.py', 'remote_worker.py', 'image_cache.py', 'registry_cache.py']
 HELPERS = ['merged_pilot_worker.py', 'sharded_pilot_worker.py', 'snapshot_catalog_worker.py']
+BUILD_HELPER = 'merged_catalog_worker.py'
 
 
 def lifetime_for(count):
@@ -70,7 +71,18 @@ def selected_groups(catalog, selection, image_plan):
     return sorted(result.values(), key=lambda g:(-lifetime_for(len(g['instance_ids'])),g['index']))
 
 
-def prepare(out, source, reference, commit):
+def build_contract(reuse_bases=False,prior_reservation=0.):
+    if not 0 <= prior_reservation <= .19: raise ValueError('Prior-attempt reservation outside recovery contract')
+    cpu=4 if reuse_bases else 2
+    lifetime=780 if reuse_bases else BUILD_LIFETIME
+    bound=6*lifetime*(cpu*.00003942+4*.00000667)+6*VERIFY_LIFETIME*BUILD_RATE+2*SCORE_DEADLINE*RATE
+    if bound+prior_reservation > 4.94: raise ValueError('Insufficient $5 envelope / egress reserve')
+    return {'reuse_bases':reuse_bases,'build_cpu':cpu,'build_memory_gib':4,'build_lifetime':lifetime,
+            'prior_attempt_reservation_usd':prior_reservation,'new_run_cpu_ram_bound_usd':bound,
+            'combined_cpu_ram_bound_usd':bound+prior_reservation,'approved_total_compute_egress_usd':5}
+
+
+def prepare(out, source, reference, commit, reuse_bases=False, prior_reservation=0.):
     validate_inputs(reference)
     if out.exists(): raise ValueError('Never overwrite an experiment')
     raw = (reference/'usable-shards-catalog.json').read_bytes()
@@ -90,15 +102,33 @@ def prepare(out, source, reference, commit):
     for mode, plan in plans.items():
         dump(out/mode/'merge-plan.json', plan)
     dump(out/'source-context.json', {'git_commit':commit,'reference_run':str(reference),
-         'evaluator_sha256':actual,'helper_sha256':{n:hashlib.sha256((Path(__file__).parent/n).read_bytes()).hexdigest() for n in HELPERS},
+         'evaluator_sha256':actual,'helper_sha256':{n:hashlib.sha256((Path(__file__).parent/n).read_bytes()).hexdigest() for n in HELPERS+[BUILD_HELPER]},
          'coordinator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()})
-    dump(out/'contract.json', {'profile':'phamvanvuhoan','runtime':'vm','approved_total_compute_egress_usd':5,
-         'cpu_ram_allocation_bound_usd':BOUND,'build_cpu':2,'build_memory_gib':4,
-         'new_snapshot_groups':6,'build_lifetime':BUILD_LIFETIME,'verify_lifetime':VERIFY_LIFETIME,
-         'score_cpu':16,'score_memory_gib':64,'workers':8,'test_timeout':600,
-         'score_deadline_per_mode':SCORE_DEADLINE,'max_active_vms':1,'ttl_seconds':TTL,
-         'full_500_evaluated':False,'no_automatic_paid_retry':True,
-         'storage_not_in_one_time_compute_egress_envelope':True})
+    contract=build_contract(reuse_bases,prior_reservation)
+    dump(out/'contract.json', dict(contract,profile='phamvanvuhoan',runtime='vm',
+         new_snapshot_groups=6,verify_lifetime=VERIFY_LIFETIME,
+         score_cpu=16,score_memory_gib=64,workers=8,test_timeout=600,
+         score_deadline_per_mode=SCORE_DEADLINE,max_active_vms=1,ttl_seconds=TTL,
+         full_500_evaluated=False,no_automatic_paid_retry=True,
+         storage_not_in_one_time_compute_egress_envelope=True))
+    if reuse_bases:
+        _,_,groups,_,_,_=load_inputs(source)
+        originals={g['index']:g for g in groups}
+        originals_catalog={s['index']:s for s in json.loads(raw)['shards']}
+        hashes=json.loads((reference/'snapshot-plan-hashes.json').read_text())
+        strategies={}
+        for mode,plan in plans.items():
+            strategies[mode]={}
+            for group in plan['groups']:
+                if not group['requires_new_snapshot']:continue
+                base=max(group['source_shard_indices'],key=lambda i:(union_bytes(originals[i]['images']),-i))
+                strategies[mode][str(group['index'])]={'base_snapshot_image_id':originals_catalog[base]['snapshot_image_id'],
+                    'base_snapshot_plan_sha256':hashes[str(base)],'base_source_shard_index':base,
+                    'base_images':originals[base]['images']}
+        dump(out/'build-strategies.json',strategies)
+        context=json.loads((out/'source-context.json').read_text())
+        context['build_strategies_sha256']=hashlib.sha256((out/'build-strategies.json').read_bytes()).hexdigest()
+        dump(out/'source-context.json',context)
 
 
 def run(out, source):
@@ -113,12 +143,18 @@ def run(out, source):
     if actual != context['evaluator_sha256'] or context['coordinator_sha256'] != hashlib.sha256(Path(__file__).read_bytes()).hexdigest():
         raise ValueError('Source changed after staging')
     here = Path(__file__).parent
-    helper_hashes = {n:hashlib.sha256((here/n).read_bytes()).hexdigest() for n in HELPERS}
+    helper_hashes = {n:hashlib.sha256((here/n).read_bytes()).hexdigest() for n in HELPERS+[BUILD_HELPER]}
     if helper_hashes != context['helper_sha256']: raise ValueError('Helpers changed after staging')
     plans = {mode:json.loads((out/mode/'merge-plan.json').read_text()) for mode in MODES}
     if plans != {mode:plan_mode(mode) for mode in MODES}: raise ValueError('Merge plan changed')
-    if sum(p['summary']['new_snapshots_required'] for p in plans.values()) != 6 or BOUND >= ESTIMATE:
+    contract=json.loads((out/'contract.json').read_text())
+    bounded=build_contract(contract['reuse_bases'],contract['prior_attempt_reservation_usd'])
+    if any(contract.get(k)!=v for k,v in bounded.items()): raise ValueError('Build contract changed')
+    if sum(p['summary']['new_snapshots_required'] for p in plans.values()) != 6:
         raise ValueError('Allocation contract exceeded')
+    strategies=json.loads((out/'build-strategies.json').read_text()) if contract['reuse_bases'] else {}
+    if contract['reuse_bases'] and hashlib.sha256((out/'build-strategies.json').read_bytes()).hexdigest()!=context.get('build_strategies_sha256'):
+        raise ValueError('Build strategies changed after staging')
     original = json.loads((out/'usable-shards-catalog.json').read_text())
     if hashlib.sha256((out/'usable-shards-catalog.json').read_bytes()).hexdigest() != CATALOG_SHA:
         raise ValueError('Original catalog changed')
@@ -129,7 +165,7 @@ def run(out, source):
     fcntl.flock(lock, fcntl.LOCK_EX|fcntl.LOCK_NB)
     guard(source,out.name,ESTIMATE); guard(source,out.name,ESTIMATE,'planned')
     record = {'started_at':datetime.now(timezone.utc).isoformat(),'source_context':context,
-              'profile':'phamvanvuhoan','budget_usd':5,'cpu_ram_allocation_bound_usd':BOUND,
+              'profile':'phamvanvuhoan','budget_usd':5,'contract':contract,
               'runtime':'vm','max_active_vms':1,'full_500_evaluated':False,
               'modes':{},'terminated_vm_ids':[],'vm_attempts':[]}
     active = None
@@ -193,17 +229,30 @@ def run(out, source):
                                   'runtime_image_id':RUNTIME,'dataset':plan['dataset'],'shard_index':index,
                                   'catalog_plan_sha256':hashlib.sha256((mode_out/'merge-plan.json').read_bytes()).hexdigest()}
                         dump(case/'catalog-plan.json',selected)
-                        sb=create(image=modal.Image.from_id(RUNTIME),cpu=(2,2),memory=(4096,4096),
-                                  timeout=BUILD_LIFETIME,volumes={'/image-cache':modal.Volume.from_name('swebench-verified-images-v1',version=2)})
+                        strategy=strategies.get(mode,{}).get(str(index))
+                        base_image=strategy['base_snapshot_image_id'] if strategy else RUNTIME
+                        build_cpu=contract['build_cpu'];build_lifetime=contract['build_lifetime']
+                        sb=create(image=modal.Image.from_id(base_image),cpu=(build_cpu,build_cpu),memory=(4096,4096),
+                                  timeout=build_lifetime,volumes={'/image-cache':modal.Volume.from_name('swebench-verified-images-v1',version=2)})
                         row={'index':index,'image_count':group['image_count'],'builder_vm':sb.object_id}
                         status['built_groups'].append(row);persist()
                         try:
+                            if strategy:
+                                base_sha=execute(sb,'python','-c','import pathlib,hashlib; print(hashlib.sha256(pathlib.Path("/work/catalog-plan.json").read_bytes()).hexdigest())').strip()
+                                if base_sha!=strategy['base_snapshot_plan_sha256']:raise ValueError('Base read-back differs')
+                                row['base_source_shard_index']=strategy['base_source_shard_index']
                             execute(sb,'mkdir','-p','/work');copy_sources(sb,EVALUATORS)
                             sb.filesystem.copy_from_local(str(here/'snapshot_catalog_worker.py'),'/work/snapshot_catalog_worker.py')
                             sb.filesystem.copy_from_local(str(case/'catalog-plan.json'),'/work/catalog-plan.json')
                             assert_readback(sb,EVALUATORS+['snapshot_catalog_worker.py'])
+                            if strategy:
+                                dump(case/'build-strategy.json',strategy)
+                                sb.filesystem.copy_from_local(str(case/'build-strategy.json'),'/work/build-strategy.json')
+                                sb.filesystem.copy_from_local(str(here/BUILD_HELPER),'/work/'+BUILD_HELPER)
+                                assert_readback(sb,[BUILD_HELPER])
                             start_docker(sb)
-                            stream(sb,['python','-u','/work/snapshot_catalog_worker.py','preload'],case/'preload.log',650)
+                            command=['python','-u','/work/'+BUILD_HELPER] if strategy else ['python','-u','/work/snapshot_catalog_worker.py','preload']
+                            stream(sb,command,case/'preload.log',min(650,build_lifetime-180))
                             sb.filesystem.copy_to_local('/snapshot-catalog-manifest.json',str(case/'manifest.json'))
                             stop_docker(sb)
                             captured=datetime.now(timezone.utc);t=time.monotonic()
@@ -335,11 +384,14 @@ if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('action',choices=['prepare','run','collect']);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--source',type=Path);p.add_argument('--reference',type=Path);p.add_argument('--commit')
-    p.add_argument('--billing-name',default='billing.json');a=p.parse_args()
+    p.add_argument('--billing-name',default='billing.json')
+    p.add_argument('--reuse-bases',action='store_true')
+    p.add_argument('--prior-reservation',type=float,default=0.)
+    a=p.parse_args()
     if a.action=='collect': collect(a.out.resolve(),a.billing_name)
     elif a.action=='prepare':
         if not a.source or not a.reference or not a.commit: p.error('prepare needs source, reference and commit')
-        prepare(a.out.resolve(),a.source.resolve(),a.reference.resolve(),a.commit)
+        prepare(a.out.resolve(),a.source.resolve(),a.reference.resolve(),a.commit,a.reuse_bases,a.prior_reservation)
     else:
         if not a.source: p.error('run needs source')
         raise SystemExit(run(a.out.resolve(),a.source.resolve()))
