@@ -19,6 +19,8 @@ MODES = {
     'optimizeN11': {'backend':'VM snapshot', 'catalog_shards':11, 'scope':24,
                     'max_active_vms':1, 'cpu':16, 'memory_gib':64, 'workers':8, 'test_timeout':600},
     'optimizeN11max': {'backend':'VM snapshot', 'catalog_shards':11, 'scope':24,
+                       'scientific_parity_qualified':False,
+                       'qualification_note':'23/24 reports matched; matplotlib-20859 warning test differed in cap2 pilot',
                        'max_active_vms':2, 'cpu':16, 'memory_gib':64, 'workers':8, 'test_timeout':600,
                        'budget_usd':2, 'cumulative_allocation_seconds':1800, 'lifetime_per_vm_seconds':780},
 }

@@ -85,9 +85,11 @@ def analyze(features, catalog, original, observations):
     repo_samples=defaultdict(list)
     for iid,value in observations.items():repo_samples[tasks[iid]['repo']].append(value['task_service_logged_seconds'])
     if set(repo_samples)!={r['repo'] for r in tasks.values()}:raise ValueError('No measured task in a repo')
-    proxies={iid_ref[iid]:median(repo_samples[row['repo']]) for iid,row in tasks.items()}
+    proxies={iid_ref[iid]:(observations[iid]['task_service_logged_seconds'] if iid in observations
+                         else median(repo_samples[row['repo']])) for iid,row in tasks.items()}
     current=[{'index':s['index'],'images':[by_ref[r['reference']] for r in s['images']]} for s in catalog['shards']]
-    if len({r['reference'] for s in current for r in s['images']})!=500:raise ValueError('Catalog incomplete')
+    refs=[r['reference'] for s in current for r in s['images']]
+    if len(refs)!=500 or len(set(refs))!=500:raise ValueError('Catalog incomplete or duplicated')
     def describe(groups):
         result=[]
         for group in groups:
@@ -114,7 +116,7 @@ def analyze(features, catalog, original, observations):
         candidates[str(n)]=describe(partition) if partition else {'feasible_under_heuristic':False}
     return {'dataset_feature_pin':PIN,'task_count':500,'measured_gold_task_count':len(observations),
         'unmeasured_task_count':500-len(observations),'repo_runtime_prior_sample_counts':{k:len(v) for k,v in repo_samples.items()},
-        'imputation':'median historical task-service wall per repo; 476 tasks have no measured duration',
+        'imputation':'24 historical observed task-service walls retained; per-repo median imputed for 476 unmeasured tasks',
         'test_count_is_not_runtime':True,'objective':'minimize sum allocated VM-seconds at a fixed resource profile, including startup',
         'candidate_heuristic':'seed N bins then minimize marginal sum of 8-worker LPT queue duration; not a proven optimum',
         'current_N11':describe(current),'offline_candidate_partitions':candidates,

@@ -1,0 +1,21 @@
+{
+  "evidence_verification_passed": true,
+  "scientific_run_qualified": false,
+  "reports": 24,
+  "exact_report_matches_serial": 23,
+  "unexpected_report_ids": [
+    "matplotlib__matplotlib-20859"
+  ],
+  "raw_evidence_copies_match": true,
+  "source_package_and_11_GCP_files_match": true,
+  "all_eight_VMs_terminated_and_billing_list_empty": true,
+  "actual_app_billing_within_2_USD": true,
+  "lifetime_reservations_within_1800_seconds": true,
+  "report_local_links_exist": true,
+  "local_tests": {
+    "core_web_cache": 50,
+    "probes": 71
+  },
+  "GCP_preflight_tests": 17,
+  "no_full_500_evaluation_or_N16_build": true
+}

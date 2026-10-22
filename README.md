@@ -338,3 +338,9 @@ chạy vừa ngân sách. Nếu không còn đủ reservation, dừng với kế
 không tự retry. Billing thực tế vẫn cần đọc sau run, trước credits và không
 bao gồm giá lưu snapshot. Chạy song song giảm wall time nhưng không tự động
 giảm tổng VM-seconds/chi phí.
+
+Lượt N11max cap 2 ngày 22/10/2026 đã thu đủ 24 report nhưng chỉ **23 report
+khớp** với N11 tuần tự: `matplotlib-20859` không phát warning mà một test
+PASS_TO_PASS yêu cầu. Test upstream này phụ thuộc ngưỡng thời gian 1 giây.
+Giữ kết quả chính thức, **chưa qualification N11max**, không bỏ test hay sửa
+score để làm parity pass. [Billing, chẩn đoán và phân tích N16](evidence/2026-10-22-optimizeN11max/README.md).

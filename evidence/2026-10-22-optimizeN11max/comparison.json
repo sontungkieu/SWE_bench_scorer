@@ -1,0 +1,144 @@
+{
+  "qualified": false,
+  "selected_count": 24,
+  "reports": 24,
+  "resolved": 23,
+  "complete_report_matches_baseline": 23,
+  "different_baseline_ids": [
+    "matplotlib__matplotlib-20859"
+  ],
+  "complete_report_matches_old_snapshot": 23,
+  "different_old_snapshot_ids": [
+    "matplotlib__matplotlib-20859"
+  ],
+  "used_snapshot_count": 8,
+  "unused_catalog_snapshot_count": 3,
+  "groups": [
+    {
+      "index": 0,
+      "count": 4,
+      "docker_ready_seconds": 13.756276573985815,
+      "wall_seconds": 77.03083341382444,
+      "test_and_cleanup_seconds": 59.195917175000005,
+      "snapshot_image_id": "im-01M5G5N13R0B6XPWPPC0NYET5S",
+      "vm_id": "sb-01M5GH89NQA5DADGYAF6KW317Z"
+    },
+    {
+      "index": 2,
+      "count": 2,
+      "docker_ready_seconds": 13.725368097424507,
+      "wall_seconds": 45.65723966807127,
+      "test_and_cleanup_seconds": 29.651966132,
+      "snapshot_image_id": "im-01M5G6RH7J1SCGR9X70611VNYG",
+      "vm_id": "sb-01M5GH89NRK8HQRW1ZXYSZ7CSD"
+    },
+    {
+      "index": 4,
+      "count": 1,
+      "docker_ready_seconds": 8.545394135639071,
+      "wall_seconds": 117.80037281289697,
+      "test_and_cleanup_seconds": 104.521231973,
+      "snapshot_image_id": "im-01M5G7RTJGR6HJKCA9NWN0E3W7",
+      "vm_id": "sb-01M5GH9PA3Z2MHM2BW7N65C1CP"
+    },
+    {
+      "index": 6,
+      "count": 6,
+      "docker_ready_seconds": 9.77949908748269,
+      "wall_seconds": 62.917452961206436,
+      "test_and_cleanup_seconds": 49.076793281,
+      "snapshot_image_id": "im-01M5G8QWRPBRJFYWF3YQZ7W8B0",
+      "vm_id": "sb-01M5GHAMTQW19M7CQ86WQJ2C4S"
+    },
+    {
+      "index": 7,
+      "count": 3,
+      "docker_ready_seconds": 14.57309215515852,
+      "wall_seconds": 51.650754326954484,
+      "test_and_cleanup_seconds": 34.704075427,
+      "snapshot_image_id": "im-01M5G97E5AXWNJJKDYGX40R9KM",
+      "vm_id": "sb-01M5GHCJ9DJK9T9WYHVXHSC4QS"
+    },
+    {
+      "index": 8,
+      "count": 4,
+      "docker_ready_seconds": 7.868681309744716,
+      "wall_seconds": 42.573620676994324,
+      "test_and_cleanup_seconds": 30.515206789000004,
+      "snapshot_image_id": "im-01M5G9QEMP54F288SX524QY66P",
+      "vm_id": "sb-01M5GHE4QFGAQXNFK07HTBACWF"
+    },
+    {
+      "index": 9,
+      "count": 3,
+      "docker_ready_seconds": 11.000737059861422,
+      "wall_seconds": 39.90549810230732,
+      "test_and_cleanup_seconds": 24.543927431,
+      "snapshot_image_id": "im-01M5GA91FFQ893059BFCATR374",
+      "vm_id": "sb-01M5GHFEAAYC02BVAT12SCXR0C"
+    },
+    {
+      "index": 10,
+      "count": 1,
+      "docker_ready_seconds": 3.2119403313845396,
+      "wall_seconds": 35.35513877682388,
+      "test_and_cleanup_seconds": 27.919250797,
+      "snapshot_image_id": "im-01M5GAD16RDT2NFT4R2D4S17N3",
+      "vm_id": "sb-01M5GHGN9FEHDDMQ076AV22DA1"
+    }
+  ],
+  "all_8_vms_terminated": true,
+  "all_8_vm_source_readbacks_match": true,
+  "image_sources": {
+    "local": 24
+  },
+  "image_cache_added_bytes": 0,
+  "image_ensure_seconds": 0.34300640699999985,
+  "full_500_evaluated": false,
+  "production_backend_changed": false,
+  "gold_controls_not_model_score": true,
+  "frozen_pilot_sha256": "47b545950e6fc204b2d028573298f4ee65a9497c035012bfe9ffe709c91ddbbf",
+  "frozen_predictions_sha256": "aa914e991bbc328e9d1f8b8521e664cbe0c061b34fac60d94bfbdbd715fbc42f",
+  "scoring_source_git_commit": "c26058d",
+  "cpu_per_vm": 16,
+  "memory_gib_per_vm": 64,
+  "workers": 8,
+  "test_timeout": 600,
+  "max_simultaneous_vms": 2,
+  "batching_changed_from_original_3x8": true,
+  "sharded_wall_seconds": 310.3539224434644,
+  "baseline_wall_seconds": 944.6862960755825,
+  "old_single_snapshot_wall_seconds": 171.66414378210902,
+  "baseline_over_new_wall_ratio": 3.0438999727727665,
+  "new_over_old_single_snapshot_wall_ratio": 1.8079134967019812,
+  "cost_usd": "0.45891859",
+  "baseline_cost_usd": "0.98970092",
+  "old_single_snapshot_cost_usd": "0.17555287",
+  "saving_vs_oci_baseline_percent": "53.63057861965006559759487745",
+  "increase_vs_old_single_snapshot_percent": "161.4133223797480496901019049",
+  "before_credits": true,
+  "not_final_invoice": true,
+  "snapshot_storage_not_in_app_sum": true,
+  "billing_read_gap_seconds": 123.935581,
+  "billing_stable_reads": [
+    "billing-first.json",
+    "billing-final.json"
+  ],
+  "snapshot_preparation_cost_is_separate": true,
+  "no_new_snapshot_built": true,
+  "mode": "optimizeN11max",
+  "observed_peak_vm_intervals": 2,
+  "overlapping_vm_interval_seconds": 163.4534119348973,
+  "sum_vm_coordinator_intervals_seconds": 472.8909107390791,
+  "reservation_cpu_memory_upper_bound_usd": 0.5001294271976501,
+  "unchanged_scientific_configuration": true,
+  "complete_report_matches_serial_N11": 23,
+  "different_serial_N11_ids": [
+    "matplotlib__matplotlib-20859"
+  ],
+  "serial_N11_cost_usd": "0.50332977",
+  "serial_N11_wall_seconds": 515.2492166236043,
+  "saving_vs_serial_N11_percent": "8.823475710566454275096821712",
+  "wall_reduction_vs_serial_N11_percent": 39.76625049967196,
+  "one_run_per_mode_no_variance_estimate": true
+}

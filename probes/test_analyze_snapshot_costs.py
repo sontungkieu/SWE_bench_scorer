@@ -1,6 +1,8 @@
 from pathlib import Path
+import gzip
+import json
 import unittest
-from analyze_snapshot_costs import cost_partition, layers, load_observations, queue_seconds
+from analyze_snapshot_costs import analyze, cost_partition, layers, load_observations, queue_seconds
 
 
 class AnalysisTests(unittest.TestCase):
@@ -30,6 +32,24 @@ class AnalysisTests(unittest.TestCase):
             self.assertGreater(row['eval_script_seconds'],0)
             self.assertGreaterEqual(row['container_cleanup_logged_seconds'],0)
             self.assertGreater(row['task_service_logged_seconds'],row['eval_script_seconds'])
+
+    def test_full_inventory_distinguishes_measured_and_imputed_durations(self):
+        e=Path(__file__).resolve().parents[1]/'evidence'
+        features=json.loads((e/'2026-10-22-optimizeN11max/task-features.json').read_text())
+        catalog=json.loads((e/'2026-10-22-verified-snapshots-90d/usable-shards-catalog.json').read_text())
+        original=json.loads(gzip.decompress((e/'2026-10-22-verified-snapshots-90d/catalog-plan.json.gz').read_bytes()))
+        observations=load_observations(e/'2026-10-22-sharded-snapshot-pilot/raw-evidence.tar.gz')
+        result=analyze(features,catalog,original,observations)
+        self.assertEqual(result['measured_gold_task_count'],24)
+        self.assertEqual(result['unmeasured_task_count'],476)
+        self.assertFalse(result['full_500_evaluated'])
+        self.assertFalse(result['candidate_snapshots_built'])
+        for strategy in [result['current_N11'],*result['offline_candidate_partitions'].values()]:
+            if 'groups' not in strategy:continue
+            self.assertEqual(sum(g['task_count'] for g in strategy['groups']),500)
+            self.assertEqual(sum(g['measured_task_count'] for g in strategy['groups']),24)
+            self.assertEqual(sum(g['unmeasured_task_count'] for g in strategy['groups']),476)
+            self.assertTrue(all(g['unique_layer_tar_gib']<=35 and g['task_count']<=100 for g in strategy['groups']))
 
 
 if __name__=='__main__':unittest.main()

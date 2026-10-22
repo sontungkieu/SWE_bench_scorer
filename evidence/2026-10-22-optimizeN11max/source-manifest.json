@@ -1,0 +1,25 @@
+{
+  "scoring_git_commit": "c26058d253cd7e04a933abb88b69f12670a38f5e",
+  "source_package_sha256": "ec1e821d8e154b1429cbb5fac618f4e093735dea34171ab5074c350bf4950bdc",
+  "source_package_bytes": 3318112,
+  "source_package_files_sha256": {
+    "eval_modes.py": "9c66916174aa1db6f60962964622b01291e76727cff961f0e28bf8f794567ec7",
+    "probes/parallel_sharded_pilot.py": "89d5782307047e1904f53c4b4b9ea7d7b026d88f19e4a1942367e538935f6c71",
+    "probes/sharded_pilot.py": "26e19a3750b2d5112bb61ca0665cf4bd772f86a81fd98099216685816b11e435",
+    "probes/snapshot_pilot.py": "1fae30a6f07d2cd2727fd4213d3bda450bd8a41e52f3de62b1d4ac9b1939927b",
+    "probes/sharded_pilot_worker.py": "d894a82bcef3859257b603ed58c57d108afc6df70317ebd563c27acc6921bd22",
+    "probes/snapshot_catalog_worker.py": "37cc5fcacfc72249657275f194db2cf5d640351acb9594e4526168c3dc828044",
+    "remote_worker.py": "b8794e4ebf9e06ba50a654289b9684d9b81763f902983ab97b90cd0a22b275fa",
+    "core.py": "523eafee574c50f18e014e10001746edc37ce5816a41a9440a9b8a96fe01e078",
+    "image_cache.py": "fd0c718c83fa0ff33b25277358a0cb470f508d08a508244a7b50366ddfbcaa99",
+    "registry_cache.py": "ff146e0f9e24d1881b35eff19330546f98e84af02281ddd21ff59861c88f57a8",
+    "web_budget.py": "bf252c0fa254a9cc140cad778946cb09decc3d10b6b560d718e2886f3372cb73"
+  },
+  "evaluator_4_and_helper_2_readback_on_each_VM": "receipt.json and raw-evidence.tar.gz",
+  "gcp_preflight_tests_passed": 17,
+  "local_core_web_cache_tests_passed_before_launch": 50,
+  "no_local_dependency_install_or_docker_build": true,
+  "analysis_algorithm_differs_from_initial_scoring_commit": "24 observed timing values retained; median only for other 476",
+  "full_dataset_path_on_gcp": "~/apps/swebench-upstream-probe/upstream-modal-compat-20261021-02/verified.json",
+  "metadata_export_on_gcp": "~/apps/swebench-snapshot-probe/verified-500-task-features-20261022.json"
+}
