@@ -462,3 +462,31 @@ Collect billing lại sau ít nhất 60 giây, so tiền theo đúng app và xá
 list rỗng trước báo chi phí. Model predictions và raw output giữ trong `runs/`
 private, không tự đưa lên GitHub. Trial trên input thật không qualify N7 hoặc
 suy ra điểm Verified đầy đủ.
+
+### Input Verified đầy đủ trên N11
+
+`probes/n11_predictions.py` nhận đúng 500 ID Verified, giữ patch rỗng trong
+mẫu số, chỉ cấp compute cho patch có nội dung. Dùng catalog N11 gốc đã pin,
+16 core/64 GiB, 8 worker, timeout test 600s, một VM mỗi lần. Trong mỗi VM chạy
+các đợt tối đa tám bài; không đổi official test/evaluator, không observer,
+không pull/build snapshot, không tự retry bài hoặc allocation đã chạy.
+
+Budget của lượt hiện tại $6.30 compute/egress; cộng $1.67845737 các lượt trước
+vẫn trong tổng $8. Chừa $0.10 cho egress, reserve CPU/RAM theo full lifetime
+trước cấp VM, thu hồi lifetime chưa dùng sau terminate. Chỉ bắt đầu đợt nếu
+còn 780 giây work reserve; nếu thiếu thì dừng giữa đợt, giữ partial results và
+score `null` khi thiếu report. VM có lifetime hữu hạn, không có job chờ vô hạn.
+Đủ 500 dòng không đồng nghĩa có 500 test executions: patch rỗng được tính
+unresolved, không sinh official report giả. Missing report của patch không
+rỗng là error/incomplete; không tự đổi thành model failure để làm đủ kết quả.
+
+```bash
+python probes/n11_predictions.py prepare --out NEW_RUN --source SOURCE --predictions INPUT.jsonl --expected-sha256 INPUT_SHA256 --expected-nonempty 344 --dataset PINNED_VERIFIED_JSON --commit SOURCE_COMMIT
+python probes/n11_predictions.py run --out NEW_RUN --source SOURCE
+python probes/n11_predictions.py collect --out NEW_RUN --billing-name billing-first.json
+```
+
+Tổng số resolved từ raw official reports chia 500 là raw Verified score khi
+report coverage đầy đủ; đây không phải chứng nhận scientific stability. Giữ
+riêng cảnh báo Matplotlib/Requests đã biết, mọi failure và đủ log/provenance.
+Predictions/output tiếp tục private, chỉ push source và hướng dẫn lên GitHub.
