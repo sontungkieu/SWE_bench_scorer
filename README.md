@@ -510,3 +510,8 @@ contract đó, không dùng lại ngân sách của lượt trước. Tổng m�
 $8; chỉ dùng `--cumulative-cap-usd` khác sau khi user duyệt trần mới.
 Không đủ dự phòng nguyên timeout thì dừng trước wave/VM mới và giữ kết quả
 đã có; không tự retry hay rút ngắn test để ép vừa ngân sách.
+
+Reference-validation theo subset giữ nguyên toàn bộ predictions nguồn và
+ghi `selected_instance_ids` vào plan; `full_verified_accounting=false`.
+Runner kiểm tra assignment đúng các patch không rỗng được chọn và chỉ báo
+subset rate, không gắn điểm Verified 500 bài cho mẫu kiểm chứng.

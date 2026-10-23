@@ -5,7 +5,7 @@ import math
 import unittest
 
 from n11_predictions import (BUDGET, EGRESS_RESERVE, PRIOR_COST, RATE, WAVE_RESERVE,
-                             VM_OVERHEAD, lifetime_for, make_groups, validate_wave_reports, merge_progress,validate_budget)
+                             VM_OVERHEAD, lifetime_for, make_groups, validate_wave_reports, merge_progress,validate_budget,validate_selection)
 
 
 class AllocationTests(unittest.TestCase):
@@ -50,6 +50,18 @@ class AllocationTests(unittest.TestCase):
 
 
 class InputAccountingTests(unittest.TestCase):
+    def test_reference_subset_cannot_claim_full_score_or_assign_unselected_cases(self):
+        rows=[{'instance_id':str(i),'model_patch':'diff'} for i in range(500)]
+        plan=dict(selected_count=24,active_count=24,empty_patch_count=0,full_verified_accounting=False,
+                  selected_instance_ids=[str(i) for i in range(24)],groups=[{'instance_ids':[str(i) for i in range(24)]}])
+        self.assertEqual(len(validate_selection(plan,rows)),24)
+        from core import summarize
+        result=summarize(rows,{str(i):{'resolved':i<12} for i in range(24)},plan['selected_instance_ids'],full=False)
+        self.assertEqual(result['subset_resolved_rate'],.5);self.assertIsNone(result['verified_score'])
+        with self.assertRaises(ValueError):validate_selection(dict(plan,full_verified_accounting=True),rows)
+        bad=copy.deepcopy(plan);bad['groups'][0]['instance_ids'].append('25')
+        with self.assertRaises(ValueError):validate_selection(bad,rows)
+
     def fixture(self):
         rows=[{'instance_id':f'repo__case-{i}','model_patch':'diff' if i<344 else ''} for i in range(500)]
         shards=[]

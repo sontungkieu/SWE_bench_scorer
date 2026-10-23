@@ -130,6 +130,21 @@ def validate_wave_reports(reports,selected):
     return sorted(set(selected)-set(reports))
 
 
+def validate_selection(plan,rows):
+    by={r['instance_id']:r for r in rows}
+    selected=plan.get('selected_instance_ids',list(by))
+    if (len(selected)!=len(set(selected)) or set(selected)-set(by) or
+        len(selected)!=plan['selected_count'] or
+        (plan.get('full_verified_accounting',True) and len(selected)!=500)):
+        raise ValueError('Invalid selected instance scope')
+    active={i for i in selected if by[i]['model_patch'].strip()}
+    assigned=[i for g in plan['groups'] for i in g['instance_ids']]
+    if (len(assigned)!=len(set(assigned)) or set(assigned)!=active or
+        plan['active_count']!=len(active) or plan['empty_patch_count']!=len(selected)-len(active)):
+        raise ValueError('Assigned compute differs from selected nonempty predictions')
+    return selected
+
+
 def merge_progress(found,progress,selected,reports,attempted):
     ids=progress['attempted_ids']
     if len(ids)!=len(set(ids)) or set(ids)-set(selected):raise ValueError('Invalid attempted coverage')
@@ -205,6 +220,7 @@ def run(out,source):
         raise ValueError('Wrong profile/SDK')
     if (out/'receipt.json').exists(): raise ValueError('No automatic paid retry')
     plan=json.loads((out/'plan.json').read_text());rows=load_predictions(out/'preds.jsonl')
+    selected=validate_selection(plan,rows)
     budget=Decimal(plan['new_run_compute_egress_budget_usd']);prior_cost=Decimal(plan['prior_task_cost_usd'])
     validate_budget(budget,prior_cost,Decimal(plan['cumulative_authorized_usd']))
     if digest(out/'preds.jsonl')!=plan['predictions_sha256'] or digest(out/'dataset.json')!=DATASET_SHA:
@@ -217,11 +233,11 @@ def run(out,source):
     record=dict(started_at=datetime.now(timezone.utc).isoformat(),source_sha256=expected,source_commit=plan['source_commit'],
         profile='phamvanvuhoan',mode='optimizeN11',groups=[],terminated_vm_ids=[],used_allocation_seconds=0.,
         max_active_vms=1,budget_usd=str(budget),prior_task_cost_usd=str(prior_cost),
-        selected_count=500,active_count=plan['active_count'],official_tests_modified=False)
+        selected_count=len(selected),active_count=plan['active_count'],official_tests_modified=False)
     app=modal.App('swebench-n11-verified-'+str(plan['active_count']));active=None;reports={};attempted=[];started=time.monotonic()
     def persist():
         dump(out/'receipt.json',record);dump(out/'reports.json',reports)
-        summary=summarize(rows,reports,[r['instance_id'] for r in rows],full=True)
+        summary=summarize(rows,reports,selected,full=plan.get('full_verified_accounting',True))
         summary.update(attempted_nonempty_count=len(attempted),pending_nonempty_count=plan['active_count']-len(attempted),
             missing_attempted_report_ids=sorted(set(attempted)-reports.keys()),
             execution_complete=len(attempted)==plan['active_count'],scientific_stability_qualified=False)
