@@ -531,3 +531,50 @@ dù file nguồn chỉ có 499 predictions. Patch rỗng và ID không có predi
 được ghi là không nộp patch, không dựng official report. Một patch đã gọi mà
 thiếu report vẫn là kết quả chưa biết, kể cả reference công bố unresolved.
 Điểm dùng mẫu số 500; tổng điểm bằng nhau không thay thế đối chiếu từng ID.
+
+## Checked N11 prediction pipeline (version 1)
+
+`optimizeN11checked-v1` uses `probes/n11_checked_predictions.py` separately from
+the retained `probes/n11_predictions.py` and frozen 24-case entrypoints. It uses
+the same N11 snapshots, one VM at a time, 16 cores / 64 GiB, eight workers and
+the unchanged official 600-second test timeout. It is not yet a qualified full
+Verified reproduction.
+
+Only the patch-application block in an isolated copy of SWE-bench 4.1.0 is
+replaced, behind an exact upstream source hash check. Official test scripts,
+test patches, required test IDs, parsers and report JSON are unchanged. The
+installed package and old run directories are retained. Predictions must be
+explicitly hashed; no newline repair or other normalization happens in this
+entrypoint.
+
+The applicator restores touched files to their pinned dataset base, applies
+the original prediction forward, and three-way merges independent image setup
+edits. It never feeds a partial failed application to another method and never
+automatically reverses a patch. Conflicts stop the instance. Every text section
+must pass a reverse applicability check on the resulting files. Binary sections
+without materializable payload remain explicit input errors; text-only fallback
+reports are retained separately and do not qualify the complete prediction.
+
+`patch-application.json` records application evidence. Supplemental `validity.json`
+checks required test capture, skips and setup errors without modifying official
+reports. A null `qualified_resolved` is an invalid/incomplete execution, not a
+model failure or a success. Reports for an explicitly selected subset must not be
+presented as a fresh full-500 score or merged into the legacy run.
+
+Run only in the existing authorized remote environment. Preparation is offline;
+execution performs a fresh billing guard and refuses an existing run receipt:
+
+```bash
+python probes/n11_checked_predictions.py prepare --out "$RUN" --source "$SOURCE" \
+  --predictions "$PREDICTIONS" --dataset "$DATASET" --expected-sha256 "$PREDS_SHA" \
+  --expected-nonempty "$NONEMPTY" --selected-ids "$IDS_JSON" --commit "$COMMIT" \
+  --budget-usd "$REMAINING_BUDGET" --prior-cost-usd "$ALREADY_SPENT" \
+  --cumulative-cap-usd "$TOTAL_CAP"
+python probes/n11_checked_predictions.py run --out "$RUN" --source "$SOURCE"
+python probes/n11_checked_predictions.py collect --out "$RUN" --billing-name billing-first.json
+```
+
+Collect billing again after at least 60 seconds and confirm per-app costs and
+zero remaining VMs before reporting settled usage. Snapshot storage is tracked
+separately from the evaluation compute/egress cap. Run allocation reserves can
+stop admission of further complete waves; they never shorten official tests.

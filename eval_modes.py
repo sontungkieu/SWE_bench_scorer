@@ -16,6 +16,12 @@ import sys
 PROBES = Path(__file__).resolve().parent/'probes'
 sys.path.insert(0,str(PROBES))
 MODES = {
+    'optimizeN11checked-v1': {'backend':'VM snapshot + checked-forward-v1 applicator',
+                            'catalog_shards':11, 'scope':'explicit prediction selection',
+                            'entrypoint':'probes/n11_checked_predictions.py',
+                            'scientific_stability_qualified':False,
+                            'max_active_vms':1, 'cpu':16, 'memory_gib':64,
+                            'workers':8, 'test_timeout':600},
     'native': {'backend':'official --modal true + qualified SDK overlay', 'scope':24,
                'estimate_usd':3, 'scientific_parity_qualified':False},
     'optimizeN11': {'backend':'VM snapshot', 'catalog_shards':11, 'scope':24,
@@ -74,6 +80,8 @@ def main():
     a=p.parse_args()
     if a.action=='list':
         print(json.dumps(MODES,indent=2));return 0
+    if a.mode=='optimizeN11checked-v1':
+        p.error('Use probes/n11_checked_predictions.py: its prepare action requires explicit prediction hashes, selected IDs and cumulative budget; the frozen 24-case dispatcher does not execute this mode')
     merge_modes=('optimizeN7merge','optimizeN7weighted')
     if a.action=='plan':
         if a.mode not in merge_modes:p.error('plan requires an optimizeN7 merge mode')
