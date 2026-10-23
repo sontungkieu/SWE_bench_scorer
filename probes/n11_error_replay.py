@@ -22,6 +22,14 @@ ESTIMATE=Decimal('1.05')
 TARGET='psf__requests-2317'
 
 
+def replay_complete(record,reports,progress):
+    """Worker completion alone does not establish an official evaluation result."""
+    return bool(record.get('worker_completed') and not record.get('error') and
+        record.get('all_vms_terminated') and progress.get('complete') is True and
+        progress.get('attempted_ids')==[TARGET] and set(reports)=={TARGET} and
+        isinstance(reports[TARGET],dict) and type(reports[TARGET].get('resolved')) is bool)
+
+
 def settled_cost(first,second,app_id):
     values=[]
     for data in [first,second]:
@@ -127,10 +135,17 @@ def run(out,source,approved):
                         active.terminate(wait=True);record['all_vms_terminated']=True;active=None
     except Exception as exc:record['error']=type(exc).__name__+': '+str(exc)
     finally:
+        reports={};progress={}
+        try:
+            reports=json.loads((out/'output/reports.json').read_text())
+            progress=json.loads((out/'output/progress.json').read_text())
+        except (OSError,ValueError) as exc:
+            record['result_read_error']=type(exc).__name__+': '+str(exc)
+        record['reports_complete']=replay_complete(record,reports,progress)
         record.update(finished_at=datetime.now(timezone.utc).isoformat(),wall_seconds=time.monotonic()-started)
         dump(out/'receipt.json',record)
-        guard(source,out.name,float(ESTIMATE),'completed' if record.get('worker_completed') else 'failed')
-    return 0 if record.get('worker_completed') and not record.get('error') else 1
+        guard(source,out.name,float(ESTIMATE),'completed' if record['reports_complete'] else 'failed')
+    return 0 if record['reports_complete'] else 1
 
 
 if __name__=='__main__':

@@ -500,3 +500,6 @@ Không replay một report unresolved đã có; không ghi đè report/lỗi lư
 `run --approved-one-replay` chỉ được gọi sau khi có quyền từ người dùng; code
 chuẩn bị và test offline không tự cấp quyền trả phí. Kết quả replay phải báo
 riêng và nêu rõ nếu dùng để bổ sung missing report vào bảng tổng hợp.
+Replay thiếu official report trả exit code 1 và `reports_complete=false`,
+kể cả worker đã chạy hết và VM đã dừng. Một report `resolved=false` hợp lệ
+vẫn là lượt chấm hoàn chỉnh; exit code không thay thế việc đọc report.

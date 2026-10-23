@@ -1,10 +1,26 @@
 from copy import deepcopy
 from decimal import Decimal
 import unittest
-from n11_error_replay import TARGET,ESTIMATE,LIFETIME,settled_cost,validate_missing_target,RATE
+from n11_error_replay import TARGET,ESTIMATE,LIFETIME,settled_cost,validate_missing_target,RATE,replay_complete
 
 
 class ErrorReplayTests(unittest.TestCase):
+    def test_finished_worker_with_timeout_missing_report_is_not_complete(self):
+        record=dict(worker_completed=True,all_vms_terminated=True)
+        progress=dict(complete=True,attempted_ids=[TARGET])
+        self.assertFalse(replay_complete(record,{},progress))
+        # An official unresolved report is a complete evaluation result.
+        self.assertTrue(replay_complete(record,{TARGET:{'resolved':False}},progress))
+        self.assertTrue(replay_complete(record,{TARGET:{'resolved':True}},progress))
+
+    def test_cleanup_errors_invalid_scope_and_nonboolean_results_are_not_complete(self):
+        record=dict(worker_completed=True,all_vms_terminated=True)
+        reports={TARGET:{'resolved':True}};progress=dict(complete=True,attempted_ids=[TARGET])
+        self.assertFalse(replay_complete(dict(record,error='collection failed'),reports,progress))
+        self.assertFalse(replay_complete(dict(record,all_vms_terminated=False),reports,progress))
+        self.assertFalse(replay_complete(record,reports,dict(progress,attempted_ids=[])))
+        self.assertFalse(replay_complete(record,{TARGET:{'resolved':1}},progress))
+
     def billing(self):
         a=dict(app_id='app',remaining_vms=[],rows=[{'object_id':'app','cost':'2'}],
                compute_egress_usd='2',checked_at='2026-10-23T05:00:00+00:00')
