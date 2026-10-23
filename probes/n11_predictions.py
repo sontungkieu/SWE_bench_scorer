@@ -82,7 +82,20 @@ def make_groups(rows,catalog,hashes,now=None):
     return groups
 
 
-def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit,budget=BUDGET,prior_cost=PRIOR_COST,cap=Decimal('8')):
+def compute_assignment_rows(rows,data,selected_ids=None):
+    by={r['instance_id']:r for r in rows};data_ids={r['instance_id'] for r in data}
+    selected=list(by) if selected_ids is None else list(selected_ids)
+    if (len(data_ids)!=500 or set(by)-data_ids or not selected or
+        len(selected)!=len(set(selected)) or set(selected)-set(by) or
+        (selected_ids is None and set(by)!=data_ids)):
+        raise ValueError('Wrong Verified source coverage or selected scope')
+    # This is only an assignment mask. The prediction file is copied byte-for-byte.
+    selected_set=set(selected)
+    mask=[dict(instance_id=i,model_patch=by[i]['model_patch'] if i in selected_set else '') for i in data_ids]
+    return selected,mask
+
+
+def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit,budget=BUDGET,prior_cost=PRIOR_COST,cap=Decimal('8'),selected_ids=None):
     from core import load_predictions,DATASET,REVISION
     if out.exists(): raise ValueError('New output directory required; never overwrite a run')
     if digest(predictions)!=expected_sha: raise ValueError('Authorized input hash changed')
@@ -92,8 +105,7 @@ def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit
     if digest(dataset)!=DATASET_SHA or digest(source/CATALOG)!=CATALOG_SHA:
         raise ValueError('Pinned dataset/catalog differs')
     data=json.loads(dataset.read_text());catalog=json.loads((source/CATALOG).read_text())
-    if len(data)!=500 or {r['instance_id'] for r in data}!={r['instance_id'] for r in rows}:
-        raise ValueError('Wrong Verified coverage')
+    selected,assignment_rows=compute_assignment_rows(rows,data,selected_ids)
     hashes={}
     with tarfile.open(source/METADATA) as archive:
         for member in archive.getmembers():
@@ -106,19 +118,21 @@ def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit
                     raise ValueError('Original manifest differs')
                 hashes[str(index)]=manifest['plan_sha256']
     if len(hashes)!=11: raise ValueError('Missing original shard manifests')
-    groups=make_groups(rows,catalog,hashes)
+    groups=make_groups(assignment_rows,catalog,hashes)
+    active_count=sum(len(g['instance_ids']) for g in groups)
     validate_budget(budget,prior_cost,cap)
     out.mkdir(parents=True)
     (out/'preds.jsonl').write_bytes(predictions.read_bytes())
     (out/'dataset.json').write_bytes(dataset.read_bytes())
     dump(out/'plan.json',dict(mode='optimizeN11',dataset=DATASET,dataset_revision=REVISION,
         predictions_sha256=expected_sha,dataset_sha256=DATASET_SHA,catalog_sha256=CATALOG_SHA,
-        selected_count=500,active_count=expected_nonempty,empty_patch_count=500-expected_nonempty,
+        selected_count=len(selected),active_count=active_count,empty_patch_count=len(selected)-active_count,
+        selected_instance_ids=selected,source_prediction_count=len(rows),source_nonempty_count=expected_nonempty,
         groups=groups,cpu=16,memory_gib=64,workers=8,test_timeout=600,max_active_vms=1,
         wave_reserve_seconds=WAVE_RESERVE,prior_task_cost_usd=str(prior_cost),
         new_run_compute_egress_budget_usd=str(budget),egress_reserve_usd=str(EGRESS_RESERVE),
         cumulative_authorized_usd=str(cap),official_tests_modified=False,scientific_stability_qualified=False,
-        full_verified_accounting=True,source_commit=commit))
+        full_verified_accounting=selected_ids is None,source_commit=commit))
     files={n:source/n for n in EVALUATORS}|{n:Path(__file__).parent/n for n in HELPERS}
     dump(out/'source-hashes.json',{n:digest(p) for n,p in files.items()})
 
@@ -331,8 +345,9 @@ if __name__=='__main__':
     p.add_argument('--budget-usd',type=Decimal,default=BUDGET)
     p.add_argument('--prior-cost-usd',type=Decimal,default=PRIOR_COST)
     p.add_argument('--cumulative-cap-usd',type=Decimal,default=Decimal('8'))
+    p.add_argument('--selected-ids',type=Path,help='JSON ID list for an explicit reference subset; preserves source prediction bytes')
     p.add_argument('--billing-name',default='billing.json');a=p.parse_args()
     if a.action=='worker':worker()
     elif a.action=='collect':collect(a.out,a.billing_name)
-    elif a.action=='prepare':prepare(a.out,a.source,a.predictions,a.dataset,a.expected_sha256,a.expected_nonempty,a.commit,a.budget_usd,a.prior_cost_usd,a.cumulative_cap_usd)
+    elif a.action=='prepare':prepare(a.out,a.source,a.predictions,a.dataset,a.expected_sha256,a.expected_nonempty,a.commit,a.budget_usd,a.prior_cost_usd,a.cumulative_cap_usd,json.loads(a.selected_ids.read_text()) if a.selected_ids else None)
     else:raise SystemExit(run(a.out,a.source))

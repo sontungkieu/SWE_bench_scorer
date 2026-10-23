@@ -515,3 +515,6 @@ Reference-validation theo subset giữ nguyên toàn bộ predictions nguồn v�
 ghi `selected_instance_ids` vào plan; `full_verified_accounting=false`.
 Runner kiểm tra assignment đúng các patch không rỗng được chọn và chỉ báo
 subset rate, không gắn điểm Verified 500 bài cho mẫu kiểm chứng.
+`prepare --selected-ids ids.json` cho phép nguồn public thiếu prediction
+ngoài subset (ví dụ 499/500); không thêm dòng giả vào file nguồn. Chế độ full
+vẫn yêu cầu đủ đúng 500 ID. Lưu riêng source count và selected count trong plan.

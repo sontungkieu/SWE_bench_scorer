@@ -5,7 +5,7 @@ import math
 import unittest
 
 from n11_predictions import (BUDGET, EGRESS_RESERVE, PRIOR_COST, RATE, WAVE_RESERVE,
-                             VM_OVERHEAD, lifetime_for, make_groups, validate_wave_reports, merge_progress,validate_budget,validate_selection)
+                             VM_OVERHEAD, lifetime_for, make_groups, validate_wave_reports, merge_progress,validate_budget,validate_selection,compute_assignment_rows)
 
 
 class AllocationTests(unittest.TestCase):
@@ -50,6 +50,15 @@ class AllocationTests(unittest.TestCase):
 
 
 class InputAccountingTests(unittest.TestCase):
+    def test_public_reference_missing_unselected_source_row_is_not_fabricated(self):
+        rows=[{'instance_id':str(i),'model_patch':'diff'} for i in range(499)]
+        data=[{'instance_id':str(i)} for i in range(500)]
+        selected,mask=compute_assignment_rows(rows,data,[str(i) for i in range(24)])
+        self.assertEqual(len(selected),24);self.assertEqual(len(rows),499)
+        self.assertEqual(sum(bool(r['model_patch']) for r in mask),24)
+        with self.assertRaises(ValueError):compute_assignment_rows(rows,data)
+        with self.assertRaises(ValueError):compute_assignment_rows(rows,data,['499'])
+
     def test_reference_subset_cannot_claim_full_score_or_assign_unselected_cases(self):
         rows=[{'instance_id':str(i),'model_patch':'diff'} for i in range(500)]
         plan=dict(selected_count=24,active_count=24,empty_patch_count=0,full_verified_accounting=False,
