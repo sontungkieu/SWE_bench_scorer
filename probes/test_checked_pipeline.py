@@ -55,6 +55,25 @@ class ForwardApplyTests(unittest.TestCase):
         self.assertIn('setuptools==68', (self.repo / 'config').read_text())
         self.assertEqual(len(result['steps']), 1)
 
+    def test_bare_official_checkout_preserves_setup_and_prediction(self):
+        self.image('requires = "setuptools==68"\nextra = "base"\n')
+        image_head=self.git('rev-parse','HEAD').strip()
+        result=apply(self.repo,self.patch,self.base)
+        self.assertTrue(result['applied'],result)
+        self.assertEqual(result['git_metadata']['original_image_head'],image_head)
+        self.assertEqual(self.git('rev-parse','HEAD').strip(),self.base)
+        self.git('checkout',self.base)
+        self.assertIn('setuptools==68',(self.repo/'config').read_text())
+        self.assertIn('fixed',(self.repo/'code.py').read_text())
+
+    def test_c_quoted_git_unicode_path_is_decoded_before_validation(self):
+        path='_build/_images/testim\u00e4ge.png'
+        block=(b'diff --git "a/_build/_images/testim\\303\\244ge.png" '
+               b'"b/_build/_images/testim\\303\\244ge.png"\n'
+               b'new file mode 100644\nindex 0000000..123abcd\n'
+               b'Binary files /dev/null and b/_build/_images/testim\\303\\244ge.png differ\n')
+        self.assertEqual(sections(block)[0]['paths'],[path])
+
     def test_independent_image_setup_edits_survive_three_way_merge(self):
         # Distant lines allow a real three-way merge with no side preference.
         base = 'pin = "base"\n' + '\n'.join('line' + str(i) for i in range(20)) + '\nother = "base"\n'

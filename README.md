@@ -554,6 +554,11 @@ automatically reverses a patch. Conflicts stop the instance. Every text section
 must pass a reverse applicability check on the resulting files. Binary sections
 without materializable payload remain explicit input errors; text-only fallback
 reports are retained separately and do not qualify the complete prediction.
+Git C-quoted UTF-8 paths are decoded before validation. After a successful
+application, a mixed reset normalizes HEAD/index to the dataset base without
+changing worktree contents. This preserves image setup through an unchanged
+official eval script that emits a bare base checkout for added-only test files;
+no pytest flags, test body or script text are injected.
 
 `patch-application.json` records application evidence. Supplemental `validity.json`
 checks required test capture, skips and setup errors without modifying official

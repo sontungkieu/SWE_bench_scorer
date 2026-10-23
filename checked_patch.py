@@ -6,12 +6,12 @@ Conflicts fail closed. Incomplete binary input is retained as an explicit error,
 even when GNU patch's upstream-compatible fallback accepts the text changes.
 """
 import argparse
+import ast
 import hashlib
 import json
 import os
 from pathlib import Path, PurePosixPath
 import re
-import shlex
 import subprocess
 import tempfile
 
@@ -34,10 +34,20 @@ def sections(patch):
             if block.strip():
                 raise ValueError('Only explicit git diff sections are supported')
             continue
-        header = shlex.split(block.splitlines()[0].decode('utf-8'))
-        if len(header) != 4 or not header[2].startswith('a/') or not header[3].startswith('b/'):
+        token = rb'("(?:[^"\\]|\\.)*"|[^\s"]+)'
+        header = re.fullmatch(rb'diff --git ' + token + rb' ' + token, block.splitlines()[0])
+        if header is None:
             raise ValueError('Unsupported diff path encoding')
-        paths = list(dict.fromkeys([header[2][2:], header[3][2:]]))
+        decoded = []
+        for part in header.groups():
+            # Git quotes non-ASCII UTF-8 bytes with C-style octal escapes.
+            # Shell tokenization does not decode this representation.
+            if part.startswith(b'"'):
+                part = ast.literal_eval('b' + part.decode('ascii'))
+            decoded.append(part.decode('utf-8'))
+        if not decoded[0].startswith('a/') or not decoded[1].startswith('b/'):
+            raise ValueError('Unsupported diff path prefixes')
+        paths = list(dict.fromkeys([part[2:] for part in decoded]))
         for name in paths:
             p = PurePosixPath(name)
             if (p.is_absolute() or '..' in p.parts or '.git' in p.parts or
@@ -167,6 +177,23 @@ def apply(repo, patch_path, base_commit):
                             check_output=output.decode(errors='replace')))
                     else:
                         raise ValueError('Forward postcondition failed for ' + ', '.join(part['paths']) + ': ' + output.decode(errors='replace'))
+            # Image builders commit setup edits on top of the dataset base.
+            # An upstream eval script with only newly added test files emits
+            # a bare `git checkout BASE`; switching away from that build commit
+            # would discard clean setup files. Normalize metadata only, keeping
+            # the complete worktree (prediction + image setup) intact.
+            rc, initial_head = command(['git', 'rev-parse', 'HEAD'], repo)
+            if rc:
+                raise ValueError('Cannot retain original image HEAD')
+            materialized = {n:read_state(paths[n]) for n in names}
+            rc, output = command(['git', 'reset', '--mixed', '--quiet', base_commit], repo)
+            if rc:
+                raise ValueError('Cannot normalize evaluation Git metadata: ' + output.decode(errors='replace'))
+            if any(read_state(paths[n]) != materialized[n] for n in names):
+                raise ValueError('Git metadata normalization changed worktree content')
+            audit['git_metadata'] = dict(original_image_head=initial_head.decode().strip(),
+                evaluation_head=base_commit, command='git reset --mixed --quiet BASE',
+                worktree_content_preserved=True, official_eval_script_modified=False)
             audit['applied'] = True
             audit['prediction_fully_materialized'] = not audit['materialization_errors']
     except Exception as exc:
