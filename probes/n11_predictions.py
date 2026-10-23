@@ -41,16 +41,16 @@ VM_OVERHEAD=180
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def validate_budget(budget,prior_cost):
-    if (not budget.is_finite() or not prior_cost.is_finite() or
-        budget<=EGRESS_RESERVE or prior_cost<0 or prior_cost+budget>8):
-        raise ValueError('Invalid budget or cumulative $8 authorization exceeded')
+def validate_budget(budget,prior_cost,cap=Decimal('8')):
+    if (not budget.is_finite() or not prior_cost.is_finite() or not cap.is_finite() or
+        budget<=EGRESS_RESERVE or prior_cost<0 or cap<=0 or prior_cost+budget>cap):
+        raise ValueError('Invalid budget or authorized cumulative cap exceeded')
 
 
 def lifetime_for(active_count, used_seconds, budget=BUDGET):
     if not 1<=active_count<=100 or not math.isfinite(used_seconds) or used_seconds<0:
         raise ValueError('Invalid allocation accounting')
-    validate_budget(budget,Decimal(0))
+    validate_budget(budget,Decimal(0),budget)
     available=(budget-EGRESS_RESERVE)/RATE-Decimal(str(used_seconds))
     maximum=math.floor(available)-10  # Client/rounding margin beyond metered VM wall.
     if maximum<WAVE_RESERVE+VM_OVERHEAD: return None
@@ -82,7 +82,7 @@ def make_groups(rows,catalog,hashes,now=None):
     return groups
 
 
-def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit,budget=BUDGET,prior_cost=PRIOR_COST):
+def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit,budget=BUDGET,prior_cost=PRIOR_COST,cap=Decimal('8')):
     from core import load_predictions,DATASET,REVISION
     if out.exists(): raise ValueError('New output directory required; never overwrite a run')
     if digest(predictions)!=expected_sha: raise ValueError('Authorized input hash changed')
@@ -107,7 +107,7 @@ def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit
                 hashes[str(index)]=manifest['plan_sha256']
     if len(hashes)!=11: raise ValueError('Missing original shard manifests')
     groups=make_groups(rows,catalog,hashes)
-    validate_budget(budget,prior_cost)
+    validate_budget(budget,prior_cost,cap)
     out.mkdir(parents=True)
     (out/'preds.jsonl').write_bytes(predictions.read_bytes())
     (out/'dataset.json').write_bytes(dataset.read_bytes())
@@ -117,7 +117,7 @@ def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit
         groups=groups,cpu=16,memory_gib=64,workers=8,test_timeout=600,max_active_vms=1,
         wave_reserve_seconds=WAVE_RESERVE,prior_task_cost_usd=str(prior_cost),
         new_run_compute_egress_budget_usd=str(budget),egress_reserve_usd=str(EGRESS_RESERVE),
-        cumulative_authorized_usd='8',official_tests_modified=False,scientific_stability_qualified=False,
+        cumulative_authorized_usd=str(cap),official_tests_modified=False,scientific_stability_qualified=False,
         full_verified_accounting=True,source_commit=commit))
     files={n:source/n for n in EVALUATORS}|{n:Path(__file__).parent/n for n in HELPERS}
     dump(out/'source-hashes.json',{n:digest(p) for n,p in files.items()})
@@ -206,7 +206,7 @@ def run(out,source):
     if (out/'receipt.json').exists(): raise ValueError('No automatic paid retry')
     plan=json.loads((out/'plan.json').read_text());rows=load_predictions(out/'preds.jsonl')
     budget=Decimal(plan['new_run_compute_egress_budget_usd']);prior_cost=Decimal(plan['prior_task_cost_usd'])
-    validate_budget(budget,prior_cost)
+    validate_budget(budget,prior_cost,Decimal(plan['cumulative_authorized_usd']))
     if digest(out/'preds.jsonl')!=plan['predictions_sha256'] or digest(out/'dataset.json')!=DATASET_SHA:
         raise ValueError('Inputs changed after prepare')
     files={n:source/n for n in EVALUATORS}|{n:Path(__file__).parent/n for n in HELPERS}
@@ -314,8 +314,9 @@ if __name__=='__main__':
     p.add_argument('--expected-sha256');p.add_argument('--expected-nonempty',type=int);p.add_argument('--commit')
     p.add_argument('--budget-usd',type=Decimal,default=BUDGET)
     p.add_argument('--prior-cost-usd',type=Decimal,default=PRIOR_COST)
+    p.add_argument('--cumulative-cap-usd',type=Decimal,default=Decimal('8'))
     p.add_argument('--billing-name',default='billing.json');a=p.parse_args()
     if a.action=='worker':worker()
     elif a.action=='collect':collect(a.out,a.billing_name)
-    elif a.action=='prepare':prepare(a.out,a.source,a.predictions,a.dataset,a.expected_sha256,a.expected_nonempty,a.commit,a.budget_usd,a.prior_cost_usd)
+    elif a.action=='prepare':prepare(a.out,a.source,a.predictions,a.dataset,a.expected_sha256,a.expected_nonempty,a.commit,a.budget_usd,a.prior_cost_usd,a.cumulative_cap_usd)
     else:raise SystemExit(run(a.out,a.source))

@@ -506,6 +506,7 @@ vẫn là lượt chấm hoàn chỉnh; exit code không thay thế việc đọ
 
 Lượt N11 tiếp theo dùng `prepare --budget-usd ... --prior-cost-usd ...`
 để ghi chi phí đã chốt và phần ngân sách còn lại vào plan; `run` đọc đúng
-contract đó, không dùng lại ngân sách của lượt trước. Tổng vẫn giới hạn $8.
+contract đó, không dùng lại ngân sách của lượt trước. Tổng mặc định giới hạn
+$8; chỉ dùng `--cumulative-cap-usd` khác sau khi user duyệt trần mới.
 Không đủ dự phòng nguyên timeout thì dừng trước wave/VM mới và giữ kết quả
 đã có; không tự retry hay rút ngắn test để ép vừa ngân sách.

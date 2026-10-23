@@ -21,6 +21,12 @@ class AllocationTests(unittest.TestCase):
         for budget,prior in [('NaN','0'),('Infinity','0'),('0.1','0'),('1','-1'),('1','NaN')]:
             with self.assertRaises(ValueError):validate_budget(Decimal(budget),Decimal(prior))
 
+    def test_new_user_cap_must_be_explicit_and_finite(self):
+        prior=Decimal('5.29256583');budget=Decimal('3.00')
+        with self.assertRaises(ValueError):validate_budget(budget,prior)
+        validate_budget(budget,prior,Decimal('8.29256583'))
+        with self.assertRaises(ValueError):validate_budget(budget,prior,Decimal('NaN'))
+
     def test_long_shard_cannot_reserve_more_than_remaining_cumulative_budget(self):
         life=lifetime_for(73,0)
         self.assertLess(life,math.ceil(73/8)*WAVE_RESERVE+VM_OVERHEAD)
