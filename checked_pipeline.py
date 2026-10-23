@@ -111,6 +111,28 @@ def validity_from_status(required, statuses, report, application, setup_error=Fa
                 skipped_required_ids=skipped, official_report_modified=False)
 
 
+def summarize_checked(rows, reports, selected, validity, full=False):
+    """Keep official counts visible, but never qualify incomplete input/capture."""
+    from core import summarize
+    result = summarize(rows, reports, selected, full=full)
+    by = {r['instance_id']:r for r in rows}
+    active = {i for i in selected if by[i]['model_patch'].strip()}
+    invalid = sorted(i for i in active if i not in reports or not validity.get(i,{}).get('execution_valid'))
+    qualified = sorted(i for i in active-set(invalid) if validity[i]['qualified_resolved'] is True)
+    for iid in active.intersection(validity):
+        if validity[iid].get('execution_valid'):
+            if iid not in reports or validity[iid].get('qualified_resolved') != reports[iid]['resolved']:
+                raise ValueError('Supplemental validity contradicts the official report')
+    result.update(result_basis='unaltered official reports; supplemental qualification is separate',
+        official_reports_complete=result['complete'], official_resolved_count=result['resolved_count'],
+        official_subset_resolved_rate=result['subset_resolved_rate'],
+        qualified_resolved_count=len(qualified), qualified_resolved_ids=qualified,
+        invalid_or_unchecked_ids=invalid, qualified_complete=not invalid)
+    if invalid:
+        result.update(complete=False, verified_score=None, subset_resolved_rate=None)
+    return result
+
+
 def audit_case(spec, directory):
     from swebench.harness.grading import get_logs_eval
     directory = Path(directory)

@@ -109,6 +109,26 @@ class ForwardApplyTests(unittest.TestCase):
 
 
 class CaptureValidityTests(unittest.TestCase):
+    def test_incomplete_binary_cannot_become_a_complete_summary(self):
+        from checked_pipeline import summarize_checked
+        rows=[dict(instance_id='repo__repo-1',model_patch='original patch')]
+        reports={'repo__repo-1':{'resolved':True}}
+        validity={'repo__repo-1':dict(execution_valid=False,qualified_resolved=None)}
+        summary=summarize_checked(rows,reports,['repo__repo-1'],validity)
+        self.assertTrue(summary['official_reports_complete'])
+        self.assertEqual(summary['official_resolved_count'],1)
+        self.assertFalse(summary['complete'])
+        self.assertEqual(summary['qualified_resolved_count'],0)
+        self.assertIsNone(summary['subset_resolved_rate'])
+        self.assertEqual(reports,{'repo__repo-1':{'resolved':True}})
+
+    def test_validity_cannot_replace_an_official_failure_with_a_success(self):
+        from checked_pipeline import summarize_checked
+        with self.assertRaises(ValueError):
+            summarize_checked([dict(instance_id='repo__repo-1',model_patch='original')],
+                {'repo__repo-1':{'resolved':False}},['repo__repo-1'],
+                {'repo__repo-1':dict(execution_valid=True,qualified_resolved=True)})
+
     def test_eight_concurrent_applicator_copies_have_no_shared_tar_file(self):
         from concurrent.futures import ThreadPoolExecutor
         import io

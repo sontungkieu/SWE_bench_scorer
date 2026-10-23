@@ -560,6 +560,9 @@ checks required test capture, skips and setup errors without modifying official
 reports. A null `qualified_resolved` is an invalid/incomplete execution, not a
 model failure or a success. Reports for an explicitly selected subset must not be
 presented as a fresh full-500 score or merged into the legacy run.
+The controller summary retains explicit official counts and qualified counts;
+it suppresses the headline score/rate whenever any active prediction has an
+invalid or unchecked execution, even if all official report files exist.
 
 Run only in the existing authorized remote environment. Preparation is offline;
 execution performs a fresh billing guard and refuses an existing run receipt:

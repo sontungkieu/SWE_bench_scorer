@@ -252,7 +252,8 @@ def worker():
 
 def run(out,source):
     import fcntl,modal
-    from core import load_predictions,summarize
+    from core import load_predictions
+    from checked_pipeline import summarize_checked
     if os.environ.get('MODAL_PROFILE')!='phamvanvuhoan' or modal.__version__!='1.6.2':
         raise ValueError('Wrong profile/SDK')
     if (out/'receipt.json').exists(): raise ValueError('No automatic paid retry')
@@ -274,7 +275,13 @@ def run(out,source):
     app=modal.App('swebench-n11-checked-v1-'+str(plan['active_count']));active=None;reports={};attempted=[];started=time.monotonic()
     def persist():
         dump(out/'receipt.json',record);dump(out/'reports.json',reports)
-        summary=summarize(rows,reports,selected,full=plan.get('full_verified_accounting',True))
+        validity={}
+        for file in sorted(out.glob('shard-*/output/validity.json')):
+            values=json.loads(file.read_text())
+            if set(values)&validity.keys():raise ValueError('Repeated supplemental result')
+            validity.update(values)
+        dump(out/'validity.json',validity)
+        summary=summarize_checked(rows,reports,selected,validity,full=plan.get('full_verified_accounting',True))
         summary.update(attempted_nonempty_count=len(attempted),pending_nonempty_count=plan['active_count']-len(attempted),
             missing_attempted_report_ids=sorted(set(attempted)-reports.keys()),
             execution_complete=len(attempted)==plan['active_count'],scientific_stability_qualified=False)
