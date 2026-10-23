@@ -109,6 +109,27 @@ class ForwardApplyTests(unittest.TestCase):
 
 
 class CaptureValidityTests(unittest.TestCase):
+    def test_eight_concurrent_applicator_copies_have_no_shared_tar_file(self):
+        from concurrent.futures import ThreadPoolExecutor
+        import io
+        import tarfile
+        import threading
+        from checked_pipeline import copy_applicator
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); source = root/'checked_patch.py'
+            payload = b'original applicator bytes\n'; source.write_bytes(payload)
+            barrier = threading.Barrier(8)
+            class Container:
+                def put_archive(self, path, data):
+                    barrier.wait(timeout=10)
+                    with tarfile.open(fileobj=io.BytesIO(data)) as archive:
+                        assert archive.getnames() == ['checked_patch.py']
+                        assert archive.extractfile('checked_patch.py').read() == payload
+                    return path == '/tmp'
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                list(pool.map(lambda _:copy_applicator(Container(),source), range(8)))
+            self.assertEqual(list(root.iterdir()), [source])
+
     def test_aggregate_pass_without_required_ids_is_not_a_model_failure_or_success(self):
         result = validity_from_status(['a', 'b'], {}, {'resolved': False}, {'applied': True})
         self.assertFalse(result['execution_valid'])

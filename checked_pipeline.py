@@ -3,11 +3,13 @@
 The legacy package, official test scripts, parsers and report JSON stay intact.
 """
 import hashlib
+import io
 import json
 import os
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 import re
 import shutil
+import tarfile
 
 from checked_patch import VERSION
 
@@ -50,15 +52,28 @@ def prepare_overlay(package, destination, expected_run_sha256=UPSTREAM_RUN_SHA25
     return manifest
 
 
+def copy_applicator(container, source):
+    # The upstream helper derives a shared *.tar path from the source filename.
+    # Eight threads copying this one source race on creation/unlink. Each call
+    # owns its archive bytes; no shared temporary file or global lock is needed.
+    payload = Path(source).read_bytes()
+    buffer = io.BytesIO()
+    with tarfile.open(fileobj=buffer, mode='w') as archive:
+        member = tarfile.TarInfo('checked_patch.py')
+        member.size = len(payload); member.mode = 0o644
+        archive.addfile(member, io.BytesIO(payload))
+    if not container.put_archive('/tmp', buffer.getvalue()):
+        raise RuntimeError('Container rejected the applicator archive')
+
+
 def apply_in_container(container, instance_id, logger, log_dir, patch_path):
-    from swebench.harness.docker_utils import copy_to_container
     from swebench.harness.utils import EvaluationError
     dataset = Path(os.environ['SWE_CHECKED_DATASET'])
     if sha(dataset) != os.environ['SWE_CHECKED_DATASET_SHA256']:
         raise ValueError('Checked dataset hash changed')
     rows = {r['instance_id']: r for r in json.loads(dataset.read_text())}
     source = Path(__file__).with_name('checked_patch.py')
-    copy_to_container(container, source, PurePosixPath('/tmp/checked_patch.py'))
+    copy_applicator(container, source)
     process = container.exec_run(['python', '/tmp/checked_patch.py', '--repo', '/testbed',
         '--patch', str(patch_path), '--base-commit', rows[instance_id]['base_commit'],
         '--output', '/tmp/patch-application.json'], workdir='/testbed', user='root')
