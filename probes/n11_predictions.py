@@ -41,10 +41,17 @@ VM_OVERHEAD=180
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def lifetime_for(active_count, used_seconds):
+def validate_budget(budget,prior_cost):
+    if (not budget.is_finite() or not prior_cost.is_finite() or
+        budget<=EGRESS_RESERVE or prior_cost<0 or prior_cost+budget>8):
+        raise ValueError('Invalid budget or cumulative $8 authorization exceeded')
+
+
+def lifetime_for(active_count, used_seconds, budget=BUDGET):
     if not 1<=active_count<=100 or not math.isfinite(used_seconds) or used_seconds<0:
         raise ValueError('Invalid allocation accounting')
-    available=(BUDGET-EGRESS_RESERVE)/RATE-Decimal(str(used_seconds))
+    validate_budget(budget,Decimal(0))
+    available=(budget-EGRESS_RESERVE)/RATE-Decimal(str(used_seconds))
     maximum=math.floor(available)-10  # Client/rounding margin beyond metered VM wall.
     if maximum<WAVE_RESERVE+VM_OVERHEAD: return None
     return min(math.ceil(active_count/8)*WAVE_RESERVE+VM_OVERHEAD,maximum)
@@ -75,7 +82,7 @@ def make_groups(rows,catalog,hashes,now=None):
     return groups
 
 
-def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit):
+def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit,budget=BUDGET,prior_cost=PRIOR_COST):
     from core import load_predictions,DATASET,REVISION
     if out.exists(): raise ValueError('New output directory required; never overwrite a run')
     if digest(predictions)!=expected_sha: raise ValueError('Authorized input hash changed')
@@ -100,7 +107,7 @@ def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit
                 hashes[str(index)]=manifest['plan_sha256']
     if len(hashes)!=11: raise ValueError('Missing original shard manifests')
     groups=make_groups(rows,catalog,hashes)
-    if PRIOR_COST+BUDGET>8: raise ValueError('Cumulative $8 authorization exceeded')
+    validate_budget(budget,prior_cost)
     out.mkdir(parents=True)
     (out/'preds.jsonl').write_bytes(predictions.read_bytes())
     (out/'dataset.json').write_bytes(dataset.read_bytes())
@@ -108,8 +115,8 @@ def prepare(out,source,predictions,dataset,expected_sha,expected_nonempty,commit
         predictions_sha256=expected_sha,dataset_sha256=DATASET_SHA,catalog_sha256=CATALOG_SHA,
         selected_count=500,active_count=expected_nonempty,empty_patch_count=500-expected_nonempty,
         groups=groups,cpu=16,memory_gib=64,workers=8,test_timeout=600,max_active_vms=1,
-        wave_reserve_seconds=WAVE_RESERVE,prior_task_cost_usd=str(PRIOR_COST),
-        new_run_compute_egress_budget_usd=str(BUDGET),egress_reserve_usd=str(EGRESS_RESERVE),
+        wave_reserve_seconds=WAVE_RESERVE,prior_task_cost_usd=str(prior_cost),
+        new_run_compute_egress_budget_usd=str(budget),egress_reserve_usd=str(EGRESS_RESERVE),
         cumulative_authorized_usd='8',official_tests_modified=False,scientific_stability_qualified=False,
         full_verified_accounting=True,source_commit=commit))
     files={n:source/n for n in EVALUATORS}|{n:Path(__file__).parent/n for n in HELPERS}
@@ -198,18 +205,20 @@ def run(out,source):
         raise ValueError('Wrong profile/SDK')
     if (out/'receipt.json').exists(): raise ValueError('No automatic paid retry')
     plan=json.loads((out/'plan.json').read_text());rows=load_predictions(out/'preds.jsonl')
+    budget=Decimal(plan['new_run_compute_egress_budget_usd']);prior_cost=Decimal(plan['prior_task_cost_usd'])
+    validate_budget(budget,prior_cost)
     if digest(out/'preds.jsonl')!=plan['predictions_sha256'] or digest(out/'dataset.json')!=DATASET_SHA:
         raise ValueError('Inputs changed after prepare')
     files={n:source/n for n in EVALUATORS}|{n:Path(__file__).parent/n for n in HELPERS}
     expected=json.loads((out/'source-hashes.json').read_text())
     if {n:digest(p) for n,p in files.items()}!=expected: raise ValueError('Source changed after prepare')
     lock=(Path(os.environ['SWE_WEB_STATE'])/'image-cache.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-    guard(source,out.name,float(BUDGET));guard(source,out.name,float(BUDGET),'planned')
+    guard(source,out.name,float(budget));guard(source,out.name,float(budget),'planned')
     record=dict(started_at=datetime.now(timezone.utc).isoformat(),source_sha256=expected,source_commit=plan['source_commit'],
         profile='phamvanvuhoan',mode='optimizeN11',groups=[],terminated_vm_ids=[],used_allocation_seconds=0.,
-        max_active_vms=1,budget_usd=str(BUDGET),prior_task_cost_usd=str(PRIOR_COST),
+        max_active_vms=1,budget_usd=str(budget),prior_task_cost_usd=str(prior_cost),
         selected_count=500,active_count=plan['active_count'],official_tests_modified=False)
-    app=modal.App('swebench-n11-preds-official-344');active=None;reports={};attempted=[];started=time.monotonic()
+    app=modal.App('swebench-n11-verified-'+str(plan['active_count']));active=None;reports={};attempted=[];started=time.monotonic()
     def persist():
         dump(out/'receipt.json',record);dump(out/'reports.json',reports)
         summary=summarize(rows,reports,[r['instance_id'] for r in rows],full=True)
@@ -219,9 +228,9 @@ def run(out,source):
         dump(out/'summary.json',summary)
     try:
         with modal.enable_output(),app.run():
-            record['app_id']=app.app_id;persist();guard(source,out.name,float(BUDGET),'running',app.app_id)
+            record['app_id']=app.app_id;persist();guard(source,out.name,float(budget),'running',app.app_id)
             for group in plan['groups']:
-                lifetime=lifetime_for(len(group['instance_ids']),record['used_allocation_seconds'])
+                lifetime=lifetime_for(len(group['instance_ids']),record['used_allocation_seconds'],budget)
                 if lifetime is None:
                     record['budget_stopped']=True;persist();break
                 case=out/f"shard-{group['index']:02d}";case.mkdir()
@@ -280,7 +289,7 @@ def run(out,source):
             active.terminate(wait=True);record['terminated_vm_ids'].append(active.object_id)
         record.update(all_vms_terminated=all(g.get('terminated') for g in record['groups']),
             finished_at=datetime.now(timezone.utc).isoformat(),wall_seconds=time.monotonic()-started)
-        persist();guard(source,out.name,float(BUDGET),'completed' if record.get('execution_complete') else 'failed');lock.close()
+        persist();guard(source,out.name,float(budget),'completed' if record.get('execution_complete') else 'failed');lock.close()
     return 0 if record.get('execution_complete') and record.get('reports_complete') else 1
 
 
@@ -303,8 +312,10 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['prepare','run','worker','collect'])
     for key in ['out','source','predictions','dataset']:p.add_argument('--'+key,type=Path)
     p.add_argument('--expected-sha256');p.add_argument('--expected-nonempty',type=int);p.add_argument('--commit')
+    p.add_argument('--budget-usd',type=Decimal,default=BUDGET)
+    p.add_argument('--prior-cost-usd',type=Decimal,default=PRIOR_COST)
     p.add_argument('--billing-name',default='billing.json');a=p.parse_args()
     if a.action=='worker':worker()
     elif a.action=='collect':collect(a.out,a.billing_name)
-    elif a.action=='prepare':prepare(a.out,a.source,a.predictions,a.dataset,a.expected_sha256,a.expected_nonempty,a.commit)
+    elif a.action=='prepare':prepare(a.out,a.source,a.predictions,a.dataset,a.expected_sha256,a.expected_nonempty,a.commit,a.budget_usd,a.prior_cost_usd)
     else:raise SystemExit(run(a.out,a.source))

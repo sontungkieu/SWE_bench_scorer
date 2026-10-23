@@ -503,3 +503,9 @@ riêng và nêu rõ nếu dùng để bổ sung missing report vào bảng tổn
 Replay thiếu official report trả exit code 1 và `reports_complete=false`,
 kể cả worker đã chạy hết và VM đã dừng. Một report `resolved=false` hợp lệ
 vẫn là lượt chấm hoàn chỉnh; exit code không thay thế việc đọc report.
+
+Lượt N11 tiếp theo dùng `prepare --budget-usd ... --prior-cost-usd ...`
+để ghi chi phí đã chốt và phần ngân sách còn lại vào plan; `run` đọc đúng
+contract đó, không dùng lại ngân sách của lượt trước. Tổng vẫn giới hạn $8.
+Không đủ dự phòng nguyên timeout thì dừng trước wave/VM mới và giữ kết quả
+đã có; không tự retry hay rút ngắn test để ép vừa ngân sách.

@@ -5,10 +5,22 @@ import math
 import unittest
 
 from n11_predictions import (BUDGET, EGRESS_RESERVE, PRIOR_COST, RATE, WAVE_RESERVE,
-                             VM_OVERHEAD, lifetime_for, make_groups, validate_wave_reports, merge_progress)
+                             VM_OVERHEAD, lifetime_for, make_groups, validate_wave_reports, merge_progress,validate_budget)
 
 
 class AllocationTests(unittest.TestCase):
+    def test_followup_run_uses_updated_spend_and_remaining_budget(self):
+        budget=Decimal('2.70');prior=Decimal('5.29256583')
+        validate_budget(budget,prior)
+        life=lifetime_for(56,0,budget)
+        self.assertLessEqual(Decimal(life)*RATE+EGRESS_RESERVE,budget)
+        self.assertIsNone(lifetime_for(12,1600,budget))
+        with self.assertRaises(ValueError):validate_budget(Decimal('6.30'),prior)
+
+    def test_invalid_contract_budget_fails_closed(self):
+        for budget,prior in [('NaN','0'),('Infinity','0'),('0.1','0'),('1','-1'),('1','NaN')]:
+            with self.assertRaises(ValueError):validate_budget(Decimal(budget),Decimal(prior))
+
     def test_long_shard_cannot_reserve_more_than_remaining_cumulative_budget(self):
         life=lifetime_for(73,0)
         self.assertLess(life,math.ceil(73/8)*WAVE_RESERVE+VM_OVERHEAD)
