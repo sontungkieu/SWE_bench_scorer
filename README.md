@@ -518,3 +518,10 @@ subset rate, không gắn điểm Verified 500 bài cho mẫu kiểm chứng.
 `prepare --selected-ids ids.json` cho phép nguồn public thiếu prediction
 ngoài subset (ví dụ 499/500); không thêm dòng giả vào file nguồn. Chế độ full
 vẫn yêu cầu đủ đúng 500 ID. Lưu riêng source count và selected count trong plan.
+
+Một số patch reference lưu trữ thiếu newline cuối unified diff. Giữ mặc định
+chấm raw bytes; `probes/reference_patch_format.py` tạo variant **tường minh**
+bằng cách chỉ thêm một LF cuối patch không rỗng đang thiếu nó. Không dùng
+`strip()`, sửa hunk hay thay test để làm pass. Manifest giữ hash gốc/variant
+và từng patch; source không bị ghi đè. Cú pháp Git parse được không chứng minh
+test pass; chạy lại trả phí vẫn phải nằm trong quyền và ngân sách của user.
