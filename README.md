@@ -525,3 +525,9 @@ bằng cách chỉ thêm một LF cuối patch không rỗng đang thiếu nó. 
 `strip()`, sửa hunk hay thay test để làm pass. Manifest giữ hash gốc/variant
 và từng patch; source không bị ghi đè. Cú pháp Git parse được không chứng minh
 test pass; chạy lại trả phí vẫn phải nằm trong quyền và ngân sách của user.
+
+`probes/reference_comparison.py` đối chiếu đủ 500 ID với kết quả reference,
+dù file nguồn chỉ có 499 predictions. Patch rỗng và ID không có prediction
+được ghi là không nộp patch, không dựng official report. Một patch đã gọi mà
+thiếu report vẫn là kết quả chưa biết, kể cả reference công bố unresolved.
+Điểm dùng mẫu số 500; tổng điểm bằng nhau không thay thế đối chiếu từng ID.
