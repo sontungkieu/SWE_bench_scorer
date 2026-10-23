@@ -490,3 +490,13 @@ Tổng số resolved từ raw official reports chia 500 là raw Verified score k
 report coverage đầy đủ; đây không phải chứng nhận scientific stability. Giữ
 riêng cảnh báo Matplotlib/Requests đã biết, mọi failure và đủ log/provenance.
 Predictions/output tiếp tục private, chỉ push source và hướng dẫn lên GitHub.
+
+`probes/n11_error_replay.py` chuẩn bị riêng một lần replay cho
+`psf__requests-2317` **chỉ khi user duyệt** và lượt đầu đã hoàn tất. Nó yêu cầu
+bài đó là missing report duy nhất, có log timeout official 600s, không còn VM
+của lượt đầu và billing ổn định ở hai lần đọc cách nhau ít nhất 60s. Reserve
+thêm $1.05 cho VM 960s; tổng chi phí cũ + lượt đầu + replay phải vẫn ≤$8.
+Không replay một report unresolved đã có; không ghi đè report/lỗi lượt đầu.
+`run --approved-one-replay` chỉ được gọi sau khi có quyền từ người dùng; code
+chuẩn bị và test offline không tự cấp quyền trả phí. Kết quả replay phải báo
+riêng và nêu rõ nếu dùng để bổ sung missing report vào bảng tổng hợp.
