@@ -114,7 +114,7 @@ def merge_state(model, base, image, cwd, scratch):
     return content, model[1] if model[1] != base[1] else image[1] or model[1]
 
 
-def apply(repo, patch_path, base_commit):
+def apply(repo, patch_path, base_commit, section_parser=None):
     repo = Path(repo).resolve()
     patch_path = Path(patch_path).resolve()
     raw = patch_path.read_bytes()
@@ -124,7 +124,7 @@ def apply(repo, patch_path, base_commit):
     try:
         if not re.fullmatch(r'[0-9a-f]{40}', base_commit):
             raise ValueError('An immutable dataset base commit is required')
-        parts = sections(raw)
+        parts = (section_parser or sections)(raw)
         names = sorted({n for part in parts for n in part['paths']})
         paths = {n: safe_path(repo, n) for n in names}
         original = {n: read_state(p) for n, p in paths.items()}

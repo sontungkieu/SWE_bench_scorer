@@ -16,6 +16,11 @@ import sys
 PROBES = Path(__file__).resolve().parent/'probes'
 sys.path.insert(0,str(PROBES))
 MODES = {
+    'optimizeN11batch-v1': {'backend':'VM snapshot + checked-forward-v1',
+                          'catalog_shards':11,'scope':'multiple hashed prediction files',
+                          'entrypoint':'probes/n11_batch_predictions.py',
+                          'workers_total':8,'max_active_vms':1,'cpu':16,'memory_gib':64,
+                          'test_timeout':600,'scientific_stability_qualified':False},
     'optimizeN11checked-v1': {'backend':'VM snapshot + checked-forward-v1 applicator',
                             'catalog_shards':11, 'scope':'explicit prediction selection',
                             'entrypoint':'probes/n11_checked_predictions.py',
@@ -80,8 +85,8 @@ def main():
     a=p.parse_args()
     if a.action=='list':
         print(json.dumps(MODES,indent=2));return 0
-    if a.mode=='optimizeN11checked-v1':
-        p.error('Use probes/n11_checked_predictions.py: its prepare action requires explicit prediction hashes, selected IDs and cumulative budget; the frozen 24-case dispatcher does not execute this mode')
+    if a.mode in ('optimizeN11checked-v1','optimizeN11batch-v1'):
+        p.error('Use '+MODES[a.mode]['entrypoint']+': prepare requires explicit hashed input scope and cumulative budget; the frozen 24-case dispatcher does not execute this mode')
     merge_modes=('optimizeN7merge','optimizeN7weighted')
     if a.action=='plan':
         if a.mode not in merge_modes:p.error('plan requires an optimizeN7 merge mode')

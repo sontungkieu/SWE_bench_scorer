@@ -623,3 +623,69 @@ all 500 denominator IDs and raw mismatch counts are preserved, and reproduction
 qualification remains false. Legacy calls without the optional audit retain
 their original behavior. A known incompatibility explains a difference; it does
 not turn that difference into a successful reproduction.
+
+## Multi-file snapshot batch
+
+`optimizeN11batch-v1` uses `probes/n11_batch_predictions.py`. Prepare a manifest
+of 1–32 JSON/JSONL/CSV inputs, each with a unique safe file ID and exact SHA256:
+
+```json
+{"files":[
+  {"id":"nv_fp4","path":"/path/vai_agent_super_nv_fp4.jsonl","sha256":"<64 hex characters>"},
+  {"id":"super","path":"/path/vai_agent_super.jsonl","sha256":"<64 hex characters>"}
+]}
+```
+
+Input paths are resolved relative to the manifest. The raw files are frozen
+byte-for-byte under `inputs/`; no patch repair/normalization is applied. Equal
+model names across files are supported: job identity is `(file_id, instance_id)`.
+Duplicate input content is still evaluated independently, without result caching.
+The batch-only format adapter accepts git diffs and standard `---`/`+++` unified
+diffs, preserving raw bytes and the checked forward-application policy. Syntax
+that this same applicator rejects before touching any file is recorded as
+`input_error` during preparation and receives no paid container. No hunk count,
+LF or code is repaired automatically. Input errors have an unknown test outcome
+and no fabricated official report; full headline scores stay unqualified.
+
+Jobs are grouped by N11 shard, then by instance, then by file. Each shard is
+restored at most once in a run. Every prediction runs in a fresh official Docker
+container with a unique run ID; only immutable images/cache are shared. Eight
+workers is the **total across files**, with one 16-core/64-GiB VM at a time and
+unchanged 600s official test timeout. Separate per-file harness processes avoid
+shared output state and duplicate-instance/model-name collisions. Official test
+scripts, required IDs and grading remain unchanged; the checked applicator is
+reused. Native `--modal` and both older N11 entrypoints remain available.
+
+```bash
+python probes/n11_batch_predictions.py prepare --out "$RUN" --source "$SOURCE" \
+  --manifest "$MANIFEST" --dataset "$DATASET" --commit "$COMMIT" \
+  --budget-usd 8 --prior-cost-usd 0 --cumulative-cap-usd 8
+python probes/n11_batch_predictions.py run --out "$RUN" --source "$SOURCE"
+python probes/n11_batch_predictions.py collect --out "$RUN" --billing-name billing-first.json
+# Collect again after at least 60 seconds; compare settled per-app usage.
+```
+
+Preparation is offline and reports planned restores versus running each file
+separately. The default denominator is all 500 dataset IDs **per file**, even
+when a source file omits some IDs. `--selected-ids ids.json` makes an explicit
+subset instead. Empty patches and missing source predictions receive no compute
+and no fabricated report. Attempted cases without a report stay unknown; pending
+cases stay unevaluated. A file with any incomplete/invalid execution has no
+headline Verified score. Every file has `results/<id>/summary.json`, `cases.csv`,
+raw `reports.json`, `validity.json` and `errors.json`.
+
+The budget is shared by the entire batch, not reset per file/VM. Fresh billing
+is required before launch; cumulative client allocation wall bounds subsequent
+VM lifetimes, retaining a $0.25 egress reserve. Complete waves require the same
+full reserve as checked N11; insufficient budget stops admission, never lowers
+the official timeout. Artifact transfer is capped at 1 GiB per batch. Per-case
+application errors/timeouts are retained and do not erase other files' results;
+infrastructure errors, changed images/source, leaking containers or failed
+supplemental audits stop the batch. Completed waves are retained. Existing run
+receipts are never retried automatically. Provider cleanup is checked, including
+allocations whose create response may have been lost.
+
+Billing applies to shared VMs: the collector reports the **whole batch's** actual
+provider cost, not invented exact per-file costs. Snapshot storage remains
+separate. Amortized restore/cache costs can improve; test compute still scales
+with the number of patches, and no fixed savings percentage is guaranteed.
