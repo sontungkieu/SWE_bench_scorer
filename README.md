@@ -689,3 +689,37 @@ Billing applies to shared VMs: the collector reports the **whole batch's** actua
 provider cost, not invented exact per-file costs. Snapshot storage remains
 separate. Amortized restore/cache costs can improve; test compute still scales
 with the number of patches, and no fixed savings percentage is guaranteed.
+
+### Explicit hunk-count input variants
+
+`hunk_header_variant.py` creates a separate, auditable JSONL variant when the
+user explicitly requests a counts-only repair. It is an offline preprocessing
+tool; evaluators do not invoke it automatically. Existing input files and old
+reports are never overwritten.
+
+```bash
+python hunk_header_variant.py --source original.jsonl \
+  --target original.hunk-counts.jsonl --manifest repair-manifest.json \
+  --eligible-ids syntax-error-ids.json
+```
+
+`--eligible-ids` is an optional JSON list restricting repair to previously
+identified input errors. Other patches, including already valid and empty
+patches, stay byte-for-byte unchanged. Only old/new **count fields** may change:
+start positions, function context, file headers, code/context lines, line
+endings, no-newline markers, prediction metadata, and row order are preserved.
+Each modified patch must pass Git's read-only syntax parser and the same path
+and structure checks used by the batch applicator. The manifest records exact
+source/variant SHA256, every changed header, and reasons for rejected repairs.
+
+Missing terminal LF, unsupported/trailing content, overlapping ranges, orphan
+markers, and ambiguous plain multi-file header pairs are left unrepaired.
+Explicit `diff --git` file boundaries are supported. This is a conservative
+structural repair: syntactic validity does not prove the model's intended text
+is complete, that the paths/context match the dataset base, or that the code
+passes tests. Such errors remain visible in the subsequent unchanged evaluator.
+
+Feed the variant files to a fresh batch manifest/run; retain the original-run
+results separately. Set `--prior-cost-usd` to settled cost of earlier campaign
+runs and `--budget-usd` to the remaining allowance, with the same cumulative
+cap. This preprocessing tool does not authorize paid retries or expand a cap.
