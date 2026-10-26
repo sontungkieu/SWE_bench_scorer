@@ -3,7 +3,7 @@ from collections import Counter
 from core import validate_predictions
 
 
-def compare_reference(dataset,rows,expected,reports,attempted_ids):
+def compare_reference(dataset,rows,expected,reports,attempted_ids,compatibility=None,current_log_sha256=None):
     ids=[r['instance_id'] for r in dataset]
     if len(ids)!=500 or len(set(ids))!=500 or set(expected)!=set(ids):
         raise ValueError('Exactly 500 unique benchmark IDs and expected outcomes required')
@@ -30,7 +30,7 @@ def compare_reference(dataset,rows,expected,reports,attempted_ids):
     counts=Counter(r['status'] for r in cases)
     score_complete=len(reports)==len(active)
     resolved=counts['resolved'];score=resolved/500 if score_complete else None
-    return dict(dataset_count=500,source_prediction_count=len(by),active_prediction_count=len(active),
+    result=dict(dataset_count=500,source_prediction_count=len(by),active_prediction_count=len(active),
         expected_resolved_count=sum(expected.values()),resolved_count=resolved,official_report_count=len(reports),
         attempted_nonempty_count=len(attempted),counts=dict(counts),score_complete=score_complete,
         source_coverage_complete=len(by)==500,verified_score=score,
@@ -39,3 +39,7 @@ def compare_reference(dataset,rows,expected,reports,attempted_ids):
         matching_cases=sum(r['matches_reference'] for r in cases),
         all_instance_outcomes_agree=score_complete and all(r['matches_reference'] for r in cases),
         mismatched_or_unknown_ids=[r['instance_id'] for r in cases if not r['matches_reference']],cases=cases)
+    if compatibility is not None:
+        from reference_compatibility import attach_compatibility
+        result=attach_compatibility(result,compatibility,reports,current_log_sha256)
+    return result

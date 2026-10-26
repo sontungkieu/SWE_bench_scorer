@@ -41,5 +41,11 @@ class ReferenceComparisonTests(unittest.TestCase):
         reports[data[498]['instance_id']]={'resolved':False}
         with self.assertRaises(ValueError):compare_reference(data,rows,expected,reports,ids)
 
+    def test_optional_reference_audit_cannot_excuse_a_different_outcome(self):
+        args=self.fixture()
+        audit={'cases':[dict(instance_id=args[4][0],current_official_resolved=False,
+            reference_official_resolved=True,blocking_reasons=['grading_definition_mismatch'])]}
+        with self.assertRaises(ValueError):compare_reference(*args,compatibility=audit)
+
 
 if __name__=='__main__':unittest.main()

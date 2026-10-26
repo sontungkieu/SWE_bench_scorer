@@ -586,3 +586,40 @@ Collect billing again after at least 60 seconds and confirm per-app costs and
 zero remaining VMs before reporting settled usage. Snapshot storage is tracked
 separately from the evaluation compute/egress cap. Run allocation reserves can
 stop admission of further complete waves; they never shorten official tests.
+
+### Comparing published results across dataset/runtime versions
+
+Before using a published outcome as a reproduction control, compare its pinned
+required-test lists and its actual execution evidence. An unresolved archive
+can contain a nonexistent required ID, failed collection or a skipped required
+test. A changed dataset can also grade the same captured output differently.
+Keep those distinctions alongside both original official outcomes.
+
+`probes/reference_compatibility.py` audits a frozen evidence bundle. It checks
+base commit, official test-patch hash, required IDs, report definitions, captured
+statuses and observed Python/pytest headers. It does not whitelist instance IDs,
+remove failures, alter test files or certify full environment identity. Real
+captured assertion failures remain unexplained outcome differences when no
+incompatibility evidence exists.
+
+```bash
+python probes/reference_compatibility.py --bundle reference-evidence-bundle.json \
+  --out new-compatibility-audit.json --regrade-existing-logs
+```
+
+The optional replay requires the existing pinned SWE-bench 4.1.0 runtime and
+exact grader/log hashes. It applies the two official required-test definitions
+to the **same retained log**, without executing tests. It refuses a different
+base commit, project version or test body; this is not a reconstruction of the
+complete historical environment. Without the flag, the audit uses only stdlib.
+The bundle records immutable current/reference dataset revisions and original
+reports/statuses; native replay additionally requires explicit prediction, log
+path and expected log SHA256 per case.
+
+`compare_reference(..., compatibility=audit, current_log_sha256=log_hashes)`
+attaches evidence only when verdicts, exact report contents and log hashes match
+the compared run. Equal verdicts from another run are insufficient. Existing official scores,
+all 500 denominator IDs and raw mismatch counts are preserved, and reproduction
+qualification remains false. Legacy calls without the optional audit retain
+their original behavior. A known incompatibility explains a difference; it does
+not turn that difference into a successful reproduction.
